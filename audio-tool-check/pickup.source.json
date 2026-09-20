@@ -1,0 +1,16 @@
+{
+  "tool": "jfxr",
+  "version": "0.13.0",
+  "source": "https://github.com/ttencate/jfxr",
+  "generated_at": "2026-09-18T07:27:15.794Z",
+  "preset": "pickup",
+  "input": null,
+  "origin": "Locally authored procedural parameters; no external samples",
+  "sample_rate": 44100,
+  "channels": 1,
+  "seconds": 0.2620181405895692,
+  "peak": 0.5,
+  "rms": 0.2147862685696433,
+  "sha256": "69c5f7f97aaca91f3ac80bc249ef0975376c332fdeec75438d684cda9a68f50e",
+  "rights_source": "https://jfxr.frozenfractal.com"
+}
