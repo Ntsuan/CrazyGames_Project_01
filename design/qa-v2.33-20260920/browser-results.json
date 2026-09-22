@@ -1,0 +1,814 @@
+[
+  {
+    "id": "B01",
+    "name": "首屏版本与新入口图标",
+    "status": "PASS",
+    "evidence": {
+      "icon": "assets/icons/enter-game.svg",
+      "title": "霓虹猎手 v2.33",
+      "version": "v2.33"
+    }
+  },
+  {
+    "id": "B02",
+    "name": "音效关闭持久化",
+    "status": "PASS",
+    "evidence": false
+  },
+  {
+    "id": "B03",
+    "name": "清档取消保持设置",
+    "status": "PASS",
+    "evidence": {
+      "floor": 1,
+      "sfx": false
+    }
+  },
+  {
+    "id": "B04",
+    "name": "自然启动并自动战斗",
+    "status": "PASS",
+    "evidence": {
+      "enemy": 15,
+      "hp": 98.18857749999997,
+      "max": 23,
+      "paused": false
+    }
+  },
+  {
+    "id": "B05",
+    "name": "补给与强化点击",
+    "status": "PASS",
+    "evidence": {
+      "atkLv": 1,
+      "gold": 132
+    }
+  },
+  {
+    "id": "B06",
+    "name": "读档回层首满血并保留收益",
+    "status": "PASS",
+    "evidence": {
+      "equip": {
+        "affix": null,
+        "q": 4,
+        "slot": "weapon"
+      },
+      "floor": 12,
+      "gold": 123,
+      "hp": 95.326824045374,
+      "mob": 0,
+      "runSouls": 11,
+      "skills": [
+        "fire"
+      ]
+    }
+  },
+  {
+    "id": "B07",
+    "name": "读档后复位恢复满血并清进度",
+    "status": "PASS",
+    "evidence": {
+      "floor": 1,
+      "gold": 0,
+      "hp": 98.99415250000008,
+      "skills": []
+    }
+  },
+  {
+    "id": "B08",
+    "name": "延迟技能不覆盖复位确认",
+    "status": "PASS",
+    "evidence": {
+      "confirmOpen": true,
+      "pendingSkillOffer": {
+        "floor": 10,
+        "picks": null,
+        "pool": "p10"
+      }
+    }
+  },
+  {
+    "id": "B09",
+    "name": "取消复位恢复原技能层号",
+    "status": "PASS",
+    "evidence": {
+      "floor": 10,
+      "picks": [
+        "blackmarket",
+        "fatal",
+        "subdermal"
+      ],
+      "pool": "p10"
+    }
+  },
+  {
+    "id": "B10",
+    "name": "刷新保持技能候选和已完成层号",
+    "status": "PASS",
+    "evidence": {
+      "picks": [
+        "blackmarket",
+        "fatal",
+        "subdermal"
+      ],
+      "text": "神经技能 · 三选一\n\n突破第 10 层！选择一项属性强化\n\n黑市渠道\n信用点 +30%\n致命固件\n暴击伤害 +50%\n皮下加固\n生命 +30%"
+    }
+  },
+  {
+    "id": "B11",
+    "name": "已有技能键盘复位再取消恢复相同候选",
+    "status": "PASS",
+    "evidence": {
+      "picks": [
+        "blackmarket",
+        "fatal",
+        "subdermal"
+      ],
+      "skillOfferOpen": true
+    }
+  },
+  {
+    "id": "B12",
+    "name": "技能选择发放一次并继续游戏",
+    "status": "PASS",
+    "evidence": {
+      "pending": null,
+      "skills": [
+        "blackmarket"
+      ]
+    }
+  },
+  {
+    "id": "B13",
+    "name": "等待复位期间死亡不遗留确认状态",
+    "status": "FAIL",
+    "evidence": {
+      "confirmOpen": true,
+      "dialog": "行动受阻\n\n猎手在第 1 层被压制了。\n「重塑」换一具更强的克隆体（本循环已掉落 5 碎片将转为可用，装备回收为信用点带入新局）。\n\n重塑 · 结算本循环",
+      "wall": true
+    }
+  },
+  {
+    "id": "B14",
+    "name": "死亡后重塑奖励与满血开场",
+    "status": "PASS",
+    "evidence": {
+      "confirmOpen": true,
+      "hp": 98.90652249999997,
+      "prestiges": 1,
+      "souls": 5,
+      "wall": false
+    }
+  },
+  {
+    "id": "B15",
+    "name": "死亡覆盖确认后重塑的下一里程碑技能可出现",
+    "status": "FAIL",
+    "evidence": {
+      "confirmOpen": true,
+      "curHp": 1000000000000000000,
+      "floor": 6,
+      "overlayVisible": false,
+      "paused": false,
+      "pendingSkillOffer": {
+        "floor": 5,
+        "picks": null,
+        "pool": "p5"
+      },
+      "skillOfferOpen": false,
+      "note": "重新按实际战斗开启状态复现；测试只跳至下一里程碑Boss，未手动暂停"
+    }
+  },
+  {
+    "id": "B16",
+    "name": "单次低阶合成保留高阶装备并提示入包",
+    "status": "PASS",
+    "evidence": {
+      "inv": [
+        {
+          "q": 2,
+          "slot": "weapon"
+        },
+        {
+          "q": 2,
+          "slot": "weapon"
+        },
+        {
+          "q": 2,
+          "slot": "weapon"
+        },
+        {
+          "affix": null,
+          "q": 1,
+          "slot": "weapon"
+        }
+      ],
+      "q": 5,
+      "toast": "合成完成：破损·义体武器 已存入背包"
+    }
+  },
+  {
+    "id": "B17",
+    "name": "拆解即时保存和更新资源",
+    "status": "PASS",
+    "evidence": {
+      "gold": 66,
+      "inv": [
+        {
+          "q": 1,
+          "slot": "weapon"
+        }
+      ]
+    }
+  },
+  {
+    "id": "B18",
+    "name": "树升级扣款与余额不足禁用",
+    "status": "PASS",
+    "evidence": {
+      "souls": 0,
+      "tree": {
+        "dmg": 2,
+        "gold": 0,
+        "soul": 0
+      }
+    }
+  },
+  {
+    "id": "T1",
+    "name": "单次点按（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 1,
+      "gold": 9994,
+      "level": 1,
+      "name": "单次点按",
+      "pressing": false,
+      "prevented": true
+    }
+  },
+  {
+    "id": "T2",
+    "name": "9px抖动容差（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 1,
+      "gold": 9994,
+      "level": 1,
+      "name": "9px抖动容差",
+      "pressing": false,
+      "prevented": true
+    }
+  },
+  {
+    "id": "T3",
+    "name": "11px滑动取消（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 0,
+      "gold": 10000,
+      "level": 0,
+      "name": "11px滑动取消",
+      "pressing": false,
+      "prevented": false
+    }
+  },
+  {
+    "id": "T4",
+    "name": "系统取消（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 0,
+      "gold": 10000,
+      "level": 0,
+      "name": "系统取消",
+      "pressing": false,
+      "prevented": false
+    }
+  },
+  {
+    "id": "T5",
+    "name": "不可用按钮（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 0,
+      "gold": 0,
+      "level": 0,
+      "name": "不可用按钮",
+      "pressing": false,
+      "prevented": false
+    }
+  },
+  {
+    "id": "T6",
+    "name": "另一手指先抬起不应触发按钮（合成TouchEvent）",
+    "status": "FAIL",
+    "evidence": {
+      "expected": 0,
+      "gold": 9994,
+      "level": 1,
+      "name": "另一手指先抬起不应触发按钮",
+      "pressing": false,
+      "prevented": true
+    }
+  },
+  {
+    "id": "B19",
+    "name": "主循环运行不增加触摸监听",
+    "status": "PASS",
+    "evidence": {
+      "before": 5,
+      "after": 5,
+      "touch": [
+        "touchstart",
+        "touchmove",
+        "touchend",
+        "touchcancel"
+      ]
+    }
+  },
+  {
+    "id": "B20",
+    "name": "玩家跑入血盾条同步隐藏和恢复",
+    "status": "PASS",
+    "evidence": [
+      {
+        "hidden": true,
+        "hp": "none",
+        "shield": "none",
+        "t": 116953.39999997616
+      },
+      {
+        "hidden": true,
+        "hp": "none",
+        "shield": "none",
+        "t": 117067.5
+      },
+      {
+        "hidden": true,
+        "hp": "none",
+        "shield": "none",
+        "t": 117153.30000001192
+      },
+      {
+        "hidden": false,
+        "hp": "",
+        "shield": "",
+        "t": 117254.10000002384
+      },
+      {
+        "hidden": false,
+        "hp": "",
+        "shield": "block",
+        "t": 117354.19999998808
+      },
+      {
+        "hidden": false,
+        "hp": "",
+        "shield": "block",
+        "t": 117453.39999997616
+      },
+      {
+        "hidden": false,
+        "hp": "",
+        "shield": "block",
+        "t": 117553.89999997616
+      },
+      {
+        "hidden": false,
+        "hp": "",
+        "shield": "block",
+        "t": 117653.69999998808
+      },
+      {
+        "hidden": false,
+        "hp": "",
+        "shield": "block",
+        "t": 117753.39999997616
+      },
+      {
+        "hidden": false,
+        "hp": "",
+        "shield": "block",
+        "t": 117853.5
+      },
+      {
+        "hidden": false,
+        "hp": "",
+        "shield": "block",
+        "t": 117952.80000001192
+      },
+      {
+        "hidden": false,
+        "hp": "",
+        "shield": "block",
+        "t": 118053.19999998808
+      },
+      {
+        "hidden": false,
+        "hp": "",
+        "shield": "block",
+        "t": 118153.19999998808
+      },
+      {
+        "hidden": false,
+        "hp": "",
+        "shield": "block",
+        "t": 118253.19999998808
+      }
+    ]
+  },
+  {
+    "id": "B21",
+    "name": "已通关楼层倍速切换",
+    "status": "PASS",
+    "evidence": {
+      "effective": 2,
+      "speed": true
+    }
+  },
+  {
+    "id": "B22",
+    "name": "未探索楼层恢复常速",
+    "status": "PASS",
+    "evidence": {
+      "best": 10,
+      "effective": 1,
+      "floor": 11
+    }
+  },
+  {
+    "id": "B23",
+    "name": "击杀与反击同帧不产生死亡竞态",
+    "status": "PASS",
+    "evidence": {
+      "floor": 2,
+      "hp": 98.84426725000006,
+      "paused": false,
+      "wall": false
+    }
+  },
+  {
+    "id": "B24",
+    "name": "天枢蓄力、主炮、常态相位完整",
+    "status": "PASS",
+    "evidence": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "L320",
+    "name": "页面宽度 320×568",
+    "status": "PASS",
+    "evidence": {
+      "arena": {
+        "bottom": 185.59375,
+        "height": 185.59375,
+        "left": 0,
+        "right": 305,
+        "top": 0,
+        "width": 305,
+        "x": 0,
+        "y": 0
+      },
+      "height": 568,
+      "scrollWidth": 305,
+      "speed": {
+        "bottom": 80,
+        "height": 36,
+        "left": 229.203125,
+        "right": 292,
+        "top": 44,
+        "width": 62.796875,
+        "x": 229.203125,
+        "y": 44
+      },
+      "width": 320
+    }
+  },
+  {
+    "id": "L390",
+    "name": "页面宽度 390×844",
+    "status": "PASS",
+    "evidence": {
+      "arena": {
+        "bottom": 226.1875,
+        "height": 226.1875,
+        "left": 0,
+        "right": 375,
+        "top": 0,
+        "width": 375,
+        "x": 0,
+        "y": 0
+      },
+      "height": 844,
+      "scrollWidth": 375,
+      "speed": {
+        "bottom": 80,
+        "height": 36,
+        "left": 299.203125,
+        "right": 362,
+        "top": 44,
+        "width": 62.796875,
+        "x": 299.203125,
+        "y": 44
+      },
+      "width": 390
+    }
+  },
+  {
+    "id": "L430",
+    "name": "页面宽度 430×932",
+    "status": "PASS",
+    "evidence": {
+      "arena": {
+        "bottom": 249.390625,
+        "height": 249.390625,
+        "left": 0,
+        "right": 415,
+        "top": 0,
+        "width": 415,
+        "x": 0,
+        "y": 0
+      },
+      "height": 932,
+      "scrollWidth": 415,
+      "speed": {
+        "bottom": 80,
+        "height": 36,
+        "left": 339.203125,
+        "right": 402,
+        "top": 44,
+        "width": 62.796875,
+        "x": 339.203125,
+        "y": 44
+      },
+      "width": 430
+    }
+  },
+  {
+    "id": "L844",
+    "name": "页面宽度 844×390",
+    "status": "PASS",
+    "evidence": {
+      "arena": {
+        "bottom": 350,
+        "height": 280,
+        "left": 12,
+        "right": 817,
+        "top": 70,
+        "width": 805,
+        "x": 12,
+        "y": 70
+      },
+      "height": 390,
+      "scrollWidth": 829,
+      "speed": {
+        "bottom": 150,
+        "height": 36,
+        "left": 741.203125,
+        "right": 804,
+        "top": 114,
+        "width": 62.796875,
+        "x": 741.203125,
+        "y": 114
+      },
+      "width": 844
+    }
+  },
+  {
+    "id": "L768",
+    "name": "页面宽度 768×1024",
+    "status": "PASS",
+    "evidence": {
+      "arena": {
+        "bottom": 350,
+        "height": 280,
+        "left": 12,
+        "right": 741,
+        "top": 70,
+        "width": 729,
+        "x": 12,
+        "y": 70
+      },
+      "height": 1024,
+      "scrollWidth": 753,
+      "speed": {
+        "bottom": 150,
+        "height": 36,
+        "left": 665.203125,
+        "right": 728,
+        "top": 114,
+        "width": 62.796875,
+        "x": 665.203125,
+        "y": 114
+      },
+      "width": 768
+    }
+  },
+  {
+    "id": "L1440",
+    "name": "页面宽度 1440×900",
+    "status": "PASS",
+    "evidence": {
+      "arena": {
+        "bottom": 350,
+        "height": 280,
+        "left": 244.5,
+        "right": 1180.5,
+        "top": 70,
+        "width": 936,
+        "x": 244.5,
+        "y": 70
+      },
+      "height": 900,
+      "scrollWidth": 1425,
+      "speed": {
+        "bottom": 150,
+        "height": 36,
+        "left": 1104.703125,
+        "right": 1167.5,
+        "top": 114,
+        "width": 62.796875,
+        "x": 1104.703125,
+        "y": 114
+      },
+      "width": 1440
+    }
+  },
+  {
+    "id": "B25",
+    "name": "320宽技能弹窗完整可见",
+    "status": "PASS",
+    "evidence": {
+      "bottom": 478.484375,
+      "height": 388.984375,
+      "left": 12.203125,
+      "right": 292.796875,
+      "top": 89.5,
+      "width": 280.59375,
+      "x": 12.203125,
+      "y": 89.5
+    }
+  },
+  {
+    "id": "B26",
+    "name": "桌面不套用手机专属布局",
+    "status": "FAIL",
+    "evidence": {
+      "hpWidth": "120px",
+      "mobileQuery": false,
+      "row": "column",
+      "rules": [
+        {
+          "css": "#btnSpeed.nh-button { position: absolute; left: 14px; bottom: 14px; z-index: 3; display: none; width: auto; min-height: 36px; padding: 5px 14px; border-radius: 18px; font-size: 13px; }",
+          "selector": "#btnSpeed.nh-button"
+        },
+        {
+          "css": ".row { display: flex; gap: 10px; flex-wrap: wrap; }",
+          "selector": ".row"
+        },
+        {
+          "css": ".row { flex-direction: column; }",
+          "selector": ".row"
+        },
+        {
+          "css": "#btnSpeed.nh-button { inset: 36px 12px auto auto; }",
+          "selector": "#btnSpeed.nh-button"
+        }
+      ],
+      "speed": {
+        "bottom": "187px",
+        "left": "859.203px",
+        "right": "12px",
+        "top": "36px"
+      },
+      "viewport": 1440
+    }
+  },
+  {
+    "id": "B27",
+    "name": "存储故障不终止动画循环",
+    "status": "PASS",
+    "evidence": {
+      "frameAge": 13.899999976158142,
+      "toast": "存档写入失败（存储空间不足）"
+    }
+  },
+  {
+    "id": "B28",
+    "name": "损坏存档可进入新档封面",
+    "status": "PASS",
+    "evidence": {
+      "floor": 1,
+      "gold": 0,
+      "label": "开始游戏\n新的猎杀 · 自动保存"
+    }
+  },
+  {
+    "id": "B29",
+    "name": "音频资源解码与播放请求正常",
+    "status": "PASS",
+    "evidence": [
+      {
+        "ready": 4,
+        "time": 0
+      },
+      {
+        "ready": 4,
+        "time": 0.152018
+      },
+      {
+        "ready": 4,
+        "time": 0.100997
+      }
+    ]
+  },
+  {
+    "id": "B30",
+    "name": "日志抽屉可显示本版本段",
+    "status": "PASS",
+    "evidence": "▶ 当前段 S02 v2.33\n时长 5.6 分钟 · 事件 25 条 · 已过 5 层\n💾 存到文件夹 CSV"
+  },
+  {
+    "id": "B31",
+    "name": "封存并开启新测试段",
+    "status": "PASS",
+    "evidence": {
+      "current": "S03",
+      "sealed": "S02",
+      "toast": "未授权文件夹，已改为浏览器下载：neonhunter_v2.33_S02_20260920-132527.csv"
+    }
+  },
+  {
+    "id": "B32",
+    "name": "日志JSON和CSV内容可生成",
+    "status": "PASS",
+    "evidence": {
+      "note": "工具归档内容，不代表已验证浏览器原生下载落盘"
+    }
+  },
+  {
+    "id": "B33",
+    "name": "跨版本日志标记与运行版本一致",
+    "status": "FAIL",
+    "evidence": {
+      "exportName": "neonhunter_v2.32_S03_20260920-132638",
+      "last": {
+        "cost": 6,
+        "kind": "atk",
+        "level": 1,
+        "snap": {
+          "aspd": 1.3,
+          "atk": 9,
+          "atkLv": 1,
+          "floor": 1,
+          "gold": 94,
+          "hp": 100,
+          "hpLv": 0
+        },
+        "t": 71118,
+        "type": "upgrade"
+      },
+      "logBuild": "v2.32",
+      "running": "v2.33"
+    }
+  },
+  {
+    "id": "B34",
+    "name": "首次启动遇满存储仍可操作",
+    "status": "FAIL",
+    "evidence": {
+      "fill": {
+        "filled": 5242869,
+        "keys": 1
+      },
+      "after": {
+        "handler": "object",
+        "label": "",
+        "session": "S01"
+      }
+    }
+  },
+  {
+    "id": "B35",
+    "name": "清理测试配额后恢复正常启动入口",
+    "status": "PASS",
+    "evidence": "开始游戏\n新的猎杀 · 自动保存"
+  }
+]

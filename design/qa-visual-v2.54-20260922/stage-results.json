@@ -1,0 +1,162 @@
+[
+  {
+    "name": "阶段1基础属性与读档",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段1普通重塑保留阶段树碎片",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段2基础属性与读档",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段2普通重塑保留阶段树碎片",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段3基础属性与读档",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段3普通重塑保留阶段树碎片",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段4基础属性与读档",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段4普通重塑保留阶段树碎片",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段5基础属性与读档",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段5普通重塑保留阶段树碎片",
+    "status": "PASS"
+  },
+  {
+    "name": "1→2百层优先且不发重塑技能",
+    "status": "PASS"
+  },
+  {
+    "name": "1→2资源全清、重复提交与日志保留",
+    "status": "PASS"
+  },
+  {
+    "name": "2→3百层优先且不发重塑技能",
+    "status": "PASS"
+  },
+  {
+    "name": "2→3资源全清、重复提交与日志保留",
+    "status": "PASS"
+  },
+  {
+    "name": "3→4百层优先且不发重塑技能",
+    "status": "PASS"
+  },
+  {
+    "name": "3→4资源全清、重复提交与日志保留",
+    "status": "PASS"
+  },
+  {
+    "name": "4→5百层优先且不发重塑技能",
+    "status": "PASS"
+  },
+  {
+    "name": "4→5资源全清、重复提交与日志保留",
+    "status": "PASS"
+  },
+  {
+    "name": "升阶写失败不清资源且可重试",
+    "status": "PASS"
+  },
+  {
+    "name": "未播放不可完成或提前进入",
+    "status": "PASS"
+  },
+  {
+    "name": "播放中刷新从保存点继续且不重复升阶",
+    "status": "PASS"
+  },
+  {
+    "name": "完成页刷新不重播，入场提交一次",
+    "status": "PASS"
+  },
+  {
+    "name": "完成页与入场各自写失败可恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "旧高层档不清资源且先迁移预览，仅升一阶",
+    "status": "PASS"
+  },
+  {
+    "name": "旧百层待选技能不丢，选完再迁移预览",
+    "status": "PASS"
+  },
+  {
+    "name": "旧百层重塑先结算再显示升阶清空预览",
+    "status": "PASS"
+  },
+  {
+    "name": "异常存档保护 {",
+    "status": "PASS"
+  },
+  {
+    "name": "异常存档保护 {\"floor\":1,\"stageSchema\":900}",
+    "status": "PASS"
+  },
+  {
+    "name": "异常存档保护 {\"floor\":1,\"stage\":6}",
+    "status": "PASS"
+  },
+  {
+    "name": "异常存档保护 {\"floor\":1,\"stage\":2,\"stageUpgrade\":{\"status\":\"playing\",\"from\":1,\"to\":3,\"id\":\"x\",\"elapsed\":0}}",
+    "status": "PASS"
+  },
+  {
+    "name": "第五阶段100正常重塑选择并继续",
+    "status": "PASS"
+  },
+  {
+    "name": "第五阶段200正常重塑选择并继续",
+    "status": "PASS"
+  },
+  {
+    "name": "无尽掉落档位与本轮层数",
+    "status": "PASS"
+  },
+  {
+    "name": "完成四次改装从第五阶段第一层无尽",
+    "status": "PASS"
+  },
+  {
+    "name": "旧广告及技能回调不能干扰改装",
+    "status": "PASS"
+  },
+  {
+    "name": "前台播放完整8秒，不受2倍速影响",
+    "status": "PASS"
+  },
+  {
+    "name": "后台与长时间挂起不折算观看时长",
+    "status": "PASS"
+  },
+  {
+    "name": "演出素材缺失不计时、不开放继续",
+    "status": "PASS"
+  },
+  {
+    "name": "绘制异常保留未观看时间且可重试",
+    "status": "PASS"
+  },
+  {
+    "name": "第四第五阶段射击不再被330ms定时器截断",
+    "status": "PASS"
+  }
+]

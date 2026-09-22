@@ -1,0 +1,17 @@
+const {make}=require('./harness.cjs'),assert=require('node:assert/strict'),fs=require('node:fs');const results=[];
+function test(name,fn){try{fn(make());results.push({name,status:'PASS'});}catch(e){results.push({name,status:'FAIL',error:e.stack});}}
+const eq=(g,s,v)=>assert.deepEqual(g.json(s),v);
+const near=(a,b)=>assert(Math.abs(a-b)<1e-8,`${a} != ${b}`);
+for(let stage=1;stage<=5;stage++){
+ const lv=stage-1,hp=[100,150,200,300,400][lv];
+ test(`阶段${stage}开局护盾及技能面板`,g=>{g.run(`S.stage=${stage};spawnMob();renderPanels()`);near(g.run('player.shield'),hp*lv*.1);near(g.run('calcStats().shieldPct'),lv*.1);eq(g,'S.skills',[]);const html=g.run('$("skillBox").innerHTML');if(lv){assert(html.includes(`Lv.${lv}`)&&!html.includes("阶段自带"));}else assert.equal(html,'尚未获得');});
+ test(`阶段${stage}通过真实技能选择叠加且不重复加阶段等级`,g=>{g.run(`S.stage=${stage};offerSkills('p10',['shield','fire','nano'],10);pickSkill('shield');spawnMob();renderPanels()`);near(g.run('player.shield'),hp*(lv+1)*.1);eq(g,'S.skills',['shield']);assert(g.run('$("skillBox").innerHTML').includes(`Lv.${lv+1}`));});
+ test(`阶段${stage}刷新继承阶段和局内护盾，不累加重复赠送`,g=>{g.run(`S.stage=${stage};S.skills=['shield','shield'];save();load();spawnMob();save();load();spawnMob()`);eq(g,'S.skills',['shield','shield']);near(g.run('player.shield'),hp*(lv+2)*.1);});
+ test(`阶段${stage}普通及广告重塑只清局内护盾`,g=>{for(const ad of [false,true]){g.run(`S=freshState();S.stage=${stage};S.skills=['shield','shield'];S.runSouls=5;S.crateCooldownMs=23000;wall=true;doPrestige()`);if(ad)g.run('requestPrestigeAd();finishPrestigeAd(prestigeAd.attempt,"completed")');else g.run('applyPrestige(1)');eq(g,'[S.stage,S.skills,S.crateCooldownMs]',[stage,[],23000]);near(g.run('player.shield'),hp*lv*.1);}});
+}
+test('护盾先吸收伤害，每场刷新而非一次性阶段奖励',g=>{g.run('S.stage=2;spawnMob();cur.hp=1e12;cur.atk=10;paused=false;atkTimer=0;combatStep(.5)');near(g.run('player.shield'),10);near(g.run('player.hp'),150);g.run('combatStep(1.5)');near(g.run('player.shield'),0);near(g.run('player.hp'),145);g.run('S.mobIdx=1;spawnMob()');near(g.run('player.shield'),15);near(g.run('player.hp'),145);});
+test('基础护盾随装备、生命强化和技能后的最大生命增长',g=>{g.run('S.stage=3;S.hpLv=10;S.equip.armor={slot:"armor",q:4};S.skills=["subdermal","shield"];spawnMob()');near(g.run('player.shield'),200*1.1**10*2*1.3*.3);});
+for(let stage=1;stage<5;stage++)test(`${stage}→${stage+1}清除旧技能，新阶段护盾立即生效`,g=>{g.run(`S.stage=${stage};S.skills=['shield','shield','fire'];S.floor=100;S.mobIdx=5;spawnMob();onKill();showStageUpgrade()`);assert(g.run('$("stagePanel").innerHTML').includes(`Lv.${stage-1} → Lv.${stage}`));g.run('commitStageUpgrade();stageClock.elapsed=8;completeStageAnimation();enterNextStage()');eq(g,'[S.stage,S.skills]',[stage+1,[]]);near(g.run('player.shield'),[150,200,300,400][stage-1]*stage*.1);});
+test('完全复位回阶段1，无自带盾',g=>{g.run('S.stage=5;S.skills=["shield"];doReset()');eq(g,'[S.stage,S.skills,player.shield]',[1,[],0]);});
+test('v2.52阶段4存档无需迁移，保留资源与技能，新盾自动派生',g=>{const d=g.json('({...S,stage:4,gold:321,souls:45,skills:["shield"],crateCooldownMs:12345})');g.storage.set('neonHunter',JSON.stringify(d));g.run('load();spawnMob()');eq(g,'[S.gold,S.souls,S.skills,S.crateCooldownMs,saveBlocked]',[321,45,['shield'],12345,false]);near(g.run('player.shield'),120);});
+fs.writeFileSync(__dirname+'/shield-results.json',JSON.stringify(results,null,2));console.log(`${results.filter(r=>r.status==='PASS').length}/${results.length} PASS`);for(const r of results.filter(r=>r.status==='FAIL'))console.log(r.name,r.error);if(results.some(r=>r.status==='FAIL'))process.exitCode=1;

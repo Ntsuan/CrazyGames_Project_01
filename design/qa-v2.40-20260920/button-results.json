@@ -1,0 +1,150 @@
+[
+  {
+    "connectedAfterAction": true,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "攻击标题",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connectedAfterAction": true,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "生命图标",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connectedAfterAction": true,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "合成输入",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connectedAfterAction": true,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "合成输出",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connectedAfterAction": true,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "合成图标",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connectedAfterAction": true,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "拆解",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connectedAfterAction": false,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "成长树",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connectedAfterAction": true,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "技能说明",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connectedAfterAction": true,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "补给图标",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connectedAfterAction": true,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "倍速空白",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connectedAfterAction": true,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "倍速图标",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connectedAfterAction": true,
+    "connectedBeforeRelease": true,
+    "count": 1,
+    "name": "倍速文字",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "name": "9px",
+    "pass": true
+  },
+  {
+    "name": "10px",
+    "pass": true
+  },
+  {
+    "name": "11px末点",
+    "pass": true
+  },
+  {
+    "name": "斜向9px",
+    "pass": true
+  },
+  {
+    "name": "取消",
+    "pass": true
+  },
+  {
+    "name": "取消后100ms再点击只升1级",
+    "pass": true
+  },
+  {
+    "name": "多指归属",
+    "pass": true
+  },
+  {
+    "name": "#btnSpeed短点 1→2",
+    "pass": true
+  },
+  {
+    "name": "#btnSpeed短点 2→1",
+    "pass": true
+  },
+  {
+    "name": "#btnSpeed img短点 1→2",
+    "pass": true
+  },
+  {
+    "name": "#btnSpeed img短点 2→1",
+    "pass": true
+  },
+  {
+    "name": "#btnSpeed .spd-t短点 1→2",
+    "pass": true
+  },
+  {
+    "name": "#btnSpeed .spd-t短点 2→1",
+    "pass": true
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "version": "v2.41",
+  "author": "Codex",
+  "baseline": "v2.40.1",
+  "sourceHash": "11ade9965a030c704eb14124ed5ddee60952c7031d1b29506a5f9246c916e0e8",
+  "baselineHash": "4af92354634ad579ad7443cba4974a8e4da7c48775a4dcc86260444e556c4ba4",
+  "core": {
+    "baseline": "75/76",
+    "current": "75/76",
+    "knownFailure": "C75"
+  },
+  "affix": "10/10",
+  "combat": {
+    "baselineCycles": 90,
+    "currentCycles": 90,
+    "firstCycleAffixReached": 28,
+    "firstCycleSamples": 30
+  },
+  "published": false
+}

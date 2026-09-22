@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>霓虹猎手 · 数值原型 v0.1</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --cyan:#00F0FF; --magenta:#FF2A6D; --bg:#0a0e17; --panel:#111827;
+    --dim:#8b95a7; --gold:#FFD166;
+  }
+  body { background:var(--bg); color:#e6edf3; font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+         max-width:960px; margin:0 auto; padding:12px; user-select:none;
+         -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none;
+         touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
+  h1 { font-size:20px; letter-spacing:2px; color:var(--cyan); text-shadow:0 0 12px var(--cyan); }
+  h1 span { color:var(--magenta); text-shadow:0 0 12px var(--magenta); }
+  .tag { font-size:11px; color:var(--dim); margin:2px 0 12px; }
+
+  /* 战斗区 */
+  #arena { position:relative; height:260px; background:linear-gradient(180deg,#0d1420,#131b2e);
+           border:1px solid #1e2a44; border-radius:12px; overflow:hidden; margin-bottom:12px; }
+  #floorLabel { position:absolute; top:10px; left:0; right:0; text-align:center; font-size:14px; color:var(--dim); }
+  #floorLabel b { color:var(--cyan); font-size:16px; }
+  .fighter { position:absolute; bottom:56px; width:64px; height:96px; transition:transform .12s; }
+  #player { left:22%; }
+  #enemy  { right:22%; }
+  .body { position:absolute; inset:0; border-radius:10px 10px 4px 4px; }
+  #player .body { background:linear-gradient(180deg,#0e3a44,#062a33); border:2px solid var(--cyan);
+                  box-shadow:0 0 18px rgba(0,240,255,.55); }
+  #enemy .body { background:linear-gradient(180deg,#3a0e22,#33061a); border:2px solid var(--magenta);
+                 box-shadow:0 0 18px rgba(255,42,109,.55); }
+  #enemy.boss .body { border-width:3px; box-shadow:0 0 30px var(--magenta); }
+  .eye { position:absolute; top:18px; width:10px; height:6px; border-radius:3px; }
+  #player .eye { background:var(--cyan); right:12px; box-shadow:0 0 8px var(--cyan); }
+  #enemy .eye { background:var(--magenta); left:12px; box-shadow:0 0 8px var(--magenta); }
+  .lunge-p { transform:translateX(46px); }
+  .lunge-e { transform:translateX(-46px); }
+  .hpbar { position:absolute; bottom:30px; width:180px; height:14px; background:#1a2436;
+           border:1px solid #2b3a55; border-radius:7px; overflow:hidden; }
+  #playerHp { left:calc(22% - 58px); } #enemyHp { right:calc(22% - 58px); }
+  .hpfill { height:100%; transition:width .15s; }
+  #playerHp .hpfill { background:linear-gradient(90deg,#00c8d4,var(--cyan)); }
+  #enemyHp .hpfill { background:linear-gradient(90deg,#d41e5a,var(--magenta)); }
+  .hptext { position:absolute; bottom:31px; width:180px; text-align:center; font-size:10px; color:#fff; z-index:2; }
+  #playerHpT { left:calc(22% - 58px); } #enemyHpT { right:calc(22% - 58px); }
+  .dmg { position:absolute; font-weight:bold; font-size:15px; pointer-events:none;
+         animation:floatUp 0.9s ease-out forwards; text-shadow:0 0 6px currentColor; }
+  @keyframes floatUp { 0%{opacity:1; transform:translateY(0);} 100%{opacity:0; transform:translateY(-56px);} }
+  #mobProgress { position:absolute; bottom:8px; left:0; right:0; text-align:center; font-size:11px; color:var(--dim); }
+  #bossForecast { position:absolute; top:34px; left:0; right:0; text-align:center; font-size:12px; }
+
+  /* 面板 */
+  .row { display:flex; gap:10px; flex-wrap:wrap; }
+  .panel { background:var(--panel); border:1px solid #1e2a44; border-radius:10px; padding:10px 12px; flex:1; min-width:200px; }
+  .panel h3 { font-size:13px; color:var(--cyan); margin-bottom:8px; font-weight:600; }
+  .stat { font-size:12px; color:var(--dim); line-height:1.9; }
+  .stat b { color:#e6edf3; }
+  button { background:#13202f; color:var(--cyan); border:1px solid var(--cyan); border-radius:8px;
+           padding:8px 10px; font-size:12px; cursor:pointer; margin:3px 2px; font-family:inherit; }
+  button:hover { background:rgba(0,240,255,.12); }
+  button:disabled { opacity:.35; cursor:not-allowed; }
+  button.mag { color:var(--magenta); border-color:var(--magenta); }
+  button.mag:hover { background:rgba(255,42,109,.12); }
+  button.gold { color:var(--gold); border-color:var(--gold); }
+  button.gold:hover { background:rgba(255,209,102,.12); }
+  .pulse { animation:pulse 1s infinite; }
+  @keyframes pulse { 50% { box-shadow:0 0 14px currentColor; } }
+
+  .item { display:inline-block; font-size:11px; padding:4px 7px; border-radius:6px; margin:2px;
+          border:1px solid; cursor:pointer; }
+  .q0{color:#b8c0cc;border-color:#5a6472;} .q1{color:#3ddc84;border-color:#3ddc84;}
+  .q2{color:#4aa8ff;border-color:#4aa8ff;} .q3{color:#c07bff;border-color:#c07bff;}
+  .q4{color:#ffb020;border-color:#ffb020; box-shadow:0 0 8px rgba(255,176,32,.4);}
+  .equipped-label { font-size:10px; color:var(--dim); }
+
+  /* 弹窗 */
+  #overlay { position:fixed; inset:0; background:rgba(4,8,16,.82); display:none;
+             align-items:center; justify-content:center; z-index:50; }
+  #overlay.show { display:flex; }
+  .modal { background:var(--panel); border:1px solid var(--cyan); border-radius:14px; padding:22px;
+           max-width:520px; width:92%; box-shadow:0 0 40px rgba(0,240,255,.25); text-align:center; }
+  .modal h2 { font-size:17px; color:var(--cyan); margin-bottom:10px; }
+  .modal p { font-size:13px; color:var(--dim); margin:8px 0 14px; line-height:1.7; }
+  .choice { display:block; width:100%; text-align:left; margin:6px 0; padding:12px; font-size:13px; }
+  .choice b { display:block; margin-bottom:3px; }
+  .choice small { color:var(--dim); }
+  #toast { position:fixed; top:14px; left:50%; transform:translateX(-50%); background:#13202f;
+           border:1px solid var(--cyan); color:#e6edf3; padding:8px 18px; border-radius:20px;
+           font-size:12px; display:none; z-index:60; }
+
+  /* 顶部工具栏 */
+  #topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap; }
+  .tools { display:flex; gap:4px; padding-top:6px; }
+  .tools button { font-size:11px; padding:6px 10px; }
+
+  /* 日志抽屉 */
+  #drawer { position:fixed; top:0; right:0; bottom:0; width:360px; max-width:92vw; z-index:40;
+            background:#0d1420; border-left:1px solid var(--cyan); padding:16px;
+            transform:translateX(105%); transition:transform .25s; overflow-y:auto;
+            box-shadow:-8px 0 30px rgba(0,0,0,.5); }
+  #drawer.show { transform:translateX(0); }
+  #drawer h3 { color:var(--cyan); font-size:14px; margin-bottom:10px; }
+  .sess { border:1px solid #1e2a44; border-radius:8px; padding:10px; margin-bottom:8px; font-size:12px; }
+  .sess .meta { color:var(--dim); line-height:1.8; }
+  .sess.current { border-color:var(--cyan); box-shadow:0 0 10px rgba(0,240,255,.2); }
+  .sess button { font-size:11px; padding:4px 8px; }
+</style>
+</head>
+<body>
+  <div id="topbar">
+    <div>
+      <h1>霓虹猎手 <span>NEON HUNTER</span></h1>
+      <div class="tag">数值原型 v0.11 · 占位美术 · 日志自动落盘 · Boss 生存预估 · v0.11 开局提速（攻8/攻速1.3）</div>
+    </div>
+    <div class="tools">
+      <button onclick="askReset()">🔄 复位</button>
+      <button class="mag" onclick="endTest()">⏹️ 结束测试</button>
+      <button class="gold" onclick="toggleDrawer()">📋 日志</button>
+    </div>
+  </div>
+
+  <div id="arena">
+    <div id="floorLabel"></div>
+    <div id="player" class="fighter"><div class="body"></div><div class="eye"></div></div>
+    <div id="enemy" class="fighter"><div class="body"></div><div class="eye"></div></div>
+    <div class="hpbar" id="playerHp"><div class="hpfill" style="width:100%"></div></div>
+    <div class="hptext" id="playerHpT"></div>
+    <div class="hpbar" id="enemyHp"><div class="hpfill" style="width:100%"></div></div>
+    <div class="hptext" id="enemyHpT"></div>
+    <div id="mobProgress"></div>
+    <div id="bossForecast"></div>
+  </div>
+
+  <div class="row">
+    <div class="panel">
+      <h3>⚡ 强化</h3>
+      <div class="stat" id="statBox"></div>
+      <button id="btnAtk"></button>
+      <button id="btnHp"></button>
+    </div>
+    <div class="panel">
+      <h3>🔧 义体 <span class="equipped-label">(点击装备/卸下)</span></h3>
+      <div id="equipBox" class="stat"></div>
+      <div id="invBox"></div>
+      <button id="btnAuto" class="gold" style="display:none">✨ 穿上新获得的更强义体</button>
+    </div>
+    <div class="panel">
+      <h3>🌀 重塑</h3>
+      <div class="stat" id="soulBox"></div>
+      <button id="btnPrestige" class="mag"></button>
+      <div id="treeBox" style="margin-top:6px"></div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:10px">
+    <div class="panel">
+      <h3>🎯 已激活技能</h3>
+      <div id="skillBox" class="stat">尚未获得（每过 10 层触发一次三选一）</div>
+    </div>
+    <div class="panel">
+      <h3>📦 补给</h3>
+      <div class="stat" id="crateBox"></div>
+      <button id="btnCrate" class="gold">开补给箱（看广告 ×1 更多）</button>
+    </div>
+  </div>
+
+  <div id="drawer">
+    <h3>📋 测试日志 <button style="float:right" onclick="toggleDrawer()">收起 ✕</button></h3>
+    <div id="drawerBody"></div>
+  </div>
+  <div id="overlay"><div class="modal" id="modalBox"></div></div>
+  <div id="toast"></div>
+
+<script>
+"use strict";
+// ============ 数值模型（设计文档 v1.0 锁定参数） ============
+const ATK0=8, HP0=100, GROWTH=1.10, COST0=6, COST_G=1.16;
+const ASPD0=1.3;   // v0.11：开局手感提速（T1 实测前 10 层 28~38s/层偏慢）
+const MOB_HP0=20, MOB_G=1.15, MOB_ATK0=1.5, MOB_ATK_G=1.13, GOLD_R=0.10;
+const BOSS={hp:6, atk:1.8, gold:5};
+const QUALITY=["民用","改装","军用","原型","传说"];
+const QCLASS=["q0","q1","q2","q3","q4"];
+const SLOTS={weapon:"义体武器",implant:"神经插件",armor:"皮下装甲",chip:"芯片"};
+const MULT={weapon:[10,25,45,70,100], implant:[5,10,18,28,40],
+            armor:[10,25,45,70,100], chip:[10,20,35,55,80]};
+const DROPS=[[70,25,5,0,0],[50,33,14,3,0],[30,35,22,10,3],[15,30,30,18,7]];
+const SKILLS={
+  overclock:{n:"战斗超频",d:"暴击率 +10%（可叠加）"},
+  fatal:{n:"致命固件",d:"暴击伤害 +50%"},
+  killcycle:{n:"杀戮循环",d:"暴击后攻速 +20%，持续 3 秒"},
+  neuro:{n:"神经加速",d:"攻速 +15%"},
+  fire:{n:"火力协议",d:"攻击 +25%"},
+  arc:{n:"电弧溅射",d:"攻击附带 20% 溅射伤害"},
+  subdermal:{n:"皮下加固",d:"生命 +30%"},
+  nano:{n:"纳米修复",d:"吸血 +5%"},
+  shield:{n:"应急护盾",d:"战斗开始获得 10% 最大生命护盾"},
+  blackmarket:{n:"黑市渠道",d:"信用点 +30%"},
+  resonance:{n:"碎片共鸣",d:"重塑碎片 +20%"},
+  adrenaline:{n:"肾上腺素",d:"击杀后 2 秒内攻速 +30%"},
+};
+const TREE={
+  dmg:{n:"伤害增幅",per:"+5% 伤害/级",max:20},
+  gold:{n:"信用点优化",per:"+10% 信用点/级",max:20},
+  offline:{n:"离线协议",per:"+10% 离线收益/级",max:10},
+};
+
+// ============ 状态 ============
+let S;
+function freshState(){ return {
+  gold:0, atkLv:0, hpLv:0, floor:1, maxFloor:1, mobIdx:0,
+  souls:0, tree:{dmg:0,gold:0,offline:0},
+  equip:{weapon:null,implant:null,armor:null,chip:null},
+  inv:[], skills:[], pity:0, crateReady:Date.now(), lastSave:Date.now(),
+};}
+function save(){ S.lastSave=Date.now(); localStorage.setItem("neonHunter", JSON.stringify(S)); saveLogs(false); }
+function load(){
+  try{ const d=JSON.parse(localStorage.getItem("neonHunter")); if(d&&d.floor) { S=Object.assign(freshState(),d); return true; } }catch(e){}
+  S=freshState(); return false;
+}
+
+// ============ 派生属性 ============
+function count(id){ return S.skills.filter(s=>s===id).length; }
+function affix(slot,type){ const it=S.equip[slot]; return (it&&it.affix&&it.affix.t===type)?it.affix.v:0; }
+function allAffix(type){ return ["weapon","implant","armor","chip"].reduce((s,k)=>s+affix(k,type),0); }
+function equipMult(slot){ const it=S.equip[slot]; return it?1+MULT[slot][it.q]/100:1; }
+function calcStats(){
+  const atkMult = equipMult("weapon")*(1+0.05*S.tree.dmg)*(1+0.25*count("fire"))*(1+0.2*count("arc"));
+  const hpMult  = equipMult("armor")*(1+0.30*count("subdermal"));
+  let aspd = ASPD0*equipMult("implant")*(1+0.15*count("neuro"))*(1+allAffix("aspd")/100);
+  const now=Date.now();
+  if(buff.adrenaline>now) aspd*=1.3;
+  if(buff.killcycle>now) aspd*=1.2;
+  return {
+    atk: ATK0*Math.pow(GROWTH,S.atkLv)*atkMult,
+    hp:  HP0*Math.pow(GROWTH,S.hpLv)*hpMult,
+    aspd,
+    crit: 0.05+0.10*count("overclock")+allAffix("crit")/100,
+    critDmg: 1.5+0.5*count("fatal"),
+    lifesteal: 0.05*count("nano")+allAffix("ls")/100,
+    shieldPct: 0.10*count("shield"),
+    goldMult: equipMult("chip")*(1+0.10*S.tree.gold)*(1+0.30*count("blackmarket")),
+  };
+}
+const mobHp   = f => MOB_HP0*Math.pow(MOB_G,f);
+const mobAtk  = f => MOB_ATK0*Math.pow(MOB_ATK_G,f);
+const mobGold = f => GOLD_R*mobHp(f);
+const isBoss  = () => S.mobIdx===5;
+const cost    = n => COST0*Math.pow(COST_G,n);
+const fmt = n => {
+  if(n<1000) return Math.floor(n).toString();
+  const u=["K","M","B","T","Q"]; let i=-1;
+  do{ n/=1000; i++; }while(n>=1000&&i<u.length-1);
+  return n.toFixed(n<10?2:n<100?1:0)+u[i];
+};
+
+// ============ 战斗 ============
+let cur={hp:1,max:1,atk:0,fightT:0}, player={hp:1,shield:0}, buff={adrenaline:0,killcycle:0};
+let atkTimer=0, paused=false, wall=false;
+
+function spawnMob(){
+  const boss=isBoss();
+  const now=Date.now();
+  if(S.mobIdx===0) floorEnterT=now;
+  if(boss) bossEnterT=now;
+  cur.max=mobHp(S.floor)*(boss?BOSS.hp:1);
+  cur.hp=cur.max;
+  cur.atk=mobAtk(S.floor)*(boss?BOSS.atk:1);
+  cur.fightT=0;
+  const st=calcStats();
+  player.hp=st.hp;
+  player.shield=st.hp*st.shieldPct;
+  atkTimer=0;
+  document.getElementById("enemy").classList.toggle("boss",boss);
+}
+function calcGold(f,boss){
+  return mobGold(f)*(boss?BOSS.gold:1)*calcStats().goldMult;
+}
+function dealPlayerHit(){
+  const st=calcStats();
+  let dmg=st.atk;
+  const isCrit=Math.random()<st.crit;
+  if(isCrit){ dmg*=st.critDmg; if(count("killcycle")) buff.killcycle=Date.now()+3000; }
+  cur.hp-=dmg;
+  if(st.lifesteal>0) player.hp=Math.min(st.hp, player.hp+dmg*st.lifesteal);
+  floatDmg("enemy", fmt(dmg), isCrit?"#FFD166":"#00F0FF", isCrit);
+  lunge("player");
+  if(cur.hp<=0) onKill();
+}
+function onKill(){
+  const boss=isBoss(), st=calcStats();
+  const gained=calcGold(S.floor,boss);
+  S.gold+=gained; floorGoldEarned+=gained;
+  if(count("adrenaline")) buff.adrenaline=Date.now()+2000;
+  dropRoll(boss);
+  if(boss){
+    if(S.floor>=S.maxFloor) S.maxFloor=S.floor;
+    pushFloorSummary();
+    // 技能三选一触发层：10/20/30/40/50
+    if(S.floor%10===0 && S.floor<=50 && S.skills.length<5){ offerSkills(); }
+    S.floor++; S.mobIdx=0;
+  } else S.mobIdx++;
+  spawnMob();
+  save();
+}
+function checkWall(dt){
+  cur.fightT+=dt;
+  if(player.hp<=0 || cur.fightT>90){
+    const reason=player.hp<=0?"hp_zero":"timeout_90s";
+    logEvent("wall",{reason});
+    wall=true; paused=true;
+    const hint=reason==="hp_zero"
+      ?"死因：<b>站不住</b>——生命/防御义体不足，或火力不够导致挨打太久"
+      :"死因：<b>输出超时</b>——攻击力不足，无法在时限内击杀";
+    showModal("⚠️ 行动受阻",
+      `猎手在第 <b>${S.floor}</b> 层被压制了。${hint}<br>可以「重塑」换一具更强的克隆体，或者继续硬磨。`,
+      `<button class="mag" onclick="closeModal();doPrestige()">🌀 重塑（+${prestigeGain()} 记忆碎片）</button>
+       <button onclick="closeModal();retryFight()">💪 继续硬磨</button>`);
+  }
+}
+function retryFight(){ wall=false; paused=false; spawnMob(); }
+
+// ============ 装备 ============
+function dropTable(f){ return f<=10?DROPS[0] : f<=25?DROPS[1] : f<=50?DROPS[2] : DROPS[3]; }
+function rollQuality(f){
+  if(S.pity>=10){ S.pity=0; return 2+weighted([60,30,10,0]); } // 保底蓝+
+  const t=dropTable(f), r=Math.random()*100; let acc=0;
+  for(let q=0;q<5;q++){ acc+=t[q]; if(r<acc) return q; }
+  return 0;
+}
+function weighted(ws){ const s=ws.reduce((a,b)=>a+b,0); let r=Math.random()*s;
+  for(let i=0;i<ws.length;i++){ r-=ws[i]; if(r<0) return i; } return 0; }
+function dropRoll(boss){
+  if(!boss && Math.random()>0.25) return;
+  const q=rollQuality(S.floor);
+  if(q>=2) S.pity=0; else S.pity++;
+  const slot=["weapon","implant","armor","chip"][Math.floor(Math.random()*4)];
+  const item={slot,q};
+  if(q===4){ const a=[["crit",5],["aspd",10],["ls",3]][Math.floor(Math.random()*3)]; item.affix={t:a[0],v:a[1]}; }
+  S.inv.push(item);
+  if(S.inv.length>12) S.inv.shift();
+  logEvent("drop",{slot,q,affix:item.affix?item.affix.t:null,boss});
+  const eq=S.equip[slot];
+  if(!eq||item.q>eq.q){ const b=document.getElementById("btnAuto"); b.style.display="inline-block"; b.classList.add("pulse"); }
+  toast(`获得 ${QUALITY[q]}·${SLOTS[slot]}`);
+}
+function itemDesc(it){
+  let s=`${QUALITY[it.q]}·${SLOTS[it.slot]} +${MULT[it.slot][it.q]}%`;
+  if(it.affix) s+= ` (${{crit:"暴击+5%",aspd:"攻速+10%",ls:"吸血+3%"}[it.affix.t]})`;
+  return s;
+}
+function equip(i){
+  const it=S.inv.splice(i,1)[0];
+  if(S.equip[it.slot]) S.inv.push(S.equip[it.slot]);
+  S.equip[it.slot]=it;
+  logEvent("equip",{desc:itemDesc(it)});
+  document.getElementById("btnAuto").style.display="none";
+  save(); renderPanels();
+}
+function autoEquip(){
+  let n=0;
+  for(let i=S.inv.length-1;i>=0;i--){
+    const it=S.inv[i], eq=S.equip[it.slot];
+    if(!eq||it.q>eq.q){ equip(i); n++; }
+  }
+  logEvent("autoequip",{count:n});
+  document.getElementById("btnAuto").style.display="none";
+}
+function sell(i){
+  const it=S.inv.splice(i,1)[0];
+  const v=Math.round(2*Math.pow(it.q+1,2)*Math.pow(MOB_G,S.floor));
+  S.gold+=v; logEvent("sell",{desc:itemDesc(it),value:v});
+  toast(`出售 +${fmt(v)} 信用点`); save(); renderPanels();
+}
+
+// ============ 技能 ============
+let curOffer=[], skillOfferOpen=false;
+function offerSkills(){
+  skillOfferOpen=true;
+  paused=true;
+  const pool=Object.keys(SKILLS);
+  const picks=[];
+  while(picks.length<3){ const k=pool[Math.floor(Math.random()*pool.length)]; if(!picks.includes(k)) picks.push(k); }
+  curOffer=picks;
+  showModal("🎯 神经技能 · 三选一",
+    `突破第 ${S.floor} 层！选择一项强化（每局最多 5 次）：`,
+    picks.map(k=>`<button class="choice" onclick="pickSkill('${k}')"><b>${SKILLS[k].n}</b><small>${SKILLS[k].d}</small></button>`).join(""));
+}
+function pickSkill(k){
+  if(!skillOfferOpen || !curOffer.includes(k)) return;   // v0.7：防脚本/连点绕过弹窗刷技能
+  skillOfferOpen=false;
+  S.skills.push(k);
+  logEvent("skill",{picked:k,rejected:curOffer.filter(x=>x!==k)});
+  closeModal(); paused=false; save(); renderPanels(); toast(`习得技能：${SKILLS[k].n}`);
+}
+
+// ============ 重塑 ============
+function prestigeGain(){
+  return Math.floor(Math.pow(S.maxFloor/10,1.5)*(1+0.2*count("resonance")));
+}
+function doPrestige(){
+  const g=prestigeGain();
+  if(g<=0){ toast("至少抵达第 10 层才能重塑"); return; }
+  paused=true;
+  showModal("🌀 重塑完成",
+    `人格已备份，克隆体上线。<br>获得 <b style="color:var(--magenta)">${g}</b> 枚记忆碎片。<br>
+     <small>（正式版此处有广告点位：碎片 ×2）</small>`,
+    `<button class="mag" onclick="applyPrestige(${g},2)">📺 看广告 ×2（+${g*2}）</button>
+     <button onclick="applyPrestige(${g},1)">收下 +${g}</button>`);
+}
+function applyPrestige(g,mult){
+  logEvent("prestige",{gain:g, mult, fromFloor:S.maxFloor});
+  S.souls+=g*mult;
+  S.floor=1; S.mobIdx=0; S.gold=0; S.atkLv=0; S.hpLv=0;
+  S.maxFloor=1;   // 修复：重塑后按新一轮最高层重新计算碎片，防止无限重复领取
+  S.equip={weapon:null,implant:null,armor:null,chip:null};
+  S.inv=[]; S.skills=[]; S.pity=0;
+  floorGoldEarned=0;
+  closeModal(); wall=false; paused=false;
+  spawnMob(); save(); renderPanels();
+}
+function treeCost(k){ return S.tree[k]+1; }   // v0.10：树成本=当前等级+1，防一次会话点穿长线
+function buyTree(k){
+  const c=treeCost(k);
+  if(S.souls<c||S.tree[k]>=TREE[k].max) return;
+  S.souls-=c; S.tree[k]++;
+  logEvent("tree",{key:k,level:S.tree[k],cost:c});
+  save(); renderPanels();
+}
+
+// ============ 补给箱（广告原型位） ============
+function openCrate(){
+  const now=Date.now();
+  if(now<S.crateReady){ toast(`补给箱冷却中（${Math.ceil((S.crateReady-now)/60000)} 分钟）`); return; }
+  const g=Math.round(mobGold(S.floor)*60*calcStats().goldMult);   // v0.4：≈6 层收益，修复"蚊子腿"问题
+  S.gold+=g; S.crateReady=now+3600*1000;
+  logEvent("crate",{gold:g});
+  toast(`补给箱：+${fmt(g)} 信用点`); save(); renderPanels();
+}
+
+// ============ 离线收益 ============
+function offlineCheck(){
+  const elapsed=(Date.now()-S.lastSave)/1000;
+  if(elapsed<60||S.maxFloor<2) return;
+  const capped=Math.min(elapsed,8*3600);
+  const floorGold=mobGold(S.maxFloor)*5+mobGold(S.maxFloor)*BOSS.gold;
+  const gps=floorGold/30*0.6*(1+0.10*S.tree.offline)*calcStats().goldMult;
+  const earn=Math.round(gps*capped);
+  if(earn<=0) return;
+  paused=true;
+  showModal("🌙 欢迎回来，猎手",
+    `你离线 ${(elapsed/3600).toFixed(1)} 小时，代理人替你战斗在第 ${S.maxFloor} 层。<br>
+     离线收益：<b style="color:var(--gold)">${fmt(earn)}</b> 信用点（60% 效率，8 小时上限）`,
+    `<button class="gold" onclick="collectOffline(${earn},2)">📺 看广告 ×2（+${fmt(earn*2)}）</button>
+     <button onclick="collectOffline(${earn},1)">收下 +${fmt(earn)}</button>`);
+}
+function collectOffline(e,m){ S.gold+=e*m; logEvent("offline",{earn:e,mult:m}); closeModal(); paused=false; save(); renderPanels(); }
+
+// ============ UI ============
+const $=id=>document.getElementById(id);
+function floatDmg(who,text,color,big){
+  const d=document.createElement("div");
+  d.className="dmg"; d.textContent=(big?"暴击 ":"")+text;
+  d.style.color=color; if(big) d.style.fontSize="19px";
+  const f=$(who==="enemy"?"enemy":"player");
+  d.style.left=(f.offsetLeft+10+Math.random()*44)+"px";
+  d.style.top=(f.offsetTop-6+Math.random()*20)+"px";
+  $("arena").appendChild(d); setTimeout(()=>d.remove(),900);
+}
+function lunge(who){
+  const el=$(who); el.classList.add(who==="player"?"lunge-p":"lunge-e");
+  setTimeout(()=>el.classList.remove("lunge-p","lunge-e"),120);
+}
+function showModal(title,html,btns){
+  $("modalBox").innerHTML=`<h2>${title}</h2><p>${html}</p>${btns}`;
+  $("overlay").classList.add("show");
+}
+function closeModal(){ $("overlay").classList.remove("show"); }
+let toastTimer;
+function toast(msg){
+  const t=$("toast"); t.textContent=msg; t.style.display="block";
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.style.display="none",2200);
+}
+function renderPanels(){
+  const st=calcStats();
+  $("statBox").innerHTML=
+    `攻击 <b>${fmt(st.atk)}</b> · 生命 <b>${fmt(st.hp)}</b> · 攻速 <b>${st.aspd.toFixed(2)}</b>/秒<br>`+
+    `暴击 <b>${(st.crit*100).toFixed(0)}%</b> × ${st.critDmg.toFixed(1)} · 吸血 <b>${(st.lifesteal*100).toFixed(0)}%</b><br>`+
+    `信用点 <b style="color:var(--gold)">${fmt(S.gold)}</b>`;
+  $("btnAtk").textContent=`⚔️ 攻击 Lv.${S.atkLv} → ${fmt(cost(S.atkLv))}`;
+  $("btnAtk").disabled=S.gold<cost(S.atkLv);
+  $("btnHp").textContent=`🛡️ 生命 Lv.${S.hpLv} → ${fmt(cost(S.hpLv))}`;
+  $("btnHp").disabled=S.gold<cost(S.hpLv);
+  $("equipBox").innerHTML=Object.keys(SLOTS).map(k=>{
+    const it=S.equip[k];
+    return `<div>${SLOTS[k]}：${it?`<span class="${QCLASS[it.q]}">${QUALITY[it.q]} +${MULT[k][it.q]}%</span>`:'<span style="color:#3a4556">空</span>'}</div>`;
+  }).join("");
+  $("invBox").innerHTML=S.inv.map((it,i)=>
+    `<span class="item ${QCLASS[it.q]}" onclick="equip(${i})" title="点击装备">${itemDesc(it)}</span>`).join("")||
+    '<span class="equipped-label">背包空空，去打怪爆装吧</span>';
+  $("soulBox").innerHTML=`记忆碎片 <b style="color:var(--magenta)">${S.souls}</b> · 最高 <b>${S.maxFloor}</b> 层<br>`+
+    `本次重塑可得：<b>${prestigeGain()}</b> 碎片`;
+  $("btnPrestige").textContent="🌀 重塑";
+  $("btnPrestige").disabled=prestigeGain()<=0;
+  $("treeBox").innerHTML=Object.keys(TREE).map(k=>{
+    const c=treeCost(k), maxed=S.tree[k]>=TREE[k].max;
+    return `<button onclick="buyTree('${k}')" ${S.souls<c||maxed?"disabled":""}>
+      ${TREE[k].n} ${S.tree[k]}/${TREE[k].max}${maxed?" MAX":` · ${c}碎片`}</button>`;
+  }).join("");
+  $("skillBox").innerHTML=S.skills.length?
+    S.skills.map(s=>`• ${SKILLS[s].n}`).join("<br>"):"尚未获得（每过 10 层触发一次三选一）";
+  const cd=S.crateReady-Date.now();
+  $("crateBox").textContent=cd>0?`下一补给箱：${Math.ceil(cd/60000)} 分钟后`:"补给箱已就绪！";
+  $("btnCrate").disabled=cd>0;
+}
+function renderCombat(){
+  const st=calcStats();
+  $("floorLabel").innerHTML=`第 <b>${S.floor}</b> 层 ${isBoss()?'· <span style="color:var(--magenta)">区域头目</span>':''}`;
+  $("mobProgress").textContent=`敌人 ${S.mobIdx+1}/6 ${wall?"· ⚠️ 受阻":""}`;
+  $("playerHp").firstElementChild.style.width=Math.max(0,player.hp/st.hp*100)+"%";
+  $("playerHpT").textContent=`${fmt(Math.max(0,player.hp))} / ${fmt(st.hp)}${player.shield>0?" +盾"+fmt(player.shield):""}`;
+  $("enemyHp").firstElementChild.style.width=Math.max(0,cur.hp/cur.max*100)+"%";
+  $("enemyHpT").textContent=`${fmt(Math.max(0,cur.hp))} / ${fmt(cur.max)}`;
+  // v0.9：Boss 战生存预估——让"玻璃大炮"成为知情的博弈
+  const bf=$("bossForecast");
+  if(isBoss()){
+    const st2=calcStats();
+    const effDps=st2.atk*st2.aspd*(1+st2.crit*(st2.critDmg-1));
+    const estKillT=cur.max/effDps;
+    const incoming=cur.atk*estKillT;
+    const total=st2.hp*(1+st2.shieldPct);
+    const danger=incoming>total;
+    bf.innerHTML=`⚔️ 预估承伤 ~${fmt(incoming)} / 生命 ${fmt(total)} `+
+      (danger?`<span style="color:var(--magenta)">⚠️ 凶险——强化生命或提升火力</span>`
+             :`<span style="color:#3ddc84">✓ 可胜</span>`);
+  } else bf.innerHTML="";
+}
+
+// ============ 主循环 ============
+let lastT=performance.now(), saveTimer=0;
+function loop(now){
+  const dt=Math.min((now-lastT)/1000,0.1); lastT=now;
+  if(!paused){
+    const st=calcStats();
+    // 玩家攻击
+    atkTimer+=dt*st.aspd;
+    if(atkTimer>=1){ atkTimer-=1; dealPlayerHit(); }
+    // 敌人反击（持续伤害）
+    if(!wall){
+      const dmg=cur.atk*dt;
+      if(player.shield>0){ const s=Math.min(player.shield,dmg); player.shield-=s; player.hp-=(dmg-s); }
+      else player.hp-=dmg;
+      if(Math.random()<dt*1.2) floatDmg("player",fmt(cur.atk),"#FF2A6D",false);
+      checkWall(dt);
+    }
+  }
+  saveTimer+=dt;
+  if(saveTimer>0.5){ saveTimer=0; renderPanels(); if(drawerOpen) renderDrawer(); }
+  if(Math.floor(now/5000)!==Math.floor((now-dt*1000)/5000)) save();
+  renderCombat();
+  requestAnimationFrame(loop);
+}
+
+// ============ 测试日志系统 ============
+// 版本管理：每次修改递增 VERSION，并同步维护 game/CHANGELOG.md 与 game/versions/ 快照
+const VERSION="v0.11";
+let sessions=[], curSession=null, seqCounter=1;
+let floorEnterT=0, bossEnterT=0, floorGoldEarned=0, lastLogSave=0;
+let drawerOpen=false;
+
+function newSession(){
+  curSession={id:"S"+String(seqCounter++).padStart(2,"0"), build:VERSION,
+    startedAt:Date.now(), endedAt:null, events:[], floors:[]};
+  logEvent("session_start",{fromFloor:S.floor});
+}
+function saveLogs(force){
+  const now=Date.now();
+  if(!force && now-lastLogSave<3000) return;
+  lastLogSave=now;
+  localStorage.setItem("neonHunterLogs", JSON.stringify({sessions, current:curSession, seq:seqCounter}));
+}
+function loadLogs(){
+  try{
+    const d=JSON.parse(localStorage.getItem("neonHunterLogs"));
+    if(d){ sessions=d.sessions||[]; seqCounter=d.seq||(sessions.length+1);
+      if(d.current && !d.current.endedAt){ curSession=d.current; return true; } }
+  }catch(e){}
+  return false;
+}
+function logEvent(type,data){
+  if(!curSession) return;
+  const st=calcStats();
+  curSession.events.push(Object.assign({
+    t:Date.now()-curSession.startedAt, type,
+    snap:{floor:S.floor, gold:Math.round(S.gold), atkLv:S.atkLv, hpLv:S.hpLv,
+          atk:Math.round(st.atk), hp:Math.round(st.hp), aspd:+st.aspd.toFixed(2)}
+  }, data||{}));
+  saveLogs(false);
+}
+function pushFloorSummary(){
+  if(!curSession) return;
+  const now=Date.now();
+  curSession.floors.push({
+    floor:S.floor,
+    enterT:floorEnterT-curSession.startedAt,
+    clearDur:now-floorEnterT,
+    bossDur:now-bossEnterT,
+    atkLv:S.atkLv, hpLv:S.hpLv, gold:Math.round(floorGoldEarned)
+  });
+  floorGoldEarned=0;
+  saveLogs(true);
+}
+
+// ---- 日志自动落盘（File System Access API，首次需授权一次文件夹） ----
+let logDirHandle=null;
+function idbOpen(){
+  return new Promise((res,rej)=>{
+    const r=indexedDB.open("neonHunterFS",1);
+    r.onupgradeneeded=()=>r.result.createObjectStore("kv");
+    r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error);
+  });
+}
+async function idbGet(k){
+  try{ const db=await idbOpen();
+    return new Promise(res=>{ const q=db.transaction("kv").objectStore("kv").get(k);
+      q.onsuccess=()=>res(q.result||null); q.onerror=()=>res(null); });
+  }catch(e){ return null; }
+}
+async function idbSet(k,v){
+  try{ const db=await idbOpen();
+    return new Promise(res=>{ const q=db.transaction("kv","readwrite").objectStore("kv").put(v,k);
+      q.onsuccess=()=>res(); q.onerror=()=>res(); });
+  }catch(e){}
+}
+async function ensureLogDir(){
+  if(!window.showDirectoryPicker) return null;
+  if(!logDirHandle) logDirHandle=await idbGet("logDir");
+  if(logDirHandle){
+    if(await logDirHandle.queryPermission({mode:"readwrite"})==="granted") return logDirHandle;
+    if(await logDirHandle.requestPermission({mode:"readwrite"})==="granted") return logDirHandle;
+  }
+  return null;
+}
+async function pickLogDir(){
+  try{
+    logDirHandle=await window.showDirectoryPicker({id:"neonHunterLogs"});
+    await idbSet("logDir",logDirHandle);
+    toast("已绑定日志文件夹，之后自动保存");
+    return logDirHandle;
+  }catch(e){ return null; }
+}
+function tsName(d){
+  const p=n=>String(n).padStart(2,"0");
+  return `${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`;
+}
+// 统一命名规则：neonhunter_<版本>_<测试段>_<时间戳>.<json|csv>
+function sessionBaseName(s){
+  return `neonhunter_${s.build}_${s.id}_${tsName(new Date(s.endedAt||Date.now()))}`;
+}
+async function writeToFolder(name,content,mime){
+  let dir=await ensureLogDir();
+  if(!dir) dir=await pickLogDir();   // 首次：弹系统选择器，请选项目下的 logs 文件夹
+  if(dir){
+    try{
+      const fh=await dir.getFileHandle(name,{create:true});
+      const w=await fh.createWritable();
+      await w.write(content); await w.close();
+      toast("已存入文件夹："+name);
+      return true;
+    }catch(e){}
+  }
+  download(name,content,mime);   // 降级：浏览器下载
+  toast("未授权文件夹，已改为浏览器下载："+name);
+  return false;
+}
+function saveSessionToFolder(s){
+  return writeToFolder(sessionBaseName(s)+".json", JSON.stringify(s,null,2), "application/json");
+}
+function csvContent(s){
+  const rows=[["floor","enter_t_s","clear_dur_s","boss_dur_s","atk_lv","hp_lv","gold_earned"]];
+  s.floors.forEach(f=>rows.push([f.floor,(f.enterT/1000).toFixed(1),(f.clearDur/1000).toFixed(1),
+    (f.bossDur/1000).toFixed(1),f.atkLv,f.hpLv,f.gold]));
+  return "﻿"+rows.map(r=>r.join(",")).join("\n");
+}
+function saveCsvToFolder(s){
+  return writeToFolder(sessionBaseName(s)+".csv", csvContent(s), "text/csv");
+}
+
+// ---- 复位 / 结束测试 ----
+function askReset(){
+  showModal("🔄 确认复位？",
+    "将<b>清空存档</b>并作废当前未封存的日志段，回到全新开局。<br>已封存的历史测试段会保留。",
+    `<button class="mag" onclick="doReset()">确认复位</button>
+     <button onclick="closeModal()">取消</button>`);
+}
+function doReset(){
+  localStorage.removeItem("neonHunter");
+  S=freshState();
+  wall=false; paused=false;
+  buff={adrenaline:0,killcycle:0};
+  floorGoldEarned=0;
+  document.getElementById("btnAuto").style.display="none";
+  newSession();
+  spawnMob(); closeModal(); renderPanels(); renderDrawer();
+  saveLogs(true); save();
+  toast("已完全复位，新测试段 "+curSession.id+" 开始");
+}
+function endTest(){
+  if(!curSession) return;
+  curSession.endedAt=Date.now();
+  logEvent("session_end",{maxFloor:S.maxFloor});
+  sessions.push(curSession);
+  const sealed=curSession;
+  newSession();           // 静默开启新段，游戏继续
+  const html=summarize(sealed);
+  saveLogs(true);
+  saveSessionToFolder(sealed);   // 自动落盘 JSON + CSV 到 logs/ 文件夹（首次弹授权）
+  saveCsvToFolder(sealed);
+  showModal("⏹️ 测试段 "+sealed.id+" 已封存", html,
+    `<button class="gold" onclick="closeModal();saveSessionToFolder(findSession('${sealed.id}'))">存入 logs 文件夹</button>
+     <button class="gold" onclick="closeModal();exportCSV('${sealed.id}')">导出楼层 CSV</button>
+     <button onclick="closeModal()">继续游戏</button>`);
+  renderDrawer();
+}
+function summarize(s){
+  const durMin=((s.endedAt-s.startedAt)/60000);
+  const maxF=s.floors.length?s.floors[s.floors.length-1].floor:0;
+  const walls=s.events.filter(e=>e.type==="wall");
+  const ups=s.events.filter(e=>e.type==="upgrade");
+  const upsAtk=ups.filter(e=>e.kind==="atk").length, upsHp=ups.filter(e=>e.kind==="hp").length;
+  const sk=s.events.filter(e=>e.type==="skill");
+  const pr=s.events.filter(e=>e.type==="prestige");
+  const ads=s.events.filter(e=>(e.type==="prestige"||e.type==="offline")&&e.mult===2).length;
+  const crates=s.events.filter(e=>e.type==="crate").length;
+  const drops=s.events.filter(e=>e.type==="drop");
+  let wallLine="本次未卡关";
+  if(walls.length){
+    const w=walls[0], inTarget=w.snap.floor>=25&&w.snap.floor<=40;
+    wallLine=`首卡：第 ${w.snap.floor} 层 / ${(w.t/60000).toFixed(1)} 分钟
+      （设计目标 25~40 层 ${inTarget?"✅":"⚠️ 偏离"}，原因：${w.reason==="hp_zero"?"站不住":"击杀超时"}）`;
+  }
+  return `时长 <b>${durMin.toFixed(1)}</b> 分钟 · 通过 <b>${maxF}</b> 层 · 事件 <b>${s.events.length}</b> 条<br>
+    ${wallLine}<br>
+    强化 <b>${ups.length}</b> 次（攻 ${upsAtk} / 血 ${upsHp}）· 爆装 <b>${drops.length}</b> 件 ·
+    技能 <b>${sk.length}</b> 次<br>
+    重塑 <b>${pr.length}</b> 次 · 广告按钮点击 <b>${ads}</b> 次 · 补给箱 <b>${crates}</b> 次<br>
+    <small>新测试段 ${curSession.id} 已静默开启</small>`;
+}
+
+// ---- 导出 ----
+function findSession(id){ return id===curSession.id?curSession:sessions.find(x=>x.id===id); }
+function download(name,content,mime){
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([content],{type:mime}));
+  a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function exportJSON(id){
+  const s=findSession(id); if(!s) return;
+  saveSessionToFolder(s);
+}
+function exportCSV(id){
+  const s=findSession(id); if(!s) return;
+  saveCsvToFolder(s);
+}
+
+// ---- 日志抽屉 ----
+function toggleDrawer(){
+  drawerOpen=!drawerOpen;
+  document.getElementById("drawer").classList.toggle("show",drawerOpen);
+  if(drawerOpen) renderDrawer();
+}
+function renderDrawer(){
+  const body=document.getElementById("drawerBody");
+  if(!body) return;
+  let html="";
+  if(curSession){
+    const dur=((Date.now()-curSession.startedAt)/60000).toFixed(1);
+    html+=`<div class="sess current"><b>▶ 当前段 ${curSession.id}</b> <span style="color:#5a6472">${curSession.build}</span>
+      <div class="meta">时长 ${dur} 分钟 · 事件 ${curSession.events.length} 条 · 已过 ${curSession.floors.length} 层</div>
+      <button class="gold" onclick="saveSessionToFolder(curSession)">💾 存到文件夹</button>
+      <button class="gold" onclick="exportCSV('${curSession.id}')">CSV</button></div>`;
+  }
+  html+=[...sessions].reverse().map(s=>{
+    const dur=((s.endedAt-s.startedAt)/60000).toFixed(1);
+    const maxF=s.floors.length?s.floors[s.floors.length-1].floor:0;
+    const w=s.events.find(e=>e.type==="wall");
+    return `<div class="sess"><b>${s.id}</b> <span style="color:#5a6472">${s.build}</span>
+      <div class="meta">${dur} 分钟 · 过 ${maxF} 层 · ${s.events.length} 事件${w?` · 首卡 ${w.snap.floor} 层`:""}</div>
+      <button class="gold" onclick="saveSessionToFolder(findSession('${s.id}'))">💾 存到文件夹</button>
+      <button class="gold" onclick="exportCSV('${s.id}')">CSV</button></div>`;
+  }).join("");
+  body.innerHTML=html||'<div class="meta" style="color:var(--dim)">暂无测试段</div>';
+}
+
+// ============ 事件 ============
+$("btnAtk").onclick=()=>{ if(S.gold>=cost(S.atkLv)){ const c=cost(S.atkLv); S.gold-=c; S.atkLv++; logEvent("upgrade",{kind:"atk",level:S.atkLv,cost:Math.round(c)}); renderPanels(); } };
+$("btnHp").onclick=()=>{ if(S.gold>=cost(S.hpLv)){ const c=cost(S.hpLv); S.gold-=c; S.hpLv++; logEvent("upgrade",{kind:"hp",level:S.hpLv,cost:Math.round(c)}); renderPanels(); } };
+$("btnAuto").onclick=autoEquip;
+$("btnPrestige").onclick=()=>{ if(prestigeGain()>0) doPrestige(); };
+$("btnCrate").onclick=openCrate;
+window.addEventListener("beforeunload",save);
+// v0.8：记录切后台/回前台，区分"打不过"与"人走了"
+document.addEventListener("visibilitychange",()=>{
+  logEvent(document.hidden?"tab_hidden":"tab_visible");
+  if(!document.hidden) lastT=performance.now();   // 回前台重置计时，防 dt 跳变
+});
+
+// ============ 启动 ============
+load();
+loadLogs();
+if(!curSession) newSession();
+spawnMob();
+offlineCheck();
+renderPanels();
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

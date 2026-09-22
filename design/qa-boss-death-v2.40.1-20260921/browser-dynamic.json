@@ -1,0 +1,100 @@
+[
+  {
+    "changeAt": 1000,
+    "events": [
+      {
+        "opacity": 0,
+        "time": 1104.2999999523165,
+        "type": "transit"
+      }
+    ],
+    "fadeSeen": true,
+    "finalFloor": 4,
+    "floor": 3,
+    "hiddenWait": true,
+    "initialSpeed": 1,
+    "newEnemyVisible": true,
+    "noGhost": true,
+    "pass": true,
+    "reward": {
+      "gold": 15.208749999999782,
+      "souls": 1
+    }
+  },
+  {
+    "changeAt": 500,
+    "events": [
+      {
+        "opacity": 0,
+        "time": 700.9000000357628,
+        "type": "transit"
+      }
+    ],
+    "fadeSeen": true,
+    "finalFloor": 4,
+    "floor": 3,
+    "hiddenWait": true,
+    "initialSpeed": 2,
+    "newEnemyVisible": true,
+    "noGhost": true,
+    "pass": true,
+    "reward": {
+      "gold": 15.208749999999782,
+      "souls": 1
+    }
+  },
+  {
+    "changeAt": 1200,
+    "events": [
+      {
+        "opacity": 0,
+        "time": 1305,
+        "type": "skill"
+      },
+      {
+        "opacity": 0,
+        "time": 1501.800000011921,
+        "type": "transit"
+      }
+    ],
+    "fadeSeen": true,
+    "finalFloor": 11,
+    "floor": 10,
+    "hiddenWait": true,
+    "initialSpeed": 1,
+    "newEnemyVisible": true,
+    "noGhost": true,
+    "pass": true,
+    "reward": {
+      "gold": 40.45557735707917,
+      "souls": 2
+    }
+  },
+  {
+    "changeAt": 600,
+    "events": [
+      {
+        "opacity": 0,
+        "time": 808.5,
+        "type": "skill"
+      },
+      {
+        "opacity": 0,
+        "time": 1010,
+        "type": "transit"
+      }
+    ],
+    "fadeSeen": true,
+    "finalFloor": 11,
+    "floor": 10,
+    "hiddenWait": true,
+    "initialSpeed": 2,
+    "newEnemyVisible": true,
+    "noGhost": true,
+    "pass": true,
+    "reward": {
+      "gold": 40.45557735707917,
+      "souls": 2
+    }
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "version": "v2.40.1",
+  "baseline": "v2.40",
+  "author": "Codex",
+  "sha256": "4af92354634ad579ad7443cba4974a8e4da7c48775a4dcc86260444e556c4ba4",
+  "snapshotMatches": true,
+  "siteMatches": true,
+  "published": false,
+  "onlineObserved": "v2.40",
+  "unitBoss": "15/15",
+  "browserBoss": "14/14",
+  "core": "75/76; existing C75 fails in both baseline and current",
+  "realDeviceAfterFixTested": false
+}

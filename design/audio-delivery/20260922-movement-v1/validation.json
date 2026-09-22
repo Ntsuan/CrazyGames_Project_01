@@ -1,0 +1,77 @@
+{
+  "checks": "PCM format, non-silent, peak headroom, zero boundaries, hashes, FFmpeg decode, distinct footstep variants",
+  "listening_approval": "pending user audition",
+  "in_game_test": "not performed; no integration authorized",
+  "files": [
+    {
+      "file": "/Users/zmy/WorkBuddy/CrazyGames/design/audio-delivery/20260922-movement-v1/floor-transition-01.wav",
+      "duration_seconds": 0.36,
+      "size_bytes": 31796,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -25.92,
+      "clipped_samples": 0,
+      "boundary_samples": [
+        0,
+        0
+      ],
+      "decode": "passed",
+      "sha256": "3d0ab96527a1de6db60e2b71330aaac8ee733e32c35386a2f13d9aec3d23e4f1"
+    },
+    {
+      "file": "/Users/zmy/WorkBuddy/CrazyGames/design/audio-delivery/20260922-movement-v1/footstep-metal-01.wav",
+      "duration_seconds": 0.16,
+      "size_bytes": 14156,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -27.54,
+      "clipped_samples": 0,
+      "boundary_samples": [
+        0,
+        0
+      ],
+      "decode": "passed",
+      "sha256": "8a7d1732a87e1fbf1632578da9ee478f26b6a5a9d6a840343b5192e9f638173a"
+    },
+    {
+      "file": "/Users/zmy/WorkBuddy/CrazyGames/design/audio-delivery/20260922-movement-v1/footstep-metal-02.wav",
+      "duration_seconds": 0.17,
+      "size_bytes": 15038,
+      "peak_dbfs": -9.6,
+      "rms_dbfs": -29.11,
+      "clipped_samples": 0,
+      "boundary_samples": [
+        0,
+        0
+      ],
+      "decode": "passed",
+      "sha256": "040d2b253e9c4635c5e3f6c3becaa4f37a809e464734065d6a8ed5b834aefbf1"
+    },
+    {
+      "file": "/Users/zmy/WorkBuddy/CrazyGames/design/audio-delivery/20260922-movement-v1/footstep-metal-03.wav",
+      "duration_seconds": 0.15501133786848073,
+      "size_bytes": 13716,
+      "peak_dbfs": -8.7,
+      "rms_dbfs": -26.63,
+      "clipped_samples": 0,
+      "boundary_samples": [
+        0,
+        0
+      ],
+      "decode": "passed",
+      "sha256": "445d316d1ed645fc74489bc47223130296d13814b2ec7ee45959e38b5bfb05e9"
+    },
+    {
+      "file": "/Users/zmy/WorkBuddy/CrazyGames/design/audio-delivery/20260922-movement-v1/preview-footsteps.wav",
+      "duration_seconds": 4.0,
+      "size_bytes": 352844,
+      "peak_dbfs": -8.7,
+      "rms_dbfs": -30.44,
+      "clipped_samples": 0,
+      "boundary_samples": [
+        0,
+        0
+      ],
+      "decode": "passed",
+      "sha256": "57188b404dee58787edcb2bca12a7b294758795f50b53f37e1fc0755ab60fa0e"
+    }
+  ]
+}

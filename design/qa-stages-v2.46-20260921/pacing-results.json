@@ -1,0 +1,73 @@
+{
+  "policy": "单种子/阶段；每60秒领取一次现行补给；仅受阻时模拟广告翻倍重塑；优先伤害技能；自动合成和强化；上限6小时或30轮；非真人时间",
+  "results": [
+    {
+      "stage": 1,
+      "clear": false,
+      "minutes": 360,
+      "floor": 86,
+      "best": 99,
+      "deaths": 19,
+      "crates": 360,
+      "firstWall": 67,
+      "atkLv": 85,
+      "hpLv": 84,
+      "tree": {
+        "dmg": 227,
+        "gold": 226,
+        "soul": 113
+      }
+    },
+    {
+      "stage": 2,
+      "clear": false,
+      "minutes": 360,
+      "floor": 32,
+      "best": 99,
+      "deaths": 19,
+      "crates": 360,
+      "firstWall": 74,
+      "atkLv": 69,
+      "hpLv": 68,
+      "tree": {
+        "dmg": 244,
+        "gold": 243,
+        "soul": 122
+      }
+    },
+    {
+      "stage": 3,
+      "clear": true,
+      "minutes": 356.8016666666667,
+      "floor": 100,
+      "best": 100,
+      "deaths": 19,
+      "crates": 356,
+      "firstWall": 70,
+      "atkLv": 99,
+      "hpLv": 97,
+      "tree": {
+        "dmg": 249,
+        "gold": 248,
+        "soul": 125
+      }
+    },
+    {
+      "stage": 4,
+      "clear": true,
+      "minutes": 219.32333333333332,
+      "floor": 100,
+      "best": 100,
+      "deaths": 10,
+      "crates": 219,
+      "firstWall": 90,
+      "atkLv": 97,
+      "hpLv": 96,
+      "tree": {
+        "dmg": 145,
+        "gold": 144,
+        "soul": 73
+      }
+    }
+  ]
+}

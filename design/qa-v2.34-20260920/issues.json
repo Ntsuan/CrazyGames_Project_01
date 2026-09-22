@@ -1,0 +1,15 @@
+[
+  {
+    "id": "R01",
+    "priority": "P3",
+    "title": "跨版本自动封存未执行历史三段上限",
+    "file": "/Users/zmy/WorkBuddy/CrazyGames/game/index.html",
+    "line": 1285,
+    "tests": [
+      "C75",
+      "R07"
+    ],
+    "actual": "已有 S01～S03 三段封存记录，当前 S04 为旧版本；升级启动后 S04 被封存、S05 为新段，但 sessions 及 localStorage 都保留 S01～S04 共4段。",
+    "suggestion": "在跨版本封存路径复用手动 endTest 的保留策略，保留最近3段；建议抽出统一封存函数，避免入口之间逻辑分叉。"
+  }
+]

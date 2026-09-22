@@ -1,0 +1,53 @@
+name: Neon release checks
+on:
+  push:
+    branches: [main, codex/develop]
+  pull_request:
+    branches: [main, codex/develop]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: neon-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    name: Validate and package
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TARGET_BRANCH: ${{ github.base_ref || github.ref_name }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Check branch profile
+        run: node scripts/neon-release.cjs check "$TARGET_BRANCH"
+      - name: Release behavior regression
+        run: node scripts/neon-tests/release.cjs
+      - name: Gameplay regression (known baseline C75 reported)
+        run: node scripts/neon-tests/core.cjs
+      - name: Skill-pool regression
+        run: node scripts/neon-tests/pools.cjs
+      - name: Package current channel
+        run: node scripts/neon-release.cjs build
+      - name: Validate package and blocked Full channel
+        run: node scripts/neon-tests/package.cjs
+      - name: Read artifact channel
+        id: channel
+        run: node -e 'const fs=require("fs");const p=fs.readFileSync("game/index.html","utf8").match(/const BUILD_PROFILE="([^"]+)"/)[1];fs.appendFileSync(process.env.GITHUB_OUTPUT,"profile="+p+"\n")'
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: neon-${{ steps.channel.outputs.profile }}-${{ github.sha }}
+          path: dist/neon/${{ steps.channel.outputs.profile }}/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: neon-validation-${{ github.sha }}
+          path: |
+            dist/neon/*-manifest.json
+            scripts/neon-tests/*-results.json
+          if-no-files-found: error
+          retention-days: 30

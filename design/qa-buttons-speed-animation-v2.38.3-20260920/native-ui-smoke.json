@@ -1,0 +1,13 @@
+{
+  "cancel": {
+    "confirmOpen": false,
+    "modal": false
+  },
+  "drawerOpened": true,
+  "prestige": {
+    "death": false,
+    "prestiges": 2,
+    "souls": 103,
+    "wall": false
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "animationDuration": "0.45s",
+    "atMs": 520,
+    "from": 1,
+    "modal": false,
+    "position": "-770px",
+    "test": "death toggle after100ms",
+    "to": 2
+  },
+  {
+    "animationDuration": "0.9s",
+    "atMs": 520,
+    "from": 2,
+    "modal": true,
+    "position": "-330px",
+    "test": "death toggle after100ms",
+    "to": 1
+  },
+  {
+    "duration": "0.36s",
+    "elapsed": 422,
+    "newExpected": 180,
+    "test": "mid-run toggle"
+  }
+]

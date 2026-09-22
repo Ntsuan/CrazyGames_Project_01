@@ -1,0 +1,71 @@
+{
+  "version": "v2.43",
+  "baseline": "v2.42.1",
+  "author": "Codex",
+  "published": false,
+  "coreBaseline": "75/76 (existing C75)",
+  "coreCurrent": "75/76 (existing C75)",
+  "spiderChecks": "19/19",
+  "desktopBrowser": "28/28",
+  "mobileViewportBrowser": "28/28",
+  "realDeviceTested": false,
+  "sourceSnapshotAndFrozenCopyIdentical": true,
+  "assetsFrozen": true,
+  "files": [
+    {
+      "path": "game/index.html",
+      "bytes": 111991,
+      "sha256": "6e4d49a9f9217a8f25f4a48241a440865a387c5f690429e33a3035865bdf3845"
+    },
+    {
+      "path": "game/versions/index_v2.43.html",
+      "bytes": 111991,
+      "sha256": "6e4d49a9f9217a8f25f4a48241a440865a387c5f690429e33a3035865bdf3845"
+    },
+    {
+      "path": "design/qa-riftclaw-v2.43-20260921/site/index.html",
+      "bytes": 111991,
+      "sha256": "6e4d49a9f9217a8f25f4a48241a440865a387c5f690429e33a3035865bdf3845"
+    },
+    {
+      "path": "game/CHANGELOG.md",
+      "bytes": 49390,
+      "sha256": "d719603fb6a92fc9c2798c712e2aca227e1859844328bc82937f21a5cfe756d7"
+    },
+    {
+      "path": "交接文档.md",
+      "bytes": 16728,
+      "sha256": "4af702aa8788e565b84e0312e9457d3640945535c5a540a974ac2e749cdff242"
+    },
+    {
+      "path": "design/数值调整记录.md",
+      "bytes": 23025,
+      "sha256": "e3fa9e0014782482024b5897b044f02302296b9e7e1141be2276a84a598fa1d4"
+    },
+    {
+      "path": "game/assets/riftclaw/shoot.webp",
+      "bytes": 131590,
+      "sha256": "2a8e8290030e15e58bfa664ec8f64dbe0f5fb54a08232d862d7b2385ab078fe9"
+    },
+    {
+      "path": "game/assets/riftclaw/idle.webp",
+      "bytes": 76610,
+      "sha256": "f13701b21732d3490dbeb0941aa3e78d7606f52b0c99affec8d6480607baa8a9"
+    },
+    {
+      "path": "game/assets/riftclaw/manifest.json",
+      "bytes": 1419,
+      "sha256": "4969f435d52bec9efc7c340023677c8c3fc342ce6c1bffc5c5657d78b5a34322"
+    },
+    {
+      "path": "game/assets/riftclaw/death.webp",
+      "bytes": 140916,
+      "sha256": "618032fd8c582543d200aa5943fd621ef1a2f3397dbdc33dd31d43572e85f7a5"
+    },
+    {
+      "path": "game/assets/riftclaw/walk.webp",
+      "bytes": 161744,
+      "sha256": "8de344b3dd1ac8cec89a3b8202a4e72f1a06f6a814a7eae1b55f2613bc6c0749"
+    }
+  ]
+}

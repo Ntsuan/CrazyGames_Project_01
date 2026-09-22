@@ -1,0 +1,112 @@
+[
+  {
+    "connected": true,
+    "count": 1,
+    "name": "atk",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connected": true,
+    "count": 1,
+    "name": "hp",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connected": true,
+    "count": 1,
+    "name": "fuse input quality",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connected": true,
+    "count": 1,
+    "name": "fuse output quality",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connected": true,
+    "count": 1,
+    "name": "fuse icon",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connected": true,
+    "count": 1,
+    "name": "salvage",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connected": true,
+    "count": 1,
+    "name": "tree",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connected": true,
+    "count": 1,
+    "name": "skill",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connected": true,
+    "count": 1,
+    "name": "crate",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connected": true,
+    "count": 1,
+    "name": "speed button",
+    "pass": true,
+    "staleTouch": false
+  },
+  {
+    "connected": false,
+    "count": 0,
+    "name": "speed icon",
+    "pass": false,
+    "staleTouch": true
+  },
+  {
+    "level": 1,
+    "name": "9px",
+    "pass": true
+  },
+  {
+    "level": 1,
+    "name": "10px",
+    "pass": true
+  },
+  {
+    "level": 0,
+    "name": "11px end only",
+    "pass": true
+  },
+  {
+    "level": 0,
+    "name": "diagonal9px",
+    "pass": true
+  },
+  {
+    "level": 0,
+    "name": "cancel",
+    "pass": true
+  },
+  {
+    "name": "valid tap100ms after cancelled swipe",
+    "pass": true
+  },
+  {
+    "name": "multi-finger owner only",
+    "pass": true
+  }
+]

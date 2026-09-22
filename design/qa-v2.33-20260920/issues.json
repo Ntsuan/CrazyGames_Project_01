@@ -1,0 +1,102 @@
+[
+  {
+    "id": "F01",
+    "priority": "P1",
+    "title": "存储已满时首次启动被日志写入打断，开始按钮空白且无法操作",
+    "lines": [
+      1266,
+      1271,
+      1531
+    ],
+    "tests": [
+      "C74",
+      "B34",
+      "B35"
+    ],
+    "detail": "复现：在隔离 origin 清空测试档及测试日志，使用单独的 qaQuotaFill 键填满 localStorage，再刷新。实测填充 5,242,869 个字符后，新测试段写入 neonHunterLogs 抛出 QuotaExceededError。开始按钮文字为空，onclick 为 null；清除测试填充后重新加载恢复正常。\n\n实际异常栈：saveLogs → logEvent → newSession → 启动初始化。已有 save() 的 try/catch 仅保护通过 save() 进入的调用，不能保护启动直接调用 newSession，也不能覆盖所有事件日志写入。\n\n建议：在 saveLogs 的存储边界统一处理失败，让日志降级为内存记录；保证游戏初始化和操作继续，并提示不能持久化。按测试段/事件数控制日志容量；覆盖首次启动、升级事件、封存与常规自动保存。不要只在主循环外围吞异常。",
+    "evidence": [
+      "screenshots/10-quota-startup-blocked.png",
+      "browser-console-quota.json"
+    ]
+  },
+  {
+    "id": "F02",
+    "priority": "P2",
+    "title": "等待复位确认时死亡会留下确认标记，重塑后下一次技能奖励无法显示",
+    "lines": [
+      834,
+      951,
+      1006,
+      1398
+    ],
+    "tests": [
+      "C71",
+      "C72",
+      "B13",
+      "B15"
+    ],
+    "detail": "复现：战斗中残血，点击复位但暂不确认；战斗继续造成死亡，行动受阻覆盖确认框，confirmOpen 仍为 true。按实际界面完成重塑，再触发里程碑 Boss 奖励，offerSkills 把技能一直挂起。浏览器最终状态为 floor=6、confirmOpen=true、skillOfferOpen=false、overlayVisible=false、cur.hp=1e18、paused=false；没有敌人刷新或技能选择入口。\n\n为缩短复验时间，浏览器在正常重塑后直接设置到第 5 层 Boss 再调用击杀，未从第 1 层手动打到；未手动暂停这一最终阻塞场景。逻辑用例也独立复现。\n\n建议：复位确认明确管理战斗暂停及取消后的恢复；所有模态框替换/关闭必须清理旧类型状态；重塑、复位统一重置确认与待显示队列。验证死亡、超时、结束测试等事件与确认框的交叉关系。",
+    "evidence": [
+      "screenshots/03-death-overwrites-confirm.png",
+      "screenshots/04-milestone-stuck.png",
+      "browser-results.json"
+    ]
+  },
+  {
+    "id": "F03",
+    "priority": "P2",
+    "title": "触摸未跟踪手指标识，另一根手指抬起会提前执行按钮",
+    "lines": [
+      1548,
+      1549,
+      1554,
+      1559
+    ],
+    "tests": [
+      "T6"
+    ],
+    "detail": "合成 TouchEvent 复现：手指 A 按住攻击按钮，手指 B 按在空白处；B 先抬起，此时 A 仍在按钮上，程序已将攻击等级 0→1、金币 10000→9994，并执行 preventDefault。\n\n根因：tapBtn/tapX/tapY 为单一全局记录，未保存 touch.identifier，也未检查 touchend.changedTouches 是否包含发起点击的手指。单指点按、9px 抖动、11px 滑动取消、touchcancel、disabled 按钮均通过。\n\n建议：记录发起手指 identifier，只消费该手指的 move/end/cancel；或显式在多指输入出现时取消本次点击。也可使用带 pointerId 的 Pointer Events。此项是浏览器处理函数级复现，尚未做 iOS/Android 原生触摸验证；不能据此宣称所有真机会出现双击。",
+    "evidence": [
+      "touch-cases.json",
+      "browser-results.json"
+    ]
+  },
+  {
+    "id": "F04",
+    "priority": "P2",
+    "title": "移动端媒体查询提前结束，手机布局规则泄漏到桌面",
+    "lines": [
+      202,
+      213,
+      225,
+      230
+    ],
+    "tests": [
+      "B26"
+    ],
+    "detail": "源码 @media(max-width:640px) 在 arena 规则后多出一个结束花括号，后面的 HUD、角色站位、血条宽度、面板单列、抽屉宽度与倍速按钮规则成为全局规则。\n\n1440×900 实测：媒体查询为 false，但 .row 为 column、血条宽 120px、倍速按钮在右上（right:12px/top:36px），不符合基础桌面规则及变更日志“桌面保持左下”。CSSOM 确认 .row{flex-direction:column} 和倍速右上规则位于顶层。六种尺寸虽没有水平溢出，仍不能算桌面布局验收通过。\n\n建议：修正媒体查询括号边界，再分别验证 640px、641px 与大屏。加一项 CSS 结构检查及实际计算样式断言，避免只靠截图宽度或 JavaScript 语法检查漏检。",
+    "evidence": [
+      "screenshots/layout-1440x900.png",
+      "screenshots/08-desktop-mobile-css-leak.png",
+      "browser-results.json"
+    ]
+  },
+  {
+    "id": "F05",
+    "priority": "P2",
+    "title": "跨版本加载沿用旧测试段，当前玩法数据被标记成旧版本",
+    "lines": [
+      1277,
+      1297,
+      1530
+    ],
+    "tests": [
+      "C73",
+      "B33"
+    ],
+    "detail": "构造未封存的 v2.32 测试段并刷新运行 v2.33，再点击一次攻击升级。当前运行版本为 v2.33，但 curSession.build 仍为 v2.32，升级事件追加在旧段；导出文件名也以 neonhunter_v2.32 开头。\n\n这会混合升级前后玩法数据，影响首卡层、时长、操作统计的版本对比。原有 C40 仅覆盖新建测试段，因此不会发现该问题。\n\n建议：loadLogs 检查 current.build 与 VERSION；不一致时封存旧段并新建当前版本段，保留两者关联，不直接修改旧段 build。补测相同版本续写、跨版本切段、损坏日志和旧日志兼容。",
+    "evidence": [
+      "browser-results.json"
+    ]
+  }
+]

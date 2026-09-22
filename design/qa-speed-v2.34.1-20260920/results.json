@@ -1,0 +1,49 @@
+{
+  "combat": [
+    {
+      "effective": 1,
+      "elapsedMs": 4001,
+      "idleAnimation": "1s",
+      "mobileRunConfig": {
+        "e": 360,
+        "p": 360,
+        "settle": 650,
+        "t": 360
+      },
+      "selected": "1x",
+      "shootAnimation": "0.32s",
+      "shots": 5
+    },
+    {
+      "effective": 2,
+      "elapsedMs": 4000,
+      "idleAnimation": "1s",
+      "mobileRunConfig": {
+        "e": 360,
+        "p": 360,
+        "settle": 650,
+        "t": 360
+      },
+      "selected": "2x",
+      "shootAnimation": "0.32s",
+      "shots": 10
+    },
+    {
+      "bestEver": 10,
+      "buttonDisplay": "none",
+      "effective": 1,
+      "floor": 11,
+      "selected": "2x"
+    }
+  ],
+  "swap": [
+    {
+      "nextEnemyReadyMs": 2077,
+      "speed": "1x"
+    },
+    {
+      "nextEnemyReadyMs": 2083,
+      "speed": "2x"
+    }
+  ]
+}

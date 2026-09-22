@@ -1,0 +1,434 @@
+[
+  {
+    "animEnd": null,
+    "changes": [],
+    "clean": true,
+    "elapsed": 2982.199999988079,
+    "ends": 1,
+    "expected": 2940,
+    "initial": 1,
+    "kind": "transit",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": null,
+    "changes": [],
+    "clean": true,
+    "elapsed": 1502.4000000357628,
+    "ends": 1,
+    "expected": 1470,
+    "initial": 2,
+    "kind": "transit",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 1553.5999999642372,
+    "ends": 1,
+    "expected": 1524.399999976158,
+    "initial": 1,
+    "kind": "transit",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 100.99999999999908,
+          "position": 54.3125,
+          "rate": 2,
+          "sprite": 100.99999999999908
+        },
+        "at": 108.79999995231628,
+        "before": {
+          "current": 100.99999999999908,
+          "position": 54.3125,
+          "rate": 1,
+          "sprite": 100.99999999999908
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 2860.100000023842,
+    "ends": 1,
+    "expected": 2834.699999988079,
+    "initial": 2,
+    "kind": "transit",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 199.99999999998863,
+          "position": 78.3125,
+          "rate": 1,
+          "sprite": 199.99999999998863
+        },
+        "at": 105.30000001192091,
+        "before": {
+          "current": 199.99999999998863,
+          "position": 78.3125,
+          "rate": 2,
+          "sprite": 199.99999999998863
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 1547.199999988079,
+    "ends": 1,
+    "expected": 1525.3499999940395,
+    "initial": 1,
+    "kind": "transit",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 49.999999999954525,
+          "position": 41.9375,
+          "rate": 2,
+          "sprite": 49.999999999954525
+        },
+        "at": 54.69999998807907,
+        "before": {
+          "current": 50.00000000001137,
+          "position": 41.9375,
+          "rate": 1,
+          "sprite": 50.00000000001137
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 116.9999999999618,
+          "position": 58.1875,
+          "rate": 1,
+          "sprite": 116.9999999999618
+        },
+        "at": 100.30000001192091,
+        "before": {
+          "current": 116.9999999999618,
+          "position": 58.1875,
+          "rate": 2,
+          "sprite": 116.9999999999618
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 183.6999999999307,
+          "position": 74.3594,
+          "rate": 2,
+          "sprite": 183.6999999999307
+        },
+        "at": 156.30000001192093,
+        "before": {
+          "current": 183.6999999999875,
+          "position": 74.3594,
+          "rate": 1,
+          "sprite": 183.6999999999875
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 2866.399999976158,
+    "ends": 1,
+    "expected": 2841.400000035763,
+    "initial": 2,
+    "kind": "transit",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 66.80000000005748,
+          "position": 46.0156,
+          "rate": 1,
+          "sprite": 66.80000000005748
+        },
+        "at": 54.19999998807907,
+        "before": {
+          "current": 66.80000000005748,
+          "position": 46.0156,
+          "rate": 2,
+          "sprite": 66.80000000005748
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 133.60000000000127,
+          "position": 62.2188,
+          "rate": 2,
+          "sprite": 133.60000000000127
+        },
+        "at": 108.5,
+        "before": {
+          "current": 133.60000000005812,
+          "position": 62.2188,
+          "rate": 1,
+          "sprite": 133.60000000005812
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 199.799999999982,
+          "position": 78.2656,
+          "rate": 1,
+          "sprite": 199.799999999982
+        },
+        "at": 152.89999997615814,
+        "before": {
+          "current": 199.799999999982,
+          "position": 78.2656,
+          "rate": 2,
+          "sprite": 199.799999999982
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [],
+    "clean": true,
+    "elapsed": 1077.699999988079,
+    "ends": 1,
+    "expected": 1060,
+    "initial": 1,
+    "kind": "opening",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": null,
+    "changes": [],
+    "clean": true,
+    "elapsed": 553.1000000238419,
+    "ends": 1,
+    "expected": 530,
+    "initial": 2,
+    "kind": "opening",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 604.5999999642372,
+    "ends": 1,
+    "expected": 584.1499999761581,
+    "initial": 1,
+    "kind": "opening",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 99.89999999993417,
+          "position": -32.125,
+          "rate": 2,
+          "sprite": 99.89999999993417
+        },
+        "at": 108.29999995231628,
+        "before": {
+          "current": 99.899999999991,
+          "position": -32.125,
+          "rate": 1,
+          "sprite": 99.899999999991
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 973.3000000119208,
+    "ends": 1,
+    "expected": 952.6999999880792,
+    "initial": 2,
+    "kind": "opening",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 166.6000000000167,
+          "position": -16.2344,
+          "rate": 1,
+          "sprite": 166.6000000000167
+        },
+        "at": 107.30000001192091,
+        "before": {
+          "current": 166.6000000000167,
+          "position": -16.2344,
+          "rate": 2,
+          "sprite": 166.6000000000167
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 597.1000000238419,
+    "ends": 1,
+    "expected": 580.0999999940395,
+    "initial": 1,
+    "kind": "opening",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 50.20000000001801,
+          "position": -43.9688,
+          "rate": 2,
+          "sprite": 50.20000000001801
+        },
+        "at": 55.69999998807907,
+        "before": {
+          "current": 50.20000000001801,
+          "position": -43.9688,
+          "rate": 1,
+          "sprite": 50.20000000001801
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 151.2000000000171,
+          "position": -19.9062,
+          "rate": 1,
+          "sprite": 151.2000000000171
+        },
+        "at": 108,
+        "before": {
+          "current": 151.2000000000171,
+          "position": -19.9062,
+          "rate": 2,
+          "sprite": 151.2000000000171
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 183.80000000001928,
+          "position": -12.1406,
+          "rate": 2,
+          "sprite": 183.80000000001928
+        },
+        "at": 152.5,
+        "before": {
+          "current": 183.80000000001928,
+          "position": -12.1406,
+          "rate": 1,
+          "sprite": 183.80000000001928
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 976.5,
+    "ends": 1,
+    "expected": 962.600000023842,
+    "initial": 2,
+    "kind": "opening",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 66.4000000000442,
+          "position": -40.1094,
+          "rate": 1,
+          "sprite": 66.4000000000442
+        },
+        "at": 53.89999997615814,
+        "before": {
+          "current": 66.4000000000442,
+          "position": -40.1094,
+          "rate": 2,
+          "sprite": 66.4000000000442
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 133.40000000005148,
+          "position": -24.1406,
+          "rate": 2,
+          "sprite": 133.40000000005148
+        },
+        "at": 107,
+        "before": {
+          "current": 133.40000000005148,
+          "position": -24.1406,
+          "rate": 1,
+          "sprite": 133.40000000005148
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 199.80000000009568,
+          "position": -8.32812,
+          "rate": 1,
+          "sprite": 199.80000000009568
+        },
+        "at": 150.5,
+        "before": {
+          "current": 199.80000000009568,
+          "position": -8.32812,
+          "rate": 2,
+          "sprite": 199.80000000009568
+        },
+        "jump": 0
+      }
+    ]
+  }
+]

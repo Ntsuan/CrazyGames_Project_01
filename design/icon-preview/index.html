@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>装备图标品质样例（v2.0 候选）</title>
+<style>
+  body { background:#0a0e17; color:#e6edf3; font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+         max-width:860px; margin:0 auto; padding:24px; }
+  h1 { font-size:18px; color:#00F0FF; margin-bottom:4px; }
+  .note { font-size:12px; color:#8b95a7; margin-bottom:20px; }
+  h2 { font-size:13px; color:#8b95a7; margin:22px 0 10px; font-weight:500; }
+  .row { display:flex; gap:14px; flex-wrap:wrap; align-items:flex-end; }
+
+  /* 图标方框：品质 = 边框色 + 底色 */
+  .ib { width:64px; text-align:center; }
+  .ib .box { width:56px; height:56px; border-radius:9px; border:2px solid; margin:0 auto;
+             display:flex; align-items:center; justify-content:center; }
+  .ib .box img { width:44px; height:44px; image-rendering:auto; }
+  .ib .lb { font-size:11px; margin-top:5px; }
+  .ib .sub { font-size:10px; color:#8b95a7; }
+
+  .q-white  .box { border-color:#9aa4b2; background:rgba(154,164,178,.12); }
+  .q-white  .lb { color:#b8c0cc; }
+  .q-green  .box { border-color:#3ddc84; background:rgba(61,220,132,.13); }
+  .q-green  .lb { color:#3ddc84; }
+  .q-blue   .box { border-color:#4aa8ff; background:rgba(74,168,255,.14); }
+  .q-blue   .lb { color:#4aa8ff; }
+  .q-purple .box { border-color:#c07bff; background:rgba(192,123,255,.15); }
+  .q-purple .lb { color:#c07bff; }
+  .q-red    .box { border-color:#ff4d4d; background:rgba(255,77,77,.14); box-shadow:0 0 8px rgba(255,77,77,.35); }
+  .q-red    .lb { color:#ff6b6b; }
+  .q-orange .box { border-color:#ffb020; background:rgba(255,176,32,.16); box-shadow:0 0 10px rgba(255,176,32,.45); }
+  .q-orange .lb { color:#ffb020; }
+  .q-magenta .box { border-color:#ff2a6d; background:rgba(255,42,109,.16); box-shadow:0 0 10px rgba(255,42,109,.45); }
+  .q-magenta .lb { color:#ff2a6d; }
+  .q-immo .box { border-color:#d9fbff; background:rgba(0,240,255,.10); box-shadow:0 0 12px rgba(0,240,255,.55); }
+  .q-immo .lb { color:#d9fbff; }
+</style>
+</head>
+<body>
+<h1>装备图标 · 品质样例</h1>
+<div class="note">方框包裹图标；品质 = 边框色 + 底色（高品质带微光晕）。图标本体不变色，同一素材全品质复用。</div>
+
+<h2>同一图标 × 全品质（以义体武器为例）</h2>
+<div class="row">
+  <div class="ib q-white"><div class="box"><img src="weapon.png"></div><div class="lb">民用</div><div class="sub">攻击 +10%</div></div>
+  <div class="ib q-green"><div class="box"><img src="weapon.png"></div><div class="lb">改装</div><div class="sub">攻击 +25%</div></div>
+  <div class="ib q-blue"><div class="box"><img src="weapon.png"></div><div class="lb">军用</div><div class="sub">攻击 +45%</div></div>
+  <div class="ib q-purple"><div class="box"><img src="weapon.png"></div><div class="lb">原型</div><div class="sub">攻击 +70%</div></div>
+  <div class="ib q-red"><div class="box"><img src="weapon.png"></div><div class="lb">传说</div><div class="sub">攻击 +100%</div></div>
+  <div class="ib q-orange"><div class="box"><img src="weapon.png"></div><div class="lb">神话</div><div class="sub">攻击 +145%</div></div>
+  <div class="ib q-magenta"><div class="box"><img src="weapon.png"></div><div class="lb">永恒</div><div class="sub">攻击 +210%</div></div>
+  <div class="ib q-immo"><div class="box"><img src="weapon.png"></div><div class="lb">不朽</div><div class="sub">攻击 +305%</div></div>
+</div>
+
+<h2>四类部位 × 军用（蓝）—— 图标区分部位、框色区分品质</h2>
+<div class="row">
+  <div class="ib q-blue"><div class="box"><img src="weapon.png"></div><div class="lb">义体武器</div><div class="sub">攻击 +45%</div></div>
+  <div class="ib q-blue"><div class="box"><img src="neural.png"></div><div class="lb">神经插件</div><div class="sub">攻速 +18%</div></div>
+  <div class="ib q-blue"><div class="box"><img src="armor.png"></div><div class="lb">皮下装甲</div><div class="sub">生命 +45%</div></div>
+  <div class="ib q-blue"><div class="box"><img src="chip.png"></div><div class="lb">芯片</div><div class="sub">信用点 +35%</div></div>
+</div>
+
+<h2>已装备槽样式（大图 + 增益数值直接显示在边上）</h2>
+<div class="row">
+  <div class="ib q-orange" style="width:auto">
+    <div style="display:flex;align-items:center;gap:10px;border:2px solid #ffb020;background:rgba(255,176,32,.16);border-radius:10px;padding:8px 14px 8px 8px;box-shadow:0 0 10px rgba(255,176,32,.45)">
+      <img src="weapon.png" style="width:56px;height:56px">
+      <div style="text-align:left">
+        <div style="font-size:13px;color:#ffb020">神话 · 义体武器</div>
+        <div style="font-size:12px;color:#e6edf3">攻击 +145%</div>
+        <div style="font-size:10px;color:#8b95a7">词条：暴击率 +5%</div>
+      </div>
+    </div>
+    <div class="lb" style="color:#8b95a7">已装备</div>
+  </div>
+</div>
+</body>
+</html>

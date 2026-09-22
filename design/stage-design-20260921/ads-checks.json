@@ -1,0 +1,13 @@
+{
+  "allStagesCleared": true,
+  "totalSamples": 25,
+  "crateSpacingAtLeast60Seconds": true,
+  "ordinaryPrestigeDoublesSouls": true,
+  "directPrestigeCheck": {
+    "rawSouls": 25,
+    "previousSouls": 7,
+    "finalSouls": 57,
+    "crateCounterAfter": 0
+  },
+  "advertisingSdkIntegrated": false
+}

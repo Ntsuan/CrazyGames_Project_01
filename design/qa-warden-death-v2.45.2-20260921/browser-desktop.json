@@ -1,0 +1,123 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "passed": 17,
+      "results": [
+        {
+          "detail": [
+            "0px",
+            "-165px",
+            "-330px",
+            "-495px",
+            "-660px",
+            "-825px",
+            "-990px",
+            "-1155px"
+          ],
+          "name": "8 frames sample correctly",
+          "pass": true
+        },
+        {
+          "detail": "url(\"http://127.0.0.1:19447/assets/warden_death_v2.png\")",
+          "name": "new asset used",
+          "pass": true
+        },
+        {
+          "detail": "none",
+          "name": "no mirror or rotation",
+          "pass": true
+        },
+        {
+          "detail": "wardenDie",
+          "name": "ordinary floor 1 uses repaired death",
+          "pass": true
+        },
+        {
+          "detail": "wardenDie",
+          "name": "ordinary floor 5 uses repaired death",
+          "pass": true
+        },
+        {
+          "detail": "wardenDie",
+          "name": "ordinary floor 9 uses repaired death",
+          "pass": true
+        },
+        {
+          "detail": "wardenDie",
+          "name": "ordinary floor 11 uses repaired death",
+          "pass": true
+        },
+        {
+          "detail": "wardenDie",
+          "name": "ordinary floor 99 uses repaired death",
+          "pass": true
+        },
+        {
+          "detail": "url(\"http://127.0.0.1:19447/assets/prism_death.png\")",
+          "name": "milestone 10 keeps original death",
+          "pass": true
+        },
+        {
+          "detail": "url(\"http://127.0.0.1:19447/assets/tianshu_death.png\")",
+          "name": "milestone 100 keeps original death",
+          "pass": true
+        },
+        {
+          "detail": {
+            "elapsed": 846.3000000119209,
+            "entries": 0,
+            "opacity": "1",
+            "position": "-1155px"
+          },
+          "name": "1x full death before floor transition",
+          "pass": true
+        },
+        {
+          "detail": {
+            "entries": 1,
+            "opacity": "0"
+          },
+          "name": "1x fades and advances once",
+          "pass": true
+        },
+        {
+          "detail": {
+            "elapsed": 407.199999988079,
+            "entries": 0,
+            "opacity": "1",
+            "position": "-1155px"
+          },
+          "name": "2x full death before floor transition",
+          "pass": true
+        },
+        {
+          "detail": {
+            "entries": 1,
+            "opacity": "0"
+          },
+          "name": "2x fades and advances once",
+          "pass": true
+        },
+        {
+          "name": "mid-death speed change preserves animation",
+          "pass": true
+        },
+        {
+          "name": "mid-death speed change finishes at last frame",
+          "pass": true
+        },
+        {
+          "detail": 0,
+          "name": "reset cancels stale floor transition",
+          "pass": true
+        }
+      ],
+      "total": 17,
+      "viewport": {
+        "h": 800,
+        "w": 1280
+      }
+    }
+  }
+}

@@ -1,0 +1,800 @@
+[
+  {
+    "id": "B01",
+    "name": "首屏版本与完整资源",
+    "status": "PASS",
+    "evidence": {
+      "hidden": false,
+      "title": "霓虹猎手 v2.30.11",
+      "version": "v2.30.11"
+    }
+  },
+  {
+    "id": "B02",
+    "name": "音效设置写入存档",
+    "status": "PASS",
+    "evidence": {
+      "sfx": false
+    }
+  },
+  {
+    "id": "B03",
+    "name": "取消清档保留进度",
+    "status": "PASS",
+    "evidence": {
+      "floor": 1,
+      "sfx": false
+    }
+  },
+  {
+    "id": "B04",
+    "name": "自然开局可自动战斗",
+    "status": "PASS",
+    "evidence": {
+      "bg": "url(\"assets/arena-bg2.webp\")",
+      "enemyHp": 15,
+      "floor": 1,
+      "hp": 98.4766525,
+      "paused": false,
+      "transit": false
+    }
+  },
+  {
+    "id": "B05",
+    "name": "补给及升级点击生效",
+    "status": "PASS",
+    "evidence": {
+      "atkLv": 1,
+      "gold": 132
+    }
+  },
+  {
+    "id": "B06",
+    "name": "暂停时触摸监听数量保持稳定",
+    "status": "FAIL",
+    "evidence": {
+      "before": 11365,
+      "after": 11947,
+      "elapsedMs": 3000,
+      "paused": true
+    }
+  },
+  {
+    "id": "B07",
+    "name": "正常换层满血不回退",
+    "status": "PASS",
+    "evidence": {
+      "before": 33,
+      "peak": 100,
+      "final": {
+        "floor": 2,
+        "hp": 98.4806458750001,
+        "mob": 0,
+        "paused": false,
+        "savedHp": 100,
+        "t": 72978.19999998808,
+        "transit": false
+      },
+      "max": 100
+    }
+  },
+  {
+    "id": "B08",
+    "name": "手机尺寸换层满血不回退",
+    "status": "FAIL",
+    "evidence": {
+      "peak": 145,
+      "final": {
+        "floor": 2,
+        "hp": 32.50406249999999,
+        "paused": false,
+        "saved": 33,
+        "t": 99201.59999996424,
+        "transit": false
+      },
+      "start": {
+        "floor": 2,
+        "hp": 33,
+        "paused": true,
+        "saved": 33,
+        "t": 95202.69999998808,
+        "transit": false
+      }
+    }
+  },
+  {
+    "id": "B09",
+    "name": "死亡重塑后新局能正常生存",
+    "status": "PASS",
+    "evidence": {
+      "immediate": {
+        "hp": 0,
+        "persisted": 0,
+        "prestiges": 1,
+        "souls": 15
+      },
+      "after": {
+        "floor": 1,
+        "hp": 97.585345,
+        "paused": false,
+        "souls": 15,
+        "wall": false
+      }
+    }
+  },
+  {
+    "id": "B10",
+    "name": "完整读档流程保持首怪血量及装备",
+    "status": "PASS",
+    "evidence": {
+      "hp": 31.62172500000003,
+      "quality": 2
+    }
+  },
+  {
+    "id": "B11",
+    "name": "自动保存发生在重塑跑入期仍能恢复满血",
+    "status": "FAIL",
+    "evidence": {
+      "first": {
+        "hp": 0,
+        "paused": true,
+        "saved": null,
+        "t": 24602.10000002384,
+        "wall": false
+      },
+      "last": {
+        "hp": -0.0284625,
+        "paused": true,
+        "saved": 0,
+        "t": 26802,
+        "wall": true
+      }
+    }
+  },
+  {
+    "id": "B12",
+    "name": "立即进入读档不额外回满血",
+    "status": "FAIL",
+    "evidence": {
+      "hp": 98.82096250000004,
+      "saved": 100,
+      "t": 1907.699999988079
+    }
+  },
+  {
+    "id": "B13",
+    "name": "Boss死亡期间确认复位取消旧技能弹窗",
+    "status": "PASS",
+    "evidence": {
+      "floor": 1,
+      "skillOfferOpen": false
+    }
+  },
+  {
+    "id": "B14",
+    "name": "同帧击杀不会被死敌反击",
+    "status": "PASS",
+    "evidence": {
+      "floor": 2,
+      "hp": 109.07418387500002,
+      "paused": false,
+      "wall": false
+    }
+  },
+  {
+    "id": "B15",
+    "name": "十层技能文本及图标",
+    "status": "PASS",
+    "evidence": {
+      "picks": [
+        "blackmarket",
+        "fire",
+        "resonance"
+      ],
+      "text": "神经技能 · 三选一\n\n突破第 10 层！选择一项属性强化\n\n黑市渠道\n信用点 +30%\n火力协议\n攻击 +25%\n碎片共鸣\nBoss 碎片掉落 +10%"
+    }
+  },
+  {
+    "id": "B16",
+    "name": "刷新后技能候选保持一致",
+    "status": "PASS",
+    "evidence": [
+      "blackmarket",
+      "fire",
+      "resonance"
+    ]
+  },
+  {
+    "id": "B17",
+    "name": "恢复技能选择显示完成楼层",
+    "status": "FAIL",
+    "evidence": "神经技能 · 三选一\n\n突破第 11 层！选择一项属性强化\n\n黑市渠道\n信用点 +30%\n火力协议\n攻击 +25%\n碎片共鸣\nBoss 碎片掉落 +10%"
+  },
+  {
+    "id": "B18",
+    "name": "选择技能入账并清空待选状态",
+    "status": "PASS",
+    "evidence": {
+      "pending": null,
+      "skills": [
+        "fire"
+      ]
+    }
+  },
+  {
+    "id": "B19",
+    "name": "单次低阶合成保留更高装备",
+    "status": "PASS",
+    "evidence": {
+      "equipped": 5,
+      "inventory": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "toast": "合成完成（已装备升阶）"
+    }
+  },
+  {
+    "id": "B20",
+    "name": "低阶合成提示与实际装备变化一致",
+    "status": "FAIL",
+    "evidence": "合成完成（已装备升阶）"
+  },
+  {
+    "id": "B21",
+    "name": "拆解立即更新存档和界面",
+    "status": "PASS",
+    "evidence": {
+      "gold": 66,
+      "inv": [
+        {
+          "q": 1,
+          "slot": "weapon"
+        }
+      ]
+    }
+  },
+  {
+    "id": "B22",
+    "name": "天枢蓄力主炮与恢复相位",
+    "status": "PASS",
+    "evidence": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "L320",
+    "name": "页面宽度适配 320×568",
+    "status": "PASS",
+    "evidence": {
+      "buttons": [
+        {
+          "right": 71.671875,
+          "text": "🔄 复位",
+          "x": 10
+        },
+        {
+          "right": 163.34375,
+          "text": "⏹️ 结束测试",
+          "x": 79.671875
+        },
+        {
+          "right": 233.015625,
+          "text": "📋 日志",
+          "x": 171.34375
+        },
+        {
+          "right": 297,
+          "text": "攻击 Lv.0 → Lv.1\n攻击 8 → 8.",
+          "x": 8
+        },
+        {
+          "right": 297,
+          "text": "生命 Lv.0 → Lv.1\n生命 100 → ",
+          "x": 8
+        },
+        {
+          "right": 297,
+          "text": "伤害增幅 Lv.0 → Lv.1\n攻击力增加 +",
+          "x": 8
+        },
+        {
+          "right": 297,
+          "text": "信用点优化 Lv.0 → Lv.1\n信用点增加 ",
+          "x": 8
+        },
+        {
+          "right": 297,
+          "text": "灵魂共鸣 Lv.0 → Lv.1\n碎片掉落增加 ",
+          "x": 8
+        },
+        {
+          "right": 297,
+          "text": "开补给箱\n观看广告领取",
+          "x": 8
+        },
+        {
+          "right": 596.1101684570312,
+          "text": "收起 ✕",
+          "x": 536.9539184570312
+        }
+      ],
+      "h": 568,
+      "scroll": 305,
+      "w": 320
+    }
+  },
+  {
+    "id": "L390",
+    "name": "页面宽度适配 390×844",
+    "status": "PASS",
+    "evidence": {
+      "buttons": [
+        {
+          "right": 71.671875,
+          "text": "🔄 复位",
+          "x": 10
+        },
+        {
+          "right": 163.34375,
+          "text": "⏹️ 结束测试",
+          "x": 79.671875
+        },
+        {
+          "right": 233.015625,
+          "text": "📋 日志",
+          "x": 171.34375
+        },
+        {
+          "right": 367,
+          "text": "攻击 Lv.0 → Lv.1\n攻击 8 → 8.",
+          "x": 8
+        },
+        {
+          "right": 367,
+          "text": "生命 Lv.0 → Lv.1\n生命 100 → ",
+          "x": 8
+        },
+        {
+          "right": 367,
+          "text": "伤害增幅 Lv.0 → Lv.1\n攻击力增加 +",
+          "x": 8
+        },
+        {
+          "right": 367,
+          "text": "信用点优化 Lv.0 → Lv.1\n信用点增加 ",
+          "x": 8
+        },
+        {
+          "right": 367,
+          "text": "灵魂共鸣 Lv.0 → Lv.1\n碎片掉落增加 ",
+          "x": 8
+        },
+        {
+          "right": 367,
+          "text": "开补给箱\n观看广告领取",
+          "x": 8
+        },
+        {
+          "right": 733.7366943359375,
+          "text": "收起 ✕",
+          "x": 674.5804443359375
+        }
+      ],
+      "h": 844,
+      "scroll": 375,
+      "w": 390
+    }
+  },
+  {
+    "id": "L430",
+    "name": "页面宽度适配 430×932",
+    "status": "PASS",
+    "evidence": {
+      "buttons": [
+        {
+          "right": 71.671875,
+          "text": "🔄 复位",
+          "x": 10
+        },
+        {
+          "right": 163.34375,
+          "text": "⏹️ 结束测试",
+          "x": 79.671875
+        },
+        {
+          "right": 233.015625,
+          "text": "📋 日志",
+          "x": 171.34375
+        },
+        {
+          "right": 407,
+          "text": "攻击 Lv.0 → Lv.1\n攻击 8 → 8.",
+          "x": 8
+        },
+        {
+          "right": 407,
+          "text": "生命 Lv.0 → Lv.1\n生命 100 → ",
+          "x": 8
+        },
+        {
+          "right": 407,
+          "text": "伤害增幅 Lv.0 → Lv.1\n攻击力增加 +",
+          "x": 8
+        },
+        {
+          "right": 407,
+          "text": "信用点优化 Lv.0 → Lv.1\n信用点增加 ",
+          "x": 8
+        },
+        {
+          "right": 407,
+          "text": "灵魂共鸣 Lv.0 → Lv.1\n碎片掉落增加 ",
+          "x": 8
+        },
+        {
+          "right": 407,
+          "text": "开补给箱\n观看广告领取",
+          "x": 8
+        },
+        {
+          "right": 775,
+          "text": "收起 ✕",
+          "x": 715.84375
+        }
+      ],
+      "h": 932,
+      "scroll": 415,
+      "w": 430
+    }
+  },
+  {
+    "id": "L844",
+    "name": "页面宽度适配 844×390",
+    "status": "PASS",
+    "evidence": {
+      "buttons": [
+        {
+          "right": 653.65625,
+          "text": "🔄 复位",
+          "x": 591.984375
+        },
+        {
+          "right": 745.328125,
+          "text": "⏹️ 结束测试",
+          "x": 661.65625
+        },
+        {
+          "right": 815,
+          "text": "📋 日志",
+          "x": 753.328125
+        },
+        {
+          "right": 817,
+          "text": "攻击 Lv.0 → Lv.1\n攻击 8 → 8.",
+          "x": 12
+        },
+        {
+          "right": 817,
+          "text": "生命 Lv.0 → Lv.1\n生命 100 → ",
+          "x": 12
+        },
+        {
+          "right": 817,
+          "text": "伤害增幅 Lv.0 → Lv.1\n攻击力增加 +",
+          "x": 12
+        },
+        {
+          "right": 817,
+          "text": "信用点优化 Lv.0 → Lv.1\n信用点增加 ",
+          "x": 12
+        },
+        {
+          "right": 817,
+          "text": "灵魂共鸣 Lv.0 → Lv.1\n碎片掉落增加 ",
+          "x": 12
+        },
+        {
+          "right": 817,
+          "text": "开补给箱\n观看广告领取",
+          "x": 12
+        },
+        {
+          "right": 1189,
+          "text": "收起 ✕",
+          "x": 1129.84375
+        }
+      ],
+      "h": 390,
+      "scroll": 829,
+      "w": 844
+    }
+  },
+  {
+    "id": "L768",
+    "name": "页面宽度适配 768×1024",
+    "status": "PASS",
+    "evidence": {
+      "buttons": [
+        {
+          "right": 577.65625,
+          "text": "🔄 复位",
+          "x": 515.984375
+        },
+        {
+          "right": 669.328125,
+          "text": "⏹️ 结束测试",
+          "x": 585.65625
+        },
+        {
+          "right": 739,
+          "text": "📋 日志",
+          "x": 677.328125
+        },
+        {
+          "right": 741,
+          "text": "攻击 Lv.0 → Lv.1\n攻击 8 → 8.",
+          "x": 12
+        },
+        {
+          "right": 741,
+          "text": "生命 Lv.0 → Lv.1\n生命 100 → ",
+          "x": 12
+        },
+        {
+          "right": 741,
+          "text": "伤害增幅 Lv.0 → Lv.1\n攻击力增加 +",
+          "x": 12
+        },
+        {
+          "right": 741,
+          "text": "信用点优化 Lv.0 → Lv.1\n信用点增加 ",
+          "x": 12
+        },
+        {
+          "right": 741,
+          "text": "灵魂共鸣 Lv.0 → Lv.1\n碎片掉落增加 ",
+          "x": 12
+        },
+        {
+          "right": 741,
+          "text": "开补给箱\n观看广告领取",
+          "x": 12
+        },
+        {
+          "right": 1113,
+          "text": "收起 ✕",
+          "x": 1053.84375
+        }
+      ],
+      "h": 1024,
+      "scroll": 753,
+      "w": 768
+    }
+  },
+  {
+    "id": "L1440",
+    "name": "页面宽度适配 1440×900",
+    "status": "PASS",
+    "evidence": {
+      "buttons": [
+        {
+          "right": 1017.15625,
+          "text": "🔄 复位",
+          "x": 955.484375
+        },
+        {
+          "right": 1108.828125,
+          "text": "⏹️ 结束测试",
+          "x": 1025.15625
+        },
+        {
+          "right": 1178.5,
+          "text": "📋 日志",
+          "x": 1116.828125
+        },
+        {
+          "right": 1180.5,
+          "text": "攻击 Lv.0 → Lv.1\n攻击 8 → 8.",
+          "x": 244.5
+        },
+        {
+          "right": 1180.5,
+          "text": "生命 Lv.0 → Lv.1\n生命 100 → ",
+          "x": 244.5
+        },
+        {
+          "right": 1180.5,
+          "text": "伤害增幅 Lv.0 → Lv.1\n攻击力增加 +",
+          "x": 244.5
+        },
+        {
+          "right": 1180.5,
+          "text": "信用点优化 Lv.0 → Lv.1\n信用点增加 ",
+          "x": 244.5
+        },
+        {
+          "right": 1180.5,
+          "text": "灵魂共鸣 Lv.0 → Lv.1\n碎片掉落增加 ",
+          "x": 244.5
+        },
+        {
+          "right": 1180.5,
+          "text": "开补给箱\n观看广告领取",
+          "x": 244.5
+        },
+        {
+          "right": 1785,
+          "text": "收起 ✕",
+          "x": 1725.84375
+        }
+      ],
+      "h": 900,
+      "scroll": 1425,
+      "w": 1440
+    }
+  },
+  {
+    "id": "B23",
+    "name": "小屏技能弹窗与按钮可见",
+    "status": "PASS",
+    "evidence": {
+      "height": 844,
+      "rect": {
+        "bottom": 613.046875,
+        "height": 382.09375,
+        "left": 15,
+        "right": 360,
+        "top": 230.953125,
+        "width": 345,
+        "x": 15,
+        "y": 230.953125
+      },
+      "width": 390
+    }
+  },
+  {
+    "id": "B24",
+    "name": "320宽技能弹窗完整可见",
+    "status": "PASS",
+    "evidence": {
+      "bottom": 475.046875,
+      "height": 382.09375,
+      "left": 12.203125,
+      "right": 292.796875,
+      "top": 92.953125,
+      "width": 280.59375,
+      "x": 12.203125,
+      "y": 92.953125
+    }
+  },
+  {
+    "id": "B25",
+    "name": "加成树消费并增强属性",
+    "status": "PASS",
+    "evidence": {
+      "atk": 8.4,
+      "souls": 9,
+      "tree": {
+        "dmg": 1,
+        "gold": 0,
+        "soul": 0
+      }
+    }
+  },
+  {
+    "id": "B26",
+    "name": "日志抽屉包含本版本事件",
+    "status": "PASS",
+    "evidence": "▶ 当前段 S02 v2.30.11\n时长 1.9 分钟 · 事件 11 条 · 已过 2 层\n💾 存到文件夹 CSV"
+  },
+  {
+    "id": "B27",
+    "name": "封面悬停不变且按下位移",
+    "status": "PASS",
+    "evidence": {
+      "normal": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "shadow": "rgba(0, 217, 246, 0.17) 0px 0px 28px 0px, rgba(186, 250, 255, 0.61) 0px 1px 0px 0px inset",
+        "transform": "none"
+      },
+      "hover": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "shadow": "rgba(0, 217, 246, 0.17) 0px 0px 28px 0px, rgba(186, 250, 255, 0.61) 0px 1px 0px 0px inset",
+        "transform": "none"
+      },
+      "pressed": "matrix(1, 0, 0, 1, 0, 3)"
+    }
+  },
+  {
+    "id": "B28",
+    "name": "合成触摸事件可触发反馈并取消（非真机）",
+    "status": "PASS",
+    "evidence": {
+      "pressed": true,
+      "released": true
+    }
+  },
+  {
+    "id": "B29",
+    "name": "音频资源解码及播放请求",
+    "status": "PASS",
+    "evidence": [
+      {
+        "ready": 4,
+        "time": 0
+      },
+      {
+        "ready": 4,
+        "time": 0.041633
+      },
+      {
+        "ready": 4,
+        "time": 0
+      }
+    ]
+  },
+  {
+    "id": "B30",
+    "name": "存储配额异常后动画主循环仍运行",
+    "status": "PASS",
+    "evidence": {
+      "frameAge": 10.400000011919474,
+      "toast": "存档写入失败（存储空间不足）"
+    }
+  },
+  {
+    "id": "B31",
+    "name": "等待确认复位期间弹窗不被旧技能回调替换",
+    "status": "FAIL",
+    "evidence": "神经技能 · 三选一\n\n中继站接入完成！选择一项技能强化\n\n猎手直觉\n破盾后攻速 +25%，持续 4 秒\n困兽协议\n生命低于 30% 时伤害 +40%\n肾上腺素\n生命低于 50% 时攻速 +30%"
+  },
+  {
+    "id": "B32",
+    "name": "测试段封存并建立新段",
+    "status": "PASS",
+    "evidence": {
+      "current": "S03",
+      "sealed": "S02",
+      "toast": "未授权文件夹，已改为浏览器下载：neonhunter_v2.30.11_S02_20260920-105648.json",
+      "version": "v2.30.11"
+    }
+  },
+  {
+    "id": "B33",
+    "name": "楼层CSV和JSON内容生成",
+    "status": "PASS",
+    "evidence": {
+      "note": "内容由测试工具归档；浏览器原生下载落盘未确认"
+    }
+  },
+  {
+    "id": "B34",
+    "name": "里程碑存档重新进入背景匹配楼层",
+    "status": "PASS",
+    "evidence": {
+      "bg": "url(\"assets/arena-bg4.webp\")",
+      "expected": "assets/arena-bg4.webp",
+      "floor": 10
+    }
+  }
+]

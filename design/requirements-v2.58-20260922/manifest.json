@@ -1,0 +1,46 @@
+{
+  "version": "v2.58",
+  "author": "Codex",
+  "sourceSHA256": "f5235fe0f4ed732d4081abcc964dd9878b1ae72e601ad24d31e839c24df07bf0",
+  "cssSHA256": "11f178c35e1ebc25cf1114eefd123e17c843a6caa5c760d27c5099f6aea758dd",
+  "baselineSHA256": "ad8737b2fd530b08d19131d38777b81291cdb415bbf0da2aec2a61ceaf3d8bed",
+  "syntax": "PASS",
+  "snapshotByteIdentical": true,
+  "suites": {
+    "timed": {
+      "passed": 42,
+      "total": 42
+    },
+    "stage": {
+      "passed": 40,
+      "total": 40
+    },
+    "shield": {
+      "passed": 28,
+      "total": 28
+    },
+    "removal": {
+      "passed": 14,
+      "total": 14
+    },
+    "requirements": {
+      "passed": 58,
+      "total": 58
+    },
+    "modes": {
+      "passed": 37,
+      "total": 37
+    },
+    "baseline-core": {
+      "version": "v2.57",
+      "passed": 75,
+      "count": 76
+    },
+    "final-core": {
+      "version": "v2.58",
+      "passed": 75,
+      "count": 76
+    }
+  },
+  "published": false
+}

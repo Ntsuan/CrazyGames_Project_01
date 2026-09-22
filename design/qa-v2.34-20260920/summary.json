@@ -1,0 +1,19 @@
+{
+  "version": "v2.34",
+  "originalCases": "74/74 PASS",
+  "core": {
+    "total": 76,
+    "pass": 75,
+    "fail": 1
+  },
+  "browser": {
+    "total": 19,
+    "pass": 18,
+    "fail": 1
+  },
+  "issues": {
+    "P3": 1
+  },
+  "sourceChanged": [],
+  "sourceHash": "e156c0e26ab0e6ebf4369a982e8454c68f5f93a29d2565ebc0efd55d28a18e72"
+}

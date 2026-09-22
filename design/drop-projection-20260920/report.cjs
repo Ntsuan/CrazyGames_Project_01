@@ -1,0 +1,82 @@
+const fs=require('node:fs'),path=require('node:path');
+const r=JSON.parse(fs.readFileSync(path.join(__dirname,'results.json'),'utf8'));
+const [keep,salvage,noFuse]=r.scenarios;
+const fast=JSON.parse(fs.readFileSync(path.join(__dirname,'crosscheck-10000.json'),'utf8'));
+const validation=JSON.parse(fs.readFileSync(path.join(__dirname,`crosscheck-${r.trials}.json`),'utf8'));
+for(let q=0;q<10;q++)for(const k of ['any','weapon','all']){
+ if(JSON.stringify(keep.rows[q][k])!==JSON.stringify(validation[q][k]))throw Error(`Crosscheck mismatch: q${q} ${k}`);
+}
+const primary=fast.map((x,i)=>({...x,name:keep.rows[i].name}));
+const names=keep.rows.map(x=>x.name);
+const range=s=>`${s.p10}–${s.p90}`;
+const lines=[
+'# 当前掉落与装备品质楼层推演',
+'',
+`代码版本：${r.version}；分析日期：2026-09-20。主结果为 10,000 个随机样本；另用原游戏函数对三种策略各执行 ${r.trials.toLocaleString()} 个样本。`,
+`代码 SHA-256：\`${r.sourceSha256}\`。`,
+'',
+'## 方法与边界',
+'',
+'直接从 game/index.html 提取并执行 dropBand、rollQuality、weighted、dropRoll、fuseInfo、fuseSlot、salvageInfo、salvage 和品质/词条配置，仅替换 UI、保存与日志副作用。使用固定种子，随机调用保持原掉落函数的先后顺序；未复现浏览器中战斗和特效消耗的随机序列，因此是分布推演，不是某个实际存档的轨迹。',
+'',
+`主情景另以三进制材料守恒模型扩大至 10,000 样本：q 阶装备折算 3^q 单位，及时合成不会改变同部位材料总量。该模型仍直接调用原代码的 rollQuality。与原游戏函数使用前 ${r.trials} 个相同种子对照，10 档品质 × 第一件/固定部位/四部位齐的均值、P10/P50/P90 和样本数全部一致。`,
+'',
+'从第 1 层空装备开始，每层击杀 5 个小怪和 1 个 Boss。除“不合成”对照外，每次掉落后反复执行合成，直到四个部位均无可合成配方。游戏本身需要玩家逐次点击，本模型假设操作及时。保留所有材料作为主情景，并对比每层末拆解过期材料。',
+'',
+'不模拟战斗能否获胜、死亡、时间、重塑或刷新刷层。所有高层结论均以本轮能持续推进为前提。重塑会清空身上和背包装备，不能跨轮累积装备。补给箱当前只给信用点，无直接装备奖励。',
+'',
+'“第一件”指任一部位首次达到该品质或更高；“固定部位”取武器，其他部位同分布；“四部位齐”指四个部位全部达到该品质或更高，并非必须恰好穿该品质。低品质可能直接跳过。楼层记为获得掉落的当前层，尚未转入下一层。P10–P90 是覆盖中间约 80% 样本的区间，不是最早/最晚保证，也不是置信区间。',
+'',
+'## 及时合成、保留材料',
+'',
+'| 品质 | 第一件中位楼层 | 第一件 P10–P90 | 固定部位中位楼层 | 固定部位 P10–P90 | 四部位齐中位楼层 | 四部位齐 P10–P90 |',
+'|---|---:|---|---:|---|---:|---|',
+...primary.map(x=>`| ${x.name} q${x.q} | ${x.any.p50} | ${range(x.any)} | ${x.weapon.p50} | ${range(x.weapon)} | ${x.all.p50} | ${range(x.all)} |`),
+'',
+'## 每层末拆解过期材料的影响',
+'',
+`以下使用原函数各 ${r.trials} 样本。`,
+'',
+'| 品质 | 保留材料：第一件/四部位中位数 | 拆解过期材料：第一件/四部位中位数 |',
+'|---|---|---|',
+...keep.rows.map((x,i)=>`| ${x.name} | ${x.any.p50} / ${x.all.p50} | ${salvage.rows[i].any.p50} / ${salvage.rows[i].all.p50} |`),
+'',
+'## 各层通关后，四个部位合并的穿戴品质占比',
+'',
+'此处比例是所有样本的部位占比，不是整套拥有率。',
+'',
+'| 楼层 | 品质占比（忽略不足 0.1% 的项） |',
+'|---|---|',
+...Object.entries(keep.snapshots).map(([f,ps])=>`| ${f} | ${ps.map((p,q)=>p>=.001?`${names[q]} ${(100*p).toFixed(1)}%`:null).filter(Boolean).join('；')} |`),
+'',
+'## 不合成对照',
+'',
+'仅模拟至第 100 层；未达到目标的样本不进入条件分位数。自然掉落最高 q5，因此 q6–q9 永远无法单靠掉落获得。',
+'',
+'| 品质 | 第一件中位楼层 | 达到样本数 | 四部位齐中位楼层（仅达到者） | 达到样本数 |',
+'|---|---:|---:|---:|---:|',
+...noFuse.rows.slice(0,6).map(x=>`| ${x.name} | ${x.any.p50} | ${x.any.n} | ${x.all.p50} | ${x.all.n} |`),
+'',
+'## 概率与合成链解释',
+'',
+'每层期望掉落量为 5×25%+1=2.25 件，四个部位各占 25%，固定部位平均每层 0.5625 件。',
+'',
+'保底计数在实际掉出装备时推进，由四个部位和小怪/Boss共用；跨楼层及楼层区间不重置，重塑重置。最高档基础概率 p=6% 时，长期最高档占比为 p/[1−(1−p)^11]≈12.153%。这是稳定在同一楼层档位后的长期比例。',
+'',
+'75 层以后，以原型 q5 折算同部位材料，长期平均每层约 0.16532 件原型等价量。传说/神话/永恒/不朽分别需要 3/9/27/81 件同部位原型等价量。因此越到后面，同部位再升一阶需要的材料约变为三倍，且 75 层后掉落不再继续升档。',
+'',
+'历史完整战斗仿真（v2.24.20）首轮卡点中位数 20 层，旧真人 S61 为 22 层；它们不是当前版本复测结果。本报告只评估装备供给，不把高品质供给楼层等同于当前玩家实际可达楼层。',
+'',
+'## 复现',
+'',
+'```sh',
+'node design/drop-projection-20260920/project.cjs 1000',
+'node design/drop-projection-20260920/crosscheck.cjs 1000',
+'node design/drop-projection-20260920/crosscheck.cjs 10000',
+'node design/drop-projection-20260920/report.cjs',
+'```',
+'',
+'原始统计见 results.json，游戏实现和玩家存档未修改。',
+];
+fs.writeFileSync(path.join(__dirname,'装备获得楼层推演.md'),lines.join('\n')+'\n');
+console.log('Crosscheck passed; report written.');

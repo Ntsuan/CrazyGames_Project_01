@@ -1,0 +1,34 @@
+diff --git a/design/qa-loading-v2.45-20260921/baseline/start-screen.css b/game/assets/start-screen/start-screen.css
+index 60f46a4..ef41f24 100644
+--- a/design/qa-loading-v2.45-20260921/baseline/start-screen.css
++++ b/game/assets/start-screen/start-screen.css
+@@ -73,3 +73,29 @@
+   #cover .c-foot { bottom:12px; font-size:9px; }
+ }
+ @media (prefers-reduced-motion:reduce) { #cover,#cover .c-btn { transition:none; } }
++
++/* v2.45：加载信息是平面内容；仅失败重试为立体操作按钮。 */
++body.booting { overflow:hidden; }
++#cover [hidden] { display:none!important; }
++#cover.loading .c-kicker,#cover.loading .c-rule,#cover.loading .c-slogan,
++#cover.loading .c-btn,#cover.loading .c-gear,#cover.loading .c-settings { display:none; }
++#cover .c-loading { width:100%; max-width:480px; margin-top:38px; padding:24px;
++  background:#17202beF; border:1px solid #3c4b5a; border-radius:5px; box-shadow:none; text-align:left; outline:none; }
++#cover .c-loading h2 { margin:0 0 18px; color:#e6edf3; font-size:24px; font-weight:700; letter-spacing:1px; }
++#cover .c-progress-row { display:flex; align-items:center; gap:16px; }
++#cover .c-progress { flex:1; min-width:0; height:12px; border:1px solid #466171; background:#0c1520; border-radius:3px; }
++#cover #loadingFill { width:0; height:100%; background:#00d5eb; border-radius:2px; box-shadow:0 0 8px #00d5eb30; }
++#cover #loadingPercent { width:3.5ch; flex:none; color:#e6edf3; font-size:22px; font-weight:700; font-variant-numeric:tabular-nums; }
++#cover #loadingStatus { margin:16px 0 0; color:#aab9cb; font-size:14px; line-height:1.5; }
++#cover #btnLoadRetry { margin:20px 0 4px; min-width:112px; }
++@media (max-width:700px) and (orientation:portrait) {
++  #cover .c-loading { margin-top:28px; padding:20px 18px; }
++  #cover .c-loading h2 { font-size:20px; margin-bottom:16px; }
++  #cover #loadingPercent { font-size:20px; }
++  #cover #loadingStatus { font-size:12px; }
++}
++@media (max-height:540px) and (orientation:landscape) {
++  #cover .c-loading { margin-top:20px; padding:16px; }
++  #cover .c-loading h2 { font-size:18px; margin-bottom:10px; }
++  #cover #loadingStatus { margin-top:10px; font-size:12px; }
++}

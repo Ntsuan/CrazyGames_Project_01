@@ -1,0 +1,668 @@
+{
+  "mode": "candidates",
+  "version": "v2.43",
+  "sourceSha256": "6e4d49a9f9217a8f25f4a48241a440865a387c5f690429e33a3035865bdf3845",
+  "assumptions": [
+    "Only disposable VM overrides: initial attack/HP multiplier, optional costGrowth, optional gatePreset (100-layer boss HP8/ATK2/shield0.8)",
+    "No crates or ad double souls",
+    "Stage entry: empty gear, zero tree and souls, no carried currency",
+    "Actual combat and skill/gear functions, 30fps virtual clock, actions every 2 seconds",
+    "Upgrade cost bias attack:HP = 1.5; fixed skill priority",
+    "Cycles mode: deaths use existing prestige within the same stage; buy tree toward dmg:gold:soul=2:2:1",
+    "Clear100 means floor becomes101; no actual stage transition implementation",
+    "Three-seed candidate screen; one-seed cycle diagnostic, not population estimates"
+  ],
+  "results": [
+    {
+      "mult": 1,
+      "seed": 1,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 20,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 12.124444444448343,
+          "atkLv": 19,
+          "hpLv": 17,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 20,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 2,
+            "chip": 2
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 21824
+    },
+    {
+      "mult": 1,
+      "seed": 2,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 18,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 13.941666666672681,
+          "atkLv": 18,
+          "hpLv": 17,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 19,
+          "gear": {
+            "weapon": 1,
+            "implant": 1,
+            "armor": 2,
+            "chip": 3
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 25095
+    },
+    {
+      "mult": 1,
+      "seed": 3,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 20,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 12.532777777782153,
+          "atkLv": 19,
+          "hpLv": 18,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 21,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 22559
+    },
+    {
+      "mult": 2,
+      "seed": 1,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 37,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 19.648333333332584,
+          "atkLv": 30,
+          "hpLv": 29,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 51,
+          "gear": {
+            "weapon": 4,
+            "implant": 4,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 35367
+    },
+    {
+      "mult": 2,
+      "seed": 2,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 39,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 22.106666666660193,
+          "atkLv": 32,
+          "hpLv": 30,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 55,
+          "gear": {
+            "weapon": 4,
+            "implant": 4,
+            "armor": 4,
+            "chip": 3
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 39792
+    },
+    {
+      "mult": 2,
+      "seed": 3,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 39,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 21.984444444438257,
+          "atkLv": 32,
+          "hpLv": 30,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 55,
+          "gear": {
+            "weapon": 4,
+            "implant": 4,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 39572
+    },
+    {
+      "mult": 4,
+      "seed": 1,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 49,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 22.96999999999152,
+          "atkLv": 38,
+          "hpLv": 37,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 78,
+          "gear": {
+            "weapon": 4,
+            "implant": 4,
+            "armor": 4,
+            "chip": 4
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 41346
+    },
+    {
+      "mult": 4,
+      "seed": 2,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 50,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 23.07055555554684,
+          "atkLv": 39,
+          "hpLv": 38,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 80,
+          "gear": {
+            "weapon": 4,
+            "implant": 4,
+            "armor": 4,
+            "chip": 4
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 41527
+    },
+    {
+      "mult": 4,
+      "seed": 3,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 54,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 27.448888888869977,
+          "atkLv": 42,
+          "hpLv": 41,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 93,
+          "gear": {
+            "weapon": 4,
+            "implant": 4,
+            "armor": 5,
+            "chip": 5
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 49408
+    },
+    {
+      "mult": 8,
+      "seed": 1,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 67,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 31.76222222219327,
+          "atkLv": 50,
+          "hpLv": 49,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 137,
+          "gear": {
+            "weapon": 5,
+            "implant": 5,
+            "armor": 5,
+            "chip": 5
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 57172
+    },
+    {
+      "mult": 8,
+      "seed": 2,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 67,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 28.59111111108954,
+          "atkLv": 50,
+          "hpLv": 49,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 132,
+          "gear": {
+            "weapon": 5,
+            "implant": 4,
+            "armor": 5,
+            "chip": 5
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 51464
+    },
+    {
+      "mult": 8,
+      "seed": 3,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 64,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 25.05055555554223,
+          "atkLv": 49,
+          "hpLv": 47,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 125,
+          "gear": {
+            "weapon": 5,
+            "implant": 5,
+            "armor": 5,
+            "chip": 5
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 45091
+    },
+    {
+      "mult": 16,
+      "seed": 1,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 79,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 36.351111111092884,
+          "atkLv": 58,
+          "hpLv": 57,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 176,
+          "gear": {
+            "weapon": 5,
+            "implant": 5,
+            "armor": 5,
+            "chip": 6
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 65432
+    },
+    {
+      "mult": 16,
+      "seed": 2,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 79,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 34.9055555555306,
+          "atkLv": 59,
+          "hpLv": 58,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 174,
+          "gear": {
+            "weapon": 5,
+            "implant": 6,
+            "armor": 5,
+            "chip": 5
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 62830
+    },
+    {
+      "mult": 16,
+      "seed": 3,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 77,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 30.702222222195736,
+          "atkLv": 56,
+          "hpLv": 55,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 167,
+          "gear": {
+            "weapon": 5,
+            "implant": 5,
+            "armor": 5,
+            "chip": 5
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 55264
+    },
+    {
+      "mult": 32,
+      "seed": 1,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 90,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 39.94055555555404,
+          "atkLv": 65,
+          "hpLv": 64,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 220,
+          "gear": {
+            "weapon": 6,
+            "implant": 6,
+            "armor": 6,
+            "chip": 6
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 71893
+    },
+    {
+      "mult": 32,
+      "seed": 2,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 95,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 38.6922222222149,
+          "atkLv": 69,
+          "hpLv": 67,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 244,
+          "gear": {
+            "weapon": 6,
+            "implant": 6,
+            "armor": 6,
+            "chip": 6
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 69646
+    },
+    {
+      "mult": 32,
+      "seed": 3,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 90,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 34.94944444441969,
+          "atkLv": 66,
+          "hpLv": 65,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 224,
+          "gear": {
+            "weapon": 6,
+            "implant": 6,
+            "armor": 6,
+            "chip": 6
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 62909
+    },
+    {
+      "mult": 64,
+      "seed": 1,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 100,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 40.741666666668884,
+          "atkLv": 72,
+          "hpLv": 70,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 262,
+          "gear": {
+            "weapon": 6,
+            "implant": 6,
+            "armor": 6,
+            "chip": 6
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 73335
+    },
+    {
+      "mult": 64,
+      "seed": 2,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 100,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 40.26833333333335,
+          "atkLv": 72,
+          "hpLv": 70,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 259,
+          "gear": {
+            "weapon": 6,
+            "implant": 6,
+            "armor": 6,
+            "chip": 6
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 72483
+    },
+    {
+      "mult": 64,
+      "seed": 3,
+      "cycles": 1,
+      "crates": false,
+      "runs": [
+        {
+          "run": 1,
+          "floor": 100,
+          "cleared100": false,
+          "reason": "hp_zero",
+          "minutes": 35.40777777775516,
+          "atkLv": 72,
+          "hpLv": 70,
+          "tree": {
+            "dmg": 0,
+            "gold": 0,
+            "soul": 0
+          },
+          "souls": 261,
+          "gear": {
+            "weapon": 6,
+            "implant": 6,
+            "armor": 6,
+            "chip": 6
+          }
+        }
+      ],
+      "capHit": false,
+      "steps": 63734
+    }
+  ]
+}

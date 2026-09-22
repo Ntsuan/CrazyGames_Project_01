@@ -1,0 +1,181 @@
+{
+  "count": 38,
+  "passed": 15,
+  "results": [
+    {
+      "name": "无尽阶段五通关5层真实路径",
+      "pass": true
+    },
+    {
+      "name": "5层旧标记与混合候选纠正",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))\n"
+    },
+    {
+      "name": "无尽阶段五通关10层真实路径",
+      "pass": true
+    },
+    {
+      "name": "10层旧标记与混合候选纠正",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))\n"
+    },
+    {
+      "name": "无尽阶段五通关15层真实路径",
+      "pass": true
+    },
+    {
+      "name": "15层旧标记与混合候选纠正",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))\n"
+    },
+    {
+      "name": "无尽阶段五通关20层真实路径",
+      "pass": true
+    },
+    {
+      "name": "20层旧标记与混合候选纠正",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))\n"
+    },
+    {
+      "name": "无尽阶段五通关95层真实路径",
+      "pass": true
+    },
+    {
+      "name": "95层旧标记与混合候选纠正",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))\n"
+    },
+    {
+      "name": "无尽阶段五通关100层真实路径",
+      "pass": true
+    },
+    {
+      "name": "100层旧标记与混合候选纠正",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))\n"
+    },
+    {
+      "name": "无尽阶段五通关105层真实路径",
+      "pass": true
+    },
+    {
+      "name": "105层旧标记与混合候选纠正",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))\n"
+    },
+    {
+      "name": "无尽阶段五通关110层真实路径",
+      "pass": true
+    },
+    {
+      "name": "110层旧标记与混合候选纠正",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))\n"
+    },
+    {
+      "name": "旧档缺奖励层数按已推进的上一层恢复",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))\n"
+    },
+    {
+      "name": "继续挑战以重塑里程碑层数校正错误候选楼层",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))\n"
+    },
+    {
+      "name": "正确旧候选保持原顺序且不重抽",
+      "pass": true
+    },
+    {
+      "name": "确认框挂起再取消后仍按奖励层分池",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))\n"
+    },
+    {
+      "name": "一次选择只获得一个技能，跨池技能不可点击领取",
+      "pass": true
+    },
+    {
+      "name": "阶段1百层仍义体改装，不增加技能弹窗",
+      "pass": true
+    },
+    {
+      "name": "阶段2百层仍义体改装，不增加技能弹窗",
+      "pass": true
+    },
+    {
+      "name": "阶段3百层仍义体改装，不增加技能弹窗",
+      "pass": true
+    },
+    {
+      "name": "阶段4百层仍义体改装，不增加技能弹窗",
+      "pass": true
+    },
+    {
+      "name": "构筑5层提供该类全部技能",
+      "pass": false,
+      "error": "14 == 5"
+    },
+    {
+      "name": "构筑10层提供该类全部技能",
+      "pass": false,
+      "error": "14 == 9"
+    },
+    {
+      "name": "构筑105层提供该类全部技能",
+      "pass": false,
+      "error": "14 == 5"
+    },
+    {
+      "name": "构筑110层提供该类全部技能",
+      "pass": false,
+      "error": "14 == 9"
+    },
+    {
+      "name": "技能类型标题明确，触发池列通关层",
+      "pass": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(g.nodes.get('modalBox').innerHTML.includes('触发型三选一'))\n"
+    },
+    {
+      "name": "构筑5层真实通关与旧全技能待选恢复",
+      "pass": false,
+      "error": "Expected values to be loosely deep-equal:\n\n[\n  'overclock',\n  'fatal',\n  'neuro',\n  'fire',\n  'subdermal',\n  'nano',\n  'shield',\n  'blackmarket',\n  'resonance',\n  'adrenaline',\n  'critsurge',\n  'ghoststep',\n  'lowhp',\n  'soulrush'\n]\n\nshould loosely deep-equal\n\n[\n  'adrenaline',\n  'critsurge',\n  'ghoststep',\n  'lowhp',\n  'soulrush'\n]"
+    },
+    {
+      "name": "构筑10层真实通关与旧全技能待选恢复",
+      "pass": false,
+      "error": "Expected values to be loosely deep-equal:\n\n[\n  'overclock',\n  'fatal',\n  'neuro',\n  'fire',\n  'subdermal',\n  'nano',\n  'shield',\n  'blackmarket',\n  'resonance',\n  'adrenaline',\n  'critsurge',\n  'ghoststep',\n  'lowhp',\n  'soulrush'\n]\n\nshould loosely deep-equal\n\n[\n  'overclock',\n  'fatal',\n  'neuro',\n  'fire',\n  'subdermal',\n  'nano',\n  'shield',\n  'blackmarket',\n  'resonance'\n]"
+    },
+    {
+      "name": "构筑15层真实通关与旧全技能待选恢复",
+      "pass": false,
+      "error": "Expected values to be loosely deep-equal:\n\n[\n  'overclock',\n  'fatal',\n  'neuro',\n  'fire',\n  'subdermal',\n  'nano',\n  'shield',\n  'blackmarket',\n  'resonance',\n  'adrenaline',\n  'critsurge',\n  'ghoststep',\n  'lowhp',\n  'soulrush'\n]\n\nshould loosely deep-equal\n\n[\n  'adrenaline',\n  'critsurge',\n  'ghoststep',\n  'lowhp',\n  'soulrush'\n]"
+    },
+    {
+      "name": "构筑20层真实通关与旧全技能待选恢复",
+      "pass": false,
+      "error": "Expected values to be loosely deep-equal:\n\n[\n  'overclock',\n  'fatal',\n  'neuro',\n  'fire',\n  'subdermal',\n  'nano',\n  'shield',\n  'blackmarket',\n  'resonance',\n  'adrenaline',\n  'critsurge',\n  'ghoststep',\n  'lowhp',\n  'soulrush'\n]\n\nshould loosely deep-equal\n\n[\n  'overclock',\n  'fatal',\n  'neuro',\n  'fire',\n  'subdermal',\n  'nano',\n  'shield',\n  'blackmarket',\n  'resonance'\n]"
+    },
+    {
+      "name": "构筑105层真实通关与旧全技能待选恢复",
+      "pass": false,
+      "error": "Expected values to be loosely deep-equal:\n\n[\n  'overclock',\n  'fatal',\n  'neuro',\n  'fire',\n  'subdermal',\n  'nano',\n  'shield',\n  'blackmarket',\n  'resonance',\n  'adrenaline',\n  'critsurge',\n  'ghoststep',\n  'lowhp',\n  'soulrush'\n]\n\nshould loosely deep-equal\n\n[\n  'adrenaline',\n  'critsurge',\n  'ghoststep',\n  'lowhp',\n  'soulrush'\n]"
+    },
+    {
+      "name": "构筑110层真实通关与旧全技能待选恢复",
+      "pass": false,
+      "error": "Expected values to be loosely deep-equal:\n\n[\n  'overclock',\n  'fatal',\n  'neuro',\n  'fire',\n  'subdermal',\n  'nano',\n  'shield',\n  'blackmarket',\n  'resonance',\n  'adrenaline',\n  'critsurge',\n  'ghoststep',\n  'lowhp',\n  'soulrush'\n]\n\nshould loosely deep-equal\n\n[\n  'overclock',\n  'fatal',\n  'neuro',\n  'fire',\n  'subdermal',\n  'nano',\n  'shield',\n  'blackmarket',\n  'resonance'\n]"
+    },
+    {
+      "name": "构筑5层禁止领取属性技能，10层禁止领取触发技能",
+      "pass": false,
+      "error": "1 == 0"
+    },
+    {
+      "name": "构筑重复迷彩保持+0.5秒描述，已有技能不清除",
+      "pass": true
+    }
+  ]
+}

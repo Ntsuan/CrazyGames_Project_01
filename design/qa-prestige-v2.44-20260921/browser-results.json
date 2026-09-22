@@ -1,0 +1,146 @@
+{
+  "version": "v2.44",
+  "environment": "Codex in-app Chromium; actual UI clicks; isolated QA save namespace. Desktop default 1280x720, viewport overrides390x844,320x568,844x390; not physical touch device. Two locator waits corrected after fresh snapshots; no game failure.",
+  "count": 19,
+  "passed": 19,
+  "checks": [
+    {
+      "name": "桌面刷新待选页恢复第20层提醒，24碎片未重复掉落",
+      "passed": true
+    },
+    {
+      "name": "选择重塑进入预览，显示24→48和126信用点",
+      "passed": true
+    },
+    {
+      "name": "390×844手机预览完整可见，两收益按钮等高",
+      "passed": true,
+      "evidence": {
+        "bottom": 749.71875,
+        "buttons": [
+          76,
+          76
+        ],
+        "height": 844,
+        "left": 15.59375,
+        "right": 374.390625,
+        "top": 94.265625,
+        "width": 390
+      }
+    },
+    {
+      "name": "手机预览返回选择，仍保留本轮24碎片",
+      "passed": true
+    },
+    {
+      "name": "键盘焦点在重塑弹窗内循环",
+      "passed": true
+    },
+    {
+      "name": "继续挑战后出现第20层技能三选一",
+      "passed": true
+    },
+    {
+      "name": "技能只获得一次，进入第21层且不再弹相同提醒",
+      "passed": true
+    },
+    {
+      "name": "死亡仍进入重塑，预览无返回继续战斗入口",
+      "passed": true
+    },
+    {
+      "name": "普通重塑新增24，原有7保留，共31；回第1层",
+      "passed": true,
+      "evidence": {
+        "floor": 1,
+        "runSouls": 0,
+        "souls": 31,
+        "prestiges": 1,
+        "gold": 156.50000000000006,
+        "skills": 0,
+        "pendingSkill": false,
+        "offer": null,
+        "source": null,
+        "paused": false,
+        "wall": false,
+        "ad": false
+      }
+    },
+    {
+      "name": "刷新预览恢复冻结的24碎片和126回收信用点",
+      "passed": true
+    },
+    {
+      "name": "点击广告仅进入明确测试模拟，不直接发奖",
+      "passed": true
+    },
+    {
+      "name": "取消观看返回预览，保留普通重塑和返回入口",
+      "passed": true
+    },
+    {
+      "name": "模拟完整观看只结算一次：7+48=55；初始回收126未翻倍，之后新局正常战斗",
+      "passed": true,
+      "evidence": {
+        "floor": 2,
+        "runSouls": 1,
+        "souls": 55,
+        "prestiges": 1,
+        "gold": 165.38750000000007,
+        "skills": 0,
+        "pendingSkill": false,
+        "offer": null,
+        "source": null,
+        "paused": false,
+        "wall": false,
+        "ad": false
+      }
+    },
+    {
+      "name": "结算后刷新，账户仍为55碎片，未重复发奖",
+      "passed": true
+    },
+    {
+      "name": "320×568窄屏预览从标题开始，内容可在弹窗内滚动",
+      "passed": true,
+      "evidence": {
+        "bottom": 556,
+        "clientHeight": 542,
+        "h": 568,
+        "left": 12.203125,
+        "right": 292.796875,
+        "scrollHeight": 712,
+        "scrollTop": 0,
+        "top": 12,
+        "w": 320
+      }
+    },
+    {
+      "name": "窄屏滚动后返回按钮可操作",
+      "passed": true
+    },
+    {
+      "name": "844×390横屏弹窗高度受限，内容可滚动",
+      "passed": true,
+      "evidence": {
+        "bottom": 378,
+        "clientHeight": 364,
+        "h": 390,
+        "left": 154.5,
+        "right": 674.5,
+        "scrollHeight": 690,
+        "top": 12,
+        "w": 844
+      }
+    },
+    {
+      "name": "横屏滚动后返回按钮可操作",
+      "passed": true
+    },
+    {
+      "name": "浏览器未捕获页面脚本异常",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

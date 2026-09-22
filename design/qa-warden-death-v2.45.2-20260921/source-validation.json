@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "baseline": "v2.45.1",
+  "version": "v2.45.2",
+  "changesOnly": [
+    "death asset CSS URL",
+    "death preload name",
+    "VERSION and version comment"
+  ],
+  "unchanged": [
+    "combat logic",
+    "death timing",
+    "other enemies and bosses",
+    "original death asset"
+  ],
+  "snapshotIdentical": true
+}

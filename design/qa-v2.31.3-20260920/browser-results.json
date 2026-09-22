@@ -1,0 +1,182 @@
+[
+  {
+    "name": "新档进入战斗",
+    "status": "PASS",
+    "evidence": {
+      "hp": 98.82147999999994,
+      "version": "v2.31.3"
+    }
+  },
+  {
+    "name": "触摸监听不再逐帧增加",
+    "status": "PASS",
+    "evidence": {
+      "before": 4,
+      "after": 4,
+      "touch": [
+        "touchstart",
+        "touchend",
+        "touchcancel"
+      ]
+    }
+  },
+  {
+    "name": "快速读档保持原血量",
+    "status": "PASS",
+    "evidence": {
+      "hp": 31.82268750000001,
+      "restoreFromSave": false,
+      "skipBootHeal": true
+    }
+  },
+  {
+    "name": "读档后复位应满血新开局",
+    "status": "FAIL",
+    "evidence": {
+      "floor": 1,
+      "hp": 30.6141525,
+      "max": 100,
+      "skipBootHeal": true
+    }
+  },
+  {
+    "name": "已有技能选择时键盘复位再取消应恢复弹窗",
+    "status": "FAIL",
+    "evidence": {
+      "focusTrace": [
+        {
+          "id": "",
+          "text": "火力协议\n攻击 +25%"
+        },
+        {
+          "id": "",
+          "text": "纳米修复\n吸血 +5%"
+        },
+        {
+          "id": "",
+          "text": "应急护盾\n战斗开始获得 10% 最大生命护盾（每场刷新）"
+        },
+        {
+          "id": "",
+          "text": "霓虹猎手 NEON HUNTER\nV2.31.3\n🔄 复位\n⏹️ 结束测试\n📋 日志\n第 11 "
+        },
+        {
+          "id": "",
+          "text": "🔄 复位"
+        }
+      ],
+      "state": {
+        "overlayVisible": false,
+        "paused": true,
+        "pending": {
+          "floor": 10,
+          "picks": [
+            "fire",
+            "nano",
+            "shield"
+          ],
+          "pool": "p10"
+        },
+        "skillOfferOpen": true
+      }
+    }
+  },
+  {
+    "name": "Boss回调不覆盖复位确认",
+    "status": "PASS",
+    "evidence": {
+      "confirmOpen": true,
+      "pendingSkillOffer": {
+        "floor": 10,
+        "picks": null,
+        "pool": "p10"
+      },
+      "text": "🔄 确认复位？\n\n将清空存档并作废当前未封存的日志段，回到全新开局。\n已封存的历史测试段会保留。\n\n确认复位\n取消"
+    }
+  },
+  {
+    "name": "取消复位补弹挂起技能",
+    "status": "PASS",
+    "evidence": {
+      "pending": {
+        "floor": 10,
+        "picks": [
+          "resonance",
+          "overclock",
+          "fire"
+        ],
+        "pool": "p10"
+      },
+      "picks": [
+        "resonance",
+        "overclock",
+        "fire"
+      ]
+    }
+  },
+  {
+    "name": "技能刷新恢复层号正确",
+    "status": "PASS",
+    "evidence": {
+      "floor": 11,
+      "pending": {
+        "floor": 10,
+        "picks": [
+          "resonance",
+          "overclock",
+          "fire"
+        ],
+        "pool": "p10"
+      },
+      "text": "神经技能 · 三选一\n\n突破第 10 层！选择一项属性强化\n\n碎片共鸣\nBoss 碎片掉落 +10%\n战斗超频\n暴击率 +10%（可叠加）\n火力协议\n攻击 +25%"
+    }
+  },
+  {
+    "name": "手机换层不会被旧血量覆盖",
+    "status": "PASS",
+    "evidence": {
+      "floor": 2,
+      "hp": 99.503467375,
+      "max": 100,
+      "wall": false
+    }
+  },
+  {
+    "name": "死亡重塑遇自动保存仍正常开战",
+    "status": "PASS",
+    "evidence": {
+      "hp": 97.87307499999991,
+      "prestiges": 1,
+      "saved": 100,
+      "souls": 15,
+      "wall": false
+    }
+  },
+  {
+    "name": "低阶合成提示与产物去向一致",
+    "status": "PASS",
+    "evidence": {
+      "equipped": 5,
+      "inv": [
+        {
+          "q": 2,
+          "slot": "weapon"
+        },
+        {
+          "q": 2,
+          "slot": "weapon"
+        },
+        {
+          "q": 2,
+          "slot": "weapon"
+        },
+        {
+          "affix": null,
+          "q": 1,
+          "slot": "weapon"
+        }
+      ],
+      "toast": "合成完成：破损·义体武器 已存入背包"
+    }
+  }
+]

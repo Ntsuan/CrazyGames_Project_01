@@ -1,0 +1,27 @@
+[
+  {
+    "id": "R01",
+    "priority": "P2",
+    "title": "低血读档后复位保留旧血量",
+    "file": "/Users/zmy/WorkBuddy/CrazyGames/game/index.html",
+    "lines": [
+      537,
+      648,
+      1404
+    ],
+    "evidence": "C65；浏览器从 33 血存档进入后复位，新局约 30.61/100，skipBootHeal 仍 true。",
+    "fix": "doReset 清除 restoreFromSave、skipBootHeal 等恢复许可，并在首次保存/刷怪前显式初始化 player.hp 与护盾；不要只修改显示值。"
+  },
+  {
+    "id": "R02",
+    "priority": "P2",
+    "title": "已打开技能选择时，键盘进入复位再取消导致无弹窗暂停",
+    "file": "/Users/zmy/WorkBuddy/CrazyGames/game/index.html",
+    "lines": [
+      1079,
+      1397
+    ],
+    "evidence": "C66；浏览器通过 Tab 依次穿过三技能按钮后可以聚焦复位，Enter 打开确认框，点取消后 overlay=false、paused=true、skillOfferOpen=true，原候选仍在 S.pendingOffer。",
+    "fix": "确认弹窗保存被替换的原弹窗状态，取消时恢复同一技能候选；或统一从 S.pendingOffer 恢复。为模态框加入焦点约束/背景 inert，避免键盘穿透。"
+  }
+]

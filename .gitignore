@@ -6,3 +6,10 @@ test-results/
 .env.*
 !.env.example
 .DS_Store
+
+# Generated Neon Hunter validation reports and local tool state
+scripts/neon-tests/*-results.json
+.workbuddy/
+.playwright-cli/
+.wbapp_*
+logs/

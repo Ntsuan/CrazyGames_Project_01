@@ -1,0 +1,42 @@
+[
+  {
+    "enemyRunMs": 360,
+    "shootAnimation": "0.32s",
+    "shots": 5,
+    "speed": 1,
+    "swapMs": 2100,
+    "test": "steady speed"
+  },
+  {
+    "modal": true,
+    "position": "-770px",
+    "speed": 1,
+    "test": "player death stable speed"
+  },
+  {
+    "enemyRunMs": 180,
+    "shootAnimation": "0.16s",
+    "shots": 10,
+    "speed": 2,
+    "swapMs": 1147,
+    "test": "steady speed"
+  },
+  {
+    "modal": true,
+    "position": "-770px",
+    "speed": 2,
+    "test": "player death stable speed"
+  },
+  {
+    "effective": 1,
+    "hidden": true,
+    "test": "frontier floor"
+  },
+  {
+    "deathClass": false,
+    "floor": 1,
+    "staleModal": false,
+    "test": "reset during delayed death callback",
+    "wall": false
+  }
+]

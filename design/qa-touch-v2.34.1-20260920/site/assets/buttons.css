@@ -1,0 +1,64 @@
+/* NEON HUNTER • Button kit v1. No global button selector or game ID overrides. */
+.nh-button {
+  --nh-accent:#42e6ee; --nh-top:#284653; --nh-bottom:#152b3a; --nh-edge:#457281;
+  --nh-base:#09141f; --nh-text:#effaff; --nh-muted:#bdccd7;
+  appearance:none; -webkit-appearance:none; box-sizing:border-box; position:relative;
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  width:100%; min-width:0; min-height:52px; margin:0; padding:13px 18px;
+  border:1px solid var(--nh-edge); border-radius:5px; cursor:pointer;
+  background:linear-gradient(180deg,var(--nh-top),var(--nh-bottom)); color:var(--nh-text);
+  box-shadow:inset 0 1px 0 #ffffff20,inset 0 -1px 0 #0003,0 4px 0 var(--nh-base),0 5px 0 var(--nh-edge),0 8px 14px #0003;
+  font-family:inherit; font-size:14px; font-weight:650; line-height:1.35; text-align:center;
+  text-shadow:0 1px 1px #0003; letter-spacing:.3px; opacity:1; isolation:isolate;
+  touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+  transition:transform 110ms ease,filter 110ms ease,box-shadow 110ms ease,border-color 110ms ease;
+}
+.nh-button::before { content:""; position:absolute; left:0; top:12px; bottom:12px; width:3px;
+  background:var(--nh-accent); box-shadow:0 0 9px color-mix(in srgb,var(--nh-accent) 45%,transparent); border-radius:0 2px 2px 0; }
+.nh-button::after { content:""; position:absolute; top:5px; right:7px; width:12px; height:4px;
+  opacity:.5; background:repeating-linear-gradient(125deg,transparent 0 3px,var(--nh-accent) 3px 4px); pointer-events:none; }
+.nh-button__icon { display:block; flex:0 0 22px; width:22px; height:22px; margin:0; }
+.nh-button__body { display:flex; flex-direction:column; min-width:0; gap:5px; text-align:left; }
+.nh-button__title { font-size:14px; font-weight:650; }
+.nh-button__detail { color:var(--nh-muted); font-size:11px; font-weight:400; letter-spacing:0; line-height:1.5; }
+.nh-button__cost { margin-left:auto; align-self:stretch; min-width:68px; flex:0 0 auto; display:flex; flex-direction:column;
+  justify-content:center; align-items:flex-end; gap:4px; border-left:1px solid #ffffff1c; padding-left:14px; }
+.nh-button__price { display:flex; align-items:center; gap:5px; color:#ffda86; font-size:16px; font-weight:750; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.nh-button__price img { width:15px; height:15px; margin:0; }
+.nh-button__hint { color:var(--nh-muted); font-size:10px; font-weight:400; white-space:nowrap; }
+.nh-button--upgrade { min-height:76px; justify-content:flex-start; padding:14px 16px; }
+.nh-button--primary { --nh-accent:#dcffff; --nh-top:#63f0ef; --nh-bottom:#19bbc9; --nh-edge:#8afffc;
+  --nh-base:#075364; --nh-text:#052a38; --nh-muted:#174d59; text-shadow:none; min-height:62px; }
+.nh-button--primary::before { display:none; }
+.nh-button--primary .nh-button__title { font-size:17px; }
+.nh-button--primary .nh-button__body { text-align:center; }
+.nh-button--magenta { --nh-accent:#ff70b1; --nh-top:#592540; --nh-bottom:#351d31; --nh-edge:#a34a77; --nh-base:#200d20; }
+.nh-button--violet { --nh-accent:#ca9eff; --nh-top:#493566; --nh-bottom:#2b2543; --nh-edge:#8367b0; --nh-base:#1a122b; }
+.nh-button--gold { --nh-accent:#ffe0a1; --nh-top:#624a2e; --nh-bottom:#3a2c22; --nh-edge:#a68b53; --nh-base:#241a12; --nh-muted:#d7cbb6; }
+.nh-button--neutral { --nh-accent:#9eb1c3; --nh-top:#2a3645; --nh-bottom:#1c2734; --nh-edge:#506174; --nh-base:#101923; }
+.nh-button--neutral::before { display:none; }
+.nh-button--danger { --nh-accent:#ff9a9a; --nh-top:#582e38; --nh-bottom:#351f2a; --nh-edge:#a86570; --nh-base:#240f18; }
+.nh-button--compact { min-height:48px; font-size:13px; padding:11px 15px; }
+@media (hover:hover) {
+  .nh-button:not(:disabled):hover { filter:brightness(1.14); border-color:var(--nh-accent);
+    transform:translateY(-1px); box-shadow:inset 0 1px 0 #ffffff30,0 5px 0 var(--nh-base),0 6px 0 var(--nh-edge),0 8px 20px #0005; }
+}
+.nh-button:not(:disabled):active { transform:translateY(3px); filter:brightness(.94);
+  box-shadow:inset 0 2px 6px #0004,0 1px 0 var(--nh-base),0 2px 0 var(--nh-edge); }
+.nh-button:focus-visible { outline:2px solid #efffff; outline-offset:5px; }
+.nh-button:disabled { --nh-top:#29323e; --nh-bottom:#202833; --nh-edge:#465363; --nh-accent:#758395;
+  --nh-base:#121b25; --nh-text:#b9c3cf; --nh-muted:#a6b1bf;
+  opacity:1; cursor:not-allowed; filter:none; transform:none; animation:none; text-shadow:none;
+  box-shadow:inset 0 1px 0 #ffffff0b,0 2px 0 var(--nh-base),0 3px 0 #3d4b5b; }
+.nh-button:disabled::before { box-shadow:none; }
+.nh-button:disabled .nh-button__icon,.nh-button:disabled .nh-button__price img { filter:grayscale(1); opacity:.75; }
+.nh-button:disabled .nh-button__price { color:#bac4cf; }
+.nh-button--ready:not(:disabled) { animation:nh-ready 700ms ease-out 1; }
+@keyframes nh-ready { 35%{filter:brightness(1.25);box-shadow:inset 0 1px 0 #ffffff40,0 4px 0 var(--nh-base),0 5px 0 var(--nh-edge),0 0 24px color-mix(in srgb,var(--nh-accent) 40%,transparent);} }
+@media (max-width:420px) {
+  .nh-button--upgrade { padding:12px; gap:9px; }
+  .nh-button__cost { min-width:59px; padding-left:10px; }
+  .nh-button__price { font-size:14px; }
+  .nh-button__detail { font-size:11px; }
+}
+@media (prefers-reduced-motion:reduce) { .nh-button { transition:none; } .nh-button--ready:not(:disabled) { animation:none; } }

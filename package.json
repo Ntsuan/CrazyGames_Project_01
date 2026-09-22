@@ -13,7 +13,11 @@
     "build": "npm run typecheck && vite build",
     "preview": "vite preview",
     "test:e2e": "npm run build && playwright test",
-    "check": "npm run typecheck && npm run lint && npm run format:check && npm test"
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm test",
+    "neon:check": "node scripts/neon-tests/release.cjs && node scripts/neon-tests/core.cjs && node scripts/neon-tests/pools.cjs",
+    "neon:build": "node scripts/neon-release.cjs build",
+    "neon:basic": "node scripts/neon-release.cjs build basic",
+    "neon:dev": "node scripts/neon-release.cjs build development"
   },
   "keywords": [],
   "author": "",

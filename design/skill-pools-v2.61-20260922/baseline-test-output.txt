@@ -1,0 +1,234 @@
+15/38
+5层旧标记与混合候选纠正 The expression evaluated to a falsy value:
+
+  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))
+
+10层旧标记与混合候选纠正 The expression evaluated to a falsy value:
+
+  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))
+
+15层旧标记与混合候选纠正 The expression evaluated to a falsy value:
+
+  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))
+
+20层旧标记与混合候选纠正 The expression evaluated to a falsy value:
+
+  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))
+
+95层旧标记与混合候选纠正 The expression evaluated to a falsy value:
+
+  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))
+
+100层旧标记与混合候选纠正 The expression evaluated to a falsy value:
+
+  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))
+
+105层旧标记与混合候选纠正 The expression evaluated to a falsy value:
+
+  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))
+
+110层旧标记与混合候选纠正 The expression evaluated to a falsy value:
+
+  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))
+
+旧档缺奖励层数按已推进的上一层恢复 The expression evaluated to a falsy value:
+
+  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))
+
+继续挑战以重塑里程碑层数校正错误候选楼层 The expression evaluated to a falsy value:
+
+  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))
+
+确认框挂起再取消后仍按奖励层分池 The expression evaluated to a falsy value:
+
+  assert(g.run(`curOffer.every(k=>${pool==='p5'?'POOL_5':'POOL_10'}.includes(k))`))
+
+构筑5层提供该类全部技能 14 == 5
+构筑10层提供该类全部技能 14 == 9
+构筑105层提供该类全部技能 14 == 5
+构筑110层提供该类全部技能 14 == 9
+技能类型标题明确，触发池列通关层 The expression evaluated to a falsy value:
+
+  assert(g.nodes.get('modalBox').innerHTML.includes('触发型三选一'))
+
+构筑5层真实通关与旧全技能待选恢复 Expected values to be loosely deep-equal:
+
+[
+  'overclock',
+  'fatal',
+  'neuro',
+  'fire',
+  'subdermal',
+  'nano',
+  'shield',
+  'blackmarket',
+  'resonance',
+  'adrenaline',
+  'critsurge',
+  'ghoststep',
+  'lowhp',
+  'soulrush'
+]
+
+should loosely deep-equal
+
+[
+  'adrenaline',
+  'critsurge',
+  'ghoststep',
+  'lowhp',
+  'soulrush'
+]
+构筑10层真实通关与旧全技能待选恢复 Expected values to be loosely deep-equal:
+
+[
+  'overclock',
+  'fatal',
+  'neuro',
+  'fire',
+  'subdermal',
+  'nano',
+  'shield',
+  'blackmarket',
+  'resonance',
+  'adrenaline',
+  'critsurge',
+  'ghoststep',
+  'lowhp',
+  'soulrush'
+]
+
+should loosely deep-equal
+
+[
+  'overclock',
+  'fatal',
+  'neuro',
+  'fire',
+  'subdermal',
+  'nano',
+  'shield',
+  'blackmarket',
+  'resonance'
+]
+构筑15层真实通关与旧全技能待选恢复 Expected values to be loosely deep-equal:
+
+[
+  'overclock',
+  'fatal',
+  'neuro',
+  'fire',
+  'subdermal',
+  'nano',
+  'shield',
+  'blackmarket',
+  'resonance',
+  'adrenaline',
+  'critsurge',
+  'ghoststep',
+  'lowhp',
+  'soulrush'
+]
+
+should loosely deep-equal
+
+[
+  'adrenaline',
+  'critsurge',
+  'ghoststep',
+  'lowhp',
+  'soulrush'
+]
+构筑20层真实通关与旧全技能待选恢复 Expected values to be loosely deep-equal:
+
+[
+  'overclock',
+  'fatal',
+  'neuro',
+  'fire',
+  'subdermal',
+  'nano',
+  'shield',
+  'blackmarket',
+  'resonance',
+  'adrenaline',
+  'critsurge',
+  'ghoststep',
+  'lowhp',
+  'soulrush'
+]
+
+should loosely deep-equal
+
+[
+  'overclock',
+  'fatal',
+  'neuro',
+  'fire',
+  'subdermal',
+  'nano',
+  'shield',
+  'blackmarket',
+  'resonance'
+]
+构筑105层真实通关与旧全技能待选恢复 Expected values to be loosely deep-equal:
+
+[
+  'overclock',
+  'fatal',
+  'neuro',
+  'fire',
+  'subdermal',
+  'nano',
+  'shield',
+  'blackmarket',
+  'resonance',
+  'adrenaline',
+  'critsurge',
+  'ghoststep',
+  'lowhp',
+  'soulrush'
+]
+
+should loosely deep-equal
+
+[
+  'adrenaline',
+  'critsurge',
+  'ghoststep',
+  'lowhp',
+  'soulrush'
+]
+构筑110层真实通关与旧全技能待选恢复 Expected values to be loosely deep-equal:
+
+[
+  'overclock',
+  'fatal',
+  'neuro',
+  'fire',
+  'subdermal',
+  'nano',
+  'shield',
+  'blackmarket',
+  'resonance',
+  'adrenaline',
+  'critsurge',
+  'ghoststep',
+  'lowhp',
+  'soulrush'
+]
+
+should loosely deep-equal
+
+[
+  'overclock',
+  'fatal',
+  'neuro',
+  'fire',
+  'subdermal',
+  'nano',
+  'shield',
+  'blackmarket',
+  'resonance'
+]
+构筑5层禁止领取属性技能，10层禁止领取触发技能 1 == 0

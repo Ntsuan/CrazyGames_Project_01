@@ -1,0 +1,38 @@
+[
+  {
+    "idle": "1s",
+    "runCfg": {
+      "e": 360,
+      "p": 360,
+      "settle": 650,
+      "t": 360
+    },
+    "shoot": "0.32s",
+    "shots": 5,
+    "speed": 1,
+    "test": "combat"
+  },
+  {
+    "nextEnemyMs": 2105,
+    "speed": 1,
+    "test": "swap"
+  },
+  {
+    "idle": "0.5s",
+    "runCfg": {
+      "e": 180,
+      "p": 180,
+      "settle": 325,
+      "t": 180
+    },
+    "shoot": "0.16s",
+    "shots": 10,
+    "speed": 2,
+    "test": "combat"
+  },
+  {
+    "nextEnemyMs": 1157,
+    "speed": 2,
+    "test": "swap"
+  }
+]

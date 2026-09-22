@@ -1,0 +1,8 @@
+{
+  "sourceUnchanged": true,
+  "changed": [],
+  "sourceHash": "3fc0f8fe96c7a728b6d3ecd83fea8666ba96b7bd0d4df0251fe65a8ec75c4a82",
+  "syntax": "PASS",
+  "scope": "Four outstanding input and speed findings; not full regression",
+  "cleanup": "Isolated storage cleared, test tab and server closed, viewport reset"
+}

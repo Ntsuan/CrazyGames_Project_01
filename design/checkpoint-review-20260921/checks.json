@@ -1,0 +1,67 @@
+{
+  "status": "simulation_only",
+  "baselineVersion": "v2.43",
+  "sourceSha256": "6e4d49a9f9217a8f25f4a48241a440865a387c5f690429e33a3035865bdf3845",
+  "productionUnchanged": true,
+  "priorSeed1Parity": true,
+  "samples": 55,
+  "boxCount": 6103,
+  "resetCount": 313,
+  "crateSpacingAtLeast60Seconds": true,
+  "activeOnlyAtCleared10Through90": true,
+  "allObservedPrestigeRewardsDouble": true,
+  "normalAndAdPrestigeDirectChecks": [
+    {
+      "mult": 1,
+      "state": {
+        "floor": 1,
+        "souls": 32,
+        "runSouls": 0,
+        "tree": {
+          "dmg": 2,
+          "gold": 3,
+          "soul": 1
+        },
+        "cratesRun": 0,
+        "atkLv": 0,
+        "hpLv": 0,
+        "skills": [],
+        "pity": 0,
+        "equip": {
+          "weapon": null,
+          "implant": null,
+          "armor": null,
+          "chip": null
+        },
+        "inv": []
+      }
+    },
+    {
+      "mult": 2,
+      "state": {
+        "floor": 1,
+        "souls": 57,
+        "runSouls": 0,
+        "tree": {
+          "dmg": 2,
+          "gold": 3,
+          "soul": 1
+        },
+        "cratesRun": 0,
+        "atkLv": 0,
+        "hpLv": 0,
+        "skills": [],
+        "pity": 0,
+        "equip": {
+          "weapon": null,
+          "implant": null,
+          "armor": null,
+          "chip": null
+        },
+        "inv": []
+      }
+    }
+  ],
+  "advertisingSdkIntegrated": false,
+  "stageTransitionImplemented": false
+}

@@ -1,0 +1,2444 @@
+[
+  {
+    "actor": "player",
+    "animation": "gunnerIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -110
+      },
+      {
+        "t": 500,
+        "x": -220
+      },
+      {
+        "t": 750,
+        "x": -330
+      },
+      {
+        "t": 999.9,
+        "x": -330
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 440,
+    "state": "idle",
+    "width": 110
+  },
+  {
+    "actor": "player",
+    "animation": "gunnerShoot",
+    "duration": 320,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 80,
+        "x": -440
+      },
+      {
+        "t": 160,
+        "x": -880
+      },
+      {
+        "t": 240,
+        "x": -1320
+      },
+      {
+        "t": 319.9,
+        "x": -1650
+      },
+      {
+        "t": 320,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 1760,
+    "state": "atk",
+    "width": 110
+  },
+  {
+    "actor": "player",
+    "animation": "gunnerRun",
+    "duration": 667,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 166.75,
+        "x": -220
+      },
+      {
+        "t": 333.5,
+        "x": -440
+      },
+      {
+        "t": 500.25,
+        "x": -550
+      },
+      {
+        "t": 666.9,
+        "x": -770
+      },
+      {
+        "t": 667,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 880,
+    "state": "run",
+    "width": 110
+  },
+  {
+    "actor": "player",
+    "animation": "gunnerDeath",
+    "duration": 900,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 225,
+        "x": -110
+      },
+      {
+        "t": 450,
+        "x": -330
+      },
+      {
+        "t": 675,
+        "x": -550
+      },
+      {
+        "t": 899.9,
+        "x": -660
+      },
+      {
+        "t": 900,
+        "x": -770
+      }
+    ],
+    "rate": 1,
+    "sheet": 880,
+    "state": "death",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -110
+      },
+      {
+        "t": 500,
+        "x": -220
+      },
+      {
+        "t": 750,
+        "x": -330
+      },
+      {
+        "t": 999.9,
+        "x": -330
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 440,
+    "state": "idle",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secShoot",
+    "duration": 333,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 83.25,
+        "x": -220
+      },
+      {
+        "t": 166.5,
+        "x": -440
+      },
+      {
+        "t": 249.75,
+        "x": -660
+      },
+      {
+        "t": 332.9,
+        "x": -770
+      },
+      {
+        "t": 333,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 880,
+    "state": "shoot",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secHurt",
+    "duration": 200,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 50,
+        "x": 0
+      },
+      {
+        "t": 100,
+        "x": -110
+      },
+      {
+        "t": 150,
+        "x": -220
+      },
+      {
+        "t": 199.9,
+        "x": -220
+      },
+      {
+        "t": 200,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 330,
+    "state": "hurt",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secRun",
+    "duration": 667,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 166.75,
+        "x": -220
+      },
+      {
+        "t": 333.5,
+        "x": -440
+      },
+      {
+        "t": 500.25,
+        "x": -550
+      },
+      {
+        "t": 666.9,
+        "x": -770
+      },
+      {
+        "t": 667,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 880,
+    "state": "run",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secDie",
+    "duration": 600,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 150,
+        "x": -165
+      },
+      {
+        "t": 300,
+        "x": -330
+      },
+      {
+        "t": 450,
+        "x": -495
+      },
+      {
+        "t": 599.9,
+        "x": -660
+      },
+      {
+        "t": 600,
+        "x": -825
+      }
+    ],
+    "rate": 1,
+    "sheet": 990,
+    "state": "die",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -165
+      },
+      {
+        "t": 500,
+        "x": -330
+      },
+      {
+        "t": 750,
+        "x": -495
+      },
+      {
+        "t": 999.9,
+        "x": -495
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 660,
+    "state": "idle",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenShoot",
+    "duration": 400,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 100,
+        "x": -330
+      },
+      {
+        "t": 200,
+        "x": -660
+      },
+      {
+        "t": 300,
+        "x": -825
+      },
+      {
+        "t": 399.9,
+        "x": -1155
+      },
+      {
+        "t": 400,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 1320,
+    "state": "shoot",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -165
+      },
+      {
+        "t": 500,
+        "x": -330
+      },
+      {
+        "t": 750,
+        "x": -495
+      },
+      {
+        "t": 999.9,
+        "x": -495
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 660,
+    "state": "hurt",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenRun",
+    "duration": 800,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 200,
+        "x": -330
+      },
+      {
+        "t": 400,
+        "x": -660
+      },
+      {
+        "t": 600,
+        "x": -825
+      },
+      {
+        "t": 799.9,
+        "x": -1155
+      },
+      {
+        "t": 800,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 1320,
+    "state": "run",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenDie",
+    "duration": 800,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 200,
+        "x": -165
+      },
+      {
+        "t": 400,
+        "x": -495
+      },
+      {
+        "t": 600,
+        "x": -825
+      },
+      {
+        "t": 799.9,
+        "x": -990
+      },
+      {
+        "t": 800,
+        "x": -1155
+      }
+    ],
+    "rate": 1,
+    "sheet": 1320,
+    "state": "die",
+    "width": 165
+  },
+  {
+    "actor": "prism",
+    "animation": "prismIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -150
+      },
+      {
+        "t": 500,
+        "x": -300
+      },
+      {
+        "t": 750,
+        "x": -450
+      },
+      {
+        "t": 999.9,
+        "x": -450
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 600,
+    "state": "idle",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismShoot",
+    "duration": 400,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 100,
+        "x": -150
+      },
+      {
+        "t": 200,
+        "x": -450
+      },
+      {
+        "t": 300,
+        "x": -600
+      },
+      {
+        "t": 399.9,
+        "x": -750
+      },
+      {
+        "t": 400,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 900,
+    "state": "shoot",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismSlash",
+    "duration": 500,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 125,
+        "x": -150
+      },
+      {
+        "t": 250,
+        "x": -450
+      },
+      {
+        "t": 375,
+        "x": -600
+      },
+      {
+        "t": 499.9,
+        "x": -750
+      },
+      {
+        "t": 500,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 900,
+    "state": "slash",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -150
+      },
+      {
+        "t": 500,
+        "x": -300
+      },
+      {
+        "t": 750,
+        "x": -450
+      },
+      {
+        "t": 999.9,
+        "x": -450
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 600,
+    "state": "hurt",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismMove",
+    "duration": 750,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 187.5,
+        "x": -150
+      },
+      {
+        "t": 375,
+        "x": -450
+      },
+      {
+        "t": 562.5,
+        "x": -600
+      },
+      {
+        "t": 749.9,
+        "x": -750
+      },
+      {
+        "t": 750,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 900,
+    "state": "run",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismDie",
+    "duration": 890,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 222.5,
+        "x": -150
+      },
+      {
+        "t": 445,
+        "x": -450
+      },
+      {
+        "t": 667.5,
+        "x": -750
+      },
+      {
+        "t": 889.9,
+        "x": -900
+      },
+      {
+        "t": 890,
+        "x": -1050
+      }
+    ],
+    "rate": 1,
+    "sheet": 1200,
+    "state": "die",
+    "width": 150
+  },
+  {
+    "actor": "hound",
+    "animation": "houndIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -110
+      },
+      {
+        "t": 500,
+        "x": -220
+      },
+      {
+        "t": 750,
+        "x": -330
+      },
+      {
+        "t": 999.9,
+        "x": -330
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 440,
+    "state": "idle",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -110
+      },
+      {
+        "t": 500,
+        "x": -220
+      },
+      {
+        "t": 750,
+        "x": -330
+      },
+      {
+        "t": 999.9,
+        "x": -330
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 440,
+    "state": "shoot",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndBite",
+    "duration": 500,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 125,
+        "x": -110
+      },
+      {
+        "t": 250,
+        "x": -330
+      },
+      {
+        "t": 375,
+        "x": -440
+      },
+      {
+        "t": 499.9,
+        "x": -550
+      },
+      {
+        "t": 500,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 660,
+    "state": "bite",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndHurt",
+    "duration": 200,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 50,
+        "x": 0
+      },
+      {
+        "t": 100,
+        "x": -110
+      },
+      {
+        "t": 150,
+        "x": -220
+      },
+      {
+        "t": 199.9,
+        "x": -220
+      },
+      {
+        "t": 200,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 330,
+    "state": "hurt",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndRun",
+    "duration": 667,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 166.75,
+        "x": -220
+      },
+      {
+        "t": 333.5,
+        "x": -440
+      },
+      {
+        "t": 500.25,
+        "x": -550
+      },
+      {
+        "t": 666.9,
+        "x": -770
+      },
+      {
+        "t": 667,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 880,
+    "state": "run",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndDie",
+    "duration": 667,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 166.75,
+        "x": -110
+      },
+      {
+        "t": 333.5,
+        "x": -220
+      },
+      {
+        "t": 500.25,
+        "x": -330
+      },
+      {
+        "t": 666.9,
+        "x": -440
+      },
+      {
+        "t": 667,
+        "x": -550
+      }
+    ],
+    "rate": 1,
+    "sheet": 660,
+    "state": "die",
+    "width": 110
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -190
+      },
+      {
+        "t": 500,
+        "x": -380
+      },
+      {
+        "t": 750,
+        "x": -570
+      },
+      {
+        "t": 999.9,
+        "x": -570
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 760,
+    "state": "idle",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsMg",
+    "duration": 400,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 100,
+        "x": -190
+      },
+      {
+        "t": 200,
+        "x": -570
+      },
+      {
+        "t": 300,
+        "x": -760
+      },
+      {
+        "t": 399.9,
+        "x": -950
+      },
+      {
+        "t": 400,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 1140,
+    "state": "shoot",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsCharge",
+    "duration": 500,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 125,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -190
+      },
+      {
+        "t": 375,
+        "x": -380
+      },
+      {
+        "t": 499.9,
+        "x": -380
+      },
+      {
+        "t": 500,
+        "x": -570
+      }
+    ],
+    "rate": 1,
+    "sheet": 760,
+    "state": "charge",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsCannon",
+    "duration": 500,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 125,
+        "x": -190
+      },
+      {
+        "t": 250,
+        "x": -570
+      },
+      {
+        "t": 375,
+        "x": -760
+      },
+      {
+        "t": 499.9,
+        "x": -950
+      },
+      {
+        "t": 500,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 1140,
+    "state": "cannon",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -190
+      },
+      {
+        "t": 500,
+        "x": -380
+      },
+      {
+        "t": 750,
+        "x": -570
+      },
+      {
+        "t": 999.9,
+        "x": -570
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 760,
+    "state": "hurt",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsMove",
+    "duration": 600,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 150,
+        "x": -190
+      },
+      {
+        "t": 300,
+        "x": -570
+      },
+      {
+        "t": 450,
+        "x": -760
+      },
+      {
+        "t": 599.9,
+        "x": -950
+      },
+      {
+        "t": 600,
+        "x": 0
+      }
+    ],
+    "rate": 1,
+    "sheet": 1140,
+    "state": "run",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsDie",
+    "duration": 800,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 200,
+        "x": -190
+      },
+      {
+        "t": 400,
+        "x": -570
+      },
+      {
+        "t": 600,
+        "x": -950
+      },
+      {
+        "t": 799.9,
+        "x": -1140
+      },
+      {
+        "t": 800,
+        "x": -1330
+      }
+    ],
+    "rate": 1,
+    "sheet": 1520,
+    "state": "die",
+    "width": 190
+  },
+  {
+    "actor": "player",
+    "animation": "gunnerIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -110
+      },
+      {
+        "t": 500,
+        "x": -220
+      },
+      {
+        "t": 750,
+        "x": -330
+      },
+      {
+        "t": 999.9,
+        "x": -330
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 440,
+    "state": "idle",
+    "width": 110
+  },
+  {
+    "actor": "player",
+    "animation": "gunnerShoot",
+    "duration": 320,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 80,
+        "x": -440
+      },
+      {
+        "t": 160,
+        "x": -880
+      },
+      {
+        "t": 240,
+        "x": -1320
+      },
+      {
+        "t": 319.9,
+        "x": -1650
+      },
+      {
+        "t": 320,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 1760,
+    "state": "atk",
+    "width": 110
+  },
+  {
+    "actor": "player",
+    "animation": "gunnerRun",
+    "duration": 667,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 166.75,
+        "x": -220
+      },
+      {
+        "t": 333.5,
+        "x": -440
+      },
+      {
+        "t": 500.25,
+        "x": -550
+      },
+      {
+        "t": 666.9,
+        "x": -770
+      },
+      {
+        "t": 667,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 880,
+    "state": "run",
+    "width": 110
+  },
+  {
+    "actor": "player",
+    "animation": "gunnerDeath",
+    "duration": 900,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 225,
+        "x": -110
+      },
+      {
+        "t": 450,
+        "x": -330
+      },
+      {
+        "t": 675,
+        "x": -550
+      },
+      {
+        "t": 899.9,
+        "x": -660
+      },
+      {
+        "t": 900,
+        "x": -770
+      }
+    ],
+    "rate": 2,
+    "sheet": 880,
+    "state": "death",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -110
+      },
+      {
+        "t": 500,
+        "x": -220
+      },
+      {
+        "t": 750,
+        "x": -330
+      },
+      {
+        "t": 999.9,
+        "x": -330
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 440,
+    "state": "idle",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secShoot",
+    "duration": 333,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 83.25,
+        "x": -220
+      },
+      {
+        "t": 166.5,
+        "x": -440
+      },
+      {
+        "t": 249.75,
+        "x": -660
+      },
+      {
+        "t": 332.9,
+        "x": -770
+      },
+      {
+        "t": 333,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 880,
+    "state": "shoot",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secHurt",
+    "duration": 200,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 50,
+        "x": 0
+      },
+      {
+        "t": 100,
+        "x": -110
+      },
+      {
+        "t": 150,
+        "x": -220
+      },
+      {
+        "t": 199.9,
+        "x": -220
+      },
+      {
+        "t": 200,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 330,
+    "state": "hurt",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secRun",
+    "duration": 667,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 166.75,
+        "x": -220
+      },
+      {
+        "t": 333.5,
+        "x": -440
+      },
+      {
+        "t": 500.25,
+        "x": -550
+      },
+      {
+        "t": 666.9,
+        "x": -770
+      },
+      {
+        "t": 667,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 880,
+    "state": "run",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secDie",
+    "duration": 600,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 150,
+        "x": -165
+      },
+      {
+        "t": 300,
+        "x": -330
+      },
+      {
+        "t": 450,
+        "x": -495
+      },
+      {
+        "t": 599.9,
+        "x": -660
+      },
+      {
+        "t": 600,
+        "x": -825
+      }
+    ],
+    "rate": 2,
+    "sheet": 990,
+    "state": "die",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -165
+      },
+      {
+        "t": 500,
+        "x": -330
+      },
+      {
+        "t": 750,
+        "x": -495
+      },
+      {
+        "t": 999.9,
+        "x": -495
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 660,
+    "state": "idle",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenShoot",
+    "duration": 400,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 100,
+        "x": -330
+      },
+      {
+        "t": 200,
+        "x": -660
+      },
+      {
+        "t": 300,
+        "x": -825
+      },
+      {
+        "t": 399.9,
+        "x": -1155
+      },
+      {
+        "t": 400,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 1320,
+    "state": "shoot",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -165
+      },
+      {
+        "t": 500,
+        "x": -330
+      },
+      {
+        "t": 750,
+        "x": -495
+      },
+      {
+        "t": 999.9,
+        "x": -495
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 660,
+    "state": "hurt",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenRun",
+    "duration": 800,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 200,
+        "x": -330
+      },
+      {
+        "t": 400,
+        "x": -660
+      },
+      {
+        "t": 600,
+        "x": -825
+      },
+      {
+        "t": 799.9,
+        "x": -1155
+      },
+      {
+        "t": 800,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 1320,
+    "state": "run",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenDie",
+    "duration": 800,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 200,
+        "x": -165
+      },
+      {
+        "t": 400,
+        "x": -495
+      },
+      {
+        "t": 600,
+        "x": -825
+      },
+      {
+        "t": 799.9,
+        "x": -990
+      },
+      {
+        "t": 800,
+        "x": -1155
+      }
+    ],
+    "rate": 2,
+    "sheet": 1320,
+    "state": "die",
+    "width": 165
+  },
+  {
+    "actor": "prism",
+    "animation": "prismIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -150
+      },
+      {
+        "t": 500,
+        "x": -300
+      },
+      {
+        "t": 750,
+        "x": -450
+      },
+      {
+        "t": 999.9,
+        "x": -450
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 600,
+    "state": "idle",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismShoot",
+    "duration": 400,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 100,
+        "x": -150
+      },
+      {
+        "t": 200,
+        "x": -450
+      },
+      {
+        "t": 300,
+        "x": -600
+      },
+      {
+        "t": 399.9,
+        "x": -750
+      },
+      {
+        "t": 400,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 900,
+    "state": "shoot",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismSlash",
+    "duration": 500,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 125,
+        "x": -150
+      },
+      {
+        "t": 250,
+        "x": -450
+      },
+      {
+        "t": 375,
+        "x": -600
+      },
+      {
+        "t": 499.9,
+        "x": -750
+      },
+      {
+        "t": 500,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 900,
+    "state": "slash",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -150
+      },
+      {
+        "t": 500,
+        "x": -300
+      },
+      {
+        "t": 750,
+        "x": -450
+      },
+      {
+        "t": 999.9,
+        "x": -450
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 600,
+    "state": "hurt",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismMove",
+    "duration": 750,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 187.5,
+        "x": -150
+      },
+      {
+        "t": 375,
+        "x": -450
+      },
+      {
+        "t": 562.5,
+        "x": -600
+      },
+      {
+        "t": 749.9,
+        "x": -750
+      },
+      {
+        "t": 750,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 900,
+    "state": "run",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismDie",
+    "duration": 890,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 222.5,
+        "x": -150
+      },
+      {
+        "t": 445,
+        "x": -450
+      },
+      {
+        "t": 667.5,
+        "x": -750
+      },
+      {
+        "t": 889.9,
+        "x": -900
+      },
+      {
+        "t": 890,
+        "x": -1050
+      }
+    ],
+    "rate": 2,
+    "sheet": 1200,
+    "state": "die",
+    "width": 150
+  },
+  {
+    "actor": "hound",
+    "animation": "houndIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -110
+      },
+      {
+        "t": 500,
+        "x": -220
+      },
+      {
+        "t": 750,
+        "x": -330
+      },
+      {
+        "t": 999.9,
+        "x": -330
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 440,
+    "state": "idle",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -110
+      },
+      {
+        "t": 500,
+        "x": -220
+      },
+      {
+        "t": 750,
+        "x": -330
+      },
+      {
+        "t": 999.9,
+        "x": -330
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 440,
+    "state": "shoot",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndBite",
+    "duration": 500,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 125,
+        "x": -110
+      },
+      {
+        "t": 250,
+        "x": -330
+      },
+      {
+        "t": 375,
+        "x": -440
+      },
+      {
+        "t": 499.9,
+        "x": -550
+      },
+      {
+        "t": 500,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 660,
+    "state": "bite",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndHurt",
+    "duration": 200,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 50,
+        "x": 0
+      },
+      {
+        "t": 100,
+        "x": -110
+      },
+      {
+        "t": 150,
+        "x": -220
+      },
+      {
+        "t": 199.9,
+        "x": -220
+      },
+      {
+        "t": 200,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 330,
+    "state": "hurt",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndRun",
+    "duration": 667,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 166.75,
+        "x": -220
+      },
+      {
+        "t": 333.5,
+        "x": -440
+      },
+      {
+        "t": 500.25,
+        "x": -550
+      },
+      {
+        "t": 666.9,
+        "x": -770
+      },
+      {
+        "t": 667,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 880,
+    "state": "run",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndDie",
+    "duration": 667,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 166.75,
+        "x": -110
+      },
+      {
+        "t": 333.5,
+        "x": -220
+      },
+      {
+        "t": 500.25,
+        "x": -330
+      },
+      {
+        "t": 666.9,
+        "x": -440
+      },
+      {
+        "t": 667,
+        "x": -550
+      }
+    ],
+    "rate": 2,
+    "sheet": 660,
+    "state": "die",
+    "width": 110
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -190
+      },
+      {
+        "t": 500,
+        "x": -380
+      },
+      {
+        "t": 750,
+        "x": -570
+      },
+      {
+        "t": 999.9,
+        "x": -570
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 760,
+    "state": "idle",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsMg",
+    "duration": 400,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 100,
+        "x": -190
+      },
+      {
+        "t": 200,
+        "x": -570
+      },
+      {
+        "t": 300,
+        "x": -760
+      },
+      {
+        "t": 399.9,
+        "x": -950
+      },
+      {
+        "t": 400,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 1140,
+    "state": "shoot",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsCharge",
+    "duration": 500,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 125,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -190
+      },
+      {
+        "t": 375,
+        "x": -380
+      },
+      {
+        "t": 499.9,
+        "x": -380
+      },
+      {
+        "t": 500,
+        "x": -570
+      }
+    ],
+    "rate": 2,
+    "sheet": 760,
+    "state": "charge",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsCannon",
+    "duration": 500,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 125,
+        "x": -190
+      },
+      {
+        "t": 250,
+        "x": -570
+      },
+      {
+        "t": 375,
+        "x": -760
+      },
+      {
+        "t": 499.9,
+        "x": -950
+      },
+      {
+        "t": 500,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 1140,
+    "state": "cannon",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsIdle",
+    "duration": 1000,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 250,
+        "x": -190
+      },
+      {
+        "t": 500,
+        "x": -380
+      },
+      {
+        "t": 750,
+        "x": -570
+      },
+      {
+        "t": 999.9,
+        "x": -570
+      },
+      {
+        "t": 1000,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 760,
+    "state": "hurt",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsMove",
+    "duration": 600,
+    "fill": "none",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 150,
+        "x": -190
+      },
+      {
+        "t": 300,
+        "x": -570
+      },
+      {
+        "t": 450,
+        "x": -760
+      },
+      {
+        "t": 599.9,
+        "x": -950
+      },
+      {
+        "t": 600,
+        "x": 0
+      }
+    ],
+    "rate": 2,
+    "sheet": 1140,
+    "state": "run",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsDie",
+    "duration": 800,
+    "fill": "forwards",
+    "pass": true,
+    "positions": [
+      {
+        "t": 0,
+        "x": 0
+      },
+      {
+        "t": 200,
+        "x": -190
+      },
+      {
+        "t": 400,
+        "x": -570
+      },
+      {
+        "t": 600,
+        "x": -950
+      },
+      {
+        "t": 799.9,
+        "x": -1140
+      },
+      {
+        "t": 800,
+        "x": -1330
+      }
+    ],
+    "rate": 2,
+    "sheet": 1520,
+    "state": "die",
+    "width": 190
+  }
+]

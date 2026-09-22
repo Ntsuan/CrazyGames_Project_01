@@ -1,0 +1,190 @@
+{
+  "notes": "Browser fixture exposes real game functions; combat damage disabled only in fixture. Initial fixture name typo fixed before checks. Mobile fixture toolbar hidden before actual supply click.",
+  "results": [
+    {
+      "case": "run-in held",
+      "state": {
+        "version": "v2.56",
+        "stage": 2,
+        "floor": 1,
+        "mob": 0,
+        "gold": 0,
+        "crates": 0,
+        "cooldown": 0,
+        "paused": true,
+        "transit": true,
+        "wall": false,
+        "pending": 0,
+        "remaining": 0,
+        "cloaked": false,
+        "shielded": true,
+        "ad": true,
+        "suspended": true,
+        "canOpen": false,
+        "tasks": 2,
+        "animations": [
+          {
+            "name": "stage2run",
+            "rate": 0
+          },
+          {
+            "name": "secIdle",
+            "rate": 0
+          }
+        ]
+      }
+    },
+    {
+      "case": "run-in resumed",
+      "state": {
+        "version": "v2.56",
+        "stage": 2,
+        "floor": 1,
+        "mob": 0,
+        "gold": 0,
+        "crates": 0,
+        "cooldown": 0,
+        "paused": false,
+        "transit": false,
+        "wall": false,
+        "pending": 0,
+        "remaining": 0,
+        "cloaked": false,
+        "shielded": true,
+        "ad": false,
+        "suspended": false,
+        "canOpen": true,
+        "tasks": 0,
+        "animations": [
+          {
+            "name": "stage2idle",
+            "rate": 1
+          },
+          {
+            "name": "spiderIdle",
+            "rate": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": "cloak immediately during corpse",
+      "state": {
+        "version": "v2.56",
+        "stage": 2,
+        "floor": 1,
+        "mob": 1,
+        "gold": 2.3000000000000003,
+        "crates": 0,
+        "cooldown": 0,
+        "paused": true,
+        "transit": false,
+        "wall": false,
+        "pending": 2000,
+        "remaining": 0,
+        "cloaked": true,
+        "shielded": true,
+        "ad": true,
+        "suspended": true,
+        "canOpen": false,
+        "tasks": 2,
+        "animations": [
+          {
+            "name": "stage2idle",
+            "rate": 0
+          },
+          {
+            "name": "spiderDie",
+            "rate": 0
+          }
+        ]
+      }
+    },
+    {
+      "case": "award once",
+      "state": {
+        "version": "v2.56",
+        "stage": 2,
+        "floor": 1,
+        "mob": 1,
+        "gold": 48.3,
+        "crates": 1,
+        "cooldown": 59747.49999996424,
+        "paused": false,
+        "transit": false,
+        "wall": false,
+        "pending": 2000,
+        "remaining": 0,
+        "cloaked": true,
+        "shielded": true,
+        "ad": false,
+        "suspended": false,
+        "canOpen": false,
+        "tasks": 2,
+        "animations": [
+          {
+            "name": "stage2idle",
+            "rate": 1
+          },
+          {
+            "name": "spiderDie",
+            "rate": 1
+          }
+        ]
+      }
+    },
+    {
+      "case": "ten-floor choice resumed",
+      "state": {
+        "version": "v2.56",
+        "stage": 2,
+        "floor": 11,
+        "mob": 0,
+        "gold": 40.455577357079065,
+        "crates": 0,
+        "cooldown": 0,
+        "paused": true,
+        "transit": false,
+        "wall": false,
+        "pending": 2000,
+        "remaining": 0,
+        "cloaked": true,
+        "shielded": true,
+        "ad": false,
+        "suspended": false,
+        "canOpen": false,
+        "tasks": 0,
+        "animations": [
+          {
+            "name": "stage2idle",
+            "rate": 1
+          },
+          {
+            "name": "prismDie",
+            "rate": 1
+          }
+        ]
+      },
+      "modal": "第 10 层已通关继续挑战，还是重塑变强？本次选择期间，战斗已暂停\n        2本轮可结算碎片\n       继续挑战可获得技能强化重塑可将碎片用于本阶段加成继续挑战选择技能，前往第 11 层前往重塑先查看结算，再决定下次提醒：通关第 20 层后"
+    },
+    {
+      "case": "hundred-floor upgrade resumed",
+      "panel": "1初始猎手2肢体替换3躯干重构4神经融合5全身义体STAGE 2 / 05 · COMPLETE第 2 阶段已通关完成义体改装，开启下一阶段肢体替换→躯干重构基础攻击12 → 16基础生命150 → 200\n      阶段自带 · 应急护盾 Lv.1 → Lv.2每场战斗获得最大生命 20% 的护盾，可与本轮技能叠加。\n      改装后，从第 1 层重新开始信用点、已有与本轮碎片、装备与背包、强化、本轮获取的技能及加成树全部清零。装备不回收为启动资金。音效设置与阶段记录保留；倍速资格重新积累。\n      \n      开始义体改装进入阶段 3 · 躯干重构"
+    },
+    {
+      "case": "death modal deferred",
+      "modal": "行动受阻猎手在第 1 层被压制了。「重塑」换一具更强的克隆体（本循环已掉落 0 碎片将转为可用，装备回收为信用点带入新局）。重塑 · 结算本循环"
+    },
+    {
+      "case": "mobile real crate button and copy",
+      "copy": "下次补给：60 秒",
+      "disabled": true
+    }
+  ],
+  "productionSmoke": {
+    "entry": "index.html",
+    "version": "V2.56",
+    "coverRemoved": true,
+    "errors": []
+  }
+}

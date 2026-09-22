@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-22",
+  "version": "v2.56",
+  "files": {
+    "game/index.html": "7a700db31edabeb91da1bcce5de90ce1014890ba1c53e774c95d56b42a941906",
+    "game/assets/upgrades/1-2.js": "89b844d04b4440abee4845ff347b1124e67b6830d76108efc0b72aea7338b3f8",
+    "game/assets/upgrades/2-3.js": "f20fd3e66d004c02498d8be4d7d3d76b18a87551f0f85a8d29a1208ce22dae1f",
+    "game/assets/upgrades/3-4.js": "5da3ba0a56406c80a771eda89cedfd92bdcca8be6c42127f71934399b0293328",
+    "game/assets/upgrades/4-5.js": "9a894ba8f47736f6481a106282e8d85ecf746a25ee7c7bf6f283ac215604adad"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "assets": [
+    {
+      "loaded": false,
+      "src": "assets/stage01_death.png"
+    },
+    {
+      "height": 128,
+      "loaded": true,
+      "src": "assets/stage01-death.png",
+      "width": 1024
+    }
+  ],
+  "end": {
+    "backgroundRepeat": "no-repeat",
+    "backgroundSize": "880px 110px",
+    "heading": "行动受阻",
+    "modal": true,
+    "position": "-880px"
+  },
+  "initial": {
+    "animation": "gunnerDeath",
+    "deathClass": true,
+    "duration": "0.9s",
+    "image": "url(\"http://127.0.0.1:19329/assets/stage01_death.png\")",
+    "modal": false,
+    "paused": true,
+    "wall": true
+  }
+}

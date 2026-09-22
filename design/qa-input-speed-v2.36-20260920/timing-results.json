@@ -1,0 +1,56 @@
+[
+  {
+    "exitTransitionDuration": "1.2s",
+    "sample": {
+      "arenaWidth": 373,
+      "atMs": 1101,
+      "left": "288.266px",
+      "opacity": "1",
+      "targetLeft": "86%"
+    },
+    "speed": 1,
+    "test": "floorTransit",
+    "totalMs": 3000
+  },
+  {
+    "exitTransitionDuration": "1.2s",
+    "sample": {
+      "arenaWidth": 373,
+      "atMs": 806,
+      "left": "320.766px",
+      "opacity": "9.41037e-08",
+      "targetLeft": "86%"
+    },
+    "speed": 2,
+    "test": "floorTransit",
+    "totalMs": 1791
+  },
+  {
+    "chargeCSS": "0.5s",
+    "logicChargeDurationMs": 500,
+    "speed": 1,
+    "test": "tianshu"
+  },
+  {
+    "chargeCSS": "0.5s",
+    "logicChargeDurationMs": 250,
+    "speed": 2,
+    "test": "tianshu"
+  },
+  {
+    "intervals": [
+      544,
+      502
+    ],
+    "speed": 1,
+    "test": "uiRefresh"
+  },
+  {
+    "intervals": [
+      500,
+      501
+    ],
+    "speed": 2,
+    "test": "uiRefresh"
+  }
+]

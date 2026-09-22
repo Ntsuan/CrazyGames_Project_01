@@ -1,0 +1,312 @@
+[
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/start-screen/start-screen.css?v=2307"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/buttons.css?v=2307"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/icons/enhance.svg"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/icons/skills.svg"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/icons/cybernetics.svg"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/icons/reshape.svg"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/icons/supply.svg"
+  },
+  {
+    "bytes": 0,
+    "duration": 15.199999988079073,
+    "name": "http://127.0.0.1:19320/assets/start-screen/night-city-mobile.webp"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/gunner_shoot.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/gunner_run.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/arena-bg6.webp"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/security_idle.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/hound_idle.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/hound_run.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/tianshu_idle.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/tianshu_machinegun.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/tianshu_charge.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/tianshu_cannon.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/icons/credits.svg"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/icons/soul-shard.svg"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/icons/attack.svg"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/icons/health.svg"
+  },
+  {
+    "bytes": 0,
+    "duration": 6.100000023841858,
+    "name": "http://127.0.0.1:19320/assets/arena-bg2.webp"
+  },
+  {
+    "bytes": 0,
+    "duration": 8,
+    "name": "http://127.0.0.1:19320/assets/arena-bg3.webp"
+  },
+  {
+    "bytes": 0,
+    "duration": 8.199999988079071,
+    "name": "http://127.0.0.1:19320/assets/arena-bg4.webp"
+  },
+  {
+    "bytes": 0,
+    "duration": 8.899999976158142,
+    "name": "http://127.0.0.1:19320/assets/arena-bg5.webp"
+  },
+  {
+    "bytes": 0,
+    "duration": 8.899999976158142,
+    "name": "http://127.0.0.1:19320/assets/security_shoot.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 8.699999988079071,
+    "name": "http://127.0.0.1:19320/assets/security_hurt.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 9.800000011920927,
+    "name": "http://127.0.0.1:19320/assets/security_death.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 12,
+    "name": "http://127.0.0.1:19320/assets/security_run.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 12.300000011920927,
+    "name": "http://127.0.0.1:19320/assets/warden_idle.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 12.699999988079073,
+    "name": "http://127.0.0.1:19320/assets/warden_shoot.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 14.800000011920927,
+    "name": "http://127.0.0.1:19320/assets/warden_run.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 15,
+    "name": "http://127.0.0.1:19320/assets/warden_death.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 15.800000011920927,
+    "name": "http://127.0.0.1:19320/assets/prism_idle.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 17.900000035762787,
+    "name": "http://127.0.0.1:19320/assets/prism_shoot.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 18,
+    "name": "http://127.0.0.1:19320/assets/prism_slash.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 18.900000035762787,
+    "name": "http://127.0.0.1:19320/assets/prism_move.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 20.30000001192093,
+    "name": "http://127.0.0.1:19320/assets/prism_death.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 19.80000001192093,
+    "name": "http://127.0.0.1:19320/assets/hound_bite.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 21.099999964237213,
+    "name": "http://127.0.0.1:19320/assets/hound_hurt.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 23.69999998807907,
+    "name": "http://127.0.0.1:19320/assets/hound_death.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 25,
+    "name": "http://127.0.0.1:19320/assets/tianshu_move.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 28,
+    "name": "http://127.0.0.1:19320/assets/tianshu_death.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/arena-bg.webp"
+  },
+  {
+    "bytes": 0,
+    "duration": 0,
+    "name": "http://127.0.0.1:19320/assets/gunner_idle.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 13.800000011920927,
+    "name": "http://127.0.0.1:19320/assets/sfx/laser-shot-01.wav"
+  },
+  {
+    "bytes": 0,
+    "duration": 14.5,
+    "name": "http://127.0.0.1:19320/assets/sfx/laser-shot-01.wav"
+  },
+  {
+    "bytes": 0,
+    "duration": 15.099999964237211,
+    "name": "http://127.0.0.1:19320/assets/sfx/laser-shot-01.wav"
+  },
+  {
+    "bytes": 0,
+    "duration": 4.199999988079071,
+    "name": "http://127.0.0.1:19320/assets/arena-bg2.webp"
+  },
+  {
+    "bytes": 0,
+    "duration": 4.399999976158142,
+    "name": "http://127.0.0.1:19320/assets/gunner_run.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 2.699999988079071,
+    "name": "http://127.0.0.1:19320/assets/hound_run.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 3.100000023841858,
+    "name": "http://127.0.0.1:19320/assets/hound_idle.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 2.699999988079071,
+    "name": "http://127.0.0.1:19320/assets/icons/locked.svg"
+  },
+  {
+    "bytes": 0,
+    "duration": 1.9000000357627869,
+    "name": "http://127.0.0.1:19320/assets/warden_idle.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 2.699999988079071,
+    "name": "http://127.0.0.1:19320/assets/warden_death.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 3.299999952316284,
+    "name": "http://127.0.0.1:19320/assets/icons/neural.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 3.800000011920929,
+    "name": "http://127.0.0.1:19320/assets/icons/skill-choice.svg"
+  },
+  {
+    "bytes": 0,
+    "duration": 2.399999976158142,
+    "name": "http://127.0.0.1:19320/assets/hound_bite.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 5.800000011920929,
+    "name": "http://127.0.0.1:19320/assets/gunner_shoot.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 3.699999988079071,
+    "name": "http://127.0.0.1:19320/assets/hound_hurt.png"
+  },
+  {
+    "bytes": 0,
+    "duration": 2.5,
+    "name": "http://127.0.0.1:19320/assets/hound_death.png"
+  }
+]

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>v2.18 护盾双条 UI 参考 · 霓虹猎手</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --cyan:#00F0FF; --magenta:#FF2A6D; --gold:#FFD166; --purple:#c07bff; --bg:#0a0e17; --dim:#8b95a7; }
+  body { background:#1a1d24; font-family:"PingFang SC","Microsoft YaHei",sans-serif; padding:24px;
+         display:flex; flex-direction:column; align-items:center; color:#e6edf3; }
+  h1 { font-size:16px; color:var(--cyan); margin-bottom:16px; }
+  .arena { position:relative; width:860px; height:280px; border-radius:12px; overflow:hidden;
+           background:linear-gradient(180deg,#141b2e 0%,#1d2440 55%,#2a2140 56%,#1a1428 100%); }
+  .hud { position:absolute; top:8px; left:50%; transform:translateX(-50%);
+         background:rgba(10,14,23,.72); border:1px solid #1e2a44; border-radius:20px;
+         padding:5px 16px; font-size:14px; }
+  .hud b { color:var(--gold); } .hud .ps { color:var(--purple); }
+  .fl { position:absolute; top:10px; left:14px; }
+  .fl .big { font-size:22px; font-weight:700; text-shadow:0 0 10px rgba(0,240,255,.5); }
+  .fl .big b { color:var(--cyan); font-size:26px; }
+  .fl .sub { font-size:10px; color:var(--dim); }
+  .fighter { position:absolute; bottom:78px; font-size:42px; }
+  #pF { left:22%; } #eF { right:22%; font-size:54px; }
+  /* 双条组：盾条（上，细）+ 血条（下，粗） */
+  .bars { position:absolute; width:180px; }
+  #pBars { left:calc(22% - 40px); bottom:56px; }
+  #eBars { right:calc(22% - 40px); bottom:56px; }
+  .bar { height:12px; background:#1a2436; border:1px solid #2b3a55; border-radius:6px; overflow:hidden; position:relative; }
+  .bar .fill { height:100%; }
+  .bar .txt { position:absolute; inset:0; font-size:9px; line-height:12px; text-align:center; color:#fff; text-shadow:0 1px 2px #000; }
+  .hp .fill { background:var(--cyan); width:62%; } #eBars .hp .fill { background:var(--magenta); width:100%; }
+  .sh { height:7px; margin-bottom:3px; border-radius:4px; }
+  .sh .fill { background:linear-gradient(90deg,#7fd4ff,#c07bff); }
+  .sh .txt { font-size:8px; line-height:7px; }
+  #pBars .sh .fill { width:35%; }
+  #eBars .sh .fill { width:78%; }
+  .tag-new { position:absolute; font-size:10px; color:var(--gold); }
+  .note { max-width:860px; margin-top:16px; font-size:13px; line-height:2; color:#cfd8e3; }
+  .note b { color:var(--gold); }
+</style>
+</head>
+<body>
+<h1>v2.18 · 护盾双条参考（Boss 战画面）</h1>
+<div class="arena">
+  <div class="fl"><div class="big">第 <b>10</b> 层 · <span style="color:var(--purple)">监察官·棱镜</span></div>
+    <div class="sub">棱镜核心 · 下一层：维修层</div></div>
+  <div class="hud">💰 <b>2.7K</b> · 🌌 <span class="ps"><b>23</b></span></div>
+  <div class="fighter" id="pF">🔫</div>
+  <div class="fighter" id="eF">🤖</div>
+  <!-- 玩家双条 -->
+  <div class="bars" id="pBars">
+    <div class="bar sh"><div class="fill"></div><div class="txt">盾 350</div></div>
+    <div class="bar hp"><div class="fill"></div><div class="txt">1,240 / 2,000</div></div>
+  </div>
+  <div class="tag-new" style="left:calc(22% - 40px);bottom:32px">↑ 盾条（细，上）/ 血条（粗，下）</div>
+  <!-- Boss 双条 -->
+  <div class="bars" id="eBars">
+    <div class="bar sh"><div class="fill"></div><div class="txt">盾 7.8K</div></div>
+    <div class="bar hp"><div class="fill"></div><div class="txt">10K / 10K（未破防）</div></div>
+  </div>
+  <div class="tag-new" style="right:calc(22% - 40px);bottom:32px">↑ Boss 盾条：破盾前血条锁定</div>
+</div>
+<div class="note">
+  <b>规则与版式</b><br>
+  · <b>盾条在上（细条，青紫渐变），血条在下（粗条）</b>——一眼读出"先打上面那条"<br>
+  · Boss 盾破前血条显示「未破防」且不受伤害；破盾瞬间飘字「破盾！」（品红大字）<br>
+  · 玩家盾条同理显示应急护盾值；无盾时盾条隐藏（不占高度）<br>
+  · 数值建议：Boss 盾 = 血量 50%（棱镜 80%），不回复；注意 90s 超时判定要按 盾+血 总量校核
+</div>
+</body>
+</html>

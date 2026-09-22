@@ -1,0 +1,393 @@
+{
+  "date": "2026-09-22",
+  "sourceSha256": "91086f3fa8de3af2e9b2479bf8c319d748504b0ab8f5707d6c9951cd7259621a",
+  "environment": "Local in-app browser, simulated mobile viewport; not physical phone",
+  "evidence": [
+    {
+      "name": "desktop-1x",
+      "phase": "playing",
+      "rate": 1,
+      "testSpeed": 1,
+      "stage": 5,
+      "floor": 100,
+      "hits": 524,
+      "gameMs": 65450,
+      "paused": true,
+      "transit": false,
+      "wall": false,
+      "skill": false,
+      "prestige": null,
+      "upgrade": null,
+      "upgradeElapsed": 0,
+      "aspd": 26.253676800000004,
+      "liveFloats": 0,
+      "tasks": 0,
+      "errors": [],
+      "perf": {
+        "rate": 1,
+        "wallMs": 20010.899999976158,
+        "gameMs": 20000,
+        "frames": 1179,
+        "fps": 58.94410558944106,
+        "p95FrameMs": 17.59999999999127,
+        "maxFrameMs": 67.30000000000291,
+        "p95LoopMs": 3.5,
+        "maxLoopMs": 47.30000001192093,
+        "hits": 524,
+        "saves": 4,
+        "paused": false,
+        "errors": []
+      },
+      "sourceNote": "1x sample before final high-speed-only float cap and beforeunload log-flush patch; 4x/8x sampled final source"
+    },
+    {
+      "name": "desktop-4x",
+      "phase": "playing",
+      "rate": 4,
+      "testSpeed": 4,
+      "stage": 5,
+      "floor": 100,
+      "hits": 2096,
+      "gameMs": 82733.33333333333,
+      "paused": true,
+      "transit": false,
+      "wall": false,
+      "skill": false,
+      "prestige": null,
+      "upgrade": null,
+      "upgradeElapsed": 0,
+      "aspd": 26.253676800000004,
+      "liveFloats": 0,
+      "tasks": 0,
+      "errors": [],
+      "perf": {
+        "rate": 4,
+        "wallMs": 20002,
+        "gameMs": 79933.33333333333,
+        "frames": 1199,
+        "fps": 60.00040033628249,
+        "p95FrameMs": 17.5,
+        "maxFrameMs": 17.80000000000291,
+        "p95LoopMs": 1.5,
+        "maxLoopMs": 3.5,
+        "hits": 2096,
+        "saves": 4,
+        "paused": false,
+        "errors": []
+      }
+    },
+    {
+      "name": "desktop-8x",
+      "phase": "playing",
+      "rate": 8,
+      "testSpeed": 8,
+      "stage": 5,
+      "floor": 100,
+      "hits": 4194,
+      "gameMs": 242616.66666666666,
+      "paused": true,
+      "transit": false,
+      "wall": false,
+      "skill": false,
+      "prestige": null,
+      "upgrade": null,
+      "upgradeElapsed": 0,
+      "aspd": 26.253676800000004,
+      "liveFloats": 0,
+      "tasks": 0,
+      "errors": [],
+      "perf": {
+        "rate": 8,
+        "wallMs": 20001,
+        "gameMs": 159883.3333333333,
+        "frames": 1199,
+        "fps": 60.00040033628249,
+        "p95FrameMs": 17.5,
+        "maxFrameMs": 17.79999999998836,
+        "p95LoopMs": 1.699999988079071,
+        "maxLoopMs": 4,
+        "hits": 4194,
+        "saves": 4,
+        "paused": false,
+        "errors": []
+      }
+    },
+    {
+      "name": "mobile-layout",
+      "buttons": [
+        {
+          "r": {
+            "h": 32,
+            "w": 60.921875,
+            "x": 10,
+            "y": 305.1875
+          },
+          "text": "测试 8×"
+        },
+        {
+          "r": {
+            "h": 32,
+            "w": 61.671875,
+            "x": 78.921875,
+            "y": 305.1875
+          },
+          "text": "🔄 复位"
+        },
+        {
+          "r": {
+            "h": 32,
+            "w": 83.671875,
+            "x": 148.59375,
+            "y": 305.1875
+          },
+          "text": "⏹️ 结束测试"
+        },
+        {
+          "r": {
+            "h": 32,
+            "w": 61.671875,
+            "x": 240.265625,
+            "y": 305.1875
+          },
+          "text": "📋 日志"
+        }
+      ],
+      "scrollWidth": 375,
+      "width": 390
+    },
+    {
+      "name": "new-floor-8x",
+      "phase": "playing",
+      "rate": 8,
+      "testSpeed": 8,
+      "stage": 1,
+      "floor": 4,
+      "hits": 4235,
+      "gameMs": 318600,
+      "paused": false,
+      "transit": false,
+      "wall": false,
+      "skill": false,
+      "prestige": null,
+      "upgrade": null,
+      "upgradeElapsed": 0,
+      "aspd": 1.4300000000000002,
+      "liveFloats": 4,
+      "tasks": 2,
+      "errors": [],
+      "perf": {
+        "rate": 8,
+        "wallMs": 20001,
+        "gameMs": 159883.3333333333,
+        "frames": 1199,
+        "fps": 60.00040033628249,
+        "p95FrameMs": 17.5,
+        "maxFrameMs": 17.79999999998836,
+        "p95LoopMs": 1.699999988079071,
+        "maxLoopMs": 4,
+        "hits": 4194,
+        "saves": 4,
+        "paused": false,
+        "errors": []
+      }
+    },
+    {
+      "name": "320-layout",
+      "buttons": [
+        {
+          "right": 70.921875,
+          "text": "测试 8×",
+          "x": 10,
+          "y": 264.59375
+        },
+        {
+          "right": 140.59375,
+          "text": "🔄 复位",
+          "x": 78.921875,
+          "y": 264.59375
+        },
+        {
+          "right": 232.265625,
+          "text": "⏹️ 结束测试",
+          "x": 148.59375,
+          "y": 264.59375
+        },
+        {
+          "right": 71.671875,
+          "text": "📋 日志",
+          "x": 10,
+          "y": 306.59375
+        }
+      ],
+      "scrollWidth": 305,
+      "width": 320
+    },
+    {
+      "name": "reload-to-1x",
+      "phase": "cover",
+      "rate": 1,
+      "testSpeed": 1,
+      "stage": 1,
+      "floor": 6,
+      "hits": 0,
+      "gameMs": 0,
+      "paused": true,
+      "transit": false,
+      "wall": false,
+      "skill": false,
+      "prestige": null,
+      "upgrade": null,
+      "upgradeElapsed": 0,
+      "aspd": 1.4300000000000002,
+      "liveFloats": 0,
+      "tasks": 0,
+      "errors": [],
+      "perf": null
+    },
+    {
+      "name": "skill-pauses-clock",
+      "phase": "playing",
+      "rate": 1,
+      "testSpeed": 1,
+      "stage": 1,
+      "floor": 6,
+      "hits": 0,
+      "gameMs": 383.3333333333333,
+      "paused": true,
+      "transit": false,
+      "wall": false,
+      "skill": true,
+      "prestige": null,
+      "upgrade": null,
+      "upgradeElapsed": 0,
+      "aspd": 1.4300000000000002,
+      "liveFloats": 0,
+      "tasks": 0,
+      "errors": [],
+      "perf": null
+    },
+    {
+      "name": "upgrade-start-8x",
+      "wallSinceClickMs": 301,
+      "phase": "playing",
+      "rate": 8,
+      "testSpeed": 8,
+      "stage": 2,
+      "floor": 1,
+      "hits": 2,
+      "gameMs": 4183.333333333333,
+      "paused": true,
+      "transit": false,
+      "wall": false,
+      "skill": false,
+      "prestige": null,
+      "upgrade": "playing",
+      "upgradeElapsed": 0.18320000000001166,
+      "aspd": 1.3,
+      "liveFloats": 0,
+      "tasks": 0,
+      "errors": [],
+      "perf": null,
+      "dom": "- heading \"霓虹猎手 NEON HUNTER\" [level=1]\n- generic: V2.51\n- button \"测试倍速 8倍，点击切换\" [pressed]: 测试 8×\n- button \"🔄 复位\"\n- button \"⏹️ 结束测试\"\n- button \"📋 日志\"\n- generic: 阶段 2 · 肢体替换\n- generic: 第 1 / 100 层\n- generic: 数据机房\n- generic: \"0\"\n- text: ·\n- generic: \"0\"\n- generic: 150 / 150\n- generic: 敌人 1/6\n- generic: 强化\n- text: 攻击 12 · 生命 150 · 攻速 1.30/秒\n- text: 暴击 5% × 1.5 · 吸血 0%\n- button \"攻击 Lv.0 → Lv.1 攻击 12 → 13.2 6 点击升级\" [disabled]:\n  - generic: 攻击 Lv.0 → Lv.1\n  - generic: 攻击 12 → 13.2\n  - generic: \"6\"\n  - generic: 点击升级\n- button \"生命 Lv.0 → Lv.1 生命 150 → 165 6 点击升级\" [disabled]:\n  - generic: 生命 Lv.0 → Lv.1\n  - generic: 生命 150 → 165\n  - generic: \"6\"\n  - generic: 点击升级\n- generic: 技能\n- generic: 尚未获得\n- heading \"义体 (自动装备)\" [level=3]\n- generic: 义体武器\n- generic: 空\n- generic: 无\n- generic: 神经插件\n- generic: 空\n- generic: 无\n- generic: 皮下装甲\n- generic: 空\n- generic: 无\n- generic: 芯片\n- generic: 空\n- generic: 无\n- generic: 重塑\n- text: 本循环已掉落碎片：0\n- text: 每通关 10 层可选择重塑，死亡受阻时也可重塑 → 碎片转为可用 · 装备回收为信用点\n- generic: 首次重塑后解锁\n- button \"伤害增幅 Lv.0 → Lv.1 攻击力增加 +0% → +5% 1 未解锁\" [disabled]:\n  - generic: 伤害增幅 Lv.0 → Lv.1\n  - generic: 攻击力增加 +0% → +5%\n  - generic: \"1\"\n  - generic: 未解锁\n- button \"信用点优化 Lv.0 → Lv.1 信用点增加 +0% → +10% 1 未解锁\" [disabled]:\n  - generic: 信用点优化 Lv.0 → Lv.1\n  - generic: 信用点增加 +0% → +10%\n  - generic: \"1\"\n  - generic: 未解锁\n- button \"灵魂共鸣 Lv.0 → Lv.1 碎片掉落增加 +0% → +10% 1 未解锁\" [disabled]:\n  - generic: 灵魂共鸣 Lv.0 → Lv.1\n  - generic: 碎片掉落增加 +0% → +10%\n  - generic: \"1\"\n  - generic: 未解锁\n- generic: 补给\n- generic: 补给箱已就绪！\n- button \"开补给箱 观看广告领取\":\n  - generic: 开补给箱\n  - generic: 观看广告领取\n- heading \"📋 测试日志 收起 ✕\" [level=3]:\n  - text: 📋 测试日志\n  - button \"收起 ✕\"\n- dialog \"义体改装中\" [active]:\n  - list:\n    - generic: \"1\"\n    - text: 初始猎手\n    - generic: \"2\"\n    - text: 肢体替换\n    - generic: \"3\"\n    - text: 躯干重构\n    - generic: \"4\"\n    - text: 神经融合\n    - generic: \"5\"\n    - text: 全身义体\n  - generic: CYBERNETIC UPGRADE\n  - heading \"义体改装中\" [level=2]\n  - paragraph: 初始猎手 → 肢体替换\n  - generic \"义体改装演出\"\n  - strong: 进入修复舱\n  - generic: 2%\n  - progressbar \"改装进度\"\n- complementary:\n  - button \"QA 压力20秒\"\n  - button \"QA 百层改装\"\n  - button \"QA 无尽百层\"\n  - button \"QA 普通爬层\"\n  - button \"QA 暂停\"\n  - button \"QA 刷新\"\n  - button \"QA 隐藏工具\"\n  - status: \"{\\\"phase\\\":\\\"playing\\\",\\\"rate\\\":8,\\\"testSpeed\\\":8,\\\"stage\\\":2,\\\"floor\\\":1,\\\"hits\\\":2,\\\"gameMs\\\":4183.333333333333,\\\"paused\\\":true,\\\"transit\\\":false,\\\"wall\\\":false,\\\"skill\\\":false,\\\"prestige\\\":null,\\\"upgrade\\\":\\\"playing\\\",\\\"upgradeElapsed\\\":0.18320000000001166,\\\"aspd\\\":1.3,\\\"liveFloats\\\":0,\\\"tasks\\\":0,\\\"errors\\\":[],\\\"perf\\\":null}\""
+    },
+    {
+      "name": "upgrade-mid-or-complete-8x",
+      "wallSinceClickMs": 7326,
+      "phase": "playing",
+      "rate": 8,
+      "testSpeed": 8,
+      "stage": 2,
+      "floor": 1,
+      "hits": 2,
+      "gameMs": 4183.333333333333,
+      "paused": true,
+      "transit": false,
+      "wall": false,
+      "skill": false,
+      "prestige": null,
+      "upgrade": "playing",
+      "upgradeElapsed": 7.183599999999998,
+      "aspd": 1.3,
+      "liveFloats": 0,
+      "tasks": 0,
+      "errors": [],
+      "perf": null,
+      "dialog": "1\n初始猎手\n2\n肢体替换\n3\n躯干重构\n4\n神经融合\n5\n全身义体\nCYBERNETIC UPGRADE\n义体改装中\n\n初始猎手 → 肢体替换\n\n新阶段出舱\n90%"
+    },
+    {
+      "name": "upgrade-completed-8x",
+      "wallSinceClickMs": 15927,
+      "phase": "playing",
+      "rate": 8,
+      "testSpeed": 8,
+      "stage": 2,
+      "floor": 1,
+      "hits": 2,
+      "gameMs": 4183.333333333333,
+      "paused": true,
+      "transit": false,
+      "wall": false,
+      "skill": false,
+      "prestige": null,
+      "upgrade": "complete",
+      "upgradeElapsed": 8,
+      "aspd": 1.3,
+      "liveFloats": 0,
+      "tasks": 0,
+      "errors": [],
+      "perf": null,
+      "dialog": "1\n初始猎手\n2\n肢体替换\n3\n躯干重构\n4\n神经融合\n5\n全身义体\nUPGRADE COMPLETE\n义体改装完成\n\n阶段 2 · 肢体替换\n\n基础攻击\n12\n基础生命\n150\n所有成长资源已归零，新的躯体已经就绪。\n\n下一次义体改装：通关本阶段第 100 层。\n\n进入第 1 层\n使用新的基础属性开始挑战"
+    },
+    {
+      "name": "endless100-at-8x",
+      "phase": "playing",
+      "rate": 8,
+      "testSpeed": 8,
+      "stage": 5,
+      "floor": 101,
+      "hits": 3,
+      "gameMs": 5750,
+      "paused": true,
+      "transit": false,
+      "wall": false,
+      "skill": false,
+      "prestige": "choice",
+      "upgrade": null,
+      "upgradeElapsed": 8,
+      "aspd": 1.3,
+      "liveFloats": 0,
+      "tasks": 0,
+      "errors": [],
+      "perf": null
+    },
+    {
+      "name": "landscape-layout",
+      "buttons": [
+        {
+          "right": 583.984375,
+          "text": "测试 8×",
+          "x": 523.0625
+        },
+        {
+          "right": 653.65625,
+          "text": "🔄 复位",
+          "x": 591.984375
+        },
+        {
+          "right": 745.328125,
+          "text": "⏹️ 结束测试",
+          "x": 661.65625
+        },
+        {
+          "right": 815,
+          "text": "📋 日志",
+          "x": 753.328125
+        }
+      ],
+      "height": 390,
+      "scrollWidth": 829,
+      "width": 844
+    }
+  ],
+  "console": []
+}

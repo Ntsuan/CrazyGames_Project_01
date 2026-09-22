@@ -1,0 +1,97 @@
+[
+  {
+    "delayMs": 0,
+    "level": 1,
+    "name": "F01 cancelled swipe then valid tap",
+    "pass": true
+  },
+  {
+    "delayMs": 100,
+    "level": 1,
+    "name": "F01 cancelled swipe then valid tap",
+    "pass": true
+  },
+  {
+    "delayMs": 400,
+    "level": 1,
+    "name": "F01 cancelled swipe then valid tap",
+    "pass": true
+  },
+  {
+    "name": "atk normal title across refresh",
+    "pass": true,
+    "value": 1
+  },
+  {
+    "name": "hp normal title across refresh",
+    "pass": true,
+    "value": 1
+  },
+  {
+    "name": "skill normal title across refresh",
+    "pass": true,
+    "value": 1
+  },
+  {
+    "connected": true,
+    "drop": false,
+    "fuseEvents": 1,
+    "name": "F02 held fuse",
+    "part": "button",
+    "pass": true,
+    "trackerStuck": false
+  },
+  {
+    "connected": true,
+    "drop": true,
+    "fuseEvents": 2,
+    "name": "F02 held fuse",
+    "part": "button",
+    "pass": true,
+    "trackerStuck": false
+  },
+  {
+    "connected": true,
+    "drop": false,
+    "fuseEvents": 3,
+    "name": "F02 held fuse",
+    "part": "title",
+    "pass": true,
+    "trackerStuck": false
+  },
+  {
+    "connected": true,
+    "drop": true,
+    "fuseEvents": 4,
+    "name": "F02 held fuse",
+    "part": "title",
+    "pass": true,
+    "trackerStuck": false
+  },
+  {
+    "connected": false,
+    "drop": false,
+    "fuseEvents": 4,
+    "name": "F02 held fuse",
+    "part": "quality",
+    "pass": false,
+    "trackerStuck": true
+  },
+  {
+    "connected": false,
+    "drop": true,
+    "fuseEvents": 4,
+    "name": "F02 held fuse",
+    "part": "quality",
+    "pass": false,
+    "trackerStuck": true
+  },
+  {
+    "afterDisabled": false,
+    "beforeDisabled": true,
+    "cost": 14,
+    "name": "F03 actual prestige supplies funds",
+    "pass": true,
+    "souls": 14
+  }
+]

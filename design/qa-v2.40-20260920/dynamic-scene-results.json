@@ -1,0 +1,218 @@
+[
+  {
+    "animEnd": null,
+    "changes": [],
+    "clean": true,
+    "elapsed": 1566.300000011921,
+    "ends": 1,
+    "expected": 1540,
+    "initial": 1,
+    "kind": "scene",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": null,
+    "changes": [],
+    "clean": true,
+    "elapsed": 797.1999999880791,
+    "ends": 1,
+    "expected": 770,
+    "initial": 2,
+    "kind": "scene",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 846,
+    "ends": 1,
+    "expected": 823.8000000119209,
+    "initial": 1,
+    "kind": "scene",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 100.19999999997252,
+          "position": -37.9688,
+          "rate": 2,
+          "sprite": 28500
+        },
+        "at": 107.60000002384186,
+        "before": {
+          "current": 100.19999999997252,
+          "position": -37.9688,
+          "rate": 1,
+          "sprite": 28500.00000000006
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 1456.0999999642372,
+    "ends": 1,
+    "expected": 1435,
+    "initial": 2,
+    "kind": "scene",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 200.80000000007203,
+          "position": -152.156,
+          "rate": 1,
+          "sprite": 30200.40000000006
+        },
+        "at": 105,
+        "before": {
+          "current": 200.80000000007203,
+          "position": -152.156,
+          "rate": 2,
+          "sprite": 30200.40000000006
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 850.9000000357628,
+    "ends": 1,
+    "expected": 822.6999999880791,
+    "initial": 1,
+    "kind": "scene",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 33.299999999940155,
+          "position": -3.98438,
+          "rate": 2,
+          "sprite": 31600.000000000025
+        },
+        "at": 53.19999998807907,
+        "before": {
+          "current": 33.299999999997,
+          "position": -3.98438,
+          "rate": 1,
+          "sprite": 31600.000000000025
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 133.2999999999629,
+          "position": -68.1094,
+          "rate": 1,
+          "sprite": 31700.000000000044
+        },
+        "at": 105.30000001192091,
+        "before": {
+          "current": 133.2999999999629,
+          "position": -68.1094,
+          "rate": 2,
+          "sprite": 31700.000000000044
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 183.3000000000311,
+          "position": -128.172,
+          "rate": 2,
+          "sprite": 31750.000000000113
+        },
+        "at": 157.5,
+        "before": {
+          "current": 183.29999999997423,
+          "position": -128.172,
+          "rate": 1,
+          "sprite": 31750.00000000006
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 1467.0999999642372,
+    "ends": 1,
+    "expected": 1440.600000023842,
+    "initial": 2,
+    "kind": "scene",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 66.7999999999438,
+          "position": -16.5,
+          "rate": 1,
+          "sprite": 33250.20000000006
+        },
+        "at": 54.5,
+        "before": {
+          "current": 66.7999999999438,
+          "position": -16.5,
+          "rate": 2,
+          "sprite": 33250.20000000006
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 133.3999999999378,
+          "position": -68.2188,
+          "rate": 2,
+          "sprite": 33316.80000000006
+        },
+        "at": 109.19999998807909,
+        "before": {
+          "current": 133.3999999999378,
+          "position": -68.2188,
+          "rate": 1,
+          "sprite": 33316.80000000006
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 199.9999999999318,
+          "position": -151.047,
+          "rate": 1,
+          "sprite": 33383.40000000005
+        },
+        "at": 154.0999999642372,
+        "before": {
+          "current": 199.9999999999318,
+          "position": -151.047,
+          "rate": 2,
+          "sprite": 33383.40000000005
+        },
+        "jump": 0
+      }
+    ]
+  }
+]

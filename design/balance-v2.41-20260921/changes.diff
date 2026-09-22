@@ -1,0 +1,43 @@
+--- design/balance-v2.41-20260921/baseline/index_v2.40.1.html	2026-09-21 09:04:26
++++ game/index.html	2026-09-21 09:04:26
+@@ -502,7 +502,12 @@
+ // v2.3：固定词条（取消随机），同部位同品质完全同构
+ const FIXED_AFFIX={weapon:"crit",implant:"aspd",armor:"ls",chip:null};
+ const AFFIX_BASE={crit:5,aspd:10,ls:3}, AFFIX_STEP={crit:1,aspd:2,ls:1};   // v2.25：词条随品质递增（传说 q6 起）
+-const affixOf=(slot,q)=>{ const t=FIXED_AFFIX[slot]; return (t&&q>=6)?{t,v:AFFIX_BASE[t]+AFFIX_STEP[t]*(q-6)}:null; };
++const EARLY_AFFIX={crit:[2,3,4],aspd:[4,6,8],ls:[1,1.5,2]};   // v2.41 Codex：改装/军用/原型弱词条，传说以上沿用原值
++const affixOf=(slot,q)=>{
++  const t=FIXED_AFFIX[slot];
++  if(!t||q<3) return null;
++  return {t,v:q<6?EARLY_AFFIX[t][q-3]:AFFIX_BASE[t]+AFFIX_STEP[t]*(q-6)};
++};
+ const SLOTS={weapon:"义体武器",implant:"神经插件",armor:"皮下装甲",chip:"芯片"};
+ const MULT={weapon:[10,25,45,70,100], implant:[5,10,18,28,40],
+             armor:[10,25,45,70,100], chip:[10,20,35,55,80]};
+@@ -984,7 +989,7 @@
+     toast(`${qualityName(q)}·${SLOTS[slot]} 已满级 → +${fmt(v)} 信用点`); return;
+   }
+   const item={slot,q};
+-  item.affix=affixOf(slot,q);   // v2.25：词条 q6 起、随品质递增
++  item.affix=affixOf(slot,q);   // v2.41：词条 q3 起、随品质递增，芯片无额外词条
+   logEvent("drop",{slot,q,affix:item.affix?item.affix.t:null,boss});
+   // v2.3：全自动装备——更高品质直接换上，换下回背包当合成材料
+   const eq=S.equip[slot];
+@@ -1214,7 +1219,7 @@
+   const hl=(on,txt)=>on?`<b style="color:var(--gold)">${txt} ↑</b>`:`<b>${txt}</b>`;
+   $("statBox").innerHTML=
+     `攻击 ${hl(atkTrig,fmt(st.atk))} · 生命 <b>${fmt(st.hp)}</b> · 攻速 ${hl(aspdTrig,st.aspd.toFixed(2))}/秒<br>`+
+-    `暴击 <b>${(st.crit*100).toFixed(0)}%</b> × ${st.critDmg.toFixed(1)} · 吸血 <b>${(st.lifesteal*100).toFixed(0)}%</b>`;   // v2.16：信用点移入 HUD
++    `暴击 <b>${(st.crit*100).toFixed(0)}%</b> × ${st.critDmg.toFixed(1)} · 吸血 <b>${(st.lifesteal*100).toFixed(1).replace(/\.0$/,"")}%</b>`;   // v2.41：保留 1.5% 等小数，整数不补 .0
+   $("resHud").innerHTML=`${IC("credits")} <span class="rg">${fmt(S.gold)}</span> · ${IC("soul-shard")} <span class="rs">${S.souls}</span>`;   // v2.16：资源 HUD（v2.18 图标化）
+   // v2.12：升级按钮改版——两行竖排、Lv.x→Lv.x+1、提升数值、费用右置（v2.18：图标化）
+   // v2.35：DOM 稳定化——结构只建一次，此后只更新叶子文本（按住期间不再被重建，INPUT-01）
+@@ -1397,7 +1402,7 @@
+ 
+ // ============ 测试日志系统 ============
+ // 版本管理：每次修改递增 VERSION，并同步维护 game/CHANGELOG.md 与 game/versions/ 快照
+-const VERSION="v2.40.1";   // Codex：演出保进度切速、死亡回调清理；保留 WorkBuddy B01/A01 修复
++const VERSION="v2.41";   // Codex 数值调整：改装起弱词条；沿用 v2.40.1 Boss 退场及演出修复
+ new Image().src="assets/gunner_shoot.png";   // 预加载攻击帧条防首击闪烁
+ new Image().src="assets/gunner_run.png";
+ new Image().src="assets/arena-bg2.webp";

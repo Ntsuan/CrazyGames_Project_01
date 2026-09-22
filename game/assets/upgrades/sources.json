@@ -1,0 +1,342 @@
+[
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/desktop/capsule.png",
+    "runtime": "game/assets/upgrades/4ebd397ab9f75a6d.png",
+    "sha256": "4ebd397ab9f75a6dbcdb4b473b9d905674d3ac1416ae54b6ee87ecd4ccb767f3"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/desktop/stage01-handoff.png",
+    "runtime": "game/assets/upgrades/084ffabaa270746d.png",
+    "sha256": "084ffabaa270746dd8011a448177f1b70ec424aeb10f32076f890878982079cc"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/desktop/stage02-handoff.png",
+    "runtime": "game/assets/upgrades/464bd83d7490110c.png",
+    "sha256": "464bd83d7490110c66fb82a4b6e4d73ad54e8a0a2a01ea9b6ad8a3c4cac69d16"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/desktop/stage01-walk.png",
+    "runtime": "game/assets/upgrades/6f456166d63a19dd.png",
+    "sha256": "6f456166d63a19dd6b785e12590b7e224b72fc08a4e534dec525765393449ab7"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/desktop/stage02-walk.png",
+    "runtime": "game/assets/upgrades/b91d18664a201a97.png",
+    "sha256": "b91d18664a201a972978f0a6537d8df9b87fc259397d95b6327142b046401ca3"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/desktop/weapon01.png",
+    "runtime": "game/assets/upgrades/80d8dd447d43ca10.png",
+    "sha256": "80d8dd447d43ca1030c8bfe210e30f290bd2f30b0565dee8024643340eb844a2"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/desktop/weapon02.png",
+    "runtime": "game/assets/upgrades/aaab08b5422db9df.png",
+    "sha256": "aaab08b5422db9df8a4df99bda93157e8b3fa0241652ecc9bb71646b0afb37f1"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/desktop/tool-arm.png",
+    "runtime": "game/assets/upgrades/fad024cc6e0b3874.png",
+    "sha256": "fad024cc6e0b38747597bdbc8b598c340dfcff6bf17aa44b3d13e2c62c49c097"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/desktop/repair-room.png",
+    "runtime": "game/assets/upgrades/2803fb4c370f273b.png",
+    "sha256": "2803fb4c370f273b0049977d91dd7737a3cee66e573104b34b78a008a30c1941"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/mobile/capsule.png",
+    "runtime": "game/assets/upgrades/2609fc97f52cc0e2.png",
+    "sha256": "2609fc97f52cc0e212a5b6ff579dc3bf433088cede1908c59154a3b6dd833d1f"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/mobile/stage01-handoff.png",
+    "runtime": "game/assets/upgrades/dcc0b91c2e8fe09d.png",
+    "sha256": "dcc0b91c2e8fe09d9db91c9ad61f967a0a6268a70bd2db06669473097dcb2f40"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/mobile/stage02-handoff.png",
+    "runtime": "game/assets/upgrades/9dbc556b93b1cb5d.png",
+    "sha256": "9dbc556b93b1cb5dfd4d4c7cbee1601da72fe31b6aed3ac8d0f13462b27cd9d2"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/mobile/stage01-walk.png",
+    "runtime": "game/assets/upgrades/5df3355284aaf54b.png",
+    "sha256": "5df3355284aaf54ba78a098c4f60e927993332defcf65a4e9ea8355db0e078bd"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/mobile/stage02-walk.png",
+    "runtime": "game/assets/upgrades/bbf3bc20b181157f.png",
+    "sha256": "bbf3bc20b181157f557a26a38a7a959f98b41427968c10884e4094398d3a2d34"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/mobile/weapon01.png",
+    "runtime": "game/assets/upgrades/21b1ac96f21c4f8d.png",
+    "sha256": "21b1ac96f21c4f8d1144f55a79f44974487d182b434bd6392f14f233ad63716b"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/mobile/weapon02.png",
+    "runtime": "game/assets/upgrades/1caa48fd77504dcc.png",
+    "sha256": "1caa48fd77504dcc8acdb8a8de802adc1357ea46ccbfb7ab6cf76055e2468174"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/mobile/tool-arm.png",
+    "runtime": "game/assets/upgrades/410fdb25f12c2a77.png",
+    "sha256": "410fdb25f12c2a77f44673523ff046900f3549386d5440330575c3a88692a2cd"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-01-02-v1/assets/mobile/repair-room.png",
+    "runtime": "game/assets/upgrades/c1e1ab12cb0ebb18.png",
+    "sha256": "c1e1ab12cb0ebb18c5809beb75f555bccd72af8e1374275d4264f8020bc98dbe"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/desktop/capsule.png",
+    "runtime": "game/assets/upgrades/4ebd397ab9f75a6d.png",
+    "sha256": "4ebd397ab9f75a6dbcdb4b473b9d905674d3ac1416ae54b6ee87ecd4ccb767f3"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/desktop/stage02-handoff.png",
+    "runtime": "game/assets/upgrades/54f9df27d74fb71a.png",
+    "sha256": "54f9df27d74fb71a0a9e639d83d30d0ad36befc67a2ccfe9b71dae00625607d5"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/desktop/stage03-handoff.png",
+    "runtime": "game/assets/upgrades/7cff6bd60768aea4.png",
+    "sha256": "7cff6bd60768aea433653c7091aefc2d3e60b1affe5dae83cb47005b9282697a"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/desktop/stage02-walk.png",
+    "runtime": "game/assets/upgrades/b91d18664a201a97.png",
+    "sha256": "b91d18664a201a972978f0a6537d8df9b87fc259397d95b6327142b046401ca3"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/desktop/stage03-walk.png",
+    "runtime": "game/assets/upgrades/27f8d2a3e0c59d1d.png",
+    "sha256": "27f8d2a3e0c59d1d9c27d952f5b63b0fc620a23f0913992743eb4f0865b0da52"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/desktop/weapon02.png",
+    "runtime": "game/assets/upgrades/aaab08b5422db9df.png",
+    "sha256": "aaab08b5422db9df8a4df99bda93157e8b3fa0241652ecc9bb71646b0afb37f1"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/desktop/weapon03.png",
+    "runtime": "game/assets/upgrades/d1da1376c5a55575.png",
+    "sha256": "d1da1376c5a55575a82e5f5b973946542c30692c9ee00b25d90eaa73af0dd105"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/desktop/tool-arm.png",
+    "runtime": "game/assets/upgrades/fad024cc6e0b3874.png",
+    "sha256": "fad024cc6e0b38747597bdbc8b598c340dfcff6bf17aa44b3d13e2c62c49c097"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/mobile/capsule.png",
+    "runtime": "game/assets/upgrades/2609fc97f52cc0e2.png",
+    "sha256": "2609fc97f52cc0e212a5b6ff579dc3bf433088cede1908c59154a3b6dd833d1f"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/mobile/stage02-handoff.png",
+    "runtime": "game/assets/upgrades/3d5e12709f7c582d.png",
+    "sha256": "3d5e12709f7c582d8f0e16db2c807d934743b36120902e9719298cf36fe77e44"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/mobile/stage03-handoff.png",
+    "runtime": "game/assets/upgrades/00525b965f710851.png",
+    "sha256": "00525b965f710851de7d4390cbd091c4c8bb66c27f4a0f13dceac9b916755fa1"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/mobile/stage02-walk.png",
+    "runtime": "game/assets/upgrades/bbf3bc20b181157f.png",
+    "sha256": "bbf3bc20b181157f557a26a38a7a959f98b41427968c10884e4094398d3a2d34"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/mobile/stage03-walk.png",
+    "runtime": "game/assets/upgrades/a9ef616e15b6d43d.png",
+    "sha256": "a9ef616e15b6d43d5f5025a359abe427e1becb178703cf095b800aebf7f71929"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/mobile/weapon02.png",
+    "runtime": "game/assets/upgrades/1caa48fd77504dcc.png",
+    "sha256": "1caa48fd77504dcc8acdb8a8de802adc1357ea46ccbfb7ab6cf76055e2468174"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/mobile/weapon03.png",
+    "runtime": "game/assets/upgrades/c41dfdd289798edf.png",
+    "sha256": "c41dfdd289798edfcb4cbcd0a1d54030ad181d0a9bd870e70f87f2c34ce58153"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-animation-v2-walk/assets/mobile/tool-arm.png",
+    "runtime": "game/assets/upgrades/410fdb25f12c2a77.png",
+    "sha256": "410fdb25f12c2a77f44673523ff046900f3549386d5440330575c3a88692a2cd"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/desktop/capsule.png",
+    "runtime": "game/assets/upgrades/4ebd397ab9f75a6d.png",
+    "sha256": "4ebd397ab9f75a6dbcdb4b473b9d905674d3ac1416ae54b6ee87ecd4ccb767f3"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/desktop/stage03-handoff.png",
+    "runtime": "game/assets/upgrades/a20be3ad3a1cdab5.png",
+    "sha256": "a20be3ad3a1cdab5fb75e8f2f2543e8afdd1ef800395c6fc3a7845acbdf3dd9b"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/desktop/stage04-handoff.png",
+    "runtime": "game/assets/upgrades/5fdc4b7cce2e237a.png",
+    "sha256": "5fdc4b7cce2e237aa6bbe218176e9bbf7ee52ef220fd9db98852b740f945ea95"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/desktop/stage03-walk.png",
+    "runtime": "game/assets/upgrades/27f8d2a3e0c59d1d.png",
+    "sha256": "27f8d2a3e0c59d1d9c27d952f5b63b0fc620a23f0913992743eb4f0865b0da52"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/desktop/stage04-walk.png",
+    "runtime": "game/assets/upgrades/4aebd1d05b52f313.png",
+    "sha256": "4aebd1d05b52f31336bc42b2fdd4bb62b980f6c23a507ff4a98e8f6063bcfa19"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/desktop/weapon03.png",
+    "runtime": "game/assets/upgrades/d1da1376c5a55575.png",
+    "sha256": "d1da1376c5a55575a82e5f5b973946542c30692c9ee00b25d90eaa73af0dd105"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/desktop/weapon04.png",
+    "runtime": "game/assets/upgrades/36e98021c2f60bc5.png",
+    "sha256": "36e98021c2f60bc519931395cb50d2f2a6649103fc6f7caf9a2ab0227122d0b2"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/desktop/tool-arm.png",
+    "runtime": "game/assets/upgrades/fad024cc6e0b3874.png",
+    "sha256": "fad024cc6e0b38747597bdbc8b598c340dfcff6bf17aa44b3d13e2c62c49c097"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/desktop/repair-room.png",
+    "runtime": "game/assets/upgrades/2803fb4c370f273b.png",
+    "sha256": "2803fb4c370f273b0049977d91dd7737a3cee66e573104b34b78a008a30c1941"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/mobile/capsule.png",
+    "runtime": "game/assets/upgrades/2609fc97f52cc0e2.png",
+    "sha256": "2609fc97f52cc0e212a5b6ff579dc3bf433088cede1908c59154a3b6dd833d1f"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/mobile/stage03-handoff.png",
+    "runtime": "game/assets/upgrades/f24558a464e6e041.png",
+    "sha256": "f24558a464e6e0411e91efb40b88166676860c70b6ef494b8753c78c989ac118"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/mobile/stage04-handoff.png",
+    "runtime": "game/assets/upgrades/823921d592489a6f.png",
+    "sha256": "823921d592489a6f9c36fde545d90bf51dd7b07ba351bb422ae753416c8462a7"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/mobile/stage03-walk.png",
+    "runtime": "game/assets/upgrades/a9ef616e15b6d43d.png",
+    "sha256": "a9ef616e15b6d43d5f5025a359abe427e1becb178703cf095b800aebf7f71929"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/mobile/stage04-walk.png",
+    "runtime": "game/assets/upgrades/dbb302a2c6f3d767.png",
+    "sha256": "dbb302a2c6f3d76711c0176d3c6c94887c4398808d1d9729cb887ee95018b4f2"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/mobile/weapon03.png",
+    "runtime": "game/assets/upgrades/c41dfdd289798edf.png",
+    "sha256": "c41dfdd289798edfcb4cbcd0a1d54030ad181d0a9bd870e70f87f2c34ce58153"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/mobile/weapon04.png",
+    "runtime": "game/assets/upgrades/bca48f164d279add.png",
+    "sha256": "bca48f164d279add1bb7cf701863e33f3634b591e2a76277069f1f015269d16c"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/mobile/tool-arm.png",
+    "runtime": "game/assets/upgrades/410fdb25f12c2a77.png",
+    "sha256": "410fdb25f12c2a77f44673523ff046900f3549386d5440330575c3a88692a2cd"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/03-04/assets/mobile/repair-room.png",
+    "runtime": "game/assets/upgrades/c1e1ab12cb0ebb18.png",
+    "sha256": "c1e1ab12cb0ebb18c5809beb75f555bccd72af8e1374275d4264f8020bc98dbe"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/desktop/capsule.png",
+    "runtime": "game/assets/upgrades/4ebd397ab9f75a6d.png",
+    "sha256": "4ebd397ab9f75a6dbcdb4b473b9d905674d3ac1416ae54b6ee87ecd4ccb767f3"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/desktop/stage04-handoff.png",
+    "runtime": "game/assets/upgrades/ddc1985009a437fe.png",
+    "sha256": "ddc1985009a437fef15ebd25c154e79cdd9a8e1258b8ed7068b49089b9be8d39"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/desktop/stage05-activation.png",
+    "runtime": "game/assets/upgrades/d787fc4f877bc696.png",
+    "sha256": "d787fc4f877bc696dc02332c832276638be646dabf04ced69d45ed49f6b86b08"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/desktop/stage04-walk.png",
+    "runtime": "game/assets/upgrades/4aebd1d05b52f313.png",
+    "sha256": "4aebd1d05b52f31336bc42b2fdd4bb62b980f6c23a507ff4a98e8f6063bcfa19"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/desktop/stage05-walk.png",
+    "runtime": "game/assets/upgrades/cc04785ba9b7c6ea.png",
+    "sha256": "cc04785ba9b7c6eae5969b6e62bb19994e7904928dcb9aff330a7d1add7bab64"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/desktop/weapon04.png",
+    "runtime": "game/assets/upgrades/36e98021c2f60bc5.png",
+    "sha256": "36e98021c2f60bc519931395cb50d2f2a6649103fc6f7caf9a2ab0227122d0b2"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/desktop/tool-arm.png",
+    "runtime": "game/assets/upgrades/fad024cc6e0b3874.png",
+    "sha256": "fad024cc6e0b38747597bdbc8b598c340dfcff6bf17aa44b3d13e2c62c49c097"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/desktop/repair-room.png",
+    "runtime": "game/assets/upgrades/2803fb4c370f273b.png",
+    "sha256": "2803fb4c370f273b0049977d91dd7737a3cee66e573104b34b78a008a30c1941"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/mobile/capsule.png",
+    "runtime": "game/assets/upgrades/2609fc97f52cc0e2.png",
+    "sha256": "2609fc97f52cc0e212a5b6ff579dc3bf433088cede1908c59154a3b6dd833d1f"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/mobile/stage04-handoff.png",
+    "runtime": "game/assets/upgrades/ed5ccb263c02ea1f.png",
+    "sha256": "ed5ccb263c02ea1f7f93846d7643a7974e7cbf135313a8171cc4abeb5c86a899"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/mobile/stage05-activation.png",
+    "runtime": "game/assets/upgrades/daafa280bb55b612.png",
+    "sha256": "daafa280bb55b612bd2973501da9012c576e768d61cacab5166511406083ba74"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/mobile/stage04-walk.png",
+    "runtime": "game/assets/upgrades/dbb302a2c6f3d767.png",
+    "sha256": "dbb302a2c6f3d76711c0176d3c6c94887c4398808d1d9729cb887ee95018b4f2"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/mobile/stage05-walk.png",
+    "runtime": "game/assets/upgrades/c56a081a6c7573b2.png",
+    "sha256": "c56a081a6c7573b27d59580941f977f6ddfb25ad4b1d38e3d059ef47ee75c644"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/mobile/weapon04.png",
+    "runtime": "game/assets/upgrades/bca48f164d279add.png",
+    "sha256": "bca48f164d279add1bb7cf701863e33f3634b591e2a76277069f1f015269d16c"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/mobile/tool-arm.png",
+    "runtime": "game/assets/upgrades/410fdb25f12c2a77.png",
+    "sha256": "410fdb25f12c2a77f44673523ff046900f3549386d5440330575c3a88692a2cd"
+  },
+  {
+    "source": "/Users/zmy/Documents/Codex/2026-09-15/xian/outputs/neon-hunter-upgrade-03-05-v1/04-05/assets/mobile/repair-room.png",
+    "runtime": "game/assets/upgrades/c1e1ab12cb0ebb18.png",
+    "sha256": "c1e1ab12cb0ebb18c5809beb75f555bccd72af8e1374275d4264f8020bc98dbe"
+  }
+]

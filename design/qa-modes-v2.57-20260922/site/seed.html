@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><title>双模式测试夹具</title>
+<style>body{background:#111b28;color:white;font:16px sans-serif;padding:20px}button,a{display:block;margin:12px;padding:14px;background:#234258;color:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style>
+<h1>双模式测试夹具 · 仅本机19457测试源</h1><p>以下按钮仅写测试源中指定模式的数据，不进入正式发行文件。</p>
+<button onclick="oldFive()">准备旧版阶段五无尽档</button>
+<button onclick="pendingBuild()">准备构筑待选技能</button>
+<button onclick="read()">读取存档诊断</button>
+<a href="index.html">打开正式游戏副本</a><a href="fault.html">打开写入失败测试页</a><pre id="diag"></pre>
+<script>const base={"mode": "endless", "economySchema": 1, "crateCooldownMs": 60000, "stageSchema": 2, "stage": 1, "stageHistory": [], "stageUpgrade": null, "legacyUpgradeEligible": false, "gold": 0, "atkLv": 0, "hpLv": 0, "floor": 1, "maxFloor": 1, "mobIdx": 0, "v": 1, "souls": 0, "runSouls": 0, "tree": {"dmg": 0, "gold": 0, "soul": 0}, "prestiges": 0, "bestEver": 0, "speed2": false, "sfxOn": true, "cratesRun": 0, "equip": {"weapon": null, "implant": null, "armor": null, "chip": null}, "prestigeOffer": null, "lastPrestigeMilestone": 0, "lastPrestigeId": null, "inv": [], "skills": [], "pity": 0, "crateReady": 100000, "lastSave": 100000};
+function oldFive(){const s={...structuredClone(base),stage:5,gold:1234,souls:19,skills:['ghoststep'],floor:11,maxFloor:11};delete s.mode;localStorage.setItem('neonHunter',JSON.stringify(s));localStorage.removeItem('neonHunterModes');localStorage.removeItem('neonHunter.build');read()}
+function pendingBuild(){const s={...structuredClone(base),mode:'build',gold:87,floor:5,maxFloor:5,skills:['ghoststep'],pendingOffer:{pool:'p5',picks:['ghoststep','soulrush','critsurge'],floor:5}};localStorage.setItem('neonHunter.build',JSON.stringify(s));localStorage.setItem('neonHunterModes',JSON.stringify({schema:1,selected:'build',buildUnlocked:true}));read()}
+function read(){const d={};for(const k of ['neonHunterModes','neonHunter','neonHunter.build','neonHunterLogs','neonHunterLogs.build']){try{const s=JSON.parse(localStorage.getItem(k));d[k]=k.includes('Logs')?{mode:s?.current?.mode,build:s?.current?.build}:s}catch(e){d[k]='unreadable'}}document.getElementById('diag').textContent=JSON.stringify(d,null,2)}read();</script>

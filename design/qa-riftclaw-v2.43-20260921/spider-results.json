@@ -1,0 +1,88 @@
+{
+  "environment": "Node VM actual game functions + DOM stubs / virtual clock",
+  "passed": 19,
+  "total": 19,
+  "results": [
+    {
+      "name": "三等分边界都选择正确类型",
+      "pass": true
+    },
+    {
+      "name": "随机取样分布",
+      "pass": true,
+      "counts": {
+        "trooper": 3012,
+        "hound": 2961,
+        "spider": 3027
+      }
+    },
+    {
+      "name": "9000 次有种子随机抽取三种类型均约三分之一",
+      "pass": true
+    },
+    {
+      "name": "trooper 入场与就位使用同一类型，只抽取一次",
+      "pass": true
+    },
+    {
+      "name": "hound 入场与就位使用同一类型，只抽取一次",
+      "pass": true
+    },
+    {
+      "name": "spider 入场与就位使用同一类型，只抽取一次",
+      "pass": true
+    },
+    {
+      "name": "f1 Boss 不参与普通池且清除蜘蛛外观",
+      "pass": true
+    },
+    {
+      "name": "f10 Boss 不参与普通池且清除蜘蛛外观",
+      "pass": true
+    },
+    {
+      "name": "f100 Boss 不参与普通池且清除蜘蛛外观",
+      "pass": true
+    },
+    {
+      "name": "三种普通敌人血攻盾和信用点完全相同",
+      "pass": true
+    },
+    {
+      "name": "蜘蛛射击完整660ms且不被hurt/重复shoot打断",
+      "pass": true
+    },
+    {
+      "name": "蜘蛛动画不额外结算伤害",
+      "pass": true
+    },
+    {
+      "name": "死亡立即打断射击，旧回调不移除死亡态",
+      "pass": true
+    },
+    {
+      "name": "蜘蛛完整死亡→淡出→下一怪 1×",
+      "pass": true
+    },
+    {
+      "name": "蜘蛛完整死亡→淡出→下一怪 2×",
+      "pass": true
+    },
+    {
+      "name": "死亡途中1→2倍速按剩余时间推进",
+      "pass": true
+    },
+    {
+      "name": "死亡途中复位取消旧刷新回调",
+      "pass": true
+    },
+    {
+      "name": "第五只蜘蛛死亡后 Boss 正确换肤",
+      "pass": true
+    },
+    {
+      "name": "原安保兵与犬换怪等待仍为1650ms",
+      "pass": true
+    }
+  ]
+}

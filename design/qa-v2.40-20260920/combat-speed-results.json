@@ -1,0 +1,12 @@
+[
+  {
+    "hits": 5,
+    "pass": true,
+    "speed": 1
+  },
+  {
+    "hits": 10,
+    "pass": true,
+    "speed": 2
+  }
+]

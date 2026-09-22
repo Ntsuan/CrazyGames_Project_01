@@ -1,0 +1,10 @@
+{
+  "connected": false,
+  "fuseDelta": 0,
+  "hitWasQuality": true,
+  "holdMs": 100,
+  "label": "报废",
+  "pointerEvents": "",
+  "speed": 2,
+  "trackerStuck": true
+}

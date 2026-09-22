@@ -1,0 +1,78 @@
+{
+  "checks": [
+    {
+      "kind": "build5",
+      "state": {
+        "mode": "build",
+        "floor": 5,
+        "pool": "p5",
+        "picks": [
+          "adrenaline",
+          "critsurge",
+          "ghoststep",
+          "lowhp",
+          "soulrush"
+        ]
+      },
+      "text": "神经技能 · 触发型全部可选\n通关第 5 层 · 共 5 项，选择一项强化\n肾上腺素\n生命低于 50% 时攻速 +30%\n狂暴节奏\n暴击后攻速 +30%，持续 5 秒\n光学迷彩\n无敌持续时间增加 0.5 秒\n困兽协议\n生命低于 30% 时伤害 +40%\n猎手直觉\n破盾后攻速 +25%，持续 4 秒"
+    },
+    {
+      "kind": "build10",
+      "state": {
+        "mode": "build",
+        "floor": 10,
+        "pool": "p10",
+        "picks": [
+          "overclock",
+          "fatal",
+          "neuro",
+          "fire",
+          "subdermal",
+          "nano",
+          "shield",
+          "blackmarket",
+          "resonance"
+        ]
+      },
+      "text": "神经技能 · 属性型全部可选\n通关第 10 层 · 共 9 项，选择一项强化\n战斗超频\n暴击率 +10%\n致命固件\n暴击伤害 +50%\n神经加速\n攻速 +15%\n火力协议\n攻击 +25%\n皮下加固\n生命 +30%\n纳米修复\n吸血 +5%\n应急护盾\n获得10%最大生命护盾\n黑市渠道\n信用点 +30%\n碎片共鸣\nBoss 碎片掉落 +10%"
+    },
+    {
+      "kind": "build105",
+      "state": {
+        "mode": "build",
+        "floor": 105,
+        "pool": "p5",
+        "picks": [
+          "adrenaline",
+          "critsurge",
+          "ghoststep",
+          "lowhp",
+          "soulrush"
+        ]
+      },
+      "text": "神经技能 · 触发型全部可选\n通关第 105 层 · 共 5 项，选择一项强化\n肾上腺素\n生命低于 50% 时攻速 +30%\n狂暴节奏\n暴击后攻速 +30%，持续 5 秒\n光学迷彩\n无敌持续时间增加 0.5 秒\n困兽协议\n生命低于 30% 时伤害 +40%\n猎手直觉\n破盾后攻速 +25%，持续 4 秒"
+    },
+    {
+      "kind": "endless110",
+      "state": {
+        "mode": "endless",
+        "floor": 110,
+        "pool": "p10",
+        "picks": [
+          "overclock",
+          "fatal",
+          "neuro"
+        ]
+      },
+      "text": "神经技能 · 属性型三选一\n突破第 110 层！选择一项属性强化\n战斗超频\n暴击率 +10%\n致命固件\n暴击伤害 +50%\n神经加速\n攻速 +15%"
+    }
+  ],
+  "mobileLayout": {
+    "count": 9,
+    "modalRight": 370.796875,
+    "overflow": false,
+    "scrollable": true,
+    "viewport": 390
+  },
+  "logs": []
+}

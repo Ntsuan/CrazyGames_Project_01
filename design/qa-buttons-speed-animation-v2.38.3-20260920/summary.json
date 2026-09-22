@@ -1,0 +1,27 @@
+{
+  "version": "v2.38.3",
+  "sourceUnchanged": false,
+  "changed": [
+    "index.html"
+  ],
+  "sourceHash": "c938e27ec54c4c43ce6d8c24d240e3731a0717c1b60e965f276712d24eb99090",
+  "buttons": {
+    "count": 18,
+    "passed": 17
+  },
+  "animationStates": {
+    "count": 33,
+    "badEnd": 6
+  },
+  "images": {
+    "count": 58,
+    "loaded": 58
+  },
+  "syntax": "PASS",
+  "cleanup": "isolated storage cleared; tab/server closed; viewport reset",
+  "versionChangeDuringRun": "v2.38.3 -> v2.39; unrelated crate rewards/UI changed externally; latest follow-up completed",
+  "latestVersion": "v2.39",
+  "latestSnapshotMatchesCurrent": true,
+  "latestChanged": [],
+  "sourceModifiedByQA": false
+}

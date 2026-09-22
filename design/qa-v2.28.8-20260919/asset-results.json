@@ -1,0 +1,611 @@
+{
+  "assetCount": 57,
+  "assetFailures": 0,
+  "staticReferences": 51,
+  "missingStaticReferences": [],
+  "duplicateIds": [],
+  "results": [
+    {
+      "file": "assets/arena-bg.webp",
+      "status": "PASS",
+      "size": [
+        1920,
+        540
+      ],
+      "mode": "RGB",
+      "httpStatus": 200,
+      "bytes": 113966,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/arena-bg2.webp",
+      "status": "PASS",
+      "size": [
+        1920,
+        540
+      ],
+      "mode": "RGB",
+      "httpStatus": 200,
+      "bytes": 201052,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/arena-bg3.webp",
+      "status": "PASS",
+      "size": [
+        1920,
+        540
+      ],
+      "mode": "RGB",
+      "httpStatus": 200,
+      "bytes": 200712,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/arena-bg4.webp",
+      "status": "PASS",
+      "size": [
+        1920,
+        540
+      ],
+      "mode": "RGB",
+      "httpStatus": 200,
+      "bytes": 188898,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/arena-bg5.webp",
+      "status": "PASS",
+      "size": [
+        1920,
+        540
+      ],
+      "mode": "RGB",
+      "httpStatus": 200,
+      "bytes": 194830,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/arena-bg6.webp",
+      "status": "PASS",
+      "size": [
+        1920,
+        540
+      ],
+      "mode": "RGB",
+      "httpStatus": 200,
+      "bytes": 237360,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/buttons.css",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 5325,
+      "contentType": "text/css"
+    },
+    {
+      "file": "assets/gunner_idle.png",
+      "status": "PASS",
+      "size": [
+        512,
+        128
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 41505,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/gunner_run.png",
+      "status": "PASS",
+      "size": [
+        1024,
+        128
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 88360,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/gunner_shoot.png",
+      "status": "PASS",
+      "size": [
+        2048,
+        128
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 82622,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/hound_bite.png",
+      "status": "PASS",
+      "size": [
+        660,
+        82
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 23897,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/hound_death.png",
+      "status": "PASS",
+      "size": [
+        660,
+        82
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 25170,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/hound_hurt.png",
+      "status": "PASS",
+      "size": [
+        330,
+        82
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 11154,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/hound_idle.png",
+      "status": "PASS",
+      "size": [
+        440,
+        82
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 22294,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/hound_run.png",
+      "status": "PASS",
+      "size": [
+        880,
+        82
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 43142,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/icons/armor.png",
+      "status": "PASS",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 5480,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/icons/attack.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 488,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/chip.png",
+      "status": "PASS",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 5962,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/icons/credits.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 444,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/cybernetics.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 478,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/enhance.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 436,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/equipment-recycle.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 605,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/health.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 416,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/locked.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 518,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/movement-blocked.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 490,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/neural.png",
+      "status": "PASS",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 4932,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/icons/reshape.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 502,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/skills.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 554,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/soul-shard.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 493,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/supply.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 491,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/synthesis.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 521,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/watch-ad.svg",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 475,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/weapon.png",
+      "status": "PASS",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 3772,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/prism_death.png",
+      "status": "PASS",
+      "size": [
+        1200,
+        150
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 131959,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/prism_idle.png",
+      "status": "PASS",
+      "size": [
+        600,
+        150
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 99685,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/prism_move.png",
+      "status": "PASS",
+      "size": [
+        900,
+        150
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 153218,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/prism_shoot.png",
+      "status": "PASS",
+      "size": [
+        900,
+        150
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 123817,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/prism_slash.png",
+      "status": "PASS",
+      "size": [
+        900,
+        150
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 117379,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/security_death.png",
+      "status": "PASS",
+      "size": [
+        990,
+        110
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 52139,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/security_hurt.png",
+      "status": "PASS",
+      "size": [
+        384,
+        128
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 34860,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/security_idle.png",
+      "status": "PASS",
+      "size": [
+        512,
+        128
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 47014,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/security_run.png",
+      "status": "PASS",
+      "size": [
+        1024,
+        128
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 89322,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/security_shoot.png",
+      "status": "PASS",
+      "size": [
+        1024,
+        128
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 55843,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/sfx/laser-shot-01.wav",
+      "status": "PASS",
+      "seconds": 0.15201814058956917,
+      "channels": 1,
+      "sampleRate": 44100,
+      "httpStatus": 200,
+      "bytes": 13452,
+      "contentType": "audio/x-wav"
+    },
+    {
+      "file": "assets/start-screen/night-city-desktop.webp",
+      "status": "PASS",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 496320,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/start-screen/night-city-mobile.webp",
+      "status": "PASS",
+      "size": [
+        936,
+        941
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 310578,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/start-screen/start-screen.css",
+      "status": "PASS",
+      "httpStatus": 200,
+      "bytes": 5926,
+      "contentType": "text/css"
+    },
+    {
+      "file": "assets/tianshu_cannon.png",
+      "status": "PASS",
+      "size": [
+        1140,
+        142
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 143940,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/tianshu_charge.png",
+      "status": "PASS",
+      "size": [
+        760,
+        142
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 94671,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/tianshu_death.png",
+      "status": "PASS",
+      "size": [
+        1520,
+        142
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 184685,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/tianshu_idle.png",
+      "status": "PASS",
+      "size": [
+        760,
+        142
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 91891,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/tianshu_machinegun.png",
+      "status": "PASS",
+      "size": [
+        1140,
+        142
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 143556,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/tianshu_move.png",
+      "status": "PASS",
+      "size": [
+        1140,
+        142
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 139048,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/warden_death.png",
+      "status": "PASS",
+      "size": [
+        1320,
+        124
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 142879,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/warden_idle.png",
+      "status": "PASS",
+      "size": [
+        660,
+        124
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 81605,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/warden_run.png",
+      "status": "PASS",
+      "size": [
+        1320,
+        124
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 161321,
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/warden_shoot.png",
+      "status": "PASS",
+      "size": [
+        1320,
+        124
+      ],
+      "mode": "RGBA",
+      "httpStatus": 200,
+      "bytes": 112948,
+      "contentType": "image/png"
+    }
+  ]
+}

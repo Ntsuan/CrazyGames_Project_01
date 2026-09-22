@@ -1,0 +1,214 @@
+[
+  {
+    "case": "delayed-double-click",
+    "state": {
+      "phase": "loading",
+      "ready": 64,
+      "total": 65,
+      "failed": 0,
+      "attempts": [],
+      "entryCalls": 0,
+      "paused": true,
+      "floor": 1,
+      "gold": 0,
+      "hp": 100,
+      "runSouls": 0,
+      "souls": 0,
+      "errors": [],
+      "cover": true,
+      "pending": false,
+      "skill": false
+    }
+  },
+  {
+    "case": "after-release",
+    "state": {
+      "phase": "playing",
+      "ready": 65,
+      "total": 65,
+      "failed": 0,
+      "attempts": [],
+      "entryCalls": 1,
+      "paused": false,
+      "floor": 3,
+      "gold": 77.13049999999998,
+      "hp": 58.4815884475002,
+      "runSouls": 2,
+      "souls": 0,
+      "errors": [],
+      "cover": false,
+      "pending": false,
+      "skill": false
+    }
+  },
+  {
+    "case": "mobile-paused",
+    "state": {
+      "phase": "loading",
+      "ready": 64,
+      "total": 65,
+      "failed": 0,
+      "attempts": [],
+      "entryCalls": 0,
+      "paused": true,
+      "floor": 1,
+      "gold": 0,
+      "hp": 100,
+      "runSouls": 0,
+      "souls": 0,
+      "errors": [],
+      "cover": true,
+      "pending": false,
+      "skill": false
+    }
+  },
+  {
+    "case": "asset-failure",
+    "state": {
+      "phase": "failed",
+      "ready": 64,
+      "total": 65,
+      "failed": 1,
+      "attempts": [],
+      "entryCalls": 0,
+      "paused": true,
+      "floor": 1,
+      "gold": 0,
+      "hp": 100,
+      "runSouls": 0,
+      "souls": 0,
+      "errors": [],
+      "cover": true,
+      "pending": false,
+      "skill": false
+    }
+  },
+  {
+    "case": "retry-success",
+    "state": {
+      "phase": "playing",
+      "ready": 65,
+      "total": 65,
+      "failed": 0,
+      "attempts": [
+        "assets/tianshu_death.png"
+      ],
+      "entryCalls": 1,
+      "paused": false,
+      "floor": 1,
+      "gold": 6.9,
+      "hp": 85.71113499999959,
+      "runSouls": 0,
+      "souls": 0,
+      "errors": [],
+      "cover": false,
+      "pending": false,
+      "skill": false
+    }
+  },
+  {
+    "case": "reset-before-ready",
+    "state": {
+      "phase": "loading",
+      "ready": 64,
+      "total": 65,
+      "failed": 0,
+      "attempts": [],
+      "entryCalls": 0,
+      "paused": true,
+      "floor": 11,
+      "gold": 123,
+      "hp": 100,
+      "runSouls": 3,
+      "souls": 7,
+      "errors": [],
+      "cover": true,
+      "pending": false,
+      "skill": false
+    }
+  },
+  {
+    "case": "reset-after-ready",
+    "state": {
+      "phase": "playing",
+      "ready": 65,
+      "total": 65,
+      "failed": 0,
+      "attempts": [],
+      "entryCalls": 1,
+      "paused": false,
+      "floor": 1,
+      "gold": 6.9,
+      "hp": 88.10025999999971,
+      "runSouls": 0,
+      "souls": 0,
+      "errors": [],
+      "cover": false,
+      "pending": false,
+      "skill": false
+    }
+  },
+  {
+    "case": "prestige-loading",
+    "state": {
+      "phase": "loading",
+      "ready": 64,
+      "total": 65,
+      "failed": 0,
+      "attempts": [],
+      "entryCalls": 0,
+      "paused": true,
+      "floor": 11,
+      "gold": 123,
+      "hp": 100,
+      "runSouls": 3,
+      "souls": 7,
+      "errors": [],
+      "cover": true,
+      "pending": true,
+      "skill": false
+    }
+  },
+  {
+    "case": "prestige-restored",
+    "state": {
+      "phase": "playing",
+      "ready": 65,
+      "total": 65,
+      "failed": 0,
+      "attempts": [],
+      "entryCalls": 1,
+      "paused": true,
+      "floor": 11,
+      "gold": 123,
+      "hp": 100,
+      "runSouls": 3,
+      "souls": 7,
+      "errors": [],
+      "cover": false,
+      "pending": true,
+      "skill": false
+    }
+  },
+  {
+    "case": "skill-restored",
+    "state": {
+      "phase": "playing",
+      "ready": 65,
+      "total": 65,
+      "failed": 0,
+      "attempts": [],
+      "entryCalls": 1,
+      "paused": true,
+      "floor": 11,
+      "gold": 123,
+      "hp": 100,
+      "runSouls": 3,
+      "souls": 7,
+      "errors": [],
+      "cover": false,
+      "pending": false,
+      "skill": true
+    }
+  }
+]

@@ -1,3 +1,26 @@
+# Neon Hunter / 霓虹猎手
+
+当前游戏为v2.63 HTML/CSS/JavaScript放置爬塔游戏，入口 `game/index.html`。GitHub仓库：Ntsuan/CrazyGames_Project_01。
+
+- `codex/develop`：开发版，保留测试工具和模拟广告。
+- `main`：Basic候选版，关闭测试功能/广告模拟，补给在线60秒免费领取。
+- Full配置预留且禁止出包，尚未接CrazyGames云存档/真实广告SDK；未提交平台审核。
+
+先读 [分支与发布配置](RELEASE_CHANNELS.md)、[当前游戏交接](交接文档.md) 和 [发布规则](CRAZYGAMES_PUBLISHING_GUIDE.md)。
+
+```sh
+# Node.js 24，无需安装依赖即可运行当前游戏检查和构建
+npm run neon:check
+npm run neon:basic
+python3 -m http.server 8000 --directory dist/neon/basic
+```
+
+GitHub Actions自动生成对应分支运行包，下载Basic产物后仍需平台预览与真机验收。
+
+## 旧开发环境说明（历史资料）
+
+以下命令/Phaser代码属于已取消的旧方案，不能用于构建当前Neon Hunter。当前游戏使用上面的neon命令。
+
 # CrazyGames 开发环境
 
 当前为环境验证工程，尚未实现搜打撤玩法，也未接入 CrazyGames SDK。

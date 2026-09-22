@@ -1,0 +1,71 @@
+const fs=require('node:fs'),assert=require('node:assert'),crypto=require('node:crypto');
+const read=name=>JSON.parse(fs.readFileSync(__dirname+'/'+name,'utf8'));
+const r=read('ads-results.json'),baseline=read('gate-results.json'),checks=read('ads-checks.json');
+const median=values=>{values=[...values].sort((a,b)=>a-b);const i=Math.floor(values.length/2);return values.length%2?values[i]:(values[i-1]+values[i])/2;};
+assert.equal(r.sourceSha256,baseline.sourceSha256);assert.equal(r.sourceSha256,crypto.createHash('sha256').update(fs.readFileSync(__dirname+'/baseline.html')).digest('hex'));
+assert.equal(r.results.length,5*r.seeds);assert.equal(checks.totalSamples,r.results.length);assert(r.results.every(x=>x.clear100));
+const summary=Array.from({length:5},(_,i)=>{
+ const rows=r.results.filter(x=>x.stage===i+1),same=rows.find(x=>x.seed===1),base=baseline.results[i];
+ assert.equal(rows.length,r.seeds);
+ return {stage:i+1,baselineSeed1Runs:base.runs.length,adsSeed1Runs:same.runs.length,baselineSeed1Minutes:base.runs.reduce((s,x)=>s+x.minutes,0),adsSeed1Minutes:same.minutes,adsRunsRange:[Math.min(...rows.map(x=>x.runs.length)),Math.max(...rows.map(x=>x.runs.length))],adsCratesMedian:median(rows.map(x=>x.crates)),adsMinutesMedian:median(rows.map(x=>x.minutes)),crateShareMedian:median(rows.map(x=>x.crateShare)),samples:rows.length,prestiges:rows.reduce((s,x)=>s+x.prestiges.length,0)};
+});
+const totals=Array.from({length:r.seeds},(_,i)=>({seed:i+1,minutes:r.results.filter(x=>x.seed===i+1).reduce((s,x)=>s+x.minutes,0),crates:r.results.filter(x=>x.seed===i+1).reduce((s,x)=>s+x.crates,0)}));
+const range=xs=>[Math.min(...xs),Math.max(...xs)];
+const output={status:'simulation_only',seeds:r.seeds,totalSamples:r.results.length,allCleared:true,parameters:r.parameters,summary,stageSum:{medianMinutes:median(totals.map(x=>x.minutes)),medianBoxes:median(totals.map(x=>x.crates)),minutesRange:range(totals.map(x=>x.minutes)),boxesRange:range(totals.map(x=>x.crates))},actualPrestigeCount:summary.reduce((s,x)=>s+x.prestiges,0),checks,sourceSha256:r.sourceSha256};
+fs.writeFileSync(__dirname+'/ads-summary.json',JSON.stringify(output,null,2));
+const table=summary.map(x=>`| ${x.stage} | ${x.baselineSeed1Runs} | ${x.adsSeed1Runs} | ${x.adsRunsRange.join('–')} | ${x.adsCratesMedian} | ${x.adsMinutesMedian.toFixed(1)} | ${(100*x.crateShareMedian).toFixed(2)}% |`).join('\n');
+const paired=summary.map(x=>`| ${x.stage} | ${x.baselineSeed1Minutes.toFixed(1)} | ${x.adsSeed1Minutes.toFixed(1)} |`).join('\n');
+const report=`# 五阶段：每分钟补给与重塑广告仿真
+
+2026-09-21，作者 **Codex**。用户指定新增情景：①游戏时间1分钟领取一次广告补给；②每次死亡重塑都选择广告碎片×2。**仅更新仿真，不修改正式游戏、版本或广告SDK。**
+
+## 使用的数值与计时
+
+- 采用 [五阶段设计v0.1](五阶段成长设计.md) 的完整候选组合：初始攻击8/12/16/24/32，生命100/150/200/300/400；升级费用增长1.18；阶段百层Boss血8倍、攻2倍、盾80%。这不是现行v2.43的原费用／Boss参数。
+- 每阶段从1层空装备、零强化／金币／技能／加成树／碎片开始。通关100层后结束该阶段测试；五个阶段分别初始化，未模拟晋升界面或无尽模式。
+- “游戏时间”在本轮解释为**在线运行时间**，含正常战斗、跑入和楼层转场；2×战斗不加速补给计时。第一箱在60秒后领取，以成功领取时刻计算下一次60秒；阶段内死亡不重置领取计时器，进入新阶段重新计时。
+- 假设每次广告都成功、按时领取；广告播放时长、广告加载／失败／无填充、玩家暂停与反应时间均未计入。模拟中的分钟数不是包含广告的真人总耗时。
+- 补给奖励公式保持原值：本层小怪金币×60×金币倍率×(1+0.25n+0.02n²)，第10/20/30…箱额外×2。n为本轮已领箱数，普通死亡重塑会清零箱数。
+- 死亡重塑调用真实applyPrestige(2)，碎片翻倍后按伤害／金币／碎片树约2:2:1投入。装备掉落／保底／词条／自动穿戴／合成和随机技能候选执行真实函数；技能使用原固定优先级，每2秒操作一次，及时反复合成。
+
+## 结果
+
+每阶段${r.seeds}个初始种子，共${r.results.length}个阶段样本，全部实际击败100层Boss。原无广告情景只有种子1，因此下表轮数对照使用同一个种子1，另列有广告全部样本的范围；不将旧单样本当作无广告人群中位数。
+
+| 阶段 | 无广告轮数（种子1） | 有广告轮数（种子1） | 有广告轮数范围 | 补给箱数中位 | 游戏运行分钟中位 | 补给金币占比中位 |
+|---|---:|---:|---|---:|---:|---:|
+${table}
+
+同一种子1的阶段总运行时间对照（分钟，不含广告）：
+
+| 阶段 | 无广告 | 有广告 |
+|---|---:|---:|
+${paired}
+
+每个种子的五个独立阶段时长相加，中位约${output.stageSum.medianMinutes.toFixed(1)}分钟，共${output.stageSum.medianBoxes}次补给领取；样本合计箱数范围${output.stageSum.boxesRange.join('–')}。这是各阶段模型结果之和，不是已经跑通存档迁移与晋升流程的整局实测。若每段广告观看A秒，播放时间还需另加“领取次数×A秒”，本次不假定A的值。
+
+## 重塑广告实际有没有贡献
+
+本批实际死亡重塑次数为 **${output.actualPrestigeCount}**。${r.results.length}个样本都在第一轮通过100层，所以碎片×2规则虽然已接入仿真，却没有在这些通关样本中兑现收益；不能把加速归因于重塑广告。
+
+另外执行了独立函数核验：原有碎片7、本轮待结算25，applyPrestige(2)后为57，楼层回1、局内碎片清零、箱数清零。所有补给事件间隔至少60秒，首次不早于60秒；25个样本均正常通关而非命中步数／轮数上限。
+
+## 对数值设计的判断
+
+“无广告时逐轮重塑成长”的原方案，在按分钟领取现有补给后，变成一轮直通100层。补给约占新获得金币的98%–99%以上，打怪金币已经很次要。五个阶段的金币树／碎片成长在这批样本中也没有发挥作用，因为没有死亡重塑。
+
+人物阶段增强仍会缩短通关耗时，但阶段内重塑次数的差异基本消失。当前候选费用1.18与现有高额、按箱数二次增长的补给存在明显叠加效应；不宜直接把无广告下的可达方案视为广告场景已平衡。
+
+下一轮若继续调参，应保留用户指定的60秒领取节奏和重塑必选广告情景，优先对比补给基础倍率、取消／封顶次数增长，以及是否仍需降低升级费用；本轮未擅自修改这些参数。若产品目标本来就是广告辅助一轮过阶段，也应明确接受重塑系统使用频率下降的结果，而不是宣称同一套数值兼顾了两种节奏。
+
+## 证据、边界与复跑
+
+- [逐箱、逐轮数据](ads-results.json)、[汇总](ads-summary.json)、[规则核验](ads-checks.json)。
+- [模拟脚本](ads-simulate.cjs)；默认5个种子，可用SEEDS参数调整。node ads-simulate.cjs后运行node ads-report.cjs生成本报告。
+- 冻结v2.43源码SHA-256：${r.sourceSha256}。候选参数仅覆盖在一次性Node VM内，DOM／音频使用桩与虚拟时钟。
+- 相同初始种子只用于控制起点；广告改变击杀节奏后随机数消费顺序可能分叉。未覆盖随机或低效技能选择、迟延合成、真实广告体验、阶段切换持久化及无尽高层。
+- 给WorkBuddy：本次由Codex完成的是广告情景仿真，不是广告功能上线。现行游戏版本与数值不变；不要将候选参数、60秒定时或报告中的模拟通过当作已接入正式SDK。
+`;
+fs.writeFileSync(__dirname+'/广告设定仿真.md',report);
+console.table(summary);
+console.log(output.stageSum);

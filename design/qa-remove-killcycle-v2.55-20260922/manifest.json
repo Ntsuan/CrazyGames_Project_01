@@ -1,0 +1,9 @@
+{
+  "baseline": "v2.54",
+  "version": "v2.55",
+  "sha256": "4b11c9b2f6a631e50b53139f2164ccd9f566d676c09b6dedc5b30a1b20f889b0",
+  "snapshotIdentical": true,
+  "visualStylesUnchanged": true,
+  "upgradePacksUnchanged": true,
+  "productionContainsKillcycle": false
+}

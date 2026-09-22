@@ -1,0 +1,101 @@
+{
+  "status": "passed",
+  "sourceFrames": 8,
+  "sourceFrameSize": [
+    1024,
+    768
+  ],
+  "gameStripSize": [
+    1320,
+    124
+  ],
+  "gameFrameSize": [
+    165,
+    124
+  ],
+  "firstFourSourceFramesUnchanged": true,
+  "firstFourGameFramesUnchanged": true,
+  "alphaAtCanvasEdges": true,
+  "normalization": [
+    {
+      "index": 4,
+      "sourceBox": [
+        34,
+        175,
+        715,
+        616
+      ],
+      "sharedScale": 1.1179138321995465,
+      "position": [
+        172,
+        211
+      ],
+      "bounds": [
+        172,
+        211,
+        933,
+        704
+      ]
+    },
+    {
+      "index": 5,
+      "sourceBox": [
+        725,
+        306,
+        1424,
+        626
+      ],
+      "sharedScale": 1.1179138321995465,
+      "position": [
+        152,
+        346
+      ],
+      "bounds": [
+        152,
+        346,
+        933,
+        704
+      ]
+    },
+    {
+      "index": 6,
+      "sourceBox": [
+        27,
+        806,
+        715,
+        1009
+      ],
+      "sharedScale": 1.1179138321995465,
+      "position": [
+        164,
+        477
+      ],
+      "bounds": [
+        164,
+        477,
+        933,
+        704
+      ]
+    },
+    {
+      "index": 7,
+      "sourceBox": [
+        741,
+        807,
+        1432,
+        1009
+      ],
+      "sharedScale": 1.1179138321995465,
+      "position": [
+        161,
+        478
+      ],
+      "bounds": [
+        161,
+        478,
+        933,
+        703
+      ]
+    }
+  ]
+}

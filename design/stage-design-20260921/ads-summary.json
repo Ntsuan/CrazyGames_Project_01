@@ -1,0 +1,133 @@
+{
+  "status": "simulation_only",
+  "seeds": 5,
+  "totalSamples": 25,
+  "allCleared": true,
+  "parameters": {
+    "initialMultipliers": [
+      1,
+      1.5,
+      2,
+      3,
+      4
+    ],
+    "costGrowth": 1.18,
+    "stageBoss": {
+      "hp": 8,
+      "attack": 2,
+      "shield": 0.8
+    },
+    "crateIntervalSeconds": 60,
+    "prestigeSoulMultiplier": 2,
+    "crateFormula": "Existing 60x normal-mob gold × goldMult × (1+0.25n+0.02n²), each tenth ×2"
+  },
+  "summary": [
+    {
+      "stage": 1,
+      "baselineSeed1Runs": 10,
+      "adsSeed1Runs": 1,
+      "baselineSeed1Minutes": 198.25055555615438,
+      "adsSeed1Minutes": 40.647222222224,
+      "adsRunsRange": [
+        1,
+        1
+      ],
+      "adsCratesMedian": 40,
+      "adsMinutesMedian": 40.714444444446535,
+      "crateShareMedian": 0.9922339501333972,
+      "samples": 5,
+      "prestiges": 0
+    },
+    {
+      "stage": 2,
+      "baselineSeed1Runs": 7,
+      "adsSeed1Runs": 1,
+      "baselineSeed1Minutes": 145.64111111072998,
+      "adsSeed1Minutes": 37.99499999998943,
+      "adsRunsRange": [
+        1,
+        1
+      ],
+      "adsCratesMedian": 37,
+      "adsMinutesMedian": 37.99499999998943,
+      "crateShareMedian": 0.9897880586829496,
+      "samples": 5,
+      "prestiges": 0
+    },
+    {
+      "stage": 3,
+      "baselineSeed1Runs": 5,
+      "adsSeed1Runs": 1,
+      "baselineSeed1Minutes": 120.10277777742502,
+      "adsSeed1Minutes": 34.65555555552943,
+      "adsRunsRange": [
+        1,
+        1
+      ],
+      "adsCratesMedian": 35,
+      "adsMinutesMedian": 35.38666666664395,
+      "crateShareMedian": 0.9873704737630051,
+      "samples": 5,
+      "prestiges": 0
+    },
+    {
+      "stage": 4,
+      "baselineSeed1Runs": 3,
+      "adsSeed1Runs": 1,
+      "baselineSeed1Minutes": 73.9250000000773,
+      "adsSeed1Minutes": 35.16499999997625,
+      "adsRunsRange": [
+        1,
+        1
+      ],
+      "adsCratesMedian": 33,
+      "adsMinutesMedian": 33.68277777774713,
+      "crateShareMedian": 0.9850543512540265,
+      "samples": 5,
+      "prestiges": 0
+    },
+    {
+      "stage": 5,
+      "baselineSeed1Runs": 2,
+      "adsSeed1Runs": 1,
+      "baselineSeed1Minutes": 58.31444444452849,
+      "adsSeed1Minutes": 31.868888888859686,
+      "adsRunsRange": [
+        1,
+        1
+      ],
+      "adsCratesMedian": 31,
+      "adsMinutesMedian": 32.00222222219271,
+      "crateShareMedian": 0.9831732966609911,
+      "samples": 5,
+      "prestiges": 0
+    }
+  ],
+  "stageSum": {
+    "medianMinutes": 180.74055555546866,
+    "medianBoxes": 178,
+    "minutesRange": [
+      176.8277777776679,
+      185.16277777770267
+    ],
+    "boxesRange": [
+      174,
+      183
+    ]
+  },
+  "actualPrestigeCount": 0,
+  "checks": {
+    "allStagesCleared": true,
+    "totalSamples": 25,
+    "crateSpacingAtLeast60Seconds": true,
+    "ordinaryPrestigeDoublesSouls": true,
+    "directPrestigeCheck": {
+      "rawSouls": 25,
+      "previousSouls": 7,
+      "finalSouls": 57,
+      "crateCounterAfter": 0
+    },
+    "advertisingSdkIntegrated": false
+  },
+  "sourceSha256": "6e4d49a9f9217a8f25f4a48241a440865a387c5f690429e33a3035865bdf3845"
+}

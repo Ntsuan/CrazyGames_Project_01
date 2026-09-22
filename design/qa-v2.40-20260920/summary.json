@@ -1,0 +1,95 @@
+{
+  "version": "v2.40",
+  "author": "Codex",
+  "sourceHash": "ed25b79144bd34698ef1d43b5e45ea63920c61c1cef4535b84be9783e2aa55d8",
+  "closed": [
+    "B01",
+    "A01",
+    "S01"
+  ],
+  "knownUnrelated": [
+    "C75: baseline and current both keep 4 sealed log sessions instead of 3"
+  ],
+  "notTested": [
+    "iPhone Safari native touch",
+    "deployed production site"
+  ],
+  "published": false,
+  "groups": {
+    "animation-results": {
+      "total": 66,
+      "passed": 66,
+      "failed": 0
+    },
+    "asset-results": {
+      "total": 58,
+      "passed": 58,
+      "failed": 0
+    },
+    "baseline-core-results": {
+      "total": 76,
+      "passed": 75,
+      "failed": 1
+    },
+    "button-results": {
+      "total": 25,
+      "passed": 25,
+      "failed": 0
+    },
+    "combat-speed-results": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "core-results": {
+      "total": 76,
+      "passed": 75,
+      "failed": 1
+    },
+    "desktop-results": {
+      "total": 6,
+      "passed": 6,
+      "failed": 0
+    },
+    "dynamic-death-enemy-results": {
+      "total": 18,
+      "passed": 18,
+      "failed": 0
+    },
+    "dynamic-scene-results": {
+      "total": 6,
+      "passed": 6,
+      "failed": 0
+    },
+    "dynamic-transit-results": {
+      "total": 12,
+      "passed": 12,
+      "failed": 0
+    },
+    "final-death-results": {
+      "total": 7,
+      "passed": 7,
+      "failed": 0
+    },
+    "lifecycle-results": {
+      "total": 11,
+      "passed": 11,
+      "failed": 0
+    },
+    "native-prestige-results": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "native-ui-results": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "timing-results": {
+      "total": 16,
+      "passed": 16,
+      "failed": 0
+    }
+  }
+}

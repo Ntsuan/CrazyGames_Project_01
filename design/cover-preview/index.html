@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>封面设计稿 · 霓虹猎手</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#1a1d24; font-family:"PingFang SC","Microsoft YaHei",sans-serif; min-height:100vh;
+         display:flex; flex-direction:column; align-items:center; padding:20px; }
+  .switch { margin-bottom:16px; }
+  .switch button { background:#2a2e38; color:#cfd8e3; border:1px solid #3a4152; border-radius:8px;
+                   padding:8px 16px; font-size:13px; cursor:pointer; margin:0 4px; }
+  .switch button.on { background:#00F0FF; color:#0a0e17; border-color:#00F0FF; }
+
+  /* ===== 封面本体 ===== */
+  .cover { position:relative; background:#0a0e17; border-radius:18px; overflow:hidden;
+           display:flex; flex-direction:column; align-items:center; justify-content:center;
+           transition:width .3s, height .3s; border:1px solid #1e2a44; }
+  .cover.desktop { width:720px; height:460px; }
+  .cover.mobile  { width:375px; height:667px; }
+
+  /* 占位背景：纯 CSS 霓虹网格（后续换美术素材） */
+  .cover::before { content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 70% 45% at 50% 108%, rgba(0,240,255,.14), transparent),
+      radial-gradient(ellipse 45% 30% at 85% 15%, rgba(255,42,109,.10), transparent),
+      repeating-linear-gradient(90deg, rgba(0,240,255,.04) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(0deg, rgba(0,240,255,.04) 0 1px, transparent 1px 64px);
+  }
+  .c-inner { position:relative; text-align:center; padding:24px; width:100%; max-width:340px; }
+
+  .logo { font-size:44px; font-weight:700; letter-spacing:8px; color:#00F0FF;
+          text-shadow:0 0 18px rgba(0,240,255,.75), 0 0 46px rgba(0,240,255,.35); }
+  .logo span { color:#FF2A6D; text-shadow:0 0 18px rgba(255,42,109,.75), 0 0 46px rgba(255,42,109,.35); }
+  .logo-en { font-size:13px; letter-spacing:10px; color:#8b95a7; margin-top:8px; }
+  .slogan { font-size:13px; color:#8b95a7; margin-top:18px; line-height:1.7; }
+  .slogan b { color:#FFD166; font-weight:500; }
+
+  /* 主按钮：移动端 ≥56px 触控目标、全宽 */
+  .btn-main { display:block; width:100%; margin-top:34px; padding:17px 0;
+              background:linear-gradient(90deg,rgba(0,240,255,.16),rgba(0,240,255,.08));
+              border:2px solid #00F0FF; border-radius:12px; color:#00F0FF; font-size:18px;
+              letter-spacing:4px; cursor:pointer; text-shadow:0 0 10px rgba(0,240,255,.6);
+              box-shadow:0 0 18px rgba(0,240,255,.25); }
+  .btn-main small { display:block; font-size:11px; letter-spacing:1px; color:#8b95a7; margin-top:3px; text-shadow:none; }
+  .btn-gear { position:absolute; top:14px; right:14px; width:44px; height:44px; border-radius:10px;
+              background:rgba(58,65,82,.35); border:1px solid #3a4152; color:#8b95a7; font-size:18px;
+              cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  /* 设置弹层 */
+  .settings { position:absolute; top:66px; right:14px; width:200px; background:#111827;
+              border:1px solid #1e2a44; border-radius:12px; padding:10px; display:none; text-align:left; }
+  .settings.show { display:block; }
+  .settings .row2 { display:flex; justify-content:space-between; align-items:center;
+                    padding:9px 6px; font-size:13px; color:#cfd8e3; border-bottom:1px solid #1e2a44; }
+  .settings .row2:last-child { border-bottom:none; }
+  .settings .val { color:#00F0FF; font-size:12px; }
+  .settings .danger { color:#FF2A6D; }
+
+  .cover-foot { position:absolute; bottom:14px; left:0; right:0; text-align:center;
+                font-size:10px; color:#4a5568; letter-spacing:1px; }
+
+  .annotate { margin-top:14px; color:#8b95a7; font-size:12px; max-width:720px; line-height:1.8; }
+  .annotate b { color:#cfd8e3; }
+</style>
+</head>
+<body>
+  <div class="switch">
+    <button id="bD" class="on" onclick="setView('desktop')">🖥 桌面 720px</button>
+    <button id="bM" onclick="setView('mobile')">📱 手机 375px</button>
+  </div>
+
+  <div class="cover desktop" id="cover">
+    <div class="c-inner">
+      <div class="logo">霓虹<span>猎手</span></div>
+      <div class="logo-en">NEON HUNTER</div>
+      <div class="slogan">赛博朋克放置爬塔 · 自动战斗<br>爆义体 · 合成升阶 · <b>重塑变强</b></div>
+      <button class="btn-main">▶ 进入夜城<small>继续第 32 层 · 自动保存</small></button>
+    </div>
+    <button class="btn-gear" onclick="document.getElementById('st').classList.toggle('show')">⚙</button>
+    <div class="settings" id="st">
+      <div class="row2"><span>语言</span><span class="val">中文 / EN</span></div>
+      <div class="row2"><span>音效</span><span class="val">开（预留）</span></div>
+      <div class="row2"><span>测试日志</span><span class="val">查看</span></div>
+      <div class="row2"><span class="danger">清除存档</span><span class="val danger">二次确认</span></div>
+    </div>
+    <div class="cover-foot">v2.3 · CrazyGames 版 · 中/EN</div>
+  </div>
+
+  <div class="annotate">
+    <b>设计说明（v2 修订：去重新开始、加设置）</b><br>
+    · 主按钮即「继续游戏」（有存档显示进度，无存档显示"开始游戏"），全宽 56px+ 触控目标<br>
+    · 右上角 ⚙ 设置（44px 触控），弹层含：语言切换（中/EN）、音效开关（预留）、测试日志入口、<b>清除存档</b>（藏进设置最深处+二次确认，替代原"重新开始"按钮，防误触）<br>
+    · 背景为纯 CSS 占位（霓虹网格+底部光晕），后续直接换美术素材，布局不变<br>
+    · 手机竖屏下布局不变，仅容器收窄；进入后封面整体淡出 0.4s 切到战斗界面
+  </div>
+
+<script>
+function setView(v){
+  document.getElementById("cover").className="cover "+v;
+  document.getElementById("bD").classList.toggle("on",v==="desktop");
+  document.getElementById("bM").classList.toggle("on",v==="mobile");
+}
+</script>
+</body>
+</html>

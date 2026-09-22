@@ -1,0 +1,32 @@
+{
+  "evidence": [
+    {
+      "phase": "playing",
+      "stage": 3,
+      "upgrade": "complete",
+      "elapsed": 8,
+      "tier": "mobile",
+      "background": "assets/upgrades/c1e1ab12cb0ebb18.png",
+      "errors": []
+    },
+    {
+      "phase": "playing",
+      "stage": 3,
+      "upgrade": "playing",
+      "elapsed": 0.29919999999999713,
+      "tier": "mobile",
+      "background": "assets/upgrades/c1e1ab12cb0ebb18.png",
+      "errors": []
+    },
+    {
+      "phase": "playing",
+      "stage": 3,
+      "upgrade": "complete",
+      "elapsed": 8,
+      "tier": "mobile",
+      "background": "assets/upgrades/c1e1ab12cb0ebb18.png",
+      "errors": []
+    }
+  ],
+  "console": []
+}

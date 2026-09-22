@@ -1,0 +1,67 @@
+{
+  "version": "v2.52",
+  "costBase": 6,
+  "costGrowth": 1.18,
+  "statGrowth": 1.1,
+  "crateBase": 20,
+  "crateIntervalMs": 60000,
+  "stages": [
+    {
+      "name": "初始猎手",
+      "atk": 8,
+      "hp": 100,
+      "shootMs": 320
+    },
+    {
+      "name": "肢体替换",
+      "atk": 12,
+      "hp": 150,
+      "shootMs": 320
+    },
+    {
+      "name": "躯干重构",
+      "atk": 16,
+      "hp": 200,
+      "shootMs": 320
+    },
+    {
+      "name": "神经融合",
+      "atk": 24,
+      "hp": 300,
+      "shootMs": 400
+    },
+    {
+      "name": "全身义体",
+      "atk": 32,
+      "hp": 400,
+      "shootMs": 560
+    }
+  ],
+  "costs": [
+    {
+      "level": 0,
+      "cost": 6,
+      "oldCost": 6
+    },
+    {
+      "level": 10,
+      "cost": 31.40301332279139,
+      "oldCost": 55.87935447692871
+    },
+    {
+      "level": 20,
+      "cost": 164.3582076252356,
+      "oldCost": 520.4170427930421
+    },
+    {
+      "level": 40,
+      "cost": 4502.270068963342,
+      "oldCost": 45138.98307157584
+    },
+    {
+      "level": 60,
+      "cost": 123330.83979659347,
+      "oldCost": 3915182.6807991145
+    }
+  ]
+}
