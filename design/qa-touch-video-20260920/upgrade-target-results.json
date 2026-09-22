@@ -1,0 +1,51 @@
+{
+  "refreshIntervalsMs": [
+    250,
+    299,
+    252,
+    250
+  ],
+  "results": [
+    {
+      "atkLv": 1,
+      "buttonConnected": true,
+      "child": false,
+      "endPrevented": true,
+      "hpLv": 0,
+      "id": "btnAtk",
+      "targetConnected": true,
+      "trackerStuck": false
+    },
+    {
+      "atkLv": 0,
+      "buttonConnected": true,
+      "child": true,
+      "endPrevented": false,
+      "hpLv": 0,
+      "id": "btnAtk",
+      "targetConnected": false,
+      "trackerStuck": true
+    },
+    {
+      "atkLv": 0,
+      "buttonConnected": true,
+      "child": false,
+      "endPrevented": true,
+      "hpLv": 1,
+      "id": "btnHp",
+      "targetConnected": true,
+      "trackerStuck": false
+    },
+    {
+      "atkLv": 0,
+      "buttonConnected": true,
+      "child": true,
+      "endPrevented": false,
+      "hpLv": 0,
+      "id": "btnHp",
+      "targetConnected": false,
+      "trackerStuck": true
+    }
+  ],
+  "speed": 2
+}

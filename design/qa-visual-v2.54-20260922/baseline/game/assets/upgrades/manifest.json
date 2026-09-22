@@ -1,0 +1,102 @@
+{
+  "1": {
+    "api": "NeonUpgrade0102",
+    "script": "assets/upgrades/1-2.js",
+    "desktop": {
+      "capsule": "assets/upgrades/4ebd397ab9f75a6d.png",
+      "stage01-handoff": "assets/upgrades/084ffabaa270746d.png",
+      "stage02-handoff": "assets/upgrades/464bd83d7490110c.png",
+      "stage01-walk": "assets/upgrades/6f456166d63a19dd.png",
+      "stage02-walk": "assets/upgrades/b91d18664a201a97.png",
+      "weapon01": "assets/upgrades/80d8dd447d43ca10.png",
+      "weapon02": "assets/upgrades/aaab08b5422db9df.png",
+      "tool-arm": "assets/upgrades/fad024cc6e0b3874.png",
+      "repair-room": "assets/upgrades/2803fb4c370f273b.png"
+    },
+    "mobile": {
+      "capsule": "assets/upgrades/2609fc97f52cc0e2.png",
+      "stage01-handoff": "assets/upgrades/dcc0b91c2e8fe09d.png",
+      "stage02-handoff": "assets/upgrades/9dbc556b93b1cb5d.png",
+      "stage01-walk": "assets/upgrades/5df3355284aaf54b.png",
+      "stage02-walk": "assets/upgrades/bbf3bc20b181157f.png",
+      "weapon01": "assets/upgrades/21b1ac96f21c4f8d.png",
+      "weapon02": "assets/upgrades/1caa48fd77504dcc.png",
+      "tool-arm": "assets/upgrades/410fdb25f12c2a77.png",
+      "repair-room": "assets/upgrades/c1e1ab12cb0ebb18.png"
+    }
+  },
+  "2": {
+    "api": "NeonUpgrade0203",
+    "script": "assets/upgrades/2-3.js",
+    "desktop": {
+      "capsule": "assets/upgrades/4ebd397ab9f75a6d.png",
+      "stage02-handoff": "assets/upgrades/54f9df27d74fb71a.png",
+      "stage03-handoff": "assets/upgrades/7cff6bd60768aea4.png",
+      "stage02-walk": "assets/upgrades/b91d18664a201a97.png",
+      "stage03-walk": "assets/upgrades/27f8d2a3e0c59d1d.png",
+      "weapon02": "assets/upgrades/aaab08b5422db9df.png",
+      "weapon03": "assets/upgrades/d1da1376c5a55575.png",
+      "tool-arm": "assets/upgrades/fad024cc6e0b3874.png"
+    },
+    "mobile": {
+      "capsule": "assets/upgrades/2609fc97f52cc0e2.png",
+      "stage02-handoff": "assets/upgrades/3d5e12709f7c582d.png",
+      "stage03-handoff": "assets/upgrades/00525b965f710851.png",
+      "stage02-walk": "assets/upgrades/bbf3bc20b181157f.png",
+      "stage03-walk": "assets/upgrades/a9ef616e15b6d43d.png",
+      "weapon02": "assets/upgrades/1caa48fd77504dcc.png",
+      "weapon03": "assets/upgrades/c41dfdd289798edf.png",
+      "tool-arm": "assets/upgrades/410fdb25f12c2a77.png"
+    }
+  },
+  "3": {
+    "api": "NeonUpgrade0304",
+    "script": "assets/upgrades/3-4.js",
+    "desktop": {
+      "capsule": "assets/upgrades/4ebd397ab9f75a6d.png",
+      "stage03-handoff": "assets/upgrades/a20be3ad3a1cdab5.png",
+      "stage04-handoff": "assets/upgrades/5fdc4b7cce2e237a.png",
+      "stage03-walk": "assets/upgrades/27f8d2a3e0c59d1d.png",
+      "stage04-walk": "assets/upgrades/4aebd1d05b52f313.png",
+      "weapon03": "assets/upgrades/d1da1376c5a55575.png",
+      "weapon04": "assets/upgrades/36e98021c2f60bc5.png",
+      "tool-arm": "assets/upgrades/fad024cc6e0b3874.png",
+      "repair-room": "assets/upgrades/2803fb4c370f273b.png"
+    },
+    "mobile": {
+      "capsule": "assets/upgrades/2609fc97f52cc0e2.png",
+      "stage03-handoff": "assets/upgrades/f24558a464e6e041.png",
+      "stage04-handoff": "assets/upgrades/823921d592489a6f.png",
+      "stage03-walk": "assets/upgrades/a9ef616e15b6d43d.png",
+      "stage04-walk": "assets/upgrades/dbb302a2c6f3d767.png",
+      "weapon03": "assets/upgrades/c41dfdd289798edf.png",
+      "weapon04": "assets/upgrades/bca48f164d279add.png",
+      "tool-arm": "assets/upgrades/410fdb25f12c2a77.png",
+      "repair-room": "assets/upgrades/c1e1ab12cb0ebb18.png"
+    }
+  },
+  "4": {
+    "api": "NeonUpgrade0405",
+    "script": "assets/upgrades/4-5.js",
+    "desktop": {
+      "capsule": "assets/upgrades/4ebd397ab9f75a6d.png",
+      "stage04-handoff": "assets/upgrades/ddc1985009a437fe.png",
+      "stage05-activation": "assets/upgrades/d787fc4f877bc696.png",
+      "stage04-walk": "assets/upgrades/4aebd1d05b52f313.png",
+      "stage05-walk": "assets/upgrades/cc04785ba9b7c6ea.png",
+      "weapon04": "assets/upgrades/36e98021c2f60bc5.png",
+      "tool-arm": "assets/upgrades/fad024cc6e0b3874.png",
+      "repair-room": "assets/upgrades/2803fb4c370f273b.png"
+    },
+    "mobile": {
+      "capsule": "assets/upgrades/2609fc97f52cc0e2.png",
+      "stage04-handoff": "assets/upgrades/ed5ccb263c02ea1f.png",
+      "stage05-activation": "assets/upgrades/daafa280bb55b612.png",
+      "stage04-walk": "assets/upgrades/dbb302a2c6f3d767.png",
+      "stage05-walk": "assets/upgrades/c56a081a6c7573b2.png",
+      "weapon04": "assets/upgrades/bca48f164d279add.png",
+      "tool-arm": "assets/upgrades/410fdb25f12c2a77.png",
+      "repair-room": "assets/upgrades/c1e1ab12cb0ebb18.png"
+    }
+  }
+}

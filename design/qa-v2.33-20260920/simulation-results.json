@@ -1,0 +1,1438 @@
+{
+  "note": "3 upgrade strategies × 10 seeded runs × 3 prestige cycles; 30 FPS virtual clock; actual game functions with DOM/audio mocks; not real-device soak",
+  "results": [
+    {
+      "ratio": 0.67,
+      "seed": 1,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 19,
+          "seconds": 736.6000000002446,
+          "events": 122,
+          "reason": "hp_zero",
+          "atkLv": 17,
+          "hpLv": 18,
+          "skills": [
+            "adrenaline",
+            "fire",
+            "killcycle"
+          ]
+        },
+        {
+          "floor": 20,
+          "seconds": 469.13333333298135,
+          "events": 248,
+          "reason": "hp_zero",
+          "atkLv": 18,
+          "hpLv": 19,
+          "skills": [
+            "soulrush",
+            "fire",
+            "adrenaline"
+          ]
+        },
+        {
+          "floor": 20,
+          "seconds": 441.366666665639,
+          "events": 382,
+          "reason": "hp_zero",
+          "atkLv": 18,
+          "hpLv": 19,
+          "skills": [
+            "adrenaline",
+            "resonance",
+            "critsurge"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 2,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 829.6000000003529,
+          "events": 110,
+          "reason": "hp_zero",
+          "atkLv": 16,
+          "hpLv": 18,
+          "skills": [
+            "ghoststep",
+            "fatal",
+            "lowhp"
+          ]
+        },
+        {
+          "floor": 22,
+          "seconds": 610.1333333323282,
+          "events": 247,
+          "reason": "hp_zero",
+          "atkLv": 19,
+          "hpLv": 21,
+          "skills": [
+            "ghoststep",
+            "neuro",
+            "lowhp",
+            "fatal"
+          ]
+        },
+        {
+          "floor": 23,
+          "seconds": 596.3666666655503,
+          "events": 391,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 21,
+          "skills": [
+            "ghoststep",
+            "nano",
+            "lowhp",
+            "overclock"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 3,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 753.0666666669305,
+          "events": 110,
+          "reason": "hp_zero",
+          "atkLv": 16,
+          "hpLv": 18,
+          "skills": [
+            "killcycle",
+            "neuro",
+            "critsurge"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 705.4333333323736,
+          "events": 245,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 22,
+          "skills": [
+            "killcycle",
+            "shield",
+            "lowhp",
+            "fire"
+          ]
+        },
+        {
+          "floor": 23,
+          "seconds": 509.33333333214745,
+          "events": 391,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 22,
+          "skills": [
+            "killcycle",
+            "blackmarket",
+            "adrenaline",
+            "fatal"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 4,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 19,
+          "seconds": 804.7333333336572,
+          "events": 117,
+          "reason": "hp_zero",
+          "atkLv": 16,
+          "hpLv": 18,
+          "skills": [
+            "adrenaline",
+            "fire",
+            "lowhp"
+          ]
+        },
+        {
+          "floor": 23,
+          "seconds": 609.599999999083,
+          "events": 275,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 22,
+          "skills": [
+            "adrenaline",
+            "blackmarket",
+            "critsurge",
+            "resonance"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 586.2999999986594,
+          "events": 429,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 22,
+          "skills": [
+            "soulrush",
+            "resonance",
+            "soulrush",
+            "shield"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 5,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 20,
+          "seconds": 942.0000000004837,
+          "events": 122,
+          "reason": "hp_zero",
+          "atkLv": 17,
+          "hpLv": 19,
+          "skills": [
+            "adrenaline",
+            "shield",
+            "ghoststep"
+          ]
+        },
+        {
+          "floor": 21,
+          "seconds": 514.8666666654908,
+          "events": 264,
+          "reason": "hp_zero",
+          "atkLv": 19,
+          "hpLv": 20,
+          "skills": [
+            "critsurge",
+            "neuro",
+            "soulrush",
+            "blackmarket"
+          ]
+        },
+        {
+          "floor": 25,
+          "seconds": 611.8999999990757,
+          "events": 422,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 23,
+          "skills": [
+            "lowhp",
+            "neuro",
+            "adrenaline",
+            "subdermal"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 6,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 745.4666666669216,
+          "events": 105,
+          "reason": "hp_zero",
+          "atkLv": 16,
+          "hpLv": 18,
+          "skills": [
+            "adrenaline",
+            "overclock",
+            "adrenaline"
+          ]
+        },
+        {
+          "floor": 20,
+          "seconds": 508.5333333328586,
+          "events": 240,
+          "reason": "hp_zero",
+          "atkLv": 18,
+          "hpLv": 20,
+          "skills": [
+            "soulrush",
+            "neuro",
+            "lowhp"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 617.4333333318957,
+          "events": 395,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 22,
+          "skills": [
+            "ghoststep",
+            "overclock",
+            "killcycle",
+            "overclock"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 7,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 17,
+          "seconds": 738.6333333335803,
+          "events": 113,
+          "reason": "hp_zero",
+          "atkLv": 17,
+          "hpLv": 18,
+          "skills": [
+            "critsurge",
+            "blackmarket",
+            "soulrush"
+          ]
+        },
+        {
+          "floor": 19,
+          "seconds": 527.7999999995043,
+          "events": 234,
+          "reason": "hp_zero",
+          "atkLv": 17,
+          "hpLv": 19,
+          "skills": [
+            "adrenaline",
+            "fatal",
+            "soulrush"
+          ]
+        },
+        {
+          "floor": 25,
+          "seconds": 672.6666666651005,
+          "events": 405,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 23,
+          "skills": [
+            "lowhp",
+            "nano",
+            "critsurge",
+            "overclock"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 8,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 750.5333333335941,
+          "events": 116,
+          "reason": "hp_zero",
+          "atkLv": 16,
+          "hpLv": 17,
+          "skills": [
+            "soulrush",
+            "fatal",
+            "killcycle"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 698.1333333323995,
+          "events": 266,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 22,
+          "skills": [
+            "lowhp",
+            "subdermal",
+            "killcycle",
+            "fire"
+          ]
+        },
+        {
+          "floor": 28,
+          "seconds": 763.2333333330564,
+          "events": 447,
+          "reason": "hp_zero",
+          "atkLv": 23,
+          "hpLv": 25,
+          "skills": [
+            "killcycle",
+            "subdermal",
+            "critsurge",
+            "subdermal",
+            "ghoststep"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 9,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 23,
+          "seconds": 974.5333333337642,
+          "events": 151,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 21,
+          "skills": [
+            "killcycle",
+            "shield",
+            "lowhp",
+            "fire"
+          ]
+        },
+        {
+          "floor": 22,
+          "seconds": 492.9666666655189,
+          "events": 300,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 22,
+          "skills": [
+            "critsurge",
+            "blackmarket",
+            "critsurge",
+            "blackmarket"
+          ]
+        },
+        {
+          "floor": 23,
+          "seconds": 536.6999999987997,
+          "events": 454,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 22,
+          "skills": [
+            "lowhp",
+            "overclock",
+            "adrenaline",
+            "blackmarket"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 10,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 19,
+          "seconds": 920.8333333337924,
+          "events": 113,
+          "reason": "hp_zero",
+          "atkLv": 17,
+          "hpLv": 18,
+          "skills": [
+            "lowhp",
+            "subdermal",
+            "killcycle"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 702.599999998461,
+          "events": 270,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 23,
+          "skills": [
+            "adrenaline",
+            "blackmarket",
+            "ghoststep",
+            "neuro"
+          ]
+        },
+        {
+          "floor": 25,
+          "seconds": 559.5999999999956,
+          "events": 425,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 23,
+          "skills": [
+            "killcycle",
+            "fire",
+            "lowhp",
+            "fire"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 1,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 682.4000000001815,
+          "events": 115,
+          "reason": "hp_zero",
+          "atkLv": 17,
+          "hpLv": 16,
+          "skills": [
+            "soulrush",
+            "fatal",
+            "critsurge"
+          ]
+        },
+        {
+          "floor": 22,
+          "seconds": 544.5333333329951,
+          "events": 260,
+          "reason": "hp_zero",
+          "atkLv": 22,
+          "hpLv": 20,
+          "skills": [
+            "soulrush",
+            "blackmarket",
+            "soulrush",
+            "blackmarket"
+          ]
+        },
+        {
+          "floor": 20,
+          "seconds": 439.2333333323107,
+          "events": 389,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 20,
+          "skills": [
+            "critsurge",
+            "blackmarket",
+            "killcycle"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 2,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 808.566666666995,
+          "events": 113,
+          "reason": "hp_zero",
+          "atkLv": 18,
+          "hpLv": 17,
+          "skills": [
+            "ghoststep",
+            "resonance",
+            "soulrush"
+          ]
+        },
+        {
+          "floor": 20,
+          "seconds": 503.03333333265107,
+          "events": 244,
+          "reason": "hp_zero",
+          "atkLv": 19,
+          "hpLv": 18,
+          "skills": [
+            "lowhp",
+            "fatal",
+            "lowhp"
+          ]
+        },
+        {
+          "floor": 25,
+          "seconds": 600.6666666652682,
+          "events": 397,
+          "reason": "hp_zero",
+          "atkLv": 22,
+          "hpLv": 21,
+          "skills": [
+            "adrenaline",
+            "nano",
+            "critsurge",
+            "fire"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 3,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 20,
+          "seconds": 757.4333333336021,
+          "events": 127,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 19,
+          "skills": [
+            "adrenaline",
+            "blackmarket",
+            "adrenaline"
+          ]
+        },
+        {
+          "floor": 20,
+          "seconds": 444.3666666662996,
+          "events": 257,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 18,
+          "skills": [
+            "killcycle",
+            "neuro",
+            "lowhp"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 594.7999999986151,
+          "events": 412,
+          "reason": "hp_zero",
+          "atkLv": 22,
+          "hpLv": 21,
+          "skills": [
+            "critsurge",
+            "resonance",
+            "ghoststep",
+            "overclock"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 4,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 20,
+          "seconds": 844.4333333337034,
+          "events": 118,
+          "reason": "hp_zero",
+          "atkLv": 19,
+          "hpLv": 17,
+          "skills": [
+            "adrenaline",
+            "shield",
+            "adrenaline"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 623.3666666655789,
+          "events": 279,
+          "reason": "hp_zero",
+          "atkLv": 22,
+          "hpLv": 20,
+          "skills": [
+            "adrenaline",
+            "shield",
+            "ghoststep",
+            "neuro"
+          ]
+        },
+        {
+          "floor": 26,
+          "seconds": 586.4999999990338,
+          "events": 441,
+          "reason": "hp_zero",
+          "atkLv": 23,
+          "hpLv": 22,
+          "skills": [
+            "critsurge",
+            "subdermal",
+            "lowhp",
+            "neuro",
+            "killcycle"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 5,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 20,
+          "seconds": 769.7666666669498,
+          "events": 123,
+          "reason": "hp_zero",
+          "atkLv": 19,
+          "hpLv": 18,
+          "skills": [
+            "ghoststep",
+            "nano",
+            "ghoststep"
+          ]
+        },
+        {
+          "floor": 23,
+          "seconds": 541.3999999993639,
+          "events": 275,
+          "reason": "hp_zero",
+          "atkLv": 22,
+          "hpLv": 20,
+          "skills": [
+            "adrenaline",
+            "overclock",
+            "soulrush",
+            "resonance"
+          ]
+        },
+        {
+          "floor": 26,
+          "seconds": 615.3333333319007,
+          "events": 441,
+          "reason": "hp_zero",
+          "atkLv": 24,
+          "hpLv": 22,
+          "skills": [
+            "lowhp",
+            "neuro",
+            "soulrush",
+            "nano",
+            "critsurge"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 6,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 20,
+          "seconds": 785.0000000003009,
+          "events": 121,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 18,
+          "skills": [
+            "soulrush",
+            "blackmarket",
+            "ghoststep"
+          ]
+        },
+        {
+          "floor": 23,
+          "seconds": 608.433333332488,
+          "events": 264,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 20,
+          "skills": [
+            "ghoststep",
+            "nano",
+            "lowhp",
+            "overclock"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 524.1666666654462,
+          "events": 426,
+          "reason": "hp_zero",
+          "atkLv": 23,
+          "hpLv": 22,
+          "skills": [
+            "critsurge",
+            "blackmarket",
+            "critsurge",
+            "subdermal"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 7,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 17,
+          "seconds": 701.9333333335376,
+          "events": 101,
+          "reason": "hp_zero",
+          "atkLv": 16,
+          "hpLv": 15,
+          "skills": [
+            "lowhp",
+            "subdermal",
+            "killcycle"
+          ]
+        },
+        {
+          "floor": 20,
+          "seconds": 467.43333333310636,
+          "events": 231,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 18,
+          "skills": [
+            "soulrush",
+            "fire",
+            "killcycle"
+          ]
+        },
+        {
+          "floor": 25,
+          "seconds": 615.7333333318998,
+          "events": 395,
+          "reason": "hp_zero",
+          "atkLv": 23,
+          "hpLv": 21,
+          "skills": [
+            "lowhp",
+            "neuro",
+            "lowhp",
+            "nano"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 8,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 23,
+          "seconds": 953.766666667146,
+          "events": 135,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 19,
+          "skills": [
+            "ghoststep",
+            "subdermal",
+            "critsurge",
+            "shield"
+          ]
+        },
+        {
+          "floor": 23,
+          "seconds": 550.3999999987185,
+          "events": 281,
+          "reason": "hp_zero",
+          "atkLv": 22,
+          "hpLv": 21,
+          "skills": [
+            "killcycle",
+            "blackmarket",
+            "ghoststep",
+            "resonance"
+          ]
+        },
+        {
+          "floor": 25,
+          "seconds": 594.7333333326594,
+          "events": 434,
+          "reason": "hp_zero",
+          "atkLv": 23,
+          "hpLv": 21,
+          "skills": [
+            "killcycle",
+            "shield",
+            "adrenaline",
+            "subdermal"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 9,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 15,
+          "seconds": 589.7000000000736,
+          "events": 96,
+          "reason": "hp_zero",
+          "atkLv": 15,
+          "hpLv": 14,
+          "skills": [
+            "killcycle",
+            "fatal"
+          ]
+        },
+        {
+          "floor": 20,
+          "seconds": 503.8333333334136,
+          "events": 226,
+          "reason": "hp_zero",
+          "atkLv": 19,
+          "hpLv": 18,
+          "skills": [
+            "soulrush",
+            "neuro",
+            "critsurge"
+          ]
+        },
+        {
+          "floor": 25,
+          "seconds": 617.7999999985616,
+          "events": 385,
+          "reason": "hp_zero",
+          "atkLv": 22,
+          "hpLv": 21,
+          "skills": [
+            "killcycle",
+            "shield",
+            "lowhp",
+            "fire"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 10,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 717.6666666668892,
+          "events": 115,
+          "reason": "hp_zero",
+          "atkLv": 18,
+          "hpLv": 16,
+          "skills": [
+            "adrenaline",
+            "resonance",
+            "soulrush"
+          ]
+        },
+        {
+          "floor": 23,
+          "seconds": 556.1333333328449,
+          "events": 277,
+          "reason": "hp_zero",
+          "atkLv": 22,
+          "hpLv": 20,
+          "skills": [
+            "adrenaline",
+            "fire",
+            "killcycle",
+            "blackmarket"
+          ]
+        },
+        {
+          "floor": 27,
+          "seconds": 620.2999999985558,
+          "events": 451,
+          "reason": "hp_zero",
+          "atkLv": 24,
+          "hpLv": 22,
+          "skills": [
+            "critsurge",
+            "fire",
+            "ghoststep",
+            "resonance",
+            "ghoststep"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 1,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 640.9333333334665,
+          "events": 110,
+          "reason": "hp_zero",
+          "atkLv": 18,
+          "hpLv": 14,
+          "skills": [
+            "critsurge",
+            "fatal",
+            "ghoststep"
+          ]
+        },
+        {
+          "floor": 23,
+          "seconds": 583.1666666663833,
+          "events": 270,
+          "reason": "hp_zero",
+          "atkLv": 22,
+          "hpLv": 18,
+          "skills": [
+            "lowhp",
+            "subdermal",
+            "adrenaline",
+            "resonance"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 500.66666666550094,
+          "events": 427,
+          "reason": "hp_zero",
+          "atkLv": 23,
+          "hpLv": 19,
+          "skills": [
+            "lowhp",
+            "fire",
+            "killcycle",
+            "fire"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 2,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 20,
+          "seconds": 786.0666666669688,
+          "events": 109,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 15,
+          "skills": [
+            "ghoststep",
+            "fatal",
+            "lowhp"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 568.1333333325781,
+          "events": 274,
+          "reason": "hp_zero",
+          "atkLv": 24,
+          "hpLv": 20,
+          "skills": [
+            "lowhp",
+            "blackmarket",
+            "soulrush",
+            "fire"
+          ]
+        },
+        {
+          "floor": 26,
+          "seconds": 581.1333333319802,
+          "events": 439,
+          "reason": "hp_zero",
+          "atkLv": 25,
+          "hpLv": 20,
+          "skills": [
+            "critsurge",
+            "shield",
+            "killcycle",
+            "fire",
+            "soulrush"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 3,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 19,
+          "seconds": 734.5000000002422,
+          "events": 107,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 15,
+          "skills": [
+            "killcycle",
+            "shield",
+            "adrenaline"
+          ]
+        },
+        {
+          "floor": 25,
+          "seconds": 665.8666666658639,
+          "events": 272,
+          "reason": "hp_zero",
+          "atkLv": 24,
+          "hpLv": 20,
+          "skills": [
+            "ghoststep",
+            "overclock",
+            "lowhp",
+            "nano"
+          ]
+        },
+        {
+          "floor": 25,
+          "seconds": 555.3333333320403,
+          "events": 441,
+          "reason": "hp_zero",
+          "atkLv": 24,
+          "hpLv": 20,
+          "skills": [
+            "adrenaline",
+            "shield",
+            "ghoststep",
+            "resonance"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 4,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 17,
+          "seconds": 641.5000000001339,
+          "events": 103,
+          "reason": "hp_zero",
+          "atkLv": 18,
+          "hpLv": 13,
+          "skills": [
+            "critsurge",
+            "fire",
+            "soulrush"
+          ]
+        },
+        {
+          "floor": 18,
+          "seconds": 394.90000000015294,
+          "events": 230,
+          "reason": "hp_zero",
+          "atkLv": 19,
+          "hpLv": 14,
+          "skills": [
+            "killcycle",
+            "resonance",
+            "killcycle"
+          ]
+        },
+        {
+          "floor": 20,
+          "seconds": 446.5999999989602,
+          "events": 363,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 16,
+          "skills": [
+            "killcycle",
+            "overclock",
+            "lowhp"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 5,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 22,
+          "seconds": 868.3333333337313,
+          "events": 138,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 17,
+          "skills": [
+            "ghoststep",
+            "subdermal",
+            "lowhp",
+            "neuro"
+          ]
+        },
+        {
+          "floor": 22,
+          "seconds": 484.999999999151,
+          "events": 274,
+          "reason": "hp_zero",
+          "atkLv": 22,
+          "hpLv": 18,
+          "skills": [
+            "critsurge",
+            "nano",
+            "ghoststep",
+            "fatal"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 560.366666665362,
+          "events": 413,
+          "reason": "hp_zero",
+          "atkLv": 23,
+          "hpLv": 19,
+          "skills": [
+            "adrenaline",
+            "shield",
+            "critsurge",
+            "overclock"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 6,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 20,
+          "seconds": 753.4333333335975,
+          "events": 135,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 16,
+          "skills": [
+            "ghoststep",
+            "resonance",
+            "soulrush"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 600.4999999992833,
+          "events": 284,
+          "reason": "hp_zero",
+          "atkLv": 23,
+          "hpLv": 19,
+          "skills": [
+            "soulrush",
+            "overclock",
+            "ghoststep",
+            "subdermal"
+          ]
+        },
+        {
+          "floor": 25,
+          "seconds": 543.4999999987346,
+          "events": 434,
+          "reason": "hp_zero",
+          "atkLv": 24,
+          "hpLv": 19,
+          "skills": [
+            "critsurge",
+            "overclock",
+            "lowhp",
+            "subdermal"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 7,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 618.7333333334407,
+          "events": 115,
+          "reason": "hp_zero",
+          "atkLv": 18,
+          "hpLv": 14,
+          "skills": [
+            "adrenaline",
+            "resonance",
+            "ghoststep"
+          ]
+        },
+        {
+          "floor": 20,
+          "seconds": 469.83333333339135,
+          "events": 245,
+          "reason": "hp_zero",
+          "atkLv": 21,
+          "hpLv": 17,
+          "skills": [
+            "lowhp",
+            "blackmarket",
+            "critsurge"
+          ]
+        },
+        {
+          "floor": 26,
+          "seconds": 632.0333333318617,
+          "events": 423,
+          "reason": "hp_zero",
+          "atkLv": 25,
+          "hpLv": 21,
+          "skills": [
+            "killcycle",
+            "blackmarket",
+            "killcycle",
+            "shield",
+            "soulrush"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 8,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 15,
+          "seconds": 591.7333333334093,
+          "events": 87,
+          "reason": "hp_zero",
+          "atkLv": 16,
+          "hpLv": 12,
+          "skills": [
+            "lowhp",
+            "fatal"
+          ]
+        },
+        {
+          "floor": 17,
+          "seconds": 407.13333333363164,
+          "events": 200,
+          "reason": "hp_zero",
+          "atkLv": 18,
+          "hpLv": 14,
+          "skills": [
+            "killcycle",
+            "fatal",
+            "killcycle"
+          ]
+        },
+        {
+          "floor": 19,
+          "seconds": 425.23333333234325,
+          "events": 319,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 15,
+          "skills": [
+            "soulrush",
+            "neuro",
+            "killcycle"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 9,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 20,
+          "seconds": 779.2333333336276,
+          "events": 135,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 16,
+          "skills": [
+            "adrenaline",
+            "nano",
+            "soulrush"
+          ]
+        },
+        {
+          "floor": 23,
+          "seconds": 553.1333333326369,
+          "events": 282,
+          "reason": "hp_zero",
+          "atkLv": 22,
+          "hpLv": 18,
+          "skills": [
+            "lowhp",
+            "shield",
+            "critsurge",
+            "overclock"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 508.83333333214864,
+          "events": 438,
+          "reason": "hp_zero",
+          "atkLv": 25,
+          "hpLv": 20,
+          "skills": [
+            "critsurge",
+            "blackmarket",
+            "critsurge",
+            "fire"
+          ]
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 10,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 20,
+          "seconds": 768.2666666669481,
+          "events": 116,
+          "reason": "hp_zero",
+          "atkLv": 20,
+          "hpLv": 15,
+          "skills": [
+            "lowhp",
+            "fire",
+            "adrenaline"
+          ]
+        },
+        {
+          "floor": 24,
+          "seconds": 622.3999999991805,
+          "events": 278,
+          "reason": "hp_zero",
+          "atkLv": 24,
+          "hpLv": 19,
+          "skills": [
+            "ghoststep",
+            "nano",
+            "killcycle",
+            "blackmarket"
+          ]
+        },
+        {
+          "floor": 25,
+          "seconds": 540.7333333320744,
+          "events": 432,
+          "reason": "hp_zero",
+          "atkLv": 24,
+          "hpLv": 20,
+          "skills": [
+            "critsurge",
+            "nano",
+            "critsurge",
+            "subdermal"
+          ]
+        }
+      ]
+    }
+  ]
+}

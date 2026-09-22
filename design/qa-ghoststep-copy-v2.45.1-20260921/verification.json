@@ -1,0 +1,39 @@
+{
+  "version": "v2.45.1",
+  "method": "Existing Node VM harness, actual offerSkills/pickSkill/save/load/applyPrestige functions; no browser UI test",
+  "syntax": true,
+  "results": [
+    {
+      "name": "首次选择显示2秒",
+      "passed": true
+    },
+    {
+      "name": "其他技能文案保持不变",
+      "passed": true
+    },
+    {
+      "name": "第二次选择显示增加0.5秒",
+      "passed": true
+    },
+    {
+      "name": "已有技能累计仍为2.5秒",
+      "passed": true
+    },
+    {
+      "name": "第三次仍显示增加0.5秒",
+      "passed": true
+    },
+    {
+      "name": "存档恢复后待选卡显示增加0.5秒",
+      "passed": true
+    },
+    {
+      "name": "实际重塑清空后恢复首次2秒文案",
+      "passed": true
+    },
+    {
+      "name": "源码只变更选择卡文案及版本",
+      "passed": true
+    }
+  ]
+}

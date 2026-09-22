@@ -1,0 +1,98 @@
+[
+  {
+    "case": "paused buffs",
+    "state": {
+      "version": "v2.58",
+      "paused": true,
+      "transit": false,
+      "floor": 23,
+      "gameMs": 0,
+      "skillMs": 0,
+      "buffs": [
+        {
+          "key": "critsurge",
+          "name": "狂暴节奏",
+          "effect": "攻速 +90%",
+          "ms": 5000
+        },
+        {
+          "key": "soulrush",
+          "name": "猎手直觉",
+          "effect": "攻速 +50%",
+          "ms": 4000
+        },
+        {
+          "key": "ghoststep",
+          "name": "光学迷彩",
+          "effect": "无敌",
+          "ms": 2000
+        }
+      ],
+      "cloaked": true,
+      "remaining": 2000
+    },
+    "text": "狂暴节奏攻速 +90%5.0 秒 · 暂停计时猎手直觉攻速 +50%4.0 秒 · 暂停计时光学迷彩无敌2.0 秒 · 暂停计时"
+  },
+  {
+    "case": "buffs expired after combat",
+    "state": {
+      "version": "v2.58",
+      "paused": false,
+      "transit": false,
+      "floor": 23,
+      "gameMs": 23950,
+      "skillMs": 23950,
+      "buffs": [],
+      "cloaked": false,
+      "remaining": 0
+    }
+  },
+  {
+    "case": "mobile hud after",
+    "size": {
+      "height": 62,
+      "width": 113.96875
+    }
+  },
+  {
+    "case": "mobile hud before",
+    "size": {
+      "height": 78,
+      "width": 135.71875
+    }
+  },
+  {
+    "case": "320px long floor",
+    "layout": {
+      "height": 62,
+      "noOverlap": true,
+      "numberFits": true,
+      "text": "第 1234567 层",
+      "width": 165.078125
+    }
+  },
+  {
+    "case": "skill copy",
+    "overclock": 1,
+    "shield": 1
+  },
+  {
+    "case": "ad freezes active display",
+    "text": "狂暴节奏攻速 +90%5.0 秒 · 暂停计时猎手直觉攻速 +50%4.0 秒 · 暂停计时光学迷彩无敌2.0 秒 · 暂停计时"
+  },
+  {
+    "case": "ad still frozen later",
+    "text": "狂暴节奏攻速 +90%5.0 秒 · 暂停计时猎手直觉攻速 +50%4.0 秒 · 暂停计时光学迷彩无敌2.0 秒 · 暂停计时"
+  },
+  {
+    "case": "ad cancellation retains buffs",
+    "text": "狂暴节奏攻速 +90%5.0 秒 · 暂停计时猎手直觉攻速 +50%4.0 秒 · 暂停计时光学迷彩无敌2.0 秒 · 暂停计时"
+  },
+  {
+    "case": "production fresh start",
+    "version": "V2.58 · 无尽模式",
+    "floor": "阶段 1 · 初始猎手第 1 / 100 层 · 区域头目\n    数据机房",
+    "coverRemoved": true,
+    "errors": []
+  }
+]

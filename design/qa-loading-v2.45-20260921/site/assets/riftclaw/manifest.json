@@ -1,0 +1,76 @@
+{
+  "idle": {
+    "file": "idle.webp",
+    "frames": 4,
+    "frameSize": [
+      256,
+      192
+    ],
+    "durationsMs": [
+      260,
+      260,
+      260,
+      260
+    ],
+    "source": "neon-hunter-riftclaw-animations-v1/mobile/idle.png",
+    "sha256": "f13701b21732d3490dbeb0941aa3e78d7606f52b0c99affec8d6480607baa8a9"
+  },
+  "walk": {
+    "file": "walk.webp",
+    "frames": 8,
+    "frameSize": [
+      256,
+      192
+    ],
+    "durationsMs": [
+      110,
+      110,
+      110,
+      110,
+      110,
+      110,
+      110,
+      110
+    ],
+    "source": "neon-hunter-riftclaw-animations-v1/mobile/walk.png",
+    "sha256": "8de344b3dd1ac8cec89a3b8202a4e72f1a06f6a814a7eae1b55f2613bc6c0749"
+  },
+  "shoot": {
+    "file": "shoot.webp",
+    "frames": 6,
+    "frameSize": [
+      256,
+      192
+    ],
+    "durationsMs": [
+      120,
+      160,
+      60,
+      80,
+      100,
+      140
+    ],
+    "source": "neon-hunter-riftclaw-animations-v1/mobile/shoot.png",
+    "sha256": "2a8e8290030e15e58bfa664ec8f64dbe0f5fb54a08232d862d7b2385ab078fe9"
+  },
+  "death": {
+    "file": "death.webp",
+    "frames": 8,
+    "frameSize": [
+      256,
+      192
+    ],
+    "durationsMs": [
+      80,
+      90,
+      100,
+      100,
+      120,
+      140,
+      180,
+      600
+    ],
+    "source": "neon-hunter-riftclaw-animations-v1/mobile/death.png",
+    "sha256": "618032fd8c582543d200aa5943fd621ef1a2f3397dbdc33dd31d43572e85f7a5"
+  }
+}

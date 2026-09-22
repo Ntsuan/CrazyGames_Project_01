@@ -1,0 +1,264 @@
+[
+  {
+    "id": "R01",
+    "name": "存储已满仍正常初始化开始按钮",
+    "status": "PASS",
+    "evidence": {
+      "fill": 5242869,
+      "label": "开始游戏\n新的猎杀 · 自动保存"
+    }
+  },
+  {
+    "id": "R02",
+    "name": "满存储可开战且提示持久化失败",
+    "status": "PASS",
+    "evidence": {
+      "enemy": 15,
+      "hp": 98.47786,
+      "paused": false,
+      "toast": "存档写入失败（存储空间不足）"
+    }
+  },
+  {
+    "id": "R03",
+    "name": "满存储仍可升级并记录内存日志",
+    "status": "PASS",
+    "evidence": {
+      "events": 2,
+      "level": 1
+    }
+  },
+  {
+    "id": "R04",
+    "name": "死亡顶替复位确认时清理确认状态",
+    "status": "PASS",
+    "evidence": {
+      "confirmOpen": false,
+      "pendingSkillOffer": null,
+      "wall": true
+    }
+  },
+  {
+    "id": "R05",
+    "name": "重塑后下一里程碑技能正常出现",
+    "status": "PASS",
+    "evidence": {
+      "confirmOpen": false,
+      "floor": 6,
+      "picks": [
+        "ghoststep",
+        "soulrush",
+        "adrenaline"
+      ],
+      "skillOfferOpen": true
+    }
+  },
+  {
+    "id": "T1",
+    "name": "单指（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 1,
+      "level": 1,
+      "name": "单指",
+      "pressing": false,
+      "prevented": true
+    }
+  },
+  {
+    "id": "T2",
+    "name": "9px抖动（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 1,
+      "level": 1,
+      "name": "9px抖动",
+      "pressing": false,
+      "prevented": true
+    }
+  },
+  {
+    "id": "T3",
+    "name": "11px滑动（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 0,
+      "level": 0,
+      "name": "11px滑动",
+      "pressing": false,
+      "prevented": false
+    }
+  },
+  {
+    "id": "T4",
+    "name": "主手指取消（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 0,
+      "level": 0,
+      "name": "主手指取消",
+      "pressing": false,
+      "prevented": false
+    }
+  },
+  {
+    "id": "T5",
+    "name": "其他手指抬起（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 0,
+      "level": 0,
+      "name": "其他手指抬起",
+      "pressing": true,
+      "prevented": false
+    }
+  },
+  {
+    "id": "T6",
+    "name": "发起手指抬起只执行一次（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 1,
+      "level": 1,
+      "name": "发起手指抬起只执行一次",
+      "pressing": false,
+      "prevented": true
+    }
+  },
+  {
+    "id": "T7",
+    "name": "其他手指移动不干扰主手指（合成TouchEvent）",
+    "status": "PASS",
+    "evidence": {
+      "expected": 1,
+      "level": 1,
+      "name": "其他手指移动不干扰主手指",
+      "pressing": false,
+      "prevented": true
+    }
+  },
+  {
+    "id": "L390",
+    "name": "布局边界 390px",
+    "status": "PASS",
+    "evidence": {
+      "hpWidth": "120px",
+      "mobile": true,
+      "row": "column",
+      "scrollWidth": 375,
+      "speedLeft": "298.203px",
+      "speedRight": "12px",
+      "speedTop": "36px",
+      "w": 390
+    }
+  },
+  {
+    "id": "L640",
+    "name": "布局边界 640px",
+    "status": "PASS",
+    "evidence": {
+      "hpWidth": "120px",
+      "mobile": true,
+      "row": "column",
+      "scrollWidth": 625,
+      "speedLeft": "548.203px",
+      "speedRight": "12px",
+      "speedTop": "36px",
+      "w": 640
+    }
+  },
+  {
+    "id": "L641",
+    "name": "布局边界 641px",
+    "status": "PASS",
+    "evidence": {
+      "hpWidth": "180px",
+      "mobile": false,
+      "row": "row",
+      "scrollWidth": 626,
+      "speedLeft": "14px",
+      "speedRight": "523.203px",
+      "speedTop": "209px",
+      "w": 641
+    }
+  },
+  {
+    "id": "L1440",
+    "name": "布局边界 1440px",
+    "status": "PASS",
+    "evidence": {
+      "hpWidth": "180px",
+      "mobile": false,
+      "row": "row",
+      "scrollWidth": 1440,
+      "speedLeft": "14px",
+      "speedRight": "857.203px",
+      "speedTop": "209px",
+      "w": 1440
+    }
+  },
+  {
+    "id": "R06",
+    "name": "跨版本封存旧段且新事件写当前版本",
+    "status": "PASS",
+    "evidence": {
+      "current": {
+        "build": "v2.34",
+        "events": 2,
+        "id": "S05"
+      },
+      "sealed": [
+        {
+          "build": "v2.33",
+          "ended": true,
+          "events": 0,
+          "id": "S01"
+        },
+        {
+          "build": "v2.33",
+          "ended": true,
+          "events": 0,
+          "id": "S02"
+        },
+        {
+          "build": "v2.33",
+          "ended": true,
+          "events": 0,
+          "id": "S03"
+        },
+        {
+          "build": "v2.33",
+          "ended": true,
+          "events": 0,
+          "id": "S04"
+        }
+      ],
+      "version": "v2.34"
+    }
+  },
+  {
+    "id": "R07",
+    "name": "跨版本封存后历史段数保持最多3段",
+    "status": "FAIL",
+    "evidence": {
+      "count": 4,
+      "ids": [
+        "S01",
+        "S02",
+        "S03",
+        "S04"
+      ],
+      "persisted": 4
+    }
+  },
+  {
+    "id": "R08",
+    "name": "同版本刷新继续原段不重复封存",
+    "status": "PASS",
+    "evidence": {
+      "build": "v2.34",
+      "count": 4,
+      "current": "S05"
+    }
+  }
+]

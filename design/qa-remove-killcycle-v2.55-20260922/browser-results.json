@@ -1,0 +1,49 @@
+{
+  "viewport": "390x844 desktop emulation",
+  "evidence": [
+    {
+      "phase": "playing",
+      "stage": 3,
+      "skills": [
+        "ghoststep",
+        "critsurge"
+      ],
+      "picks": [
+        "ghoststep",
+        "soulrush",
+        "adrenaline"
+      ],
+      "pending": {
+        "pool": "p5",
+        "picks": [
+          "ghoststep",
+          "soulrush",
+          "adrenaline"
+        ],
+        "floor": 15
+      },
+      "gold": 321,
+      "souls": 45,
+      "errors": []
+    },
+    {
+      "phase": "playing",
+      "stage": 3,
+      "skills": [
+        "ghoststep",
+        "critsurge",
+        "ghoststep"
+      ],
+      "picks": [
+        "ghoststep",
+        "soulrush",
+        "adrenaline"
+      ],
+      "pending": null,
+      "gold": 358.43048349414664,
+      "souls": 45,
+      "errors": []
+    }
+  ],
+  "console": []
+}

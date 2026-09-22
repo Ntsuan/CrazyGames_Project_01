@@ -1,0 +1,405 @@
+{
+  "version": "v2.52",
+  "simulationOnly": true,
+  "seeds": 3,
+  "policy": "cautious",
+  "adPlaybackExcluded": true,
+  "stage5UsesExistingEndlessBoss": true,
+  "results": [
+    {
+      "stage": 1,
+      "seed": 1,
+      "clear100": true,
+      "minutes": 94.38722222210895,
+      "active": 1,
+      "deaths": 2,
+      "crates": 92,
+      "crateGold": 3110267499,
+      "resets": [
+        {
+          "floor": 50,
+          "reason": "active",
+          "minutes": 25.619444444429792
+        },
+        {
+          "floor": 80,
+          "reason": "death",
+          "minutes": 53.312222222282976
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 77.35500000004535
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 1,
+      "seed": 2,
+      "clear100": true,
+      "minutes": 128.929999999565,
+      "active": 3,
+      "deaths": 3,
+      "crates": 126,
+      "crateGold": 7016773383,
+      "resets": [
+        {
+          "floor": 30,
+          "reason": "active",
+          "minutes": 16.491111111117714
+        },
+        {
+          "floor": 60,
+          "reason": "active",
+          "minutes": 36.85055555553966
+        },
+        {
+          "floor": 70,
+          "reason": "active",
+          "minutes": 51.53166666671913
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 78.2111111111485
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 94.71777777766142
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 112.51444444416235
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 1,
+      "seed": 3,
+      "clear100": true,
+      "minutes": 131.93333333287038,
+      "active": 4,
+      "deaths": 2,
+      "crates": 129,
+      "crateGold": 5323645066,
+      "resets": [
+        {
+          "floor": 50,
+          "reason": "active",
+          "minutes": 26.611666666649704
+        },
+        {
+          "floor": 60,
+          "reason": "active",
+          "minutes": 41.78888888889598
+        },
+        {
+          "floor": 70,
+          "reason": "active",
+          "minutes": 58.37833333341768
+        },
+        {
+          "floor": 80,
+          "reason": "active",
+          "minutes": 76.93000000004932
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 99.29222222206327
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 116.16944444412832
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 2,
+      "seed": 1,
+      "clear100": true,
+      "minutes": 72.71722222231077,
+      "active": 1,
+      "deaths": 1,
+      "crates": 71,
+      "crateGold": 2522520210,
+      "resets": [
+        {
+          "floor": 50,
+          "reason": "active",
+          "minutes": 22.977222222213722
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 56.39666666674179
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 2,
+      "seed": 2,
+      "clear100": true,
+      "minutes": 100.97722222204757,
+      "active": 2,
+      "deaths": 2,
+      "crates": 99,
+      "crateGold": 4221985642,
+      "resets": [
+        {
+          "floor": 50,
+          "reason": "active",
+          "minutes": 23.117222222213396
+        },
+        {
+          "floor": 70,
+          "reason": "active",
+          "minutes": 41.45444444444998
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 69.11111111123324
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 85.52333333330262
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 2,
+      "seed": 3,
+      "clear100": true,
+      "minutes": 107.99333333309335,
+      "active": 1,
+      "deaths": 3,
+      "crates": 106,
+      "crateGold": 4708565280,
+      "resets": [
+        {
+          "floor": 50,
+          "reason": "active",
+          "minutes": 24.20888888887752
+        },
+        {
+          "floor": 90,
+          "reason": "death",
+          "minutes": 52.6588888889466
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 73.64111111119105
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 91.22611111102728
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 3,
+      "seed": 1,
+      "clear100": true,
+      "minutes": 77.16722222226933,
+      "active": 0,
+      "deaths": 2,
+      "crates": 75,
+      "crateGold": 2277152152,
+      "resets": [
+        {
+          "floor": 70,
+          "reason": "death",
+          "minutes": 31.38833333330525
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 61.425000000098535
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 3,
+      "seed": 2,
+      "clear100": true,
+      "minutes": 91.71055555546721,
+      "active": 1,
+      "deaths": 2,
+      "crates": 90,
+      "crateGold": 4244638306,
+      "resets": [
+        {
+          "floor": 70,
+          "reason": "active",
+          "minutes": 31.597222222193654
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 58.583333333418636
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 75.70722222228292
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 3,
+      "seed": 3,
+      "clear100": true,
+      "minutes": 77.44388888893342,
+      "active": 1,
+      "deaths": 1,
+      "crates": 76,
+      "crateGold": 2575957231,
+      "resets": [
+        {
+          "floor": 70,
+          "reason": "active",
+          "minutes": 32.19166666663671
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 61.33944444454258
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 4,
+      "seed": 1,
+      "clear100": true,
+      "minutes": 52.570555555612856,
+      "active": 1,
+      "deaths": 0,
+      "crates": 51,
+      "crateGold": 966891713,
+      "resets": [
+        {
+          "floor": 70,
+          "reason": "active",
+          "minutes": 28.933333333310966
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 4,
+      "seed": 2,
+      "clear100": true,
+      "minutes": 53.167222222282305,
+      "active": 1,
+      "deaths": 0,
+      "crates": 52,
+      "crateGold": 1651317219,
+      "resets": [
+        {
+          "floor": 60,
+          "reason": "active",
+          "minutes": 24.369444444432702
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 4,
+      "seed": 3,
+      "clear100": true,
+      "minutes": 67.45166666679326,
+      "active": 1,
+      "deaths": 1,
+      "crates": 66,
+      "crateGold": 2474410143,
+      "resets": [
+        {
+          "floor": 60,
+          "reason": "active",
+          "minutes": 23.734999999989736
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 51.26777777782901
+        }
+      ],
+      "floor": 100
+    },
+    {
+      "stage": 5,
+      "seed": 1,
+      "clear100": true,
+      "minutes": 61.202777777875276,
+      "active": 0,
+      "deaths": 1,
+      "crates": 60,
+      "crateGold": 1219272415,
+      "resets": [
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 45.462222222246425
+        }
+      ],
+      "floor": 101
+    },
+    {
+      "stage": 5,
+      "seed": 2,
+      "clear100": true,
+      "minutes": 70.04222222233568,
+      "active": 1,
+      "deaths": 1,
+      "crates": 68,
+      "crateGold": 1725550886,
+      "resets": [
+        {
+          "floor": 80,
+          "reason": "active",
+          "minutes": 33.80444444441436
+        },
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 54.48222222228843
+        }
+      ],
+      "floor": 101
+    },
+    {
+      "stage": 5,
+      "seed": 3,
+      "clear100": true,
+      "minutes": 57.34111111119063,
+      "active": 0,
+      "deaths": 1,
+      "crates": 56,
+      "crateGold": 1249350333,
+      "resets": [
+        {
+          "floor": 100,
+          "reason": "death",
+          "minutes": 41.01111111111459
+        }
+      ],
+      "floor": 101
+    }
+  ]
+}

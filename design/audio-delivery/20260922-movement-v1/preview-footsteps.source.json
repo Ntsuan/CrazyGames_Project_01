@@ -1,0 +1,32 @@
+{
+  "name": "preview-footsteps",
+  "created_at": "2026-09-22T07:15:59.548Z",
+  "status": "candidate-awaiting-listening-approval",
+  "source": "Original procedural synthesis; no external audio samples",
+  "tool": "Jfxr 0.13.0 + local deterministic mixing",
+  "tool_source": "https://github.com/ttencate/jfxr",
+  "render_script": "source/render.mjs",
+  "sample_rate": 44100,
+  "channels": 1,
+  "format": "PCM16 WAV",
+  "duration_seconds": 4,
+  "peak_dbfs": -8.699999983695598,
+  "rms_dbfs": -30.44083846778844,
+  "sha256": "57188b404dee58787edcb2bca12a7b294758795f50b53f37e1fc0755ab60fa0e",
+  "purpose": "Audition only; do not loop or import as an individual footstep",
+  "sequence": [
+    "footstep-metal-01",
+    "footstep-metal-02",
+    "footstep-metal-03",
+    "footstep-metal-01",
+    "footstep-metal-03",
+    "footstep-metal-02",
+    "footstep-metal-01",
+    "footstep-metal-02",
+    "footstep-metal-03",
+    "footstep-metal-02"
+  ],
+  "step_interval_seconds": 0.27,
+  "first_step_seconds": 0.15,
+  "transition_seconds": 3.3
+}

@@ -1,0 +1,542 @@
+{
+  "version": "v2.62",
+  "sourceHash": "2f77c7312fc83865f9d26e52dde4520b2a014961e750b5420f989aad70791ae2",
+  "environment": "Node VM; actual game functions with DOM/audio stubs, virtual clock; not a browser compatibility test",
+  "count": 76,
+  "passed": 75,
+  "failed": 1,
+  "results": [
+    {
+      "id": "C01",
+      "area": "启动",
+      "name": "新档初始资源、属性、楼层正确",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C02",
+      "area": "升级",
+      "name": "余额不足不可升级",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C03",
+      "area": "升级",
+      "name": "刚好够钱扣款且只升级一次",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C04",
+      "area": "升级",
+      "name": "生命升级只补上限增量",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C05",
+      "area": "战斗",
+      "name": "层内保持血量，新层回满",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C06",
+      "area": "战斗",
+      "name": "普通 Boss/棱镜/天枢血盾参数",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C07",
+      "area": "战斗",
+      "name": "盾伤不吸血，破盾余伤吸血并触发猎手直觉",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C08",
+      "area": "战斗",
+      "name": "低血两个触发器按各自阈值生效",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C09",
+      "area": "战斗",
+      "name": "狂暴节奏暴击增益按技能实战时间到期",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C10",
+      "area": "战斗",
+      "name": "死亡进入暂停与重塑弹窗",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C11",
+      "area": "战斗",
+      "name": "盾量扩展超时阈值",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C12",
+      "area": "战斗",
+      "name": "击杀同帧不应再受死敌伤害",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C13",
+      "area": "转场",
+      "name": "小怪击杀延迟后正确刷新下一只",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C14",
+      "area": "转场",
+      "name": "Boss 清层、碎片结算及自动转场",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C15",
+      "area": "转场",
+      "name": "Boss 死亡期间复位应取消旧回调",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C16",
+      "area": "技能",
+      "name": "5 层触发器池候选唯一且可选择一次",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C17",
+      "area": "技能",
+      "name": "10 层属性池及非法选择拦截",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C18",
+      "area": "技能",
+      "name": "刷新恢复相同三选一候选",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C19",
+      "area": "技能",
+      "name": "击杀里程碑立刻保存三选一意图",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C20",
+      "area": "装备",
+      "name": "各段掉落区间正确",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C21",
+      "area": "装备",
+      "name": "连续低品质达到阈值后保底最高档",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C22",
+      "area": "装备",
+      "name": "民用及以下无词条，最高品质保留原值",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C23",
+      "area": "装备",
+      "name": "已装备参与三合一",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C24",
+      "area": "装备",
+      "name": "不朽装备不能继续合成",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C25",
+      "area": "装备",
+      "name": "满级部位掉落自动转信用点",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C26",
+      "area": "装备",
+      "name": "拆解仅处理过期低品质",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C27",
+      "area": "装备",
+      "name": "拆解操作应立即保存",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C28",
+      "area": "存档",
+      "name": "保存读档不应修改当前装备品质",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C29",
+      "area": "存档",
+      "name": "旧档删除技能及离线分支迁移",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C30",
+      "area": "存档",
+      "name": "层中读档回本层首怪满血",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C31",
+      "area": "存档",
+      "name": "首只怪刷新按新设计恢复满血",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C32",
+      "area": "存档",
+      "name": "损坏 JSON 退回新档",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C33",
+      "area": "重塑",
+      "name": "结算碎片、15%回收并清除局内成长",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C34",
+      "area": "重塑",
+      "name": "广告双倍结算短期重复调用只发一次",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C35",
+      "area": "重塑",
+      "name": "结算后应立即持久化而非等待跑入",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C36",
+      "area": "加成树",
+      "name": "首次重塑前不能消费碎片",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C37",
+      "area": "加成树",
+      "name": "成本递增及余额不足拦截",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C38",
+      "area": "倍速",
+      "name": "只加速已通关楼层",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C39",
+      "area": "补给",
+      "name": "60秒冷却与固定20倍奖励",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C40",
+      "area": "日志",
+      "name": "事件包括版本和数值快照",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C41",
+      "area": "日志",
+      "name": "CSV 含 BOM、表头和楼层数据",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C42",
+      "area": "日志",
+      "name": "封存只保留最近三段且不中断新段",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C43",
+      "area": "音效",
+      "name": "设置开关持久化",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C44",
+      "area": "音效",
+      "name": "关闭、暂停、后台不触发播放",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C45",
+      "area": "音效",
+      "name": "音效失败不影响战斗",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C46",
+      "area": "战斗",
+      "name": "天枢蓄力后主炮按相位触发",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C47",
+      "area": "存档",
+      "name": "保存失败不应终止主循环",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C48",
+      "area": "战斗",
+      "name": "击杀与受阻竞态后不得进入无敌推层",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C49",
+      "area": "装备",
+      "name": "新版一次点击只合成一件",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C50",
+      "area": "装备",
+      "name": "新版低品质优先且不替换高阶装备",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C51",
+      "area": "存档",
+      "name": "真正旧版装备迁移仅一次",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C52",
+      "area": "存档",
+      "name": "普通保存不得回滚同层后续受伤",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C53",
+      "area": "转场",
+      "name": "Boss残血通关后下一层确实满血",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C54",
+      "area": "重塑",
+      "name": "死亡重塑即时保存奖励且运行态满血",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C55",
+      "area": "输入",
+      "name": "主循环不重复注册触摸监听",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C56",
+      "area": "转场",
+      "name": "首场进场使用对应楼层背景",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C57",
+      "area": "重塑",
+      "name": "里程碑先显示刚完成层数的重塑选择",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C58",
+      "area": "存档",
+      "name": "暂停期间保存异常不抛出",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C59",
+      "area": "转场",
+      "name": "层内保存后新敌人不继承过时低血量",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C60",
+      "area": "技能",
+      "name": "刷新恢复属性选择仍显示完成层号",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C61",
+      "area": "存档",
+      "name": "读档初始刷怪和跑入两阶段均按新设计满血",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C62",
+      "area": "重塑",
+      "name": "死亡重塑跑入期间自动保存不会导致再死亡",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C63",
+      "area": "弹窗",
+      "name": "Boss技能回调不得覆盖正在等待的复位确认",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C64",
+      "area": "升级",
+      "name": "击杀后跑入期升级生命不丢失回血增量",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C65",
+      "area": "复位",
+      "name": "低血读档后复位恢复新局满血",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C66",
+      "area": "弹窗",
+      "name": "技能弹窗上取消复位应重新显示技能选择",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C67",
+      "area": "弹窗",
+      "name": "取消复位恢复里程碑，继续后再选技能",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C68",
+      "area": "弹窗",
+      "name": "挂起技能在确认复位后废弃",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C69",
+      "area": "存档",
+      "name": "回本层起点但金币碎片装备与技能不回退",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C70",
+      "area": "UI",
+      "name": "有盾角色跑入期间血盾条同时隐藏",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C71",
+      "area": "弹窗",
+      "name": "确认复位等待期间死亡不得覆盖确认或遗留确认标记",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C72",
+      "area": "弹窗",
+      "name": "等待复位遇死亡后重塑不应吞掉未来技能",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C73",
+      "area": "日志",
+      "name": "跨版本升级不把新行为写入旧版本测试段",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C74",
+      "area": "存储",
+      "name": "首次启动存储已满时初始化不得抛异常",
+      "status": "PASS",
+      "evidence": null
+    },
+    {
+      "id": "C75",
+      "area": "日志",
+      "name": "跨版本自动封存仍只保留最近三段",
+      "status": "FAIL",
+      "error": "4 == 3"
+    },
+    {
+      "id": "C76",
+      "area": "存储",
+      "name": "日志存储满时升级仍生效且内存记录存在",
+      "status": "PASS",
+      "evidence": null
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+  "build": "v2.33",
+  "endedAt": 1789881927373,
+  "events": [
+    {
+      "fromFloor": 1,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 0,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 0,
+      "type": "session_start"
+    },
+    {
+      "affix": null,
+      "boss": true,
+      "q": 1,
+      "slot": "implant",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 10,
+        "gold": 40,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 1668,
+      "type": "drop"
+    },
+    {
+      "desc": "破损·神经插件 +10%",
+      "snap": {
+        "aspd": 1.43,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 10,
+        "gold": 40,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 1668,
+      "type": "autoequip"
+    },
+    {
+      "count": 2,
+      "floor": 10,
+      "prism": true,
+      "snap": {
+        "aspd": 1.43,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 10,
+        "gold": 40,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 1669,
+      "type": "souldrop"
+    },
+    {
+      "picked": "blackmarket",
+      "rejected": [
+        "fatal",
+        "subdermal"
+      ],
+      "snap": {
+        "aspd": 1.43,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 11,
+        "gold": 40,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 35669,
+      "type": "skill"
+    },
+    {
+      "reason": "hp_zero",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 100,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 36189,
+      "type": "wall"
+    },
+    {
+      "fromFloor": 1,
+      "mult": 1,
+      "salvage": 0,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 100,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "souls": 5,
+      "t": 69568,
+      "type": "prestige"
+    },
+    {
+      "affix": null,
+      "boss": true,
+      "q": 0,
+      "slot": "armor",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 5,
+        "gold": 20,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 71311,
+      "type": "drop"
+    },
+    {
+      "desc": "报废·皮下装甲 +10%",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 5,
+        "gold": 20,
+        "hp": 110,
+        "hpLv": 0
+      },
+      "t": 71311,
+      "type": "autoequip"
+    },
+    {
+      "count": 1,
+      "floor": 5,
+      "prism": false,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 5,
+        "gold": 20,
+        "hp": 110,
+        "hpLv": 0
+      },
+      "t": 71311,
+      "type": "souldrop"
+    },
+    {
+      "from": 0,
+      "slot": "weapon",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 19,
+        "atkLv": 0,
+        "floor": 25,
+        "gold": 0,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 73121,
+      "to": 1,
+      "type": "fuse",
+      "usedEquip": false
+    },
+    {
+      "count": 1,
+      "reason": "outdated",
+      "slot": "weapon",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 25,
+        "gold": 66,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 73392,
+      "type": "salvage",
+      "value": 66
+    },
+    {
+      "cost": 1,
+      "key": "dmg",
+      "level": 1,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 0,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 73724,
+      "type": "tree"
+    },
+    {
+      "cost": 2,
+      "key": "dmg",
+      "level": 2,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 9,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 0,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 74025,
+      "type": "tree"
+    },
+    {
+      "cost": 6,
+      "kind": "atk",
+      "level": 1,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 9,
+        "atkLv": 1,
+        "floor": 1,
+        "gold": 9994,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 123921,
+      "type": "upgrade"
+    },
+    {
+      "cost": 6,
+      "kind": "atk",
+      "level": 1,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 9,
+        "atkLv": 1,
+        "floor": 1,
+        "gold": 9994,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 123922,
+      "type": "upgrade"
+    },
+    {
+      "cost": 6,
+      "kind": "atk",
+      "level": 1,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 9,
+        "atkLv": 1,
+        "floor": 1,
+        "gold": 9994,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 123925,
+      "type": "upgrade"
+    },
+    {
+      "affix": null,
+      "boss": true,
+      "q": 2,
+      "slot": "chip",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 12,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 184156,
+      "type": "drop"
+    },
+    {
+      "desc": "民用·芯片 +35%",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 12,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 184156,
+      "type": "autoequip"
+    },
+    {
+      "count": 1,
+      "floor": 1,
+      "prism": false,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 12,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 184158,
+      "type": "souldrop"
+    },
+    {
+      "reason": "hp_zero",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 100,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 254379,
+      "type": "wall"
+    },
+    {
+      "fromFloor": 1,
+      "mult": 1,
+      "salvage": 0,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 100,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "souls": 5,
+      "t": 254862,
+      "type": "prestige"
+    },
+    {
+      "affix": null,
+      "boss": true,
+      "q": 1,
+      "slot": "chip",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 5,
+        "gold": 20,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 258108,
+      "type": "drop"
+    },
+    {
+      "desc": "破损·芯片 +20%",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 5,
+        "gold": 20,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 258108,
+      "type": "autoequip"
+    },
+    {
+      "count": 1,
+      "floor": 5,
+      "prism": false,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 5,
+        "gold": 20,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 258109,
+      "type": "souldrop"
+    },
+    {
+      "maxFloor": 1,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 1000,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 336227,
+      "type": "session_end"
+    }
+  ],
+  "floors": [
+    {
+      "atkLv": 0,
+      "bossDur": 12,
+      "clearDur": 847,
+      "enterT": 822,
+      "floor": 10,
+      "gold": 40,
+      "hpLv": 0
+    },
+    {
+      "atkLv": 0,
+      "bossDur": 1,
+      "clearDur": 871,
+      "enterT": 70440,
+      "floor": 5,
+      "gold": 20,
+      "hpLv": 0
+    },
+    {
+      "atkLv": 0,
+      "bossDur": 33,
+      "clearDur": 32615,
+      "enterT": 151543,
+      "floor": 1,
+      "gold": 12,
+      "hpLv": 0
+    },
+    {
+      "atkLv": 0,
+      "bossDur": 3,
+      "clearDur": 844,
+      "enterT": 257265,
+      "floor": 5,
+      "gold": 20,
+      "hpLv": 0
+    },
+    {
+      "atkLv": 0,
+      "bossDur": 1789881926498,
+      "clearDur": 12,
+      "enterT": 335340,
+      "floor": 1,
+      "gold": 0,
+      "hpLv": 0
+    }
+  ],
+  "id": "S02",
+  "startedAt": 1789881591146
+}

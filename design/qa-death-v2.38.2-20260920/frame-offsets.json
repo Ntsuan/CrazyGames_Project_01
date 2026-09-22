@@ -1,0 +1,96 @@
+{
+  "before": [
+    {
+      "alignedTo110": true,
+      "timeMs": 0,
+      "x": 0
+    },
+    {
+      "alignedTo110": false,
+      "timeMs": 120,
+      "x": -96.25
+    },
+    {
+      "alignedTo110": false,
+      "timeMs": 240,
+      "x": -192.5
+    },
+    {
+      "alignedTo110": false,
+      "timeMs": 360,
+      "x": -288.75
+    },
+    {
+      "alignedTo110": false,
+      "timeMs": 450,
+      "x": -385
+    },
+    {
+      "alignedTo110": false,
+      "timeMs": 600,
+      "x": -481.25
+    },
+    {
+      "alignedTo110": false,
+      "timeMs": 720,
+      "x": -577.5
+    },
+    {
+      "alignedTo110": false,
+      "timeMs": 840,
+      "x": -673.75
+    },
+    {
+      "alignedTo110": true,
+      "timeMs": 900,
+      "x": -770
+    }
+  ],
+  "previewSteps7": [
+    {
+      "alignedTo110": true,
+      "timeMs": 0,
+      "x": 0
+    },
+    {
+      "alignedTo110": true,
+      "timeMs": 120,
+      "x": 0
+    },
+    {
+      "alignedTo110": true,
+      "timeMs": 240,
+      "x": -110
+    },
+    {
+      "alignedTo110": true,
+      "timeMs": 360,
+      "x": -220
+    },
+    {
+      "alignedTo110": true,
+      "timeMs": 450,
+      "x": -330
+    },
+    {
+      "alignedTo110": true,
+      "timeMs": 600,
+      "x": -440
+    },
+    {
+      "alignedTo110": true,
+      "timeMs": 720,
+      "x": -550
+    },
+    {
+      "alignedTo110": true,
+      "timeMs": 840,
+      "x": -660
+    },
+    {
+      "alignedTo110": true,
+      "timeMs": 900,
+      "x": -770
+    }
+  ]
+}

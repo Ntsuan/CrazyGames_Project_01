@@ -1,0 +1,1754 @@
+{
+  "seeds": 10,
+  "cycles": 3,
+  "summary": [
+    {
+      "ratio": 0.67,
+      "run": 1,
+      "n": 10,
+      "floor": {
+        "p10": 19,
+        "p50": 20,
+        "p90": 20
+      },
+      "minutes": 14.295000000006427,
+      "firstAffix": null,
+      "affixReached": 0,
+      "healing": 0
+    },
+    {
+      "ratio": 0.67,
+      "run": 2,
+      "n": 10,
+      "floor": {
+        "p10": 23,
+        "p50": 24,
+        "p90": 27
+      },
+      "minutes": 8.584999999985301,
+      "firstAffix": null,
+      "affixReached": 0,
+      "healing": 0
+    },
+    {
+      "ratio": 0.67,
+      "run": 3,
+      "n": 10,
+      "floor": {
+        "p10": 25,
+        "p50": 27,
+        "p90": 29
+      },
+      "minutes": 8.288333333314036,
+      "firstAffix": null,
+      "affixReached": 0,
+      "healing": 0
+    },
+    {
+      "ratio": 1.5,
+      "run": 1,
+      "n": 10,
+      "floor": {
+        "p10": 18,
+        "p50": 20,
+        "p90": 20
+      },
+      "minutes": 13.256666666671885,
+      "firstAffix": null,
+      "affixReached": 0,
+      "healing": 0
+    },
+    {
+      "ratio": 1.5,
+      "run": 2,
+      "n": 10,
+      "floor": {
+        "p10": 23,
+        "p50": 24,
+        "p90": 26
+      },
+      "minutes": 8.690555555548961,
+      "firstAffix": null,
+      "affixReached": 0,
+      "healing": 389.4611393396808
+    },
+    {
+      "ratio": 1.5,
+      "run": 3,
+      "n": 10,
+      "floor": {
+        "p10": 25,
+        "p50": 28,
+        "p90": 28
+      },
+      "minutes": 8.154444444425458,
+      "firstAffix": null,
+      "affixReached": 0,
+      "healing": 0
+    },
+    {
+      "ratio": 3,
+      "run": 1,
+      "n": 10,
+      "floor": {
+        "p10": 15,
+        "p50": 20,
+        "p90": 20
+      },
+      "minutes": 12.295555555559654,
+      "firstAffix": null,
+      "affixReached": 0,
+      "healing": 0
+    },
+    {
+      "ratio": 3,
+      "run": 2,
+      "n": 10,
+      "floor": {
+        "p10": 20,
+        "p50": 24,
+        "p90": 26
+      },
+      "minutes": 7.874999999993936,
+      "firstAffix": null,
+      "affixReached": 0,
+      "healing": 0
+    },
+    {
+      "ratio": 3,
+      "run": 3,
+      "n": 10,
+      "floor": {
+        "p10": 24,
+        "p50": 27,
+        "p90": 28
+      },
+      "minutes": 7.69055555553765,
+      "firstAffix": null,
+      "affixReached": 0,
+      "healing": 0
+    }
+  ],
+  "rows": [
+    {
+      "ratio": 0.67,
+      "seed": 1,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 778.3666666669599,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 18,
+          "hpLv": 19,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 24,
+          "seconds": 503.4666666660889,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 2189.7029440474885,
+          "atkLv": 20,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 27,
+          "seconds": 533.4999999987579,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1816.7561741130569,
+          "atkLv": 23,
+          "hpLv": 24,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 2,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 857.7000000003856,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 18,
+          "hpLv": 19,
+          "gear": {
+            "weapon": 2,
+            "implant": 2,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 25,
+          "seconds": 515.099999999118,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 22,
+          "hpLv": 23,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 27,
+          "seconds": 497.2999999988421,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 6097.610927249825,
+          "atkLv": 23,
+          "hpLv": 24,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 3,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 787.7666666669709,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 17,
+          "hpLv": 19,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 27,
+          "seconds": 603.5666666658229,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 22,
+          "hpLv": 24,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 28,
+          "seconds": 502.93333333216236,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 24,
+          "hpLv": 25,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 4,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 19,
+          "seconds": 824.7333333336805,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 16,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 1
+          }
+        },
+        {
+          "run": 2,
+          "floor": 25,
+          "seconds": 627.2333333323054,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 21,
+          "hpLv": 23,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 29,
+          "seconds": 533.6333333320908,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 24,
+          "hpLv": 26,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 4,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 5,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 929.1666666671355,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1048.2980651386047,
+          "atkLv": 17,
+          "hpLv": 19,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 24,
+          "seconds": 469.7666666656407,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1079.5265512633734,
+          "atkLv": 20,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 25,
+          "seconds": 477.3666666655552,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1026.0538254839253,
+          "atkLv": 21,
+          "hpLv": 23,
+          "gear": {
+            "weapon": 1,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 6,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 801.6000000003203,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 18,
+          "hpLv": 19,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 27,
+          "seconds": 679.8999999989303,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 23,
+          "hpLv": 24,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 4
+          }
+        },
+        {
+          "run": 3,
+          "floor": 27,
+          "seconds": 413.9999999990361,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 23,
+          "hpLv": 25,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 2,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 7,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 893.0000000004267,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 19,
+          "hpLv": 20,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 24,
+          "seconds": 564.4666666655464,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 3305.424093325884,
+          "atkLv": 20,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 3,
+          "floor": 25,
+          "seconds": 442.0666666656374,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1395.433484558907,
+          "atkLv": 22,
+          "hpLv": 24,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 8,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 22,
+          "seconds": 1009.0333333336839,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 19,
+          "hpLv": 21,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 23,
+          "seconds": 378.7666666657848,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 20,
+          "hpLv": 21,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 28,
+          "seconds": 658.6333333321442,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 23,
+          "hpLv": 25,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 9,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 941.9000000004836,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 17,
+          "hpLv": 19,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 25,
+          "seconds": 561.6666666653822,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 21,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 25,
+          "seconds": 396.99999999907567,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 21,
+          "hpLv": 23,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 0.67,
+      "seed": 10,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 19,
+          "seconds": 910.6000000004472,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 911.4441124585808,
+          "atkLv": 17,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 2,
+            "implant": 2,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 24,
+          "seconds": 503.73333333229306,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 20,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 3,
+          "floor": 29,
+          "seconds": 581.099999998647,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 24,
+          "hpLv": 26,
+          "gear": {
+            "weapon": 3,
+            "implant": 4,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 1,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 714.2333333335519,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 19,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 24,
+          "seconds": 521.4333333329377,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 2219.6984793701677,
+          "atkLv": 22,
+          "hpLv": 20,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 3,
+          "floor": 28,
+          "seconds": 576.7999999986571,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 2359.530922235772,
+          "atkLv": 26,
+          "hpLv": 25,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 4
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 2,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 18,
+          "seconds": 832.7666666670232,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 683.5049410001849,
+          "atkLv": 18,
+          "hpLv": 17,
+          "gear": {
+            "weapon": 1,
+            "implant": 1,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 25,
+          "seconds": 599.6666666656749,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1195.2571265342472,
+          "atkLv": 22,
+          "hpLv": 21,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 3,
+          "floor": 28,
+          "seconds": 489.2666666655275,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 25,
+          "hpLv": 24,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 3,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 742.7666666669185,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 19,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 27,
+          "seconds": 573.433333332717,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 25,
+          "hpLv": 23,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 28,
+          "seconds": 500.9999999988335,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 7113.937001992708,
+          "atkLv": 25,
+          "hpLv": 24,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 4,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 838.56666666703,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1028.3805676156662,
+          "atkLv": 19,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 2,
+            "implant": 2,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 25,
+          "seconds": 545.7666666657801,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 2010.2151993660445,
+          "atkLv": 22,
+          "hpLv": 21,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 3,
+          "floor": 28,
+          "seconds": 499.2666666655042,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 2925.9284156668914,
+          "atkLv": 25,
+          "hpLv": 23,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 5,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 775.4000000002898,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 581.5169951381699,
+          "atkLv": 19,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 23,
+          "seconds": 535.3666666660249,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 389.4611393396808,
+          "atkLv": 21,
+          "hpLv": 20,
+          "gear": {
+            "weapon": 2,
+            "implant": 2,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 3,
+          "floor": 27,
+          "seconds": 540.5999999987413,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1434.0417104087983,
+          "atkLv": 24,
+          "hpLv": 23,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 6,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 772.3666666669529,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 20,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 2,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 25,
+          "seconds": 563.2999999993039,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1413.236270766172,
+          "atkLv": 23,
+          "hpLv": 21,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 26,
+          "seconds": 378.4333333324522,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 24,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 7,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 855.3666666670496,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 19,
+          "hpLv": 17,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 24,
+          "seconds": 488.56666666585465,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 22,
+          "hpLv": 20,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 3,
+          "floor": 25,
+          "seconds": 368.3333333324757,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 23,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 2,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 8,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 812.766666667,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 844.6750109032724,
+          "atkLv": 19,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 24,
+          "seconds": 450.13333333275955,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 22,
+          "hpLv": 21,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 28,
+          "seconds": 516.3666666654644,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 25,
+          "hpLv": 24,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 3,
+            "chip": 4
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 9,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 23,
+          "seconds": 903.600000000439,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 594.5289587060411,
+          "atkLv": 21,
+          "hpLv": 20,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 26,
+          "seconds": 492.73333333234314,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 24,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 28,
+          "seconds": 470.26666666557173,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 25,
+          "hpLv": 24,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 1.5,
+      "seed": 10,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 795.4000000003131,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 20,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 2,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 24,
+          "seconds": 488.6666666660638,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 810.6988016540618,
+          "atkLv": 22,
+          "hpLv": 21,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 25,
+          "seconds": 379.2999999991169,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 23,
+          "hpLv": 21,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 1,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 748.5666666669251,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 958.0300000448589,
+          "atkLv": 20,
+          "hpLv": 16,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 26,
+          "seconds": 558.2999999993986,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1948.688320568891,
+          "atkLv": 25,
+          "hpLv": 20,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 28,
+          "seconds": 424.63333333234465,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 26,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 2,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 737.7333333335793,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 20,
+          "hpLv": 15,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 24,
+          "seconds": 472.4999999996362,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 24,
+          "hpLv": 20,
+          "gear": {
+            "weapon": 2,
+            "implant": 2,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 27,
+          "seconds": 426.0333333323414,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 25,
+          "hpLv": 21,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 3,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 15,
+          "seconds": 544.9000000000215,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 16,
+          "hpLv": 12,
+          "gear": {
+            "weapon": 1,
+            "implant": 2,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 20,
+          "seconds": 443.2000000003779,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 20,
+          "hpLv": 16,
+          "gear": {
+            "weapon": 2,
+            "implant": 2,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 24,
+          "seconds": 461.433333332259,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 23,
+          "hpLv": 19,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 4,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 23,
+          "seconds": 958.6333333338013,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 22,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 25,
+          "seconds": 408.3333333323826,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 2727.6289189554645,
+          "atkLv": 24,
+          "hpLv": 20,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 27,
+          "seconds": 468.7999999989085,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1673.293146886902,
+          "atkLv": 25,
+          "hpLv": 21,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 5,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 779.366666666961,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 799.913401193309,
+          "atkLv": 20,
+          "hpLv": 16,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 25,
+          "seconds": 483.3666666661322,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 23,
+          "hpLv": 19,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 3,
+          "floor": 29,
+          "seconds": 539.6333333320769,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 4590.329563615502,
+          "atkLv": 27,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 4,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 6,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 736.6666666669113,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 21,
+          "hpLv": 16,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 24,
+          "seconds": 490.09999999959894,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 3371.7792237047715,
+          "atkLv": 23,
+          "hpLv": 19,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 24,
+          "seconds": 361.1333333324925,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 24,
+          "hpLv": 20,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 7,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 18,
+          "seconds": 585.1000000000682,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 18,
+          "hpLv": 14,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 1,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 24,
+          "seconds": 494.1666666667855,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 23,
+          "hpLv": 19,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 2,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 27,
+          "seconds": 470.53333333223776,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 26,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 4
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 8,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 19,
+          "seconds": 715.0333333335528,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 20,
+          "hpLv": 16,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 2,
+          "floor": 23,
+          "seconds": 466.19999999973015,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 22,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 2,
+            "implant": 2,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 3,
+          "floor": 27,
+          "seconds": 479.5666666655501,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 3627.956449143039,
+          "atkLv": 25,
+          "hpLv": 21,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 4
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 9,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 745.0666666669212,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 20,
+          "hpLv": 15,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 26,
+          "seconds": 577.3666666660331,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 3293.1205875300243,
+          "atkLv": 25,
+          "hpLv": 20,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        },
+        {
+          "run": 3,
+          "floor": 28,
+          "seconds": 460.33333333226153,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 2843.597740452209,
+          "atkLv": 26,
+          "hpLv": 22,
+          "gear": {
+            "weapon": 3,
+            "implant": 2,
+            "armor": 4,
+            "chip": 3
+          }
+        }
+      ]
+    },
+    {
+      "ratio": 3,
+      "seed": 10,
+      "cycles": [
+        {
+          "run": 1,
+          "floor": 20,
+          "seconds": 753.033333333597,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 0,
+          "atkLv": 19,
+          "hpLv": 15,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 2,
+          "floor": 23,
+          "seconds": 435.5333333330022,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1897.8943289908466,
+          "atkLv": 22,
+          "hpLv": 18,
+          "gear": {
+            "weapon": 2,
+            "implant": 3,
+            "armor": 3,
+            "chip": 2
+          }
+        },
+        {
+          "run": 3,
+          "floor": 26,
+          "seconds": 473.96666666556314,
+          "reason": "hp_zero",
+          "firstAffix": null,
+          "totalHealing": 1486.5106256170382,
+          "atkLv": 24,
+          "hpLv": 20,
+          "gear": {
+            "weapon": 3,
+            "implant": 3,
+            "armor": 3,
+            "chip": 3
+          }
+        }
+      ]
+    }
+  ]
+}

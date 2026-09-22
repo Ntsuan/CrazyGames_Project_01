@@ -1,0 +1,71 @@
+{
+  "author": "Codex",
+  "date": "2026-09-21",
+  "status": "design_only_not_implemented",
+  "baselineVersion": "v2.43",
+  "sourceSha256": "6e4d49a9f9217a8f25f4a48241a440865a387c5f690429e33a3035865bdf3845",
+  "confirmed": {
+    "stageCount": 5,
+    "advanceAfterFloor": 100,
+    "returnToFloor": 1,
+    "resetTreeAndSouls": true
+  },
+  "candidate": {
+    "costBase": 6,
+    "costGrowth": 1.18,
+    "statGrowth": 1.1,
+    "stageBoss": {
+      "hpMultiplier": 8,
+      "attackMultiplier": 2,
+      "shieldFraction": 0.8
+    },
+    "stages": [
+      {
+        "stage": 1,
+        "baseMultiplier": 1,
+        "initialAttack": 8,
+        "initialHp": 100,
+        "firstWall": 48,
+        "runsToClear": 10,
+        "prestiges": 9
+      },
+      {
+        "stage": 2,
+        "baseMultiplier": 1.5,
+        "initialAttack": 12,
+        "initialHp": 150,
+        "firstWall": 60,
+        "runsToClear": 7,
+        "prestiges": 6
+      },
+      {
+        "stage": 3,
+        "baseMultiplier": 2,
+        "initialAttack": 16,
+        "initialHp": 200,
+        "firstWall": 60,
+        "runsToClear": 5,
+        "prestiges": 4
+      },
+      {
+        "stage": 4,
+        "baseMultiplier": 3,
+        "initialAttack": 24,
+        "initialHp": 300,
+        "firstWall": 70,
+        "runsToClear": 3,
+        "prestiges": 2
+      },
+      {
+        "stage": 5,
+        "baseMultiplier": 4,
+        "initialAttack": 32,
+        "initialHp": 400,
+        "firstWall": 85,
+        "runsToClear": 2,
+        "prestiges": 1
+      }
+    ]
+  },
+  "validation": "One fixed seed per stage; no crates or ad doubling; balanced tree policy; proposals exist only in disposable VM"
+}

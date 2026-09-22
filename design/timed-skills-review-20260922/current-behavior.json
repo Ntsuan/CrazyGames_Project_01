@@ -1,0 +1,61 @@
+{
+  "version": "v2.57",
+  "sourceSHA256": "ad8737b2fd530b08d19131d38777b81291cdb415bbf0da2aec2a61ceaf3d8bed",
+  "method": "Read-only actual functions in Node VM with DOM stubs; 30 x 0.1s advanceCombat; no game files or user saves changed.",
+  "rows": [
+    {
+      "case": "战斗",
+      "gameElapsed": 3000,
+      "rageRemaining": 2000,
+      "intuitionRemaining": 1000,
+      "skillHTML": "• 狂暴节奏 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 暴击后攻速 +30% · 5 秒</small><br>• 猎手直觉 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 破盾后攻速 +25% · 4 秒</small>",
+      "statHTML": "攻击 <b>8</b> · 生命 <b>100</b> · 攻速 <b style=\"color:var(--gold)\">2.11 ↑</b>/秒<br>暴击 <b>5%</b> × 1.5 · 吸血 <b>0%</b>"
+    },
+    {
+      "case": "尸体等待",
+      "gameElapsed": 3000,
+      "rageRemaining": 2000,
+      "intuitionRemaining": 1000,
+      "skillHTML": "• 狂暴节奏 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 暴击后攻速 +30% · 5 秒</small><br>• 猎手直觉 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 破盾后攻速 +25% · 4 秒</small>",
+      "statHTML": "攻击 <b>8</b> · 生命 <b>100</b> · 攻速 <b style=\"color:var(--gold)\">2.11 ↑</b>/秒<br>暴击 <b>5%</b> × 1.5 · 吸血 <b>0%</b>"
+    },
+    {
+      "case": "楼层过场",
+      "gameElapsed": 3000,
+      "rageRemaining": 2000,
+      "intuitionRemaining": 1000,
+      "skillHTML": "• 狂暴节奏 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 暴击后攻速 +30% · 5 秒</small><br>• 猎手直觉 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 破盾后攻速 +25% · 4 秒</small>",
+      "statHTML": "攻击 <b>8</b> · 生命 <b>100</b> · 攻速 <b style=\"color:var(--gold)\">2.11 ↑</b>/秒<br>暴击 <b>5%</b> × 1.5 · 吸血 <b>0%</b>"
+    },
+    {
+      "case": "普通暂停",
+      "gameElapsed": 0,
+      "rageRemaining": 5000,
+      "intuitionRemaining": 4000,
+      "skillHTML": "• 狂暴节奏 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 暴击后攻速 +30% · 5 秒</small><br>• 猎手直觉 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 破盾后攻速 +25% · 4 秒</small>",
+      "statHTML": "攻击 <b>8</b> · 生命 <b>100</b> · 攻速 <b style=\"color:var(--gold)\">2.11 ↑</b>/秒<br>暴击 <b>5%</b> × 1.5 · 吸血 <b>0%</b>"
+    },
+    {
+      "case": "技能弹窗",
+      "gameElapsed": 0,
+      "rageRemaining": 5000,
+      "intuitionRemaining": 4000,
+      "skillHTML": "• 狂暴节奏 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 暴击后攻速 +30% · 5 秒</small><br>• 猎手直觉 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 破盾后攻速 +25% · 4 秒</small>",
+      "statHTML": "攻击 <b>8</b> · 生命 <b>100</b> · 攻速 <b style=\"color:var(--gold)\">2.11 ↑</b>/秒<br>暴击 <b>5%</b> × 1.5 · 吸血 <b>0%</b>"
+    },
+    {
+      "case": "后台",
+      "gameElapsed": 0,
+      "rageRemaining": 5000,
+      "intuitionRemaining": 4000,
+      "skillHTML": "• 狂暴节奏 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 暴击后攻速 +30% · 5 秒</small><br>• 猎手直觉 <b style=\"color:var(--gold)\">Lv.1</b> <small style=\"color:var(--dim)\">· 破盾后攻速 +25% · 4 秒</small>",
+      "statHTML": "攻击 <b>8</b> · 生命 <b>100</b> · 攻速 <b style=\"color:var(--gold)\">2.11 ↑</b>/秒<br>暴击 <b>5%</b> × 1.5 · 吸血 <b>0%</b>"
+    },
+    {
+      "case": "击杀后无敌待生效（虚拟演出回调尚未推进）",
+      "pending": 2000,
+      "gameElapsed": 3000,
+      "cloaked": true
+    }
+  ]
+}

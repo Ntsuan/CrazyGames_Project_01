@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>v2.16 UI 参考图 · 霓虹猎手</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --cyan:#00F0FF; --magenta:#FF2A6D; --gold:#FFD166; --purple:#c07bff; --bg:#0a0e17; --panel:#111827; --dim:#8b95a7; }
+  body { background:#1a1d24; font-family:"PingFang SC","Microsoft YaHei",sans-serif; padding:20px;
+         display:flex; flex-direction:column; align-items:center; }
+  .mock { width:860px; background:var(--bg); border:1px solid #1e2a44; border-radius:14px; padding:12px; color:#e6edf3; }
+  .topbar { display:flex; justify-content:space-between; font-size:12px; color:var(--dim); margin-bottom:8px; }
+  /* 战斗区 */
+  .arena { position:relative; height:260px; border-radius:10px; overflow:hidden;
+           background:linear-gradient(180deg,#141b2e 0%,#1d2440 55%,#2a2140 56%,#1a1428 100%); }
+  .floor-label { position:absolute; top:8px; left:12px; }
+  .floor-label .big { font-size:22px; font-weight:700; color:#e6edf3; letter-spacing:1px;
+                      text-shadow:0 0 10px rgba(0,240,255,.5); }
+  .floor-label .big b { color:var(--cyan); font-size:26px; }
+  .floor-label .sub2 { font-size:10px; color:var(--dim); }
+  /* ★ 新 HUD：战斗区中上方资源条 */
+  .hud { position:absolute; top:8px; left:50%; transform:translateX(-50%);
+         display:flex; gap:14px; background:rgba(10,14,23,.72); border:1px solid #1e2a44;
+         border-radius:20px; padding:5px 16px; font-size:14px; backdrop-filter:blur(2px); }
+  .hud b { color:var(--gold); } .hud .ps { color:var(--purple); }
+  .hud-new { outline:2px dashed var(--gold); outline-offset:4px; }
+  .mob-progress { position:absolute; top:12px; right:12px; font-size:11px; color:var(--dim); }
+  .fighter { position:absolute; bottom:60px; font-size:38px; }
+  #pF { left:22%; } #eF { right:22%; }
+  .hpbar { position:absolute; bottom:44px; width:170px; height:12px; background:#1a2436;
+           border:1px solid #2b3a55; border-radius:6px; overflow:hidden; }
+  #pHp { left:calc(22% - 30px); } #eHp { right:calc(22% - 30px); }
+  .hpfill { height:100%; } #pHp .hpfill { width:82%; background:var(--cyan); } #eHp .hpfill { width:64%; background:var(--magenta); }
+  /* 面板区 */
+  .row { display:flex; gap:10px; margin-top:10px; }
+  .panel { flex:1; background:var(--panel); border:1px solid #1e2a44; border-radius:10px; padding:10px 12px; font-size:12px; }
+  .sub { color:var(--cyan); font-size:13px; font-weight:600; margin-bottom:6px; }
+  .divider { border-top:1px solid #1e2a44; margin:9px 0; }
+  .btn { display:block; width:100%; margin:4px 0; padding:8px 10px; background:#1a2436; color:#e6edf3;
+         border:1px solid #2b3a55; border-radius:8px; font-size:12px; text-align:left;
+         display:flex; justify-content:space-between; }
+  .btn .c { color:var(--gold); }
+  .soul-line { color:var(--purple); font-weight:600; margin-bottom:6px; }
+  .locked { color:var(--dim); font-size:11px; margin-bottom:6px; }
+  .note { max-width:860px; margin-top:14px; color:#cfd8e3; font-size:13px; line-height:2; }
+  .note b { color:var(--gold); }
+  .strike { text-decoration:line-through; color:#5a6472; }
+  /* 重塑结算弹窗参考 */
+  .modal-mock { width:860px; margin-top:16px; background:rgba(0,0,0,.55); border-radius:14px;
+                padding:26px; display:flex; justify-content:center; }
+  .dlg { width:420px; background:#131a2a; border:1px solid var(--magenta); border-radius:12px;
+         padding:18px; color:#e6edf3; text-align:center;
+         box-shadow:0 0 24px rgba(255,42,109,.25); }
+  .dlg h2 { color:var(--magenta); font-size:18px; margin-bottom:10px; }
+  .dlg .conv { text-align:left; background:#0d1420; border:1px solid #1e2a44; border-radius:10px;
+               padding:12px 14px; margin:10px 0; font-size:13px; line-height:2.1; }
+  .dlg .conv .num { float:right; font-weight:700; }
+  .dlg .conv .ps { color:var(--purple); } .dlg .conv .gd { color:var(--gold); }
+  .dlg .conv .rowline { border-top:1px dashed #1e2a44; padding-top:6px; margin-top:6px; }
+  .dlg button { width:100%; margin-top:8px; padding:11px 0; border-radius:10px; font-size:14px; cursor:pointer; }
+  .dlg .b-ad { background:rgba(255,209,102,.12); border:2px solid var(--gold); color:var(--gold); }
+  .dlg .b-ok { background:rgba(255,42,109,.12); border:2px solid var(--magenta); color:var(--magenta); }
+  .dlg small { color:var(--dim); }
+</style>
+</head>
+<body>
+<div class="mock">
+  <div class="topbar"><span>🏆 霓虹猎手 NEON HUNTER</span><span>复位 · 结束测试 · 日志</span></div>
+
+  <div class="arena">
+    <!-- ★ 楼层数醒目化：大号发光字 + Boss 状态副行 -->
+    <div class="floor-label"><div class="big">第 <b>14</b> 层</div><div class="sub2">数据机房 · 下一层：中庭</div></div>
+    <!-- ★ 新增：资源 HUD（战斗区中上方） -->
+    <div class="hud hud-new">💰 <b>1.24K</b> · 🌌 <span class="ps"><b>23</b></span></div>
+    <div class="mob-progress">◾◾◾◽◽ 3/5</div>
+    <div class="fighter" id="pF">🔫</div>
+    <div class="fighter" id="eF">🐺</div>
+    <div class="hpbar" id="pHp"><div class="hpfill"></div></div>
+    <div class="hpbar" id="eHp"><div class="hpfill"></div></div>
+  </div>
+
+  <div class="row">
+    <div class="panel">
+      <div class="sub">⚡ 强化</div>
+      <div>攻击 <b>48</b> · 生命 <b>455</b> · 攻速 1.30/秒<br>暴击 10% ×1.5 · 吸血 0%</div>
+      <div class="btn"><span>⚔️ 攻击 Lv.15 → Lv.16 · 48→52.8</span><span class="c">71 💰</span></div>
+      <div class="btn"><span>🛡️ 生命 Lv.12 → Lv.13 · 455→500</span><span class="c">34 💰</span></div>
+      <div class="divider"></div>
+      <div class="sub">🎯 技能</div>
+      <div>• 火力全开 <b style="color:var(--gold)">Lv.2</b> <small style="color:var(--dim)">· 攻击 +50%</small></div>
+    </div>
+    <div class="panel">
+      <div class="sub">🔧 义体</div>
+      <div style="color:var(--dim)">（装备栏四格，略）</div>
+    </div>
+    <div class="panel">
+      <div class="sub">🌀 重塑</div>
+      <!-- ★ 只显示本循环掉落，不再显示存款/可得 -->
+      <div class="soul-line">本循环已掉落碎片：<b>23</b> 🌌</div>
+      <div class="locked">🔒 首次重塑后解锁加成树（死亡时可选重塑，掉落累计转为可用）</div>
+      <div class="btn"><span>伤害增幅 Lv.0 → Lv.1 · +0%→+5%</span><span class="c">1 🌌</span></div>
+      <div class="btn"><span>灵魂共鸣 Lv.0 → Lv.1 · +0%→+10%</span><span class="c">1 🌌</span></div>
+      <div class="divider"></div>
+      <div class="sub">📦 补给</div>
+      <div class="btn"><span>开补给箱（看广告 ×1 更多）</span><span class="c">就绪</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="note">
+  <b>调整点（对照现状）</b><br>
+  ① 战斗区中上方新增资源 HUD：<b>💰 信用点 + 🌌 可用碎片</b>（虚线框标注处）——两个"可花的钱"抬到视线中心<br>
+  ② 强化面板 statBox <span class="strike">不再重复显示信用点</span>（HUD 已有）<br>
+  ③ 重塑面板 <span class="strike">去掉"记忆碎片 N · 最高 X 层 / 本次重塑可得 G"</span> → 只保留一行<b>「本循环已掉落碎片」</b><br>
+  ④ 逻辑：碎片只有 Boss 掉落一个来源；死亡受阻时选重塑 → 累计转入可用（HUD 的 🌌 数）→ 树消费<br>
+  ⑤ 面板仍合并，标题拆为段内小标题（⚡强化/🎯技能、🌀重塑/📦补给）<br>
+  ⑥ <b>楼层数醒目化</b>（用户补充）：大号发光字「第 14 层」+ 副行场景预告（数据机房 · 下一层：中庭）
+</div>
+
+<!-- ★ 重塑结算弹窗参考（装备回收+碎片转换） -->
+<div class="modal-mock">
+  <div class="dlg">
+    <h2>🌀 重塑完成</h2>
+    <small>人格已备份，克隆体上线。本循环战果结算：</small>
+    <div class="conv">
+      <div>🌌 掉落碎片转换（Boss 掉落 23 枚）<span class="num ps">+23</span></div>
+      <div>⚙️ 装备回收（身上 4 件 + 背包 11 件）<span class="num gd">+8,432 💰</span></div>
+      <div class="rowline">新开局携带 <span class="num gd">8,432 💰</span></div>
+      <div><small style="color:var(--dim)">前期楼层可快速购买强化，压缩重复爬塔时间</small></div>
+    </div>
+    <button class="b-ad">📺 看广告：信用点 ×2（+16,864）</button>
+    <button class="b-ok">收下，进入新开局</button>
+  </div>
+</div>
+
+<div class="note">
+  <b>结算弹窗设计说明</b><br>
+  · 两行转换结果：碎片（掉落→可用）+ 信用点（装备回收，沿用拆解估值公式 2×(q+1)²×1.15^楼层/件）<br>
+  · 广告 ×2 对象改为<b>信用点</b>（碎片已不再由重塑产出，广告点位跟随价值主体迁移）<br>
+  · 回收全自动（身上+背包全收），新开局即带启动资金——第二轮的前期从"裸奔"变"快进"
+</div>
+</body>
+</html>

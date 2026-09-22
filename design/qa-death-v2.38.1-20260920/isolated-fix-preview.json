@@ -1,0 +1,16 @@
+[
+  {
+    "duration": "0.9s",
+    "finalPosition": "-770px",
+    "midPosition": "-110px",
+    "modal": true,
+    "speed": 1
+  },
+  {
+    "duration": "0.45s",
+    "finalPosition": "-770px",
+    "midPosition": "-110px",
+    "modal": true,
+    "speed": 2
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "afterClick": 1,
+    "beforeClick": 1,
+    "connected": true,
+    "endPrevented": true,
+    "kind": "fuse",
+    "name": "9px",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 1,
+    "beforeClick": 1,
+    "connected": true,
+    "endPrevented": true,
+    "kind": "fuse",
+    "name": "10px",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 0,
+    "beforeClick": 0,
+    "connected": true,
+    "endPrevented": false,
+    "kind": "fuse",
+    "name": "11px",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 1,
+    "beforeClick": 1,
+    "connected": true,
+    "endPrevented": true,
+    "kind": "fuse",
+    "name": "diagonal9px",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 1,
+    "beforeClick": 1,
+    "connected": true,
+    "endPrevented": true,
+    "kind": "fuse",
+    "name": "endOnly11px",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 1,
+    "beforeClick": 0,
+    "connected": true,
+    "endPrevented": false,
+    "kind": "fuse",
+    "name": "11pxThenClick",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 0,
+    "beforeClick": 0,
+    "connected": false,
+    "endPrevented": false,
+    "kind": "fuse",
+    "name": "rerender9px",
+    "trackerStuck": true
+  },
+  {
+    "afterClick": 1,
+    "beforeClick": 1,
+    "connected": true,
+    "endPrevented": true,
+    "kind": "skill",
+    "name": "9px",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 1,
+    "beforeClick": 1,
+    "connected": true,
+    "endPrevented": true,
+    "kind": "skill",
+    "name": "10px",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 0,
+    "beforeClick": 0,
+    "connected": true,
+    "endPrevented": false,
+    "kind": "skill",
+    "name": "11px",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 1,
+    "beforeClick": 1,
+    "connected": true,
+    "endPrevented": true,
+    "kind": "skill",
+    "name": "diagonal9px",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 1,
+    "beforeClick": 1,
+    "connected": true,
+    "endPrevented": true,
+    "kind": "skill",
+    "name": "endOnly11px",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 1,
+    "beforeClick": 0,
+    "connected": true,
+    "endPrevented": false,
+    "kind": "skill",
+    "name": "11pxThenClick",
+    "trackerStuck": false
+  },
+  {
+    "afterClick": 1,
+    "beforeClick": 1,
+    "connected": true,
+    "endPrevented": true,
+    "kind": "skill",
+    "name": "rerender9px",
+    "trackerStuck": false
+  }
+]

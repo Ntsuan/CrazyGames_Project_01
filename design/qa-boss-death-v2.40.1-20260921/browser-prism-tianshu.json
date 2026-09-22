@@ -1,0 +1,110 @@
+[
+  {
+    "changeAt": null,
+    "events": [
+      {
+        "opacity": 0,
+        "time": 1410.4000000357628,
+        "type": "skill"
+      },
+      {
+        "opacity": 0,
+        "time": 1602.100000023842,
+        "type": "transit"
+      }
+    ],
+    "fadeSeen": true,
+    "finalFloor": 11,
+    "floor": 10,
+    "hiddenWait": true,
+    "initialSpeed": 1,
+    "newEnemyVisible": true,
+    "noGhost": true,
+    "pass": true,
+    "reward": {
+      "gold": 40.45557735707917,
+      "souls": 3
+    }
+  },
+  {
+    "changeAt": null,
+    "events": [
+      {
+        "opacity": 0,
+        "time": 710.7999999523163,
+        "type": "skill"
+      },
+      {
+        "opacity": 0,
+        "time": 907.899999976158,
+        "type": "transit"
+      }
+    ],
+    "fadeSeen": true,
+    "finalFloor": 11,
+    "floor": 10,
+    "hiddenWait": true,
+    "initialSpeed": 2,
+    "newEnemyVisible": true,
+    "noGhost": true,
+    "pass": true,
+    "reward": {
+      "gold": 40.45557735707917,
+      "souls": 3
+    }
+  },
+  {
+    "changeAt": null,
+    "events": [
+      {
+        "opacity": 0,
+        "time": 1403.9000000357628,
+        "type": "skill"
+      },
+      {
+        "opacity": 0,
+        "time": 1598.4000000357628,
+        "type": "transit"
+      }
+    ],
+    "fadeSeen": true,
+    "finalFloor": 101,
+    "floor": 100,
+    "hiddenWait": true,
+    "initialSpeed": 1,
+    "newEnemyVisible": true,
+    "noGhost": true,
+    "pass": true,
+    "reward": {
+      "gold": 11743134.507002791,
+      "souls": 6
+    }
+  },
+  {
+    "changeAt": null,
+    "events": [
+      {
+        "opacity": 0,
+        "time": 708.9000000357628,
+        "type": "skill"
+      },
+      {
+        "opacity": 0,
+        "time": 910.100000023842,
+        "type": "transit"
+      }
+    ],
+    "fadeSeen": true,
+    "finalFloor": 101,
+    "floor": 100,
+    "hiddenWait": true,
+    "initialSpeed": 2,
+    "newEnemyVisible": true,
+    "noGhost": true,
+    "pass": true,
+    "reward": {
+      "gold": 11743134.507002791,
+      "souls": 7
+    }
+  }
+]

@@ -1,0 +1,38 @@
+--- v2.40
++++ v2.40.1
+@@ -805,10 +805,13 @@
+     S.floor++; S.mobIdx=0; syncPresentationSpeed();
+     const seqK=runSeq;   // v2.29：复位后丢弃旧 Boss 转场/弹窗回调
+     afterPresentation(prismKill?1100:900,()=>{
+-      if(seqK!==runSeq) return;   // v2.29
+-      if(willSkill){ offerSkills("p10",null,S.floor-1); pendingTransit=true; }   // v2.29：文案用刚完成的层
+-      else if(willTemp){ offerSkills("p5"); pendingTransit=true; }
+-      else startFloorTransit();
++      // v2.40.1：Boss 完整倒地后淡出；技能等待和换背景期间不残留尸体。
++      presentationTween($("enemy"),"opacity","0",300,seqK);
++      afterPresentation(300,()=>{
++        if(willSkill){ offerSkills("p10",null,S.floor-1); pendingTransit=true; }
++        else if(willTemp){ offerSkills("p5"); pendingTransit=true; }
++        else startFloorTransit();
++      },seqK);
+     },seqK);
+   } else {
+     S.mobIdx++;
+@@ -881,6 +884,8 @@
+ function startFloorTransit(){
+   const seq=beginPresentationRun();   // v2.14.4：转场同样纳入代次管理
+   transit=true; paused=true;
++  // v2.40.1：旧敌人只属于旧层；保持隐藏直至 enemyRunIn 显式恢复。
++  $("enemy").style.transition="none"; $("enemy").style.opacity="0";
+   player.hp=calcStats().hp;   // v2.24.20：进层回血（转场开始）
+   barsHidden=true; $("playerHp").style.display="none"; $("playerHpT").style.display="none"; $("playerSh").style.display="none"; $("playerShT").style.display="none";   // v2.24.18：跑出旧层藏血条（防跟随拖尾）
+   const p=document.getElementById("player"), sp=document.getElementById("playerSpr");
+@@ -1392,7 +1397,7 @@
+ 
+ // ============ 测试日志系统 ============
+ // 版本管理：每次修改递增 VERSION，并同步维护 game/CHANGELOG.md 与 game/versions/ 快照
+-const VERSION="v2.40";   // Codex：演出保进度切速、死亡回调清理；保留 WorkBuddy B01/A01 修复
++const VERSION="v2.40.1";   // Codex：演出保进度切速、死亡回调清理；保留 WorkBuddy B01/A01 修复
+ new Image().src="assets/gunner_shoot.png";   // 预加载攻击帧条防首击闪烁
+ new Image().src="assets/gunner_run.png";
+ new Image().src="assets/arena-bg2.webp";

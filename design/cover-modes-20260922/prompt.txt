@@ -1,0 +1,19 @@
+Create a polished Chinese mobile game cover upgrade UI reference board for the existing cyberpunk idle tower game “霓虹猎手 / NEON HUNTER”. Use the provided image as the exact visual style and hero identity reference: black-haired masked gunner, orange jacket, mechanical forearm, cyan visor, rainy neon city. This is a new UI mockup, not a modification to the game.
+
+Composition: landscape presentation board, about 1536x1024. Two large, flat, front-facing portrait game screens side by side, no photographic phones, no perspective. Left labeled above “初始状态 · 构筑未解锁”; right labeled above “解锁后 · 可选择构筑”. Restrained charcoal backdrop behind the two screens. Make all Chinese text crisp, accurately spelled and large enough to read. No extraneous paragraphs or design annotations.
+
+Each screen: dark navy cyberpunk cover using the hero and city in its upper 35–40%, fade naturally into a calm solid dark lower section for interface readability. Large title “霓虹猎手” with cyan and magenta accent, small “NEON HUNTER”. A small gear icon upper right. Below hero/title, label “选择模式”. Two stacked spacious mode cards, then one large luminous beveled action button. Information cards have subdued gray-blue backgrounds #17202b and subtle gray outlines; avoid making information cards look like colored action buttons. Show selected mode by a thin cyan outline and a small check, not a saturated filled card. Gray but readable locked state.
+
+LEFT screen:
+Card 1 selected with subtle cyan outline, infinity icon, title “无尽模式”, prominent exact subtitle “随机技能3选1”, small text “在随机选择中不断变强”.
+Card 2 locked with lock icon, title “构筑模式”, prominent exact subtitle “所有技能3选1”, small text “无尽模式进入阶段五后解锁”.
+Big cyan action button “进入无尽模式”.
+Under button small neutral text “两种模式独立存档”.
+
+RIGHT screen:
+Card 1 neutral available, infinity icon, title “无尽模式”, prominent exact subtitle “随机技能3选1”, small text “阶段五 · 无尽挑战”.
+Card 2 selected with cyan outline and check, grid icon, title “构筑模式”, prominent exact subtitle “所有技能3选1”, small text “每次展示全部可选技能”, small understated status “已解锁”.
+Big cyan action button “进入构筑模式”.
+Under button small neutral text “两种模式独立存档”.
+
+Maintain consistent spacing and touch target sizes. Show clearly that build mode is locked initially and unlocked only by reaching stage five in endless mode. No buy/unlock-with-ad button, no price, no skip, no invented achievements, no decorative tiny illegible text. Preserve exact mode comparison wording, do not rewrite as all-skills choose-one. High quality game UI concept with restrained neon, art remains visible but text is the focus.

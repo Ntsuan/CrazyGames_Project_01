@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-09-20T19:25:57.175989+08:00",
+  "localVersion": "v2.40",
+  "onlineVersion": "v2.39.2",
+  "onlineStatus": 200,
+  "published": false,
+  "applicationLocator": "wbapp_4QnNeb5xhXaduj6Io31tHn",
+  "reason": "Current tools do not expose WorkBuddy application publishing; plugin search for WorkBuddy returned no available integration.",
+  "package": "/Users/zmy/WorkBuddy/CrazyGames/design/qa-v2.40-20260920/neon-hunter-v2.40.zip",
+  "packageFiles": 62,
+  "packageSha256": "8dd30c21fc2f68040de96e501621fdc36785827e0867250d717dde84a830781a"
+}

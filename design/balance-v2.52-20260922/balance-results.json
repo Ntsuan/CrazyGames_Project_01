@@ -1,0 +1,174 @@
+[
+  {
+    "name": "强化攻血同价1.18，属性1.10",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段1百层与无尽数值边界",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段2百层与无尽数值边界",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段3百层与无尽数值边界",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段4百层与无尽数值边界",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段5百层与无尽数值边界",
+    "status": "PASS"
+  },
+  {
+    "name": "首次60秒：59.9秒不可领，60秒可领",
+    "status": "PASS"
+  },
+  {
+    "name": "1倍不加速补给，计时来自主循环",
+    "status": "PASS"
+  },
+  {
+    "name": "2倍不加速补给，计时来自主循环",
+    "status": "PASS"
+  },
+  {
+    "name": "4倍不加速补给，计时来自主循环",
+    "status": "PASS"
+  },
+  {
+    "name": "8倍不加速补给，计时来自主循环",
+    "status": "PASS"
+  },
+  {
+    "name": "后台不累计补给",
+    "status": "PASS"
+  },
+  {
+    "name": "封面不累计补给",
+    "status": "PASS"
+  },
+  {
+    "name": "技能不累计补给",
+    "status": "PASS"
+  },
+  {
+    "name": "重塑不累计补给",
+    "status": "PASS"
+  },
+  {
+    "name": "确认不累计补给",
+    "status": "PASS"
+  },
+  {
+    "name": "死亡不累计补给",
+    "status": "PASS"
+  },
+  {
+    "name": "暂停不累计补给",
+    "status": "PASS"
+  },
+  {
+    "name": "改装不累计补给",
+    "status": "PASS"
+  },
+  {
+    "name": "正常跑入与转场累计冷却",
+    "status": "PASS"
+  },
+  {
+    "name": "长卡顿不追算离线时间",
+    "status": "PASS"
+  },
+  {
+    "name": "就绪后不累积多箱",
+    "status": "PASS"
+  },
+  {
+    "name": "第1箱固定20倍，取消增长和里程碑",
+    "status": "PASS"
+  },
+  {
+    "name": "第10箱固定20倍，取消增长和里程碑",
+    "status": "PASS"
+  },
+  {
+    "name": "第20箱固定20倍，取消增长和里程碑",
+    "status": "PASS"
+  },
+  {
+    "name": "第40箱固定20倍，取消增长和里程碑",
+    "status": "PASS"
+  },
+  {
+    "name": "第1000箱固定20倍，取消增长和里程碑",
+    "status": "PASS"
+  },
+  {
+    "name": "取消广告不发奖、不消耗领取资格，可重试",
+    "status": "PASS"
+  },
+  {
+    "name": "存档写失败不发奖、不消费冷却，重试只发一次",
+    "status": "PASS"
+  },
+  {
+    "name": "领取记录与金币冷却原子持久化，刷新不再发奖",
+    "status": "PASS"
+  },
+  {
+    "name": "部分冷却存档/离线恢复，不重置也不赠送时间",
+    "status": "PASS"
+  },
+  {
+    "name": "普通与广告重塑保留剩余冷却及树",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段晋升重置冷却且不保留旧资源",
+    "status": "PASS"
+  },
+  {
+    "name": "旧v2.51档备份迁移，不清已有资源",
+    "status": "PASS"
+  },
+  {
+    "name": "旧档备份写入失败保护原档",
+    "status": "PASS"
+  },
+  {
+    "name": "异常经济存档保护 {\"economySchema\":2}",
+    "status": "PASS"
+  },
+  {
+    "name": "异常经济存档保护 {\"crateCooldownMs\":-1}",
+    "status": "PASS"
+  },
+  {
+    "name": "异常经济存档保护 {\"crateCooldownMs\":60001}",
+    "status": "PASS"
+  },
+  {
+    "name": "异常经济存档保护 {\"crateCooldownMs\":null}",
+    "status": "PASS"
+  },
+  {
+    "name": "异常经济存档保护 {\"crateCooldownMs\":\"0\"}",
+    "status": "PASS"
+  },
+  {
+    "name": "复位作废旧广告回调与就绪资格",
+    "status": "PASS"
+  },
+  {
+    "name": "广告中禁止确认复位盖住弹窗，取消后恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "就绪状态但重塑/转场/广告锁期间不能请求",
+    "status": "PASS"
+  }
+]

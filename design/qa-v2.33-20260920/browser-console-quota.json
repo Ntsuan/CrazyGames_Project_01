@@ -1,0 +1,8 @@
+[
+  {
+    "level": "error",
+    "message": "QuotaExceededError: Failed to execute 'setItem' on 'Storage': Setting the value of 'neonHunterLogs' exceeded the quota.\n    at saveLogs (http://127.0.0.1:19322/:1275:16)\n    at logEvent (http://127.0.0.1:19322/:1305:3)\n    at newSession (http://127.0.0.1:19322/:1269:3)\n    at http://127.0.0.1:19322/:1531:17",
+    "timestamp": "2026-09-20T05:27:06.537Z",
+    "url": "http://127.0.0.1:19322/"
+  }
+]

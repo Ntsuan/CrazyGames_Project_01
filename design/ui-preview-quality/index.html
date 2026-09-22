@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>品质阶梯参考 · 霓虹猎手</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0e17; font-family:"PingFang SC","Microsoft YaHei",sans-serif; padding:24px;
+         display:flex; flex-direction:column; align-items:center; color:#e6edf3; }
+  h1 { font-size:16px; color:#00F0FF; margin-bottom:18px; }
+  table { border-collapse:collapse; font-size:13px; }
+  th { color:#8b95a7; font-weight:500; padding:8px 12px; border-bottom:1px solid #1e2a44; font-size:12px; }
+  td { padding:7px 12px; border-bottom:1px solid #111827; text-align:center; }
+  .qn { font-weight:700; }
+  .chip { display:inline-block; width:14px; height:14px; border-radius:3px; vertical-align:-2px; margin-right:6px; }
+  .new { background:rgba(255,209,102,.08); }
+  .icons { display:flex; gap:6px; justify-content:center; }
+  .ib { width:40px; height:40px; border-radius:8px; border:1px solid; display:flex; align-items:center; justify-content:center; background:#131a2a; }
+  .ib img { width:28px; height:28px; image-rendering:pixelated; }
+  .iris-t { background:linear-gradient(90deg,#00F0FF,#c07bff,#FFD166); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .iris-c { background:conic-gradient(#00F0FF,#c07bff,#FFD166,#00F0FF); border-radius:3px; }
+  .ib.iris { border:none; padding:1px; background:conic-gradient(#00F0FF,#c07bff,#FFD166,#00F0FF); animation:irisSpin 3s linear infinite; }
+  .ib.iris img { background:#131a2a; border-radius:6px; padding:2px; }
+  @keyframes irisSpin { to { filter:hue-rotate(360deg); } }
+  .note { max-width:900px; margin-top:16px; font-size:12px; line-height:2; color:#8b95a7; }
+  .note b { color:#FFD166; }
+</style>
+</head>
+<body>
+<h1>品质阶梯 v2 · 10 档（报废/破损新增垫底，不朽金色封顶）</h1>
+<table>
+  <tr><th>档</th><th>名称</th><th>色卡</th><th>武器</th><th>插件</th><th>装甲</th><th>芯片</th><th>词条</th><th>装备图标效果</th></tr>
+  <!-- 行数据由 JS 渲染 -->
+  <tbody id="rows"></tbody>
+</table>
+<div class="note">
+  <b>设计要点</b>：颜色跟随数值迁移（"色=值"直觉不变）；报废黑/破损灰为新增垫底档；词条起点=传说 q6，每升 1 档词条递增（暴击 5→8% / 攻速 10→16% / 吸血 3→6%）；
+  合成链上限 q6 传说，永恒/不朽仅合成可达；装备图标边框+底色按品质着色（上图四部位示例为各档效果）。
+</div>
+<script>
+const Q=[
+ ["q0","报废","#3a3f46",10,5,10,10,"—",true],
+ ["q1","破损","#b8c0cc",25,10,25,20,"—",true],
+ ["q2","民用","#3ddc84",45,18,45,35,"—",false],
+ ["q3","改装","#4aa8ff",70,28,70,55,"—",false],
+ ["q4","军用","#c07bff",100,40,100,80,"—",false],
+ ["q5","原型","#ff6b6b",135,54,135,108,"—",false],
+ ["q6","传说","#ffb020",182,73,182,146,"暴击+5% · 攻速+10% · 吸血+3%",false],
+ ["q7","神话","#ff2a6d",246,98,246,197,"暴击+6% · 攻速+12% · 吸血+4%",false],
+ ["q8","永恒","#d9fbff",332,131,332,262,"暴击+7% · 攻速+14% · 吸血+5%",false],
+ ["q9","不朽","IRIS",448,177,448,354,"暴击+8% · 攻速+16% · 吸血+6%",false],
+];
+const icons=["weapon.png","neural.png","armor.png","chip.png"];
+document.getElementById("rows").innerHTML=Q.map(([q,n,c,w,i,a,ch,aff,isNew])=>{
+  const iris=c==="IRIS";
+  return `<tr class="${isNew?'new':''}">
+  <td style="color:#8b95a7">${q}</td>
+  <td class="qn ${iris?'iris-t':''}" ${iris?'':`style="color:${c}"`}>${n}${isNew?' 🆕':''}${iris?' ✨':''}</td>
+  <td>${iris?'<span class="chip iris-c"></span><small style="color:#8b95a7">全息虹彩</small>':`<span class="chip" style="background:${c};box-shadow:0 0 6px ${c}"></span><small style="color:#8b95a7">${c}</small>`}</td>
+  <td>${w}%</td><td>${i}%</td><td>${a}%</td><td>${ch}%</td>
+  <td style="font-size:11px">${aff}</td>
+  <td><div class="icons">${icons.map(ic=>iris?`<span class="ib iris"><img src="${ic}"></span>`:`<span class="ib" style="border-color:${c};box-shadow:0 0 8px ${c}33,inset 0 0 8px ${c}22"><img src="${ic}"></span>`).join("")}</div></td>
+</tr>`;}).join("");
+</script>
+</body>
+</html>

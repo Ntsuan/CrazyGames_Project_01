@@ -1,0 +1,296 @@
+{
+  "status": "simulation_only",
+  "author": "Codex",
+  "documentVersion": "v0.2",
+  "baselineVersion": "v2.43",
+  "checks": {
+    "status": "simulation_only",
+    "baselineVersion": "v2.43",
+    "sourceSha256": "6e4d49a9f9217a8f25f4a48241a440865a387c5f690429e33a3035865bdf3845",
+    "productionUnchanged": true,
+    "priorSeed1Parity": true,
+    "samples": 55,
+    "boxCount": 6103,
+    "resetCount": 313,
+    "crateSpacingAtLeast60Seconds": true,
+    "activeOnlyAtCleared10Through90": true,
+    "allObservedPrestigeRewardsDouble": true,
+    "normalAndAdPrestigeDirectChecks": [
+      {
+        "mult": 1,
+        "state": {
+          "floor": 1,
+          "souls": 32,
+          "runSouls": 0,
+          "tree": {
+            "dmg": 2,
+            "gold": 3,
+            "soul": 1
+          },
+          "cratesRun": 0,
+          "atkLv": 0,
+          "hpLv": 0,
+          "skills": [],
+          "pity": 0,
+          "equip": {
+            "weapon": null,
+            "implant": null,
+            "armor": null,
+            "chip": null
+          },
+          "inv": []
+        }
+      },
+      {
+        "mult": 2,
+        "state": {
+          "floor": 1,
+          "souls": 57,
+          "runSouls": 0,
+          "tree": {
+            "dmg": 2,
+            "gold": 3,
+            "soul": 1
+          },
+          "cratesRun": 0,
+          "atkLv": 0,
+          "hpLv": 0,
+          "skills": [],
+          "pity": 0,
+          "equip": {
+            "weapon": null,
+            "implant": null,
+            "armor": null,
+            "chip": null
+          },
+          "inv": []
+        }
+      }
+    ],
+    "advertisingSdkIntegrated": false,
+    "stageTransitionImplemented": false
+  },
+  "recommended": {
+    "crateBase": 20,
+    "crateCountGrowth": false,
+    "tenthBoxDouble": false,
+    "crateIntervalSeconds": 60,
+    "costGrowth": 1.18,
+    "activePrestigeCheckpoints": [
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90
+    ],
+    "normalPrestigeMultiplier": 1,
+    "adPrestigeMultiplier": 2,
+    "initialAttack": [
+      8,
+      12,
+      16,
+      24,
+      32
+    ],
+    "initialHP": [
+      100,
+      150,
+      200,
+      300,
+      400
+    ],
+    "stage100Boss": {
+      "hp": 8,
+      "attack": 2,
+      "shield": 0.8
+    }
+  },
+  "stageSummary": [
+    {
+      "stage": 1,
+      "mult": 1,
+      "death_only": {
+        "samples": 3,
+        "cleared": 3,
+        "medianMinutes": 153.3949999997633,
+        "minMinutes": 130.23777777733062,
+        "maxMinutes": 158.88777777764338,
+        "medianActive": 0,
+        "medianDeaths": 6,
+        "medianCrates": 153,
+        "medianCrateShare": 0.40068433157145716,
+        "medianCrateShareIncludingRecycling": 0.3848472210254531
+      },
+      "cautious": {
+        "samples": 3,
+        "cleared": 3,
+        "medianMinutes": 123.95611111072246,
+        "minMinutes": 123.7977777773906,
+        "maxMinutes": 124.67055555516025,
+        "medianActive": 2,
+        "medianDeaths": 3,
+        "medianCrates": 123,
+        "medianCrateShare": 0.38895864030923233,
+        "medianCrateShareIncludingRecycling": 0.3738949368385512
+      }
+    },
+    {
+      "stage": 2,
+      "mult": 1.5,
+      "death_only": {
+        "samples": 3,
+        "cleared": 3,
+        "medianMinutes": 84.0544444444274,
+        "minMinutes": 79.35444444447118,
+        "maxMinutes": 84.87166666664201,
+        "medianActive": 0,
+        "medianDeaths": 2,
+        "medianCrates": 84,
+        "medianCrateShare": 0.44268251399416575,
+        "medianCrateShareIncludingRecycling": 0.42574714062345237
+      },
+      "cautious": {
+        "samples": 3,
+        "cleared": 3,
+        "medianMinutes": 91.98333333324246,
+        "minMinutes": 90.61055555547746,
+        "maxMinutes": 96.34777777764624,
+        "medianActive": 1,
+        "medianDeaths": 2,
+        "medianCrates": 91,
+        "medianCrateShare": 0.4208039429103619,
+        "medianCrateShareIncludingRecycling": 0.40532204743657674
+      }
+    },
+    {
+      "stage": 3,
+      "mult": 2,
+      "death_only": {
+        "samples": 3,
+        "cleared": 3,
+        "medianMinutes": 85.49499999996955,
+        "minMinutes": 76.90777777782729,
+        "maxMinutes": 98.22388888873989,
+        "medianActive": 0,
+        "medianDeaths": 2,
+        "medianCrates": 85,
+        "medianCrateShare": 0.42852146603637337,
+        "medianCrateShareIncludingRecycling": 0.40634198882620426
+      },
+      "cautious": {
+        "samples": 3,
+        "cleared": 3,
+        "medianMinutes": 72.39722222231374,
+        "minMinutes": 71.14555555565875,
+        "maxMinutes": 93.71333333322634,
+        "medianActive": 2,
+        "medianDeaths": 0,
+        "medianCrates": 72,
+        "medianCrateShare": 0.49047145389714786,
+        "medianCrateShareIncludingRecycling": 0.4886762025145257
+      }
+    },
+    {
+      "stage": 4,
+      "mult": 3,
+      "death_only": {
+        "samples": 3,
+        "cleared": 3,
+        "medianMinutes": 60.78666666676223,
+        "minMinutes": 59.432222222311474,
+        "maxMinutes": 80.91111111112335,
+        "medianActive": 0,
+        "medianDeaths": 1,
+        "medianCrates": 60,
+        "medianCrateShare": 0.42736669778578107,
+        "medianCrateShareIncludingRecycling": 0.41091618272606045
+      },
+      "cautious": {
+        "samples": 3,
+        "cleared": 3,
+        "medianMinutes": 51.78277777783141,
+        "minMinutes": 51.53666666671916,
+        "maxMinutes": 56.516666666742346,
+        "medianActive": 1,
+        "medianDeaths": 0,
+        "medianCrates": 51,
+        "medianCrateShare": 0.4625385739360868,
+        "medianCrateShareIncludingRecycling": 0.46212017359565244
+      }
+    },
+    {
+      "stage": 5,
+      "mult": 4,
+      "death_only": {
+        "samples": 3,
+        "cleared": 3,
+        "medianMinutes": 61.94388888898984,
+        "minMinutes": 60.14611111120369,
+        "maxMinutes": 62.85000000010517,
+        "medianActive": 0,
+        "medianDeaths": 1,
+        "medianCrates": 61,
+        "medianCrateShare": 0.4134790849616143,
+        "medianCrateShareIncludingRecycling": 0.3895422630104751
+      },
+      "cautious": {
+        "samples": 3,
+        "cleared": 3,
+        "medianMinutes": 56.36833333340832,
+        "minMinutes": 56.27555555563011,
+        "maxMinutes": 58.837222222308704,
+        "medianActive": 1,
+        "medianDeaths": 0,
+        "medianCrates": 56,
+        "medianCrateShare": 0.4458175282858289,
+        "medianCrateShareIncludingRecycling": 0.4371636520289905
+      }
+    }
+  ],
+  "pairedFiveStageTotals": {
+    "death_only": [
+      {
+        "seed": 1,
+        "minutes": 451.5772222217703,
+        "crates": 449,
+        "prestigeAds": 13
+      },
+      {
+        "seed": 2,
+        "minutes": 442.5227777776754,
+        "crates": 441,
+        "prestigeAds": 12
+      },
+      {
+        "seed": 3,
+        "minutes": 443.39777777786475,
+        "crates": 439,
+        "prestigeAds": 12
+      }
+    ],
+    "cautious": [
+      {
+        "seed": 1,
+        "minutes": 397.45888888865153,
+        "crates": 394,
+        "prestigeAds": 12
+      },
+      {
+        "seed": 2,
+        "minutes": 420.9138888884669,
+        "crates": 418,
+        "prestigeAds": 13
+      },
+      {
+        "seed": 3,
+        "minutes": 401.56666666636,
+        "crates": 399,
+        "prestigeAds": 12
+      }
+    ]
+  }
+}

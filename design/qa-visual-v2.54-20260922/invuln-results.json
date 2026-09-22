@@ -1,0 +1,22 @@
+[
+  {
+    "stage": 1,
+    "status": "PASS"
+  },
+  {
+    "stage": 2,
+    "status": "PASS"
+  },
+  {
+    "stage": 3,
+    "status": "PASS"
+  },
+  {
+    "stage": 4,
+    "status": "PASS"
+  },
+  {
+    "stage": 5,
+    "status": "PASS"
+  }
+]

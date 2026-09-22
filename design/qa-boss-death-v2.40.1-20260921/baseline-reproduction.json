@@ -1,0 +1,30 @@
+[
+  {
+    "floor": 3,
+    "enemyOpacity": "1",
+    "transit": true,
+    "skillOfferOpen": false,
+    "corpseNotHidden": true
+  },
+  {
+    "floor": 5,
+    "enemyOpacity": "1",
+    "transit": false,
+    "skillOfferOpen": true,
+    "corpseNotHidden": true
+  },
+  {
+    "floor": 10,
+    "enemyOpacity": "1",
+    "transit": false,
+    "skillOfferOpen": true,
+    "corpseNotHidden": true
+  },
+  {
+    "floor": 100,
+    "enemyOpacity": "1",
+    "transit": false,
+    "skillOfferOpen": true,
+    "corpseNotHidden": true
+  }
+]

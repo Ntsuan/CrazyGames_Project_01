@@ -1,0 +1,69 @@
+{
+  "environment": "Node VM virtual clock; actual game timers, DOM stubs",
+  "results": [
+    {
+      "name": "1→2：保留已播放100ms，剩余900ms用450ms",
+      "pass": true
+    },
+    {
+      "name": "2→1：保留已播放200ms，剩余800ms",
+      "pass": true
+    },
+    {
+      "name": "反复切速不重置、不重复回调",
+      "pass": true
+    },
+    {
+      "name": "新代次清空待执行演出",
+      "pass": true
+    },
+    {
+      "name": "外部过期代次不执行",
+      "pass": true
+    },
+    {
+      "name": "显式取消不回调",
+      "pass": true
+    },
+    {
+      "name": "自动到新楼层恢复1×并重排剩余时间",
+      "pass": true
+    },
+    {
+      "name": "固定1×换怪仅刷新一次",
+      "pass": true
+    },
+    {
+      "name": "固定2×换怪仅刷新一次",
+      "pass": true
+    },
+    {
+      "name": "换怪途中1→2同步尸体/跑入/刷新",
+      "pass": true
+    },
+    {
+      "name": "死亡兜底2→1不会沿用原600ms提前弹窗",
+      "pass": true
+    },
+    {
+      "name": "死亡兜底1→2只等待剩余演出时间",
+      "pass": true
+    },
+    {
+      "name": "死亡中复位不遗留旧弹窗",
+      "pass": true
+    },
+    {
+      "name": "固定1×完整楼层转场",
+      "pass": true
+    },
+    {
+      "name": "固定2×完整楼层转场",
+      "pass": true
+    },
+    {
+      "name": "死亡等待时购买生命升级仍完成受阻流程",
+      "pass": true
+    }
+  ]
+}

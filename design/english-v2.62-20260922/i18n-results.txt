@@ -1,0 +1,15 @@
+PASS Default English
+PASS Remember Chinese
+PASS Query overrides saved language
+PASS Invalid language falls back to English
+PASS Storage unavailable still honors language query
+PASS Selection only writes preference; URL parameters preserved
+PASS Storage unavailable can still switch
+PASS Dictionary completeness and placeholders
+PASS All dictionary fragments translate
+PASS Opaque interpolation preserves HTML and nested translated values
+PASS Bilingual numeric and save compatibility across combat, skills, upgrades and reforge
+PASS English dynamic panels and milestone modals contain no Chinese or missing keys
+PASS English reset confirmation retains confirmation flag
+PASS Chinese strings are unchanged
+14/14 PASS

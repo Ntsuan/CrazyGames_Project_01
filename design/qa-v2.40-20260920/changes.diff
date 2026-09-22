@@ -1,0 +1,484 @@
+--- v2.39.2/game/index.html
++++ v2.40/game/index.html
+@@ -52,16 +52,16 @@
+   #player .body, #player .eye { display:none; }
+   .psprite { position:absolute; inset:0; image-rendering:pixelated; transform-origin:bottom center;
+              background:url('assets/gunner_idle.png') 0 0/400% 100% no-repeat;
+-             animation:gunnerIdle calc(var(--spd,1)*1s) steps(4) infinite; }
++             animation:gunnerIdle 1s steps(4) infinite; }
+   /* v1.9.2：steps() 动画必须用 px 位移（百分比定位×steps 会按错误步长切片，角色横移） */
+   @keyframes gunnerIdle { from{background-position-x:0} to{background-position-x:-440px} }
+   .psprite.atk { background-image:url('assets/gunner_shoot.png'); background-size:1600% 100%;
+-                 animation:gunnerShoot calc(var(--spd,1)*.32s) steps(16) 1; }
++                 animation:gunnerShoot .32s steps(16) 1; }
+   @keyframes gunnerShoot { from{background-position-x:0} to{background-position-x:-1760px} }
+   .fighter.hit .psprite { filter:brightness(2.6); }
+   /* v2.38：玩家死亡动画（阶段01·初始猎手，8 帧~0.9s 保持末帧） */
+   #player .psprite.death { background-image:url('assets/stage01-death.png'); background-size:880px 110px;
+-    background-position:0 0; animation:gunnerDeath calc(var(--spd,1)*.9s) steps(7) forwards; }
++    background-position:0 0; animation:gunnerDeath .9s steps(7) forwards; }
+   @keyframes gunnerDeath { from{background-position-x:0} to{background-position-x:-770px} }
+   /* v2.37：光学迷彩——掠食者微光（容器级，不干扰精灵动画） */
+   .fighter.cloaked { animation:cloakPulse 1.2s ease-in-out infinite; }
+@@ -71,7 +71,7 @@
+   }
+   /* v2.1：跑步动画 + 楼层转场 */
+   .psprite.run { background-image:url('assets/gunner_run.png'); background-size:800% 100%;
+-                 animation:gunnerRun calc(var(--spd,1)*.667s) steps(8) infinite; }
++                 animation:gunnerRun .667s steps(8) infinite; }
+   @keyframes gunnerRun { from{background-position-x:0} to{background-position-x:-880px} }
+   .bgSlide { position:absolute; top:0; bottom:0; left:0; width:100%; z-index:1;
+              background-position:center; background-size:cover; transition:left .45s ease-in-out; }
+@@ -81,99 +81,99 @@
+   #enemy .body, #enemy .eye { display:none; }
+   .esprite { position:absolute; inset:0; image-rendering:pixelated; transform-origin:bottom center;
+              background:url('assets/security_idle.png') 0 0/400% 100% no-repeat;
+-             animation:secIdle calc(var(--spd,1)*1s) steps(4) infinite; }
++             animation:secIdle 1s steps(4) infinite; }
+   @keyframes secIdle { from{background-position-x:0} to{background-position-x:-440px} }
+   #enemy.boss .esprite { transform:scale(1.4); filter:drop-shadow(0 0 12px rgba(255,42,109,.8)); }
+   .esprite.shoot { background-image:url('assets/security_shoot.png'); background-size:800% 100%;
+-                   animation:secShoot calc(var(--spd,1)*.333s) steps(8) 1; }
++                   animation:secShoot .333s steps(8) 1; }
+   @keyframes secShoot { from{background-position-x:0} to{background-position-x:-880px} }
+   .esprite.hurt { background-image:url('assets/security_hurt.png'); background-size:300% 100%;
+-                  animation:secHurt calc(var(--spd,1)*.2s) steps(3) 1; }
++                  animation:secHurt .2s steps(3) 1; }
+   @keyframes secHurt { from{background-position-x:0} to{background-position-x:-330px} }
+   .esprite.die { width:165px; left:-13px; background-image:url('assets/security_death.png');
+-                 background-size:990px 110px; animation:secDie calc(var(--spd,1)*.6s) steps(5) forwards; }
++                 background-size:990px 110px; animation:secDie .6s steps(5) forwards; }
+   @keyframes secDie { from{background-position-x:0} to{background-position-x:-825px} }
+   /* v2.5：敌人跑入 */
+   .esprite.run { background-image:url('assets/security_run.png'); background-size:800% 100%;
+-                 animation:secRun calc(var(--spd,1)*.667s) steps(8) infinite; }
++                 animation:secRun .667s steps(8) infinite; }
+   @keyframes secRun { from{background-position-x:0} to{background-position-x:-880px} }
+   /* v2.7：重装典狱长 Boss（165×124 帧，内建 1.5× 体型，覆盖小兵帧条） */
+   #enemy.boss { width:165px; height:124px; bottom:42px; }
+   #enemy.boss .esprite { transform:none; filter:drop-shadow(0 0 12px rgba(255,42,109,.8));
+                          background-image:url('assets/warden_idle.png'); background-size:400% 100%;
+-                         animation:wardenIdle calc(var(--spd,1)*1s) steps(4) infinite; }
++                         animation:wardenIdle 1s steps(4) infinite; }
+   @keyframes wardenIdle { from{background-position-x:0} to{background-position-x:-660px} }
+   #enemy.boss .esprite.shoot { background-image:url('assets/warden_shoot.png'); background-size:800% 100%;
+-                               animation:wardenShoot calc(var(--spd,1)*.4s) steps(8) 1; }
++                               animation:wardenShoot .4s steps(8) 1; }
+   @keyframes wardenShoot { from{background-position-x:0} to{background-position-x:-1320px} }
+   #enemy.boss .esprite.hurt { background-image:url('assets/warden_idle.png'); background-size:400% 100%;
+-                              animation:wardenIdle calc(var(--spd,1)*1s) steps(4) infinite; }  /* Boss 无受击帧，保持待机 */
++                              animation:wardenIdle 1s steps(4) infinite; }  /* Boss 无受击帧，保持待机 */
+   #enemy.boss .esprite.run { width:100%; left:0; background-image:url('assets/warden_run.png');
+-                             background-size:800% 100%; animation:wardenRun calc(var(--spd,1)*.8s) steps(8) infinite; }
++                             background-size:800% 100%; animation:wardenRun .8s steps(8) infinite; }
+   @keyframes wardenRun { from{background-position-x:0} to{background-position-x:-1320px} }
+   #enemy.boss .esprite.die { width:100%; left:0; background-image:url('assets/warden_death.png');
+-                             background-size:800% 100%; animation:wardenDie calc(var(--spd,1)*.8s) steps(7) forwards; }
++                             background-size:800% 100%; animation:wardenDie .8s steps(7) forwards; }
+   @keyframes wardenDie { from{background-position-x:0} to{background-position-x:-1155px} }
+   /* v2.9：监察官·棱镜（里程碑层 Boss，10/20/30…层），150px 方帧，白金悬浮体型 */
+   #enemy.prism { width:150px; height:150px; bottom:46px; }
+   #enemy.prism .esprite { background-image:url('assets/prism_idle.png'); background-size:400% 100%;
+-                          animation:prismIdle calc(var(--spd,1)*1s) steps(4) infinite;
++                          animation:prismIdle 1s steps(4) infinite;
+                           filter:drop-shadow(0 0 14px rgba(192,123,255,.7)); }
+   @keyframes prismIdle { from{background-position-x:0} to{background-position-x:-600px} }
+   #enemy.prism .esprite.shoot { background-image:url('assets/prism_shoot.png'); background-size:600% 100%;
+-                                animation:prismShoot calc(var(--spd,1)*.4s) steps(6) 1; }
++                                animation:prismShoot .4s steps(6) 1; }
+   @keyframes prismShoot { from{background-position-x:0} to{background-position-x:-900px} }
+   #enemy.prism .esprite.slash { background-image:url('assets/prism_slash.png'); background-size:600% 100%;
+-                                animation:prismSlash calc(var(--spd,1)*.5s) steps(6) 1; }
++                                animation:prismSlash .5s steps(6) 1; }
+   @keyframes prismSlash { from{background-position-x:0} to{background-position-x:-900px} }
+   #enemy.prism .esprite.run { width:100%; left:0; background-image:url('assets/prism_move.png');
+-                              background-size:600% 100%; animation:prismMove calc(var(--spd,1)*.75s) steps(6) infinite; }
++                              background-size:600% 100%; animation:prismMove .75s steps(6) infinite; }
+   @keyframes prismMove { from{background-position-x:0} to{background-position-x:-900px} }
+   #enemy.prism .esprite.hurt { background-image:url('assets/prism_idle.png'); background-size:400% 100%;
+-                               animation:prismIdle calc(var(--spd,1)*1s) steps(4) infinite; }  /* 无受击帧，保持待机 */
++                               animation:prismIdle 1s steps(4) infinite; }  /* 无受击帧，保持待机 */
+   #enemy.prism .esprite.die { width:100%; left:0; background-image:url('assets/prism_death.png');
+-                              background-size:800% 100%; animation:prismDie calc(var(--spd,1)*.89s) steps(7) forwards; }
++                              background-size:800% 100%; animation:prismDie .89s steps(7) forwards; }
+   @keyframes prismDie { from{background-position-x:0} to{background-position-x:-1050px} }
+   /* v2.15：巡猎机械犬（小怪随机种，110×82，体高 45%） */
+   #enemy.hound { width:110px; height:82px; bottom:46px; }
+   #enemy.hound .esprite { background-image:url('assets/hound_idle.png'); background-size:400% 100%;
+-                          animation:houndIdle calc(var(--spd,1)*1s) steps(4) infinite; }
++                          animation:houndIdle 1s steps(4) infinite; }
+   @keyframes houndIdle { from{background-position-x:0} to{background-position-x:-440px} }
+   #enemy.hound .esprite.run { background-image:url('assets/hound_run.png'); background-size:800% 100%;
+-                              animation:houndRun calc(var(--spd,1)*.667s) steps(8) infinite; }
++                              animation:houndRun .667s steps(8) infinite; }
+   @keyframes houndRun { from{background-position-x:0} to{background-position-x:-880px} }
+   #enemy.hound .esprite.bite { background-image:url('assets/hound_bite.png'); background-size:600% 100%;
+-                               animation:houndBite calc(var(--spd,1)*.5s) steps(6) 1; }
++                               animation:houndBite .5s steps(6) 1; }
+   @keyframes houndBite { from{background-position-x:0} to{background-position-x:-660px} }
+   #enemy.hound .esprite.shoot { background-image:url('assets/hound_idle.png'); background-size:400% 100%;
+-                                animation:houndIdle calc(var(--spd,1)*1s) steps(4) infinite; }  /* 犬无射击帧，兜底 */
++                                animation:houndIdle 1s steps(4) infinite; }  /* 犬无射击帧，兜底 */
+   #enemy.hound .esprite.hurt { background-image:url('assets/hound_hurt.png'); background-size:300% 100%;
+-                               animation:houndHurt calc(var(--spd,1)*.2s) steps(3) 1; }
++                               animation:houndHurt .2s steps(3) 1; }
+   @keyframes houndHurt { from{background-position-x:0} to{background-position-x:-330px} }
+   #enemy.hound .esprite.die { width:100%; left:0; background-image:url('assets/hound_death.png');
+-                              background-size:600% 100%; animation:houndDie calc(var(--spd,1)*.667s) steps(5) forwards; }
++                              background-size:600% 100%; animation:houndDie .667s steps(5) forwards; }
+   @keyframes houndDie { from{background-position-x:0} to{background-position-x:-550px} }
+   /* v2.23：天枢·零号主机（100 层主 Boss，190×142 帧条） */
+   #enemy.tianshu { width:190px; height:142px; bottom:40px; }
+   #enemy.tianshu .esprite { background-image:url('assets/tianshu_idle.png'); background-size:400% 100%;
+-                            animation:tsIdle calc(var(--spd,1)*1s) steps(4) infinite; }
++                            animation:tsIdle 1s steps(4) infinite; }
+   @keyframes tsIdle { from{background-position-x:0} to{background-position-x:-760px} }
+   #enemy.tianshu .esprite.run { background-image:url('assets/tianshu_move.png'); background-size:600% 100%;
+-                                animation:tsMove calc(var(--spd,1)*.6s) steps(6) infinite; }
++                                animation:tsMove .6s steps(6) infinite; }
+   @keyframes tsMove { from{background-position-x:0} to{background-position-x:-1140px} }
+   #enemy.tianshu .esprite.shoot { background-image:url('assets/tianshu_machinegun.png'); background-size:600% 100%;
+-                                  animation:tsMg calc(var(--spd,1)*.4s) steps(6) infinite; }   /* 机枪连射（循环） */
++                                  animation:tsMg .4s steps(6) infinite; }   /* 机枪连射（循环） */
+   @keyframes tsMg { from{background-position-x:0} to{background-position-x:-1140px} }
+   #enemy.tianshu .esprite.charge { background-image:url('assets/tianshu_charge.png'); background-size:400% 100%;
+-                                   animation:tsCharge calc(var(--spd,1)*.5s) steps(3) forwards; }   /* 蓄力保持末帧=预警 */
++                                   animation:tsCharge .5s steps(3) forwards; }   /* 蓄力保持末帧=预警 */
+   @keyframes tsCharge { from{background-position-x:0} to{background-position-x:-570px} }
+   #enemy.tianshu .esprite.cannon { background-image:url('assets/tianshu_cannon.png'); background-size:600% 100%;
+-                                   animation:tsCannon calc(var(--spd,1)*.5s) steps(6) 1; }
++                                   animation:tsCannon .5s steps(6) 1; }
+   @keyframes tsCannon { from{background-position-x:0} to{background-position-x:-1140px} }
+   #enemy.tianshu .esprite.hurt { background-image:url('assets/tianshu_idle.png'); background-size:400% 100%;
+-                                 animation:tsIdle calc(var(--spd,1)*1s) steps(4) infinite; }   /* 无受击帧（素材规范），兜底待机 */
++                                 animation:tsIdle 1s steps(4) infinite; }   /* 无受击帧（素材规范），兜底待机 */
+   #enemy.tianshu .esprite.die { width:100%; left:0; background-image:url('assets/tianshu_death.png');
+-                                background-size:800% 100%; animation:tsDie calc(var(--spd,1)*.8s) steps(7) forwards; }
++                                background-size:800% 100%; animation:tsDie .8s steps(7) forwards; }
+   @keyframes tsDie { from{background-position-x:0} to{background-position-x:-1330px} }
+   .hpbar { position:absolute; bottom:30px; width:180px; height:14px; background:#1a2436;
+            border:1px solid #2b3a55; border-radius:7px; overflow:hidden; }
+@@ -640,6 +640,7 @@
+ let atkTimer=0, paused=false, wall=false;
+ 
+ function spawnMob(){
++  cancelDeathWait();
+   const boss=isBoss();
+   const now=Date.now();
+   if(S.mobIdx===0) floorEnterT=now;
+@@ -668,7 +669,8 @@
+   eEl.classList.toggle("hound",!boss&&mobKind==="hound");   // v2.15：机械犬小怪
+   eEl.style.transition=""; eEl.style.opacity="";   // v2.24.7：不再清内联 right（跑入目标位即站位，消除回跳）
+   const es=document.getElementById("enemySpr");
+-  if(es) es.classList.remove("die","shoot","hurt","run","slash","bite","charge","cannon");   // v2.5：新怪重置动画
++  if(es) es.classList.remove("die","shoot","hurt","run","slash","bite","charge","cannon");
++  syncPresentationSpeed();   // v2.5：新怪重置动画
+ }
+ function calcGold(f,boss){
+   return mobGold(f)*(boss?BOSS.gold:1)*calcStats().goldMult;
+@@ -696,18 +698,85 @@
+   if(cur.hp<=0) onKill();
+ }
+ // v2.5：敌人动画控制（优先级 die > hurt/shoot > idle）
+-const sDur=ms=>Math.max(50,Math.round(ms/effSpeed()));   // v2.36：演出时长按倍速缩放
++// v2.40：演出以 1× 时间计量，切速只改变剩余时间与播放速率，保留当前进度。
++const presentationTasks=new Set(), presentationTweens=new Set(), sceneLayers=new Set();
++let presentationRate=1, deathWait=null;
++function cancelPresentation(task){
++  if(!task) return;
++  clearTimeout(task.timer); presentationTasks.delete(task);
++}
++function armPresentation(task){
++  task.started=performance.now(); task.rate=presentationRate;
++  task.timer=setTimeout(()=>{
++    presentationTasks.delete(task);
++    if(task.seq===runSeq) task.fn();
++  },Math.max(0,task.remaining/task.rate));
++}
++function afterPresentation(ms,fn,seq=runSeq){
++  syncPresentationSpeed();
++  const task={remaining:ms,fn,seq}; presentationTasks.add(task); armPresentation(task); return task;
++}
++function syncPresentationSpeed(){
++  const rate=effSpeed(), now=performance.now();
++  if(rate!==presentationRate){
++    presentationRate=rate;
++    for(const task of presentationTasks){
++      clearTimeout(task.timer);
++      if(task.seq!==runSeq){ presentationTasks.delete(task); continue; }
++      task.remaining=Math.max(0,task.remaining-(now-task.started)*task.rate);
++      armPresentation(task);
++    }
++  }
++  for(const id of ["playerSpr","enemySpr"]){
++    const el=$(id);
++    if(el&&el.getAnimations) for(const anim of el.getAnimations()){
++      if(anim.playbackRate!==rate) anim.playbackRate=rate;
++    }
++  }
++  for(const item of presentationTweens){
++    if(item.seq!==runSeq){ item.anim.cancel(); presentationTweens.delete(item); }
++    else if(item.anim.playbackRate!==rate) item.anim.playbackRate=rate;
++  }
++}
++function presentationTween(el,prop,to,ms,seq=runSeq,easing="linear"){
++  const from=getComputedStyle(el)[prop]||el.style[prop];
++  for(const item of presentationTweens) if(item.el===el&&item.prop===prop){
++    item.anim.cancel(); cancelPresentation(item.task); presentationTweens.delete(item);
++  }
++  el.style.transition="none"; el.style[prop]=to;
++  if(!el.animate) return;   // 无动画 API 的环境仍按演出时钟推进逻辑
++  const anim=el.animate([{[prop]:from},{[prop]:to}],{duration:ms,easing,fill:"both"});
++  anim.playbackRate=effSpeed();
++  const item={el,prop,anim,seq}; presentationTweens.add(item);
++  item.task=afterPresentation(ms,()=>{ anim.cancel(); presentationTweens.delete(item); },seq);
++}
++function cancelDeathWait(){
++  if(!deathWait) return;
++  const d=deathWait; deathWait=null; cancelPresentation(d.task);
++  if(d.spr.removeEventListener) d.spr.removeEventListener("animationend",d.listener);
++}
++function beginPresentationRun(){
++  ++runSeq; cancelDeathWait();
++  for(const task of presentationTasks) clearTimeout(task.timer);
++  presentationTasks.clear();
++  for(const item of presentationTweens) item.anim.cancel();
++  presentationTweens.clear();
++  for(const el of sceneLayers) el.remove(); sceneLayers.clear();
++  return runSeq;
++}
+ function enemyAnim(cls,ms){
+   const sp=$("enemySpr"); if(!sp||sp.classList.contains("die")) return;
+   if(cls==="shoot"&&isBoss()) ms=400;   // 典狱长/棱镜射击均 0.4s（小兵 333ms 由调用方传入）
+   if(cls==="slash") ms=500;                            // v2.9：棱镜能量斩击 6f@12fps
+   sp.classList.remove("shoot","hurt","slash","bite","charge","cannon"); void sp.offsetWidth;
+   sp.classList.add(cls);
+-  clearTimeout(sp._t); sp._t=setTimeout(()=>sp.classList.remove(cls),sDur(ms));
++  cancelPresentation(sp._t); syncPresentationSpeed();
++  sp._t=afterPresentation(ms,()=>{ sp.classList.remove(cls); syncPresentationSpeed(); });
+ }
+ function enemyDie(){
+   const sp=$("enemySpr");
+-  clearTimeout(sp._t); sp.classList.remove("shoot","hurt","bite","charge","cannon"); sp.classList.add("die");
++  cancelPresentation(sp._t); sp.classList.remove("shoot","hurt","slash","bite","charge","cannon","run"); sp.classList.add("die");
++  syncPresentationSpeed();
+ }
+ function onKill(){
+   cur.hp=1e18;   // v2.5：尸体无敌，死亡动画期间防重复触发
+@@ -733,20 +802,20 @@
+     const willSkill = S.floor%10===0;   // v1.7 起：每 10 层一次三选一，无上限
+     const willTemp  = S.floor%10===5;   // 5/15/25… 中庭层触发器池（v2.19：双池）
+     if(willSkill||willTemp) S.pendingOffer={pool:willSkill?"p10":"p5",picks:null,floor:S.floor};   // v2.31：楼层随意图入档（N04）   // v2.24.15：推进即存意图
+-    S.floor++; S.mobIdx=0;
++    S.floor++; S.mobIdx=0; syncPresentationSpeed();
+     const seqK=runSeq;   // v2.29：复位后丢弃旧 Boss 转场/弹窗回调
+-    setTimeout(()=>{
++    afterPresentation(prismKill?1100:900,()=>{
+       if(seqK!==runSeq) return;   // v2.29
+       if(willSkill){ offerSkills("p10",null,S.floor-1); pendingTransit=true; }   // v2.29：文案用刚完成的层
+       else if(willTemp){ offerSkills("p5"); pendingTransit=true; }
+       else startFloorTransit();
+-    },sDur(prismKill?1100:900));
++    },seqK);
+   } else {
+     S.mobIdx++;
+     // v2.5：顺序式刷新——尸体停留→淡出→新敌人跑入→刷怪
+     const seq=runSeq;   // v2.14.4：复位/重塑期间作废旧定时器
+-    setTimeout(()=>{ if(seq!==runSeq) return; const e=$("enemy"); e.style.transition="opacity .3s"; e.style.opacity="0"; },sDur(1300));
+-    setTimeout(()=>{ if(seq!==runSeq) return; enemyRunIn(); },sDur(1650));
++    afterPresentation(1300,()=>presentationTween($("enemy"),"opacity","0",300,seq),seq);
++    afterPresentation(1650,()=>enemyRunIn(seq),seq);
+   }
+   save();
+ }
+@@ -754,10 +823,10 @@
+ const fightPos=()=>window.innerWidth<=640?"8%":"22%";   // v2.24.4：跑入目标位跟随媒体查询（修复跑近再瞬移）
+ // v2.24.8：端侧隔离——跑入速度双档（手机快/桌面原速），CSS 过渡与 JS 定时器同源
+ // v2.24.16：手机端速度恒定——跑入时长=距离(23%)÷跑出基准速度(78%/1.2s)≈360ms；桌面端保持原节奏不动
+-const runCfg=()=>{ const k=effSpeed(); const d=ms=>Math.round(ms/k);   // v2.36：跑入/转场随倍速
+-  return window.innerWidth<=640?{e:d(360),p:d(360),settle:d(650),t:d(360)}:{e:d(900),p:d(1400),settle:d(1000),t:d(1400)}; };
++const runCfg=()=>window.innerWidth<=640?{e:360,p:360,settle:650,t:360}:{e:900,p:1400,settle:1000,t:1400};
+ let mobKind="trooper";   // v2.15：当前小怪种类（trooper/hound），Boss 恒为 trooper 槽位外观体系
+-function enemyRunIn(seq){
++function enemyRunIn(seq=runSeq){
++  if(seq!==runSeq) return;
+   const e=$("enemy"), sp=$("enemySpr");
+   mobKind = isBoss() ? "trooper" : (Math.random()<0.5 ? "hound" : "trooper");   // v2.15：小怪种类随机
+   e.classList.toggle("boss",isBoss());   // v2.7.1：跑入前就切好 Boss 外观（否则小兵/Boss 互相串皮）
+@@ -765,43 +834,44 @@
+   e.classList.toggle("tianshu",isTianshu());   // v2.23
+   e.classList.toggle("hound",mobKind==="hound");
+   $("enemyHp").style.display="none"; $("enemyHpT").style.display="none"; $("enemySh").style.display="none"; $("enemyShT").style.display="none";
+-  sp.classList.remove("die","shoot","hurt"); sp.classList.add("run");
++  cancelPresentation(sp._t);
++  sp.classList.remove("die","shoot","hurt","slash","bite","charge","cannon"); sp.classList.add("run");
+   e.style.transition="none"; e.style.right="-15%"; e.style.opacity="1"; void e.offsetWidth;
+-  const rc=runCfg(); e.style.transition=`right ${rc.e}ms linear`; e.style.right=fightPos();
+-  setTimeout(()=>{
++  const rc=runCfg(); presentationTween(e,"right",fightPos(),rc.e,seq); syncPresentationSpeed();
++  afterPresentation(rc.e+50,()=>{
+     if(seq!==undefined&&seq!==runSeq) return;   // v2.14.4：代次过期则丢弃
+     e.style.transition=""; sp.classList.remove("run");
+     $("enemyHp").style.display=""; $("enemyHpT").style.display="";
+     spawnMob();
+-  },rc.e+50);
++  },seq);
+ }
+ // v2.14：开局双方跑入（新开局/重塑/复位/读档统一演出）
+ let runSeq=0;   // v2.14.4：流程代次令牌——复位/重塑递增，旧定时器全部作废
+ function openingRunIn(){
+   $("arena").style.backgroundImage=`url('${bgForFloor(S.floor)}')`;   // v2.29：读档/开局统一初始化场景
+-  const seq=++runSeq;
++  const seq=beginPresentationRun();
+   transit=true; paused=true;
+   // v2.14.2：先清场——旧敌人与血条立即隐藏（复位/重开时不残留）
+   const e=$("enemy"), es=$("enemySpr");
+-  es.classList.remove("die","shoot","hurt","run","slash");
++  es.classList.remove("die","shoot","hurt","run","slash","bite","charge","cannon");
+   e.style.transition="none"; e.style.opacity="0"; e.style.right="-15%";
+   $("enemyHp").style.display="none"; $("enemyHpT").style.display="none"; $("enemySh").style.display="none"; $("enemyShT").style.display="none";
+   const p=$("player"), sp=$("playerSpr");
+-  sp.classList.remove("atk"); sp.classList.add("run");
++  sp.classList.remove("atk","death"); sp.classList.add("run");
+   p.style.transition="none"; p.style.left="-15%"; p.style.opacity="1"; void p.offsetWidth;
+   barsHidden=true; $("playerHp").style.display="none"; $("playerHpT").style.display="none"; $("playerSh").style.display="none"; $("playerShT").style.display="none";   // v2.24.9：跑入过程不显示血条
+-  const rc=runCfg(); p.style.transition=`left ${rc.p}ms linear`; p.style.left=fightPos();
+-  setTimeout(()=>{
++  const rc=runCfg(); presentationTween(p,"left",fightPos(),rc.p,seq); syncPresentationSpeed();
++  afterPresentation(rc.p+50,()=>{
+     if(seq!==runSeq) return;   // v2.14.4：期间发生复位/重塑则作废
+     p.style.transition=""; sp.classList.remove("run");
+     barsHidden=false; $("playerHp").style.display=""; $("playerHpT").style.display=""; $("playerSh").style.display=""; $("playerShT").style.display="";   // v2.24.9：就位显示
+     dispFloor=S.floor;   // v2.28.8
+     transit=false;
+     enemyRunIn(seq);
+-    setTimeout(()=>{ if(seq!==runSeq) return; if(!wall) paused=false; save(); renderPanels();
++    afterPresentation(rc.settle,()=>{ if(!wall) paused=false; save(); renderPanels();
+       if(S.pendingOffer){ const po=S.pendingOffer; offerSkills(po.pool,po.picks,po.floor??S.floor-1); }   // v2.31.1：旧档无楼层按推进语义回填（C60）
+-    },rc.settle);
+-  },rc.p+50);
++    },seq);
++  },seq);
+ }
+ // ============ 楼层转场（v2.1：跑出→场景左滑→跑入） ============
+ let transit=false, pendingTransit=false, prismAlt=false, dispFloor=1;   // v2.28.8：楼层文本显示层（转场完成才更新）
+@@ -809,40 +879,47 @@
+ // v2.11：场景调度——f%10=0 棱镜核心、f%10=5 高空中庭、日常层 工业→机房→维修→货运 四场轮换
+ function bgForFloor(f){ if(f%10===0) return "assets/arena-bg4.webp"; if(f%10===5) return "assets/arena-bg3.webp"; return ARENA_BGS[f%4]; }
+ function startFloorTransit(){
+-  const seq=++runSeq;   // v2.14.4：转场同样纳入代次管理
++  const seq=beginPresentationRun();   // v2.14.4：转场同样纳入代次管理
+   transit=true; paused=true;
+   player.hp=calcStats().hp;   // v2.24.20：进层回血（转场开始）
+   barsHidden=true; $("playerHp").style.display="none"; $("playerHpT").style.display="none"; $("playerSh").style.display="none"; $("playerShT").style.display="none";   // v2.24.18：跑出旧层藏血条（防跟随拖尾）
+   const p=document.getElementById("player"), sp=document.getElementById("playerSpr");
+-  sp.classList.remove("atk"); sp.classList.add("run");
+-  p.style.transition="left "+(1.2/effSpeed())+"s linear"; p.style.left="86%";   // v2.37.1：跑出位移随倍速（F04a）
+-  setTimeout(()=>{ if(seq!==runSeq) return; p.style.transition="opacity .2s"; p.style.opacity="0"; },sDur(1150));  // 到门淡出
+-  setTimeout(()=>{ if(seq!==runSeq) return; sceneSwap(seq); },sDur(1400));
++  sp.classList.remove("atk","death"); sp.classList.add("run");
++  presentationTween(p,"left","86%",1200,seq); syncPresentationSpeed();
++  afterPresentation(1200,()=>presentationTween(p,"opacity","0",200,seq),seq);
++  afterPresentation(1400,()=>sceneSwap(seq),seq);
+ }
+ function sceneSwap(seq){
++  if(seq!==runSeq) return;
+   const arena=document.getElementById("arena");
+   const nextBg=bgForFloor(S.floor);   // v2.8：按层选景（里程碑中庭/奇偶轮换）
+   const mk=left=>{ const d=document.createElement("div"); d.className="bgSlide"; d.style.left=left; return d; };
+   const oldBg=mk("0"); oldBg.style.backgroundImage=getComputedStyle(arena).backgroundImage;
+   const newBg=mk("100%"); newBg.style.backgroundImage=`url('${nextBg}')`;
+   arena.appendChild(oldBg); arena.appendChild(newBg);
+-  requestAnimationFrame(()=>requestAnimationFrame(()=>{ oldBg.style.left="-100%"; newBg.style.left="0"; }));
+-  setTimeout(()=>{ if(seq!==runSeq){ oldBg.remove(); newBg.remove(); return; } arena.style.backgroundImage=`url('${nextBg}')`; oldBg.remove(); newBg.remove(); runIn(seq); },480);
++  sceneLayers.add(oldBg); sceneLayers.add(newBg);
++  presentationTween(oldBg,"left","-100%",450,seq,"ease-in-out");
++  presentationTween(newBg,"left","0%",450,seq,"ease-in-out");
++  afterPresentation(480,()=>{
++    arena.style.backgroundImage=`url('${nextBg}')`;
++    oldBg.remove(); newBg.remove(); sceneLayers.delete(oldBg); sceneLayers.delete(newBg); runIn(seq);
++  },seq);
+ }
+ function runIn(seq){
++  if(seq!==runSeq) return;
+   const p=document.getElementById("player"), sp=document.getElementById("playerSpr");
+   p.style.transition="none"; p.style.left="-15%"; p.style.opacity="1"; void p.offsetWidth;
+   barsHidden=true; $("playerHp").style.display="none"; $("playerHpT").style.display="none"; $("playerSh").style.display="none"; $("playerShT").style.display="none";   // v2.24.11：跑动不显示血条
+-  const rc=runCfg(); p.style.transition=`left ${rc.t}ms linear`; p.style.left=fightPos();   // v2.24.10：与跑出同速
+-  setTimeout(()=>{
++  const rc=runCfg(); presentationTween(p,"left",fightPos(),rc.t,seq); syncPresentationSpeed();
++  afterPresentation(rc.t+50,()=>{
+     if(seq!==runSeq) return;   // v2.14.4
+     p.style.transition=""; sp.classList.remove("run");
+     barsHidden=false; $("playerHp").style.display=""; $("playerHpT").style.display=""; $("playerSh").style.display=""; $("playerShT").style.display="";   // v2.24.11
+     dispFloor=S.floor;   // v2.28.8：新楼层就位才更新楼层文本
+     transit=false;
+     enemyRunIn(seq);   // v2.5：玩家到位后敌人再跑入
+-    setTimeout(()=>{ if(seq!==runSeq) return; if(!wall) paused=false; save(); renderPanels(); },rc.settle);
+-  },rc.t+50);
++    afterPresentation(rc.settle,()=>{ if(!wall) paused=false; save(); renderPanels(); },seq);
++  },seq);
+ }
+ function checkWall(dt){
+   cur.fightT+=dt;
+@@ -855,13 +932,16 @@
+     if(reason==="hp_zero"){
+       confirmOpen=false; pendingSkillOffer=null;   // v2.38：死亡立即作废复位确认（不等动画）
+       const spr=$("playerSpr");
+-      spr.classList.remove("run","shoot"); spr.classList.add("death");
++      cancelDeathWait(); cancelPresentation(spr._t);
++      spr.classList.remove("run","atk"); spr.classList.add("death"); syncPresentationSpeed();
+       const seq=runSeq;
+-      // v2.38.4：S01——弹窗由动画结束事件驱动（随 --spd 中途切速自动对齐），定时器兜底
+-      let shown=false;
+-      const show=()=>{ if(shown||seq!==runSeq) return; shown=true; showWallModal(); };
+-      if(spr.addEventListener) spr.addEventListener("animationend",function h(e){ if(e.animationName==="gunnerDeath"){ spr.removeEventListener("animationend",h); show(); } });
+-      setTimeout(show,Math.round(1200/effSpeed()));   // 兜底（动画事件缺失/被停）
++      const show=()=>{
++        if(seq!==runSeq||!deathWait||!wall) return;
++        cancelDeathWait(); showWallModal();
++      };
++      const listener=e=>{ if(e.target===spr&&e.animationName==="gunnerDeath") show(); };
++      deathWait={spr,listener,task:afterPresentation(1200,show,seq)};
++      if(spr.addEventListener) spr.addEventListener("animationend",listener);
+       return;
+     }
+     showWallModal();
+@@ -1097,7 +1177,8 @@
+     // v1.9.1：玩家原地播放射击动画，不再前后位移
+     const sp=$("playerSpr");
+     sp.classList.remove("atk"); void sp.offsetWidth; sp.classList.add("atk");
+-    setTimeout(()=>sp.classList.remove("atk"),330);
++    cancelPresentation(sp._t); syncPresentationSpeed();
++    sp._t=afterPresentation(330,()=>{ sp.classList.remove("atk"); syncPresentationSpeed(); });
+     return;
+   }
+   const el=$(who); el.classList.add("lunge-e");
+@@ -1267,8 +1348,7 @@
+ function loop(now){
+   const realDt=Math.min((now-lastT)/1000,0.1); lastT=now;
+   let dt=realDt*effSpeed();   // v2.19：2 倍速（已通过楼层）
+-  if(window._spd!==effSpeed()){ window._spd=effSpeed();
+-    const de=document.documentElement; if(de&&de.style) de.style.setProperty("--spd",1/effSpeed()); }   // v2.36：演出/动画随倍速
++  syncPresentationSpeed();
+   if(S.speed2&&S.floor>S.bestEver&&!speedDropNotified){ speedDropNotified=true; toast("已进入未探索楼层，恢复常速"); }
+   if(S.floor<=S.bestEver) speedDropNotified=false;
+   if(!paused && cur.hp<1e17){   // v2.5：尸体/跑入间隔期不结算战斗
+@@ -1312,7 +1392,7 @@
+ 
+ // ============ 测试日志系统 ============
+ // 版本管理：每次修改递增 VERSION，并同步维护 game/CHANGELOG.md 与 game/versions/ 快照
+-const VERSION="v2.39.2";   // B01 倍速按钮节点稳定 / A01 六个末帧动画切片对齐 / S01 死亡弹窗动画驱动   // 死亡动画素材路径修正+末帧停留（QA 排查）
++const VERSION="v2.40";   // Codex：演出保进度切速、死亡回调清理；保留 WorkBuddy B01/A01 修复
+ new Image().src="assets/gunner_shoot.png";   // 预加载攻击帧条防首击闪烁
+ new Image().src="assets/gunner_run.png";
+ new Image().src="assets/arena-bg2.webp";
+@@ -1355,7 +1435,7 @@
+   return false;
+ }
+ // v2.19：2 倍速——已通过楼层（floor<=bestEver）生效，新边境自动降 1 倍
+-function toggleSpeed(){ S.speed2=!S.speed2; save(); renderSpeedBtn(); toast(S.speed2?"2 倍速开启（仅限已通过楼层）":"恢复常速"); }
++function toggleSpeed(){ S.speed2=!S.speed2; syncPresentationSpeed(); save(); renderSpeedBtn(); toast(S.speed2?"2 倍速开启（仅限已通过楼层）":"恢复常速"); }
+ function effSpeed(){ return S.speed2 && S.floor<=S.bestEver ? 2 : 1; }
+ let speedDropNotified=false;
+ function renderSpeedBtn(){

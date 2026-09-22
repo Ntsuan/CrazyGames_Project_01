@@ -1,0 +1,114 @@
+[
+  {
+    "connected": true,
+    "name": "atk held across refresh 1x",
+    "pass": true,
+    "trackerStuck": false,
+    "value": 1
+  },
+  {
+    "connected": true,
+    "name": "hp held across refresh 1x",
+    "pass": true,
+    "trackerStuck": false,
+    "value": 1
+  },
+  {
+    "connected": true,
+    "name": "fuse held across refresh 1x",
+    "pass": true,
+    "trackerStuck": false,
+    "value": 1
+  },
+  {
+    "connected": true,
+    "name": "skill held across refresh 1x",
+    "pass": true,
+    "trackerStuck": false,
+    "value": 1
+  },
+  {
+    "connected": true,
+    "name": "atk held across refresh 2x",
+    "pass": true,
+    "trackerStuck": false,
+    "value": 1
+  },
+  {
+    "connected": true,
+    "name": "hp held across refresh 2x",
+    "pass": true,
+    "trackerStuck": false,
+    "value": 1
+  },
+  {
+    "connected": true,
+    "name": "fuse held across refresh 2x",
+    "pass": true,
+    "trackerStuck": false,
+    "value": 1
+  },
+  {
+    "connected": true,
+    "name": "skill held across refresh 2x",
+    "pass": true,
+    "trackerStuck": false,
+    "value": 1
+  },
+  {
+    "actual": 1,
+    "expected": 1,
+    "name": "10px",
+    "pass": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "11px end only",
+    "pass": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "diagonal 9px",
+    "pass": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "cancel",
+    "pass": true
+  },
+  {
+    "actual": 0,
+    "expected": 0,
+    "name": "move outside then return",
+    "pass": true
+  },
+  {
+    "actual": 0,
+    "name": "cancelled compatibility click blocked",
+    "pass": true
+  },
+  {
+    "actual": 0,
+    "expected": 1,
+    "name": "new valid tap immediately after cancelled swipe",
+    "pass": false
+  },
+  {
+    "connected": false,
+    "fused": false,
+    "name": "equipment changes during held fuse",
+    "pass": false,
+    "trackerStuck": true
+  },
+  {
+    "afterDisabled": true,
+    "beforeDisabled": true,
+    "cost": 14,
+    "name": "tree funds cross level14 cost without level change",
+    "pass": false,
+    "souls": 14
+  }
+]

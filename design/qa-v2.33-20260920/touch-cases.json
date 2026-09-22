@@ -1,0 +1,50 @@
+[
+  {
+    "expected": 1,
+    "gold": 9994,
+    "level": 1,
+    "name": "单次点按",
+    "pressing": false,
+    "prevented": true
+  },
+  {
+    "expected": 1,
+    "gold": 9994,
+    "level": 1,
+    "name": "9px抖动容差",
+    "pressing": false,
+    "prevented": true
+  },
+  {
+    "expected": 0,
+    "gold": 10000,
+    "level": 0,
+    "name": "11px滑动取消",
+    "pressing": false,
+    "prevented": false
+  },
+  {
+    "expected": 0,
+    "gold": 10000,
+    "level": 0,
+    "name": "系统取消",
+    "pressing": false,
+    "prevented": false
+  },
+  {
+    "expected": 0,
+    "gold": 0,
+    "level": 0,
+    "name": "不可用按钮",
+    "pressing": false,
+    "prevented": false
+  },
+  {
+    "expected": 0,
+    "gold": 9994,
+    "level": 1,
+    "name": "另一手指先抬起不应触发按钮",
+    "pressing": false,
+    "prevented": true
+  }
+]

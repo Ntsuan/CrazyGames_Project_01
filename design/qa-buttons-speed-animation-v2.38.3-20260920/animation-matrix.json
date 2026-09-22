@@ -1,0 +1,1322 @@
+[
+  {
+    "actor": "player",
+    "animation": "gunnerIdle",
+    "duration": 1000,
+    "easing": "steps(4)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/gunner_idle.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 250,
+        "x": -110
+      },
+      {
+        "timeMs": 500,
+        "x": -220
+      },
+      {
+        "timeMs": 750,
+        "x": -330
+      },
+      {
+        "timeMs": 999.9,
+        "x": -330
+      },
+      {
+        "timeMs": 1000,
+        "x": 0
+      }
+    ],
+    "sheet": 440,
+    "state": "idle",
+    "width": 110
+  },
+  {
+    "actor": "player",
+    "animation": "gunnerShoot",
+    "duration": 320,
+    "easing": "steps(16)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/gunner_shoot.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 80,
+        "x": -440
+      },
+      {
+        "timeMs": 160,
+        "x": -880
+      },
+      {
+        "timeMs": 240,
+        "x": -1320
+      },
+      {
+        "timeMs": 319.9,
+        "x": -1650
+      },
+      {
+        "timeMs": 320,
+        "x": 0
+      }
+    ],
+    "sheet": 1760,
+    "state": "atk",
+    "width": 110
+  },
+  {
+    "actor": "player",
+    "animation": "gunnerRun",
+    "duration": 667,
+    "easing": "steps(8)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/gunner_run.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 166.75,
+        "x": -220
+      },
+      {
+        "timeMs": 333.5,
+        "x": -440
+      },
+      {
+        "timeMs": 500.25,
+        "x": -550
+      },
+      {
+        "timeMs": 666.9,
+        "x": -770
+      },
+      {
+        "timeMs": 667,
+        "x": 0
+      }
+    ],
+    "sheet": 880,
+    "state": "run",
+    "width": 110
+  },
+  {
+    "actor": "player",
+    "animation": "gunnerDeath",
+    "duration": 900,
+    "easing": "steps(7)",
+    "endOutOfSheet": false,
+    "fill": "forwards",
+    "image": "url(\"http://127.0.0.1:19332/assets/stage01-death.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 225,
+        "x": -110
+      },
+      {
+        "timeMs": 450,
+        "x": -330
+      },
+      {
+        "timeMs": 675,
+        "x": -550
+      },
+      {
+        "timeMs": 899.9,
+        "x": -660
+      },
+      {
+        "timeMs": 900,
+        "x": -770
+      }
+    ],
+    "sheet": 880,
+    "state": "death",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secIdle",
+    "duration": 1000,
+    "easing": "steps(4)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/security_idle.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 250,
+        "x": -110
+      },
+      {
+        "timeMs": 500,
+        "x": -220
+      },
+      {
+        "timeMs": 750,
+        "x": -330
+      },
+      {
+        "timeMs": 999.9,
+        "x": -330
+      },
+      {
+        "timeMs": 1000,
+        "x": 0
+      }
+    ],
+    "sheet": 440,
+    "state": "idle",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secShoot",
+    "duration": 333,
+    "easing": "steps(8)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/security_shoot.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 83.25,
+        "x": -220
+      },
+      {
+        "timeMs": 166.5,
+        "x": -440
+      },
+      {
+        "timeMs": 249.75,
+        "x": -660
+      },
+      {
+        "timeMs": 332.9,
+        "x": -770
+      },
+      {
+        "timeMs": 333,
+        "x": 0
+      }
+    ],
+    "sheet": 880,
+    "state": "shoot",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secHurt",
+    "duration": 200,
+    "easing": "steps(3)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/security_hurt.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 50,
+        "x": 0
+      },
+      {
+        "timeMs": 100,
+        "x": -110
+      },
+      {
+        "timeMs": 150,
+        "x": -220
+      },
+      {
+        "timeMs": 199.9,
+        "x": -220
+      },
+      {
+        "timeMs": 200,
+        "x": 0
+      }
+    ],
+    "sheet": 330,
+    "state": "hurt",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secRun",
+    "duration": 667,
+    "easing": "steps(8)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/security_run.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 166.75,
+        "x": -220
+      },
+      {
+        "timeMs": 333.5,
+        "x": -440
+      },
+      {
+        "timeMs": 500.25,
+        "x": -550
+      },
+      {
+        "timeMs": 666.9,
+        "x": -770
+      },
+      {
+        "timeMs": 667,
+        "x": 0
+      }
+    ],
+    "sheet": 880,
+    "state": "run",
+    "width": 110
+  },
+  {
+    "actor": "security",
+    "animation": "secDie",
+    "duration": 600,
+    "easing": "steps(6)",
+    "endOutOfSheet": true,
+    "fill": "forwards",
+    "image": "url(\"http://127.0.0.1:19332/assets/security_death.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 150,
+        "x": -165
+      },
+      {
+        "timeMs": 300,
+        "x": -495
+      },
+      {
+        "timeMs": 450,
+        "x": -660
+      },
+      {
+        "timeMs": 599.9,
+        "x": -825
+      },
+      {
+        "timeMs": 600,
+        "x": -990
+      }
+    ],
+    "sheet": 990,
+    "state": "die",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenIdle",
+    "duration": 1000,
+    "easing": "steps(4)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/warden_idle.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 250,
+        "x": -165
+      },
+      {
+        "timeMs": 500,
+        "x": -330
+      },
+      {
+        "timeMs": 750,
+        "x": -495
+      },
+      {
+        "timeMs": 999.9,
+        "x": -495
+      },
+      {
+        "timeMs": 1000,
+        "x": 0
+      }
+    ],
+    "sheet": 660,
+    "state": "idle",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenShoot",
+    "duration": 400,
+    "easing": "steps(8)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/warden_shoot.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 100,
+        "x": -330
+      },
+      {
+        "timeMs": 200,
+        "x": -660
+      },
+      {
+        "timeMs": 300,
+        "x": -825
+      },
+      {
+        "timeMs": 399.9,
+        "x": -1155
+      },
+      {
+        "timeMs": 400,
+        "x": 0
+      }
+    ],
+    "sheet": 1320,
+    "state": "shoot",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenIdle",
+    "duration": 1000,
+    "easing": "steps(4)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/warden_idle.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 250,
+        "x": -165
+      },
+      {
+        "timeMs": 500,
+        "x": -330
+      },
+      {
+        "timeMs": 750,
+        "x": -495
+      },
+      {
+        "timeMs": 999.9,
+        "x": -495
+      },
+      {
+        "timeMs": 1000,
+        "x": 0
+      }
+    ],
+    "sheet": 660,
+    "state": "hurt",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenRun",
+    "duration": 800,
+    "easing": "steps(8)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/warden_run.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 200,
+        "x": -330
+      },
+      {
+        "timeMs": 400,
+        "x": -660
+      },
+      {
+        "timeMs": 600,
+        "x": -825
+      },
+      {
+        "timeMs": 799.9,
+        "x": -1155
+      },
+      {
+        "timeMs": 800,
+        "x": 0
+      }
+    ],
+    "sheet": 1320,
+    "state": "run",
+    "width": 165
+  },
+  {
+    "actor": "warden",
+    "animation": "wardenDie",
+    "duration": 800,
+    "easing": "steps(8)",
+    "endOutOfSheet": true,
+    "fill": "forwards",
+    "image": "url(\"http://127.0.0.1:19332/assets/warden_death.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 200,
+        "x": -330
+      },
+      {
+        "timeMs": 400,
+        "x": -660
+      },
+      {
+        "timeMs": 600,
+        "x": -825
+      },
+      {
+        "timeMs": 799.9,
+        "x": -1155
+      },
+      {
+        "timeMs": 800,
+        "x": -1320
+      }
+    ],
+    "sheet": 1320,
+    "state": "die",
+    "width": 165
+  },
+  {
+    "actor": "prism",
+    "animation": "prismIdle",
+    "duration": 1000,
+    "easing": "steps(4)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/prism_idle.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 250,
+        "x": -150
+      },
+      {
+        "timeMs": 500,
+        "x": -300
+      },
+      {
+        "timeMs": 750,
+        "x": -450
+      },
+      {
+        "timeMs": 999.9,
+        "x": -450
+      },
+      {
+        "timeMs": 1000,
+        "x": 0
+      }
+    ],
+    "sheet": 600,
+    "state": "idle",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismShoot",
+    "duration": 400,
+    "easing": "steps(6)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/prism_shoot.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 100,
+        "x": -150
+      },
+      {
+        "timeMs": 200,
+        "x": -450
+      },
+      {
+        "timeMs": 300,
+        "x": -600
+      },
+      {
+        "timeMs": 399.9,
+        "x": -750
+      },
+      {
+        "timeMs": 400,
+        "x": 0
+      }
+    ],
+    "sheet": 900,
+    "state": "shoot",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismSlash",
+    "duration": 500,
+    "easing": "steps(6)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/prism_slash.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 125,
+        "x": -150
+      },
+      {
+        "timeMs": 250,
+        "x": -450
+      },
+      {
+        "timeMs": 375,
+        "x": -600
+      },
+      {
+        "timeMs": 499.9,
+        "x": -750
+      },
+      {
+        "timeMs": 500,
+        "x": 0
+      }
+    ],
+    "sheet": 900,
+    "state": "slash",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismIdle",
+    "duration": 1000,
+    "easing": "steps(4)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/prism_idle.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 250,
+        "x": -150
+      },
+      {
+        "timeMs": 500,
+        "x": -300
+      },
+      {
+        "timeMs": 750,
+        "x": -450
+      },
+      {
+        "timeMs": 999.9,
+        "x": -450
+      },
+      {
+        "timeMs": 1000,
+        "x": 0
+      }
+    ],
+    "sheet": 600,
+    "state": "hurt",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismMove",
+    "duration": 750,
+    "easing": "steps(6)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/prism_move.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 187.5,
+        "x": -150
+      },
+      {
+        "timeMs": 375,
+        "x": -450
+      },
+      {
+        "timeMs": 562.5,
+        "x": -600
+      },
+      {
+        "timeMs": 749.9,
+        "x": -750
+      },
+      {
+        "timeMs": 750,
+        "x": 0
+      }
+    ],
+    "sheet": 900,
+    "state": "run",
+    "width": 150
+  },
+  {
+    "actor": "prism",
+    "animation": "prismDie",
+    "duration": 890,
+    "easing": "steps(8)",
+    "endOutOfSheet": true,
+    "fill": "forwards",
+    "image": "url(\"http://127.0.0.1:19332/assets/prism_death.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 222.5,
+        "x": -300
+      },
+      {
+        "timeMs": 445,
+        "x": -600
+      },
+      {
+        "timeMs": 667.5,
+        "x": -900
+      },
+      {
+        "timeMs": 889.9,
+        "x": -1050
+      },
+      {
+        "timeMs": 890,
+        "x": -1200
+      }
+    ],
+    "sheet": 1200,
+    "state": "die",
+    "width": 150
+  },
+  {
+    "actor": "hound",
+    "animation": "houndIdle",
+    "duration": 1000,
+    "easing": "steps(4)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/hound_idle.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 250,
+        "x": -110
+      },
+      {
+        "timeMs": 500,
+        "x": -220
+      },
+      {
+        "timeMs": 750,
+        "x": -330
+      },
+      {
+        "timeMs": 999.9,
+        "x": -330
+      },
+      {
+        "timeMs": 1000,
+        "x": 0
+      }
+    ],
+    "sheet": 440,
+    "state": "idle",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndIdle",
+    "duration": 1000,
+    "easing": "steps(4)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/hound_idle.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 250,
+        "x": -110
+      },
+      {
+        "timeMs": 500,
+        "x": -220
+      },
+      {
+        "timeMs": 750,
+        "x": -330
+      },
+      {
+        "timeMs": 999.9,
+        "x": -330
+      },
+      {
+        "timeMs": 1000,
+        "x": 0
+      }
+    ],
+    "sheet": 440,
+    "state": "shoot",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndBite",
+    "duration": 500,
+    "easing": "steps(6)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/hound_bite.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 125,
+        "x": -110
+      },
+      {
+        "timeMs": 250,
+        "x": -330
+      },
+      {
+        "timeMs": 375,
+        "x": -440
+      },
+      {
+        "timeMs": 499.9,
+        "x": -550
+      },
+      {
+        "timeMs": 500,
+        "x": 0
+      }
+    ],
+    "sheet": 660,
+    "state": "bite",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndHurt",
+    "duration": 200,
+    "easing": "steps(3)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/hound_hurt.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 50,
+        "x": 0
+      },
+      {
+        "timeMs": 100,
+        "x": -110
+      },
+      {
+        "timeMs": 150,
+        "x": -220
+      },
+      {
+        "timeMs": 199.9,
+        "x": -220
+      },
+      {
+        "timeMs": 200,
+        "x": 0
+      }
+    ],
+    "sheet": 330,
+    "state": "hurt",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndRun",
+    "duration": 667,
+    "easing": "steps(8)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/hound_run.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 166.75,
+        "x": -220
+      },
+      {
+        "timeMs": 333.5,
+        "x": -440
+      },
+      {
+        "timeMs": 500.25,
+        "x": -550
+      },
+      {
+        "timeMs": 666.9,
+        "x": -770
+      },
+      {
+        "timeMs": 667,
+        "x": 0
+      }
+    ],
+    "sheet": 880,
+    "state": "run",
+    "width": 110
+  },
+  {
+    "actor": "hound",
+    "animation": "houndDie",
+    "duration": 667,
+    "easing": "steps(6)",
+    "endOutOfSheet": true,
+    "fill": "forwards",
+    "image": "url(\"http://127.0.0.1:19332/assets/hound_death.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 166.75,
+        "x": -110
+      },
+      {
+        "timeMs": 333.5,
+        "x": -330
+      },
+      {
+        "timeMs": 500.25,
+        "x": -440
+      },
+      {
+        "timeMs": 666.9,
+        "x": -550
+      },
+      {
+        "timeMs": 667,
+        "x": -660
+      }
+    ],
+    "sheet": 660,
+    "state": "die",
+    "width": 110
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsIdle",
+    "duration": 1000,
+    "easing": "steps(4)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/tianshu_idle.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 250,
+        "x": -190
+      },
+      {
+        "timeMs": 500,
+        "x": -380
+      },
+      {
+        "timeMs": 750,
+        "x": -570
+      },
+      {
+        "timeMs": 999.9,
+        "x": -570
+      },
+      {
+        "timeMs": 1000,
+        "x": 0
+      }
+    ],
+    "sheet": 760,
+    "state": "idle",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsMg",
+    "duration": 400,
+    "easing": "steps(6)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/tianshu_machinegun.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 100,
+        "x": -190
+      },
+      {
+        "timeMs": 200,
+        "x": -570
+      },
+      {
+        "timeMs": 300,
+        "x": -760
+      },
+      {
+        "timeMs": 399.9,
+        "x": -950
+      },
+      {
+        "timeMs": 400,
+        "x": 0
+      }
+    ],
+    "sheet": 1140,
+    "state": "shoot",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsCharge",
+    "duration": 500,
+    "easing": "steps(4)",
+    "endOutOfSheet": true,
+    "fill": "forwards",
+    "image": "url(\"http://127.0.0.1:19332/assets/tianshu_charge.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 125,
+        "x": -190
+      },
+      {
+        "timeMs": 250,
+        "x": -380
+      },
+      {
+        "timeMs": 375,
+        "x": -570
+      },
+      {
+        "timeMs": 499.9,
+        "x": -570
+      },
+      {
+        "timeMs": 500,
+        "x": -760
+      }
+    ],
+    "sheet": 760,
+    "state": "charge",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsCannon",
+    "duration": 500,
+    "easing": "steps(6)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/tianshu_cannon.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 125,
+        "x": -190
+      },
+      {
+        "timeMs": 250,
+        "x": -570
+      },
+      {
+        "timeMs": 375,
+        "x": -760
+      },
+      {
+        "timeMs": 499.9,
+        "x": -950
+      },
+      {
+        "timeMs": 500,
+        "x": 0
+      }
+    ],
+    "sheet": 1140,
+    "state": "cannon",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsIdle",
+    "duration": 1000,
+    "easing": "steps(4)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/tianshu_idle.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 250,
+        "x": -190
+      },
+      {
+        "timeMs": 500,
+        "x": -380
+      },
+      {
+        "timeMs": 750,
+        "x": -570
+      },
+      {
+        "timeMs": 999.9,
+        "x": -570
+      },
+      {
+        "timeMs": 1000,
+        "x": 0
+      }
+    ],
+    "sheet": 760,
+    "state": "hurt",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsMove",
+    "duration": 600,
+    "easing": "steps(6)",
+    "endOutOfSheet": false,
+    "fill": "none",
+    "image": "url(\"http://127.0.0.1:19332/assets/tianshu_move.png\")",
+    "iterations": "infinite",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 150,
+        "x": -190
+      },
+      {
+        "timeMs": 300,
+        "x": -570
+      },
+      {
+        "timeMs": 450,
+        "x": -760
+      },
+      {
+        "timeMs": 599.9,
+        "x": -950
+      },
+      {
+        "timeMs": 600,
+        "x": 0
+      }
+    ],
+    "sheet": 1140,
+    "state": "run",
+    "width": 190
+  },
+  {
+    "actor": "tianshu",
+    "animation": "tsDie",
+    "duration": 800,
+    "easing": "steps(8)",
+    "endOutOfSheet": true,
+    "fill": "forwards",
+    "image": "url(\"http://127.0.0.1:19332/assets/tianshu_death.png\")",
+    "iterations": "1",
+    "midAligned": true,
+    "positions": [
+      {
+        "timeMs": 0,
+        "x": 0
+      },
+      {
+        "timeMs": 200,
+        "x": -380
+      },
+      {
+        "timeMs": 400,
+        "x": -760
+      },
+      {
+        "timeMs": 600,
+        "x": -950
+      },
+      {
+        "timeMs": 799.9,
+        "x": -1330
+      },
+      {
+        "timeMs": 800,
+        "x": -1520
+      }
+    ],
+    "sheet": 1520,
+    "state": "die",
+    "width": 190
+  }
+]

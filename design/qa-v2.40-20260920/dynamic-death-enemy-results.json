@@ -1,0 +1,650 @@
+[
+  {
+    "animEnd": 923.600000023842,
+    "changes": [],
+    "clean": true,
+    "elapsed": 924,
+    "ends": 1,
+    "expected": 900,
+    "initial": 1,
+    "kind": "death",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": 460.5,
+    "changes": [],
+    "clean": true,
+    "elapsed": 460.60000002384186,
+    "ends": 1,
+    "expected": 450,
+    "initial": 2,
+    "kind": "death",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": 512,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 512,
+    "ends": 1,
+    "expected": 501.84999999403954,
+    "initial": 1,
+    "kind": "death",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 83.39999999998327
+        },
+        "at": 103.69999998807909,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 83.39999999998327
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": 826.4000000357628,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 826.5,
+    "ends": 1,
+    "expected": 795.5,
+    "initial": 2,
+    "kind": "death",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 166.6000000000167
+        },
+        "at": 104.5,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 166.6000000000167
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": 509.60000002384186,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 509.60000002384186,
+    "ends": 1,
+    "expected": 500.699999988079,
+    "initial": 1,
+    "kind": "death",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 33.799999999985175
+        },
+        "at": 55.5,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 33.799999999985175
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 134.9999999999909
+        },
+        "at": 108.80000001192091,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 134.9999999999909
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 184.1000000000008
+        },
+        "at": 154.69999998807907,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 184.1000000000008
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": 828.6999999880791,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 828.6999999880791,
+    "ends": 1,
+    "expected": 802.9999999403954,
+    "initial": 2,
+    "kind": "death",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 67.59999999997035
+        },
+        "at": 51.60000002384186,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 67.59999999997035
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 117.00000000001864
+        },
+        "at": 105.69999998807909,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 116.99999999999022
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 218.20000000002435
+        },
+        "at": 151.10000002384186,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 218.20000000002435
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [],
+    "clean": true,
+    "elapsed": 416.4000000357628,
+    "ends": 1,
+    "expected": 410,
+    "initial": 1,
+    "kind": "enemy",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": null,
+    "changes": [],
+    "clean": true,
+    "elapsed": 211.60000002384183,
+    "ends": 1,
+    "expected": 205,
+    "initial": 2,
+    "kind": "enemy",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 263.30000001192093,
+    "ends": 1,
+    "expected": 255.05000001192093,
+    "initial": 1,
+    "kind": "enemy",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 83.10000000000173,
+          "position": -36.125,
+          "rate": 2,
+          "sprite": 83.10000000000173
+        },
+        "at": 100.10000002384186,
+        "before": {
+          "current": 83.10000000000173,
+          "position": -36.125,
+          "rate": 1,
+          "sprite": 83.10000000000173
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 307.7999999523163,
+    "ends": 1,
+    "expected": 301,
+    "initial": 2,
+    "kind": "enemy",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 199.6000000000322,
+          "position": -8.375,
+          "rate": 1,
+          "sprite": 199.6000000000322
+        },
+        "at": 109,
+        "before": {
+          "current": 199.6000000000322,
+          "position": -8.375,
+          "rate": 2,
+          "sprite": 199.6000000000322
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 264.89999997615814,
+    "ends": 1,
+    "expected": 255.49999997019768,
+    "initial": 1,
+    "kind": "enemy",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 50.199999999961165,
+          "position": -43.9688,
+          "rate": 2,
+          "sprite": 50.199999999961165
+        },
+        "at": 54.59999996423721,
+        "before": {
+          "current": 50.199999999989586,
+          "position": -43.9688,
+          "rate": 1,
+          "sprite": 50.199999999989586
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 149.99999999997726,
+          "position": -20.1875,
+          "rate": 1,
+          "sprite": 149.99999999997726
+        },
+        "at": 108,
+        "before": {
+          "current": 149.99999999997726,
+          "position": -20.1875,
+          "rate": 2,
+          "sprite": 149.99999999997726
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 200.09999999996353,
+          "position": -8.25,
+          "rate": 2,
+          "sprite": 200.09999999996353
+        },
+        "at": 154.39999997615814,
+        "before": {
+          "current": 200.09999999996353,
+          "position": -8.25,
+          "rate": 1,
+          "sprite": 200.09999999996353
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 307.5,
+    "ends": 1,
+    "expected": 300.3000000715256,
+    "initial": 2,
+    "kind": "enemy",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": 68.19999999999027,
+          "position": -39.6719,
+          "rate": 1,
+          "sprite": 68.19999999999027
+        },
+        "at": 55.59999996423721,
+        "before": {
+          "current": 68.19999999999027,
+          "position": -39.6719,
+          "rate": 2,
+          "sprite": 68.19999999999027
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 117.40000000003192,
+          "position": -27.9531,
+          "rate": 2,
+          "sprite": 117.40000000003192
+        },
+        "at": 101.19999998807909,
+        "before": {
+          "current": 117.4000000000035,
+          "position": -27.9531,
+          "rate": 1,
+          "sprite": 117.4000000000035
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": 217.00000000004135,
+          "position": -4.21875,
+          "rate": 1,
+          "sprite": 217.00000000004135
+        },
+        "at": 155.29999995231628,
+        "before": {
+          "current": 217.00000000004135,
+          "position": -4.21875,
+          "rate": 2,
+          "sprite": 217.00000000004135
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [],
+    "clean": true,
+    "elapsed": 2073.399999976158,
+    "ends": 1,
+    "expected": 2060,
+    "initial": 1,
+    "kind": "kill",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": null,
+    "changes": [],
+    "clean": true,
+    "elapsed": 1040.300000011921,
+    "ends": 1,
+    "expected": 1030,
+    "initial": 2,
+    "kind": "kill",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 1092.0999999642372,
+    "ends": 1,
+    "expected": 1083.7999999821186,
+    "initial": 1,
+    "kind": "kill",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 50.15300001804235
+        },
+        "at": 107.5999999642372,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 50.15300001801393
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 1971.399999976158,
+    "ends": 1,
+    "expected": 1957.300000011921,
+    "initial": 2,
+    "kind": "kill",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 101.90399995093458
+        },
+        "at": 102.69999998807909,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 101.90399995093458
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 1090.699999988079,
+    "ends": 1,
+    "expected": 1079.699999988079,
+    "initial": 1,
+    "kind": "kill",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 0
+        },
+        "at": 54.39999997615814,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 0
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 99.3860000092468
+        },
+        "at": 108.69999998807909,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 99.3860000092468
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 149.18600000925153
+        },
+        "at": 153.69999998807907,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 149.18600000925153
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": null,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 1967.9000000357628,
+    "ends": 1,
+    "expected": 1959.800000011921,
+    "initial": 2,
+    "kind": "kill",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 0
+        },
+        "at": 53,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 0
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 49.266999985547955
+        },
+        "at": 106.5,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 49.266999985547955
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 149.2669999855707
+        },
+        "at": 153.69999998807907,
+        "before": {
+          "current": null,
+          "position": 29.8281,
+          "rate": null,
+          "sprite": 149.2669999855707
+        },
+        "jump": 0
+      }
+    ]
+  }
+]

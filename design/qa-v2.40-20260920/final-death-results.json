@@ -1,0 +1,222 @@
+[
+  {
+    "animEnd": 904.3000000119208,
+    "changes": [],
+    "clean": true,
+    "elapsed": 904.399999976158,
+    "ends": 1,
+    "expected": 900,
+    "initial": 1,
+    "kind": "death",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": 475.2000000476837,
+    "changes": [],
+    "clean": true,
+    "elapsed": 475.300000011921,
+    "ends": 1,
+    "expected": 450,
+    "initial": 2,
+    "kind": "death",
+    "pass": true,
+    "switches": []
+  },
+  {
+    "animEnd": 506.5,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 506.5,
+    "ends": 1,
+    "expected": 500.25,
+    "initial": 1,
+    "kind": "death",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 83.29999999999416
+        },
+        "at": 100.5,
+        "before": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 83.30000000000126
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": 829.1000000238419,
+    "changes": [
+      100
+    ],
+    "clean": true,
+    "elapsed": 829.1999999880791,
+    "ends": 1,
+    "expected": 793.5999999642372,
+    "initial": 2,
+    "kind": "death",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 168.60000000001207
+        },
+        "at": 106.4000000357628,
+        "before": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 168.60000000001207
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": 511.4000000357628,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 511.5,
+    "ends": 1,
+    "expected": 500.0499999821186,
+    "initial": 1,
+    "kind": "death",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 32.60000000000218
+        },
+        "at": 53.80000001192093,
+        "before": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 32.59999999999508
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 132.20000000001164
+        },
+        "at": 106.70000004768372,
+        "before": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 132.20000000001164
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 183.10000000001023
+        },
+        "at": 153,
+        "before": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 183.10000000001023
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "animEnd": 828,
+    "changes": [
+      50,
+      100,
+      150
+    ],
+    "clean": true,
+    "elapsed": 828,
+    "ends": 1,
+    "expected": 800.3000000715256,
+    "initial": 2,
+    "kind": "death",
+    "pass": true,
+    "switches": [
+      {
+        "after": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 66.599999999994
+        },
+        "at": 52.59999996423721,
+        "before": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 66.599999999994
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 116.59999999999116
+        },
+        "at": 106.80000001192091,
+        "before": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 116.59999999999116
+        },
+        "jump": 0
+      },
+      {
+        "after": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 216.59999999999968
+        },
+        "at": 153.89999997615814,
+        "before": {
+          "current": null,
+          "position": 31.0391,
+          "rate": null,
+          "sprite": 216.59999999999968
+        },
+        "jump": 0
+      }
+    ]
+  },
+  {
+    "name": "死亡等待买血仍弹受阻",
+    "pass": true
+  }
+]

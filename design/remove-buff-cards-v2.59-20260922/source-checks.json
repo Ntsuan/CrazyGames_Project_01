@@ -1,0 +1,12 @@
+{
+  "unchangedFunctions": {
+    "function calcStats(){": true,
+    "function skillCombatRunning(){": true,
+    "function combatStep(dt){": true,
+    "function advanceCombat(realDt){": true,
+    "function syncPlayerInvulnVisual(){": true
+  },
+  "syntax": "PASS",
+  "snapshotByteIdentical": true,
+  "sourceSHA256": "6235bf7ea4ff3548923e427798d057f92d96384a82cd77437aeb4c15ed9caedd"
+}

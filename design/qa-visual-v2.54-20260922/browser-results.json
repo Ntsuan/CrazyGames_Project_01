@@ -1,0 +1,681 @@
+{
+  "checks": {
+    "styles": [
+      {
+        "stage": 1,
+        "status": "",
+        "action": "",
+        "animation": "none",
+        "spriteAnimation": "gunnerIdle",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 1,
+        "status": "",
+        "action": "atk",
+        "animation": "none",
+        "spriteAnimation": "gunnerShoot",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 1,
+        "status": "",
+        "action": "run",
+        "animation": "none",
+        "spriteAnimation": "gunnerRun",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 1,
+        "status": "shielded",
+        "action": "",
+        "animation": "auraGlow",
+        "spriteAnimation": "gunnerIdle",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 1,
+        "status": "shielded",
+        "action": "atk",
+        "animation": "auraGlow",
+        "spriteAnimation": "gunnerShoot",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 1,
+        "status": "shielded",
+        "action": "run",
+        "animation": "auraGlow",
+        "spriteAnimation": "gunnerRun",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 1,
+        "status": "cloaked",
+        "action": "",
+        "animation": "cloakPulse",
+        "spriteAnimation": "gunnerIdle",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 1,
+        "status": "cloaked",
+        "action": "atk",
+        "animation": "cloakPulse",
+        "spriteAnimation": "gunnerShoot",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 1,
+        "status": "cloaked",
+        "action": "run",
+        "animation": "cloakPulse",
+        "spriteAnimation": "gunnerRun",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 1,
+        "status": "shielded cloaked",
+        "action": "",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "gunnerIdle",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 1,
+        "status": "shielded cloaked",
+        "action": "atk",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "gunnerShoot",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 1,
+        "status": "shielded cloaked",
+        "action": "run",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "gunnerRun",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "",
+        "action": "",
+        "animation": "none",
+        "spriteAnimation": "stage2idle",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "",
+        "action": "atk",
+        "animation": "none",
+        "spriteAnimation": "stage2shoot",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "",
+        "action": "run",
+        "animation": "none",
+        "spriteAnimation": "stage2run",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "shielded",
+        "action": "",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage2idle",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "shielded",
+        "action": "atk",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage2shoot",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "shielded",
+        "action": "run",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage2run",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "cloaked",
+        "action": "",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage2idle",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "cloaked",
+        "action": "atk",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage2shoot",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "cloaked",
+        "action": "run",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage2run",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "shielded cloaked",
+        "action": "",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage2idle",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "shielded cloaked",
+        "action": "atk",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage2shoot",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 2,
+        "status": "shielded cloaked",
+        "action": "run",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage2run",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "",
+        "action": "",
+        "animation": "none",
+        "spriteAnimation": "stage3idle",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "",
+        "action": "atk",
+        "animation": "none",
+        "spriteAnimation": "stage3shoot",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "",
+        "action": "run",
+        "animation": "none",
+        "spriteAnimation": "stage3run",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "shielded",
+        "action": "",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage3idle",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "shielded",
+        "action": "atk",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage3shoot",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "shielded",
+        "action": "run",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage3run",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "cloaked",
+        "action": "",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage3idle",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "cloaked",
+        "action": "atk",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage3shoot",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "cloaked",
+        "action": "run",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage3run",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "shielded cloaked",
+        "action": "",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage3idle",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "shielded cloaked",
+        "action": "atk",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage3shoot",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 3,
+        "status": "shielded cloaked",
+        "action": "run",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage3run",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "",
+        "action": "",
+        "animation": "none",
+        "spriteAnimation": "stage4idle",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "",
+        "action": "atk",
+        "animation": "none",
+        "spriteAnimation": "stage4shoot",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "",
+        "action": "run",
+        "animation": "none",
+        "spriteAnimation": "stage4run",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "shielded",
+        "action": "",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage4idle",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "shielded",
+        "action": "atk",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage4shoot",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "shielded",
+        "action": "run",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage4run",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "cloaked",
+        "action": "",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage4idle",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "cloaked",
+        "action": "atk",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage4shoot",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "cloaked",
+        "action": "run",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage4run",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "shielded cloaked",
+        "action": "",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage4idle",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "shielded cloaked",
+        "action": "atk",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage4shoot",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 4,
+        "status": "shielded cloaked",
+        "action": "run",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage4run",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "",
+        "action": "",
+        "animation": "none",
+        "spriteAnimation": "stage5idle",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "",
+        "action": "atk",
+        "animation": "none",
+        "spriteAnimation": "stage5shoot",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "",
+        "action": "run",
+        "animation": "none",
+        "spriteAnimation": "stage5run",
+        "opacity": 1,
+        "filter": "none",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "shielded",
+        "action": "",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage5idle",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "shielded",
+        "action": "atk",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage5shoot",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "shielded",
+        "action": "run",
+        "animation": "auraGlow",
+        "spriteAnimation": "stage5run",
+        "opacity": 1,
+        "filter": "drop-shadow(rgba(255, 255, 255, 0.97) 0px 0px 20.4501px)",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "cloaked",
+        "action": "",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage5idle",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "cloaked",
+        "action": "atk",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage5shoot",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "cloaked",
+        "action": "run",
+        "animation": "cloakPulse",
+        "spriteAnimation": "stage5run",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "shielded cloaked",
+        "action": "",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage5idle",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "shielded cloaked",
+        "action": "atk",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage5shoot",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      },
+      {
+        "stage": 5,
+        "status": "shielded cloaked",
+        "action": "run",
+        "animation": "shieldCloakPulse",
+        "spriteAnimation": "stage5run",
+        "opacity": 0.75,
+        "filter": "drop-shadow(rgb(255, 255, 255) 0px 0px 22px) drop-shadow(rgb(22, 230, 245) 0px 0px 14px) saturate(1.1)",
+        "ok": true
+      }
+    ],
+    "render": [
+      {
+        "tier": "desktop",
+        "time": 0,
+        "phase": "进入修复舱",
+        "backgroundFirst": true,
+        "ok": true
+      },
+      {
+        "tier": "desktop",
+        "time": 2,
+        "phase": "武器交接",
+        "backgroundFirst": true,
+        "ok": true
+      },
+      {
+        "tier": "desktop",
+        "time": 4,
+        "phase": "义体与武器升级",
+        "backgroundFirst": true,
+        "ok": true
+      },
+      {
+        "tier": "desktop",
+        "time": 6,
+        "phase": "新阶段出舱",
+        "backgroundFirst": true,
+        "ok": true
+      },
+      {
+        "tier": "desktop",
+        "time": 8,
+        "phase": "03 阶段 · 躯干重构",
+        "backgroundFirst": true,
+        "ok": true
+      },
+      {
+        "tier": "mobile",
+        "time": 0,
+        "phase": "进入修复舱",
+        "backgroundFirst": true,
+        "ok": true
+      },
+      {
+        "tier": "mobile",
+        "time": 2,
+        "phase": "武器交接",
+        "backgroundFirst": true,
+        "ok": true
+      },
+      {
+        "tier": "mobile",
+        "time": 4,
+        "phase": "义体与武器升级",
+        "backgroundFirst": true,
+        "ok": true
+      },
+      {
+        "tier": "mobile",
+        "time": 6,
+        "phase": "新阶段出舱",
+        "backgroundFirst": true,
+        "ok": true
+      },
+      {
+        "tier": "mobile",
+        "time": 8,
+        "phase": "03 阶段 · 躯干重构",
+        "backgroundFirst": true,
+        "ok": true
+      }
+    ],
+    "errors": []
+  },
+  "playback": "8.00秒 · 03 阶段 · 躯干重构",
+  "console": []
+}

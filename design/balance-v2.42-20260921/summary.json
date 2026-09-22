@@ -1,0 +1,35 @@
+{
+  "author": "Codex",
+  "date": "2026-09-21",
+  "baseline": "v2.41",
+  "version": "v2.42",
+  "published": false,
+  "sha256": "735e3ed228f1a295fd385da076fffd87ee192cad3e004a5ec2a5bc3ddc253334",
+  "baselineSha256": "11ade9965a030c704eb14124ed5ddee60952c7031d1b29506a5f9246c916e0e8",
+  "changedGameLines": [
+    969,
+    974,
+    1405
+  ],
+  "changedCsvLines": [
+    1,
+    8,
+    9,
+    10,
+    11,
+    15,
+    16,
+    17
+  ],
+  "sourceSnapshotAndTestCopyIdentical": true,
+  "syntax": "PASS",
+  "core": {
+    "baseline": "75/76",
+    "current": "75/76",
+    "existingFailure": "C75: historical logs retain 4 instead of 3"
+  },
+  "drop": "15/15",
+  "affix": "10/10",
+  "supplyTrialsPerVersion": 10000,
+  "actualFunctionCrosscheckPerVersion": 100
+}

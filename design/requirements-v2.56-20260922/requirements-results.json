@@ -1,0 +1,234 @@
+[
+  {
+    "name": "暂停无可见弹窗时就绪补给可点",
+    "status": "PASS"
+  },
+  {
+    "name": "转场无可见弹窗时就绪补给可点",
+    "status": "PASS"
+  },
+  {
+    "name": "尸体无可见弹窗时就绪补给可点",
+    "status": "PASS"
+  },
+  {
+    "name": "死亡等待无可见弹窗时就绪补给可点",
+    "status": "PASS"
+  },
+  {
+    "name": "待技能无可见弹窗时就绪补给可点",
+    "status": "PASS"
+  },
+  {
+    "name": "待重塑无可见弹窗时就绪补给可点",
+    "status": "PASS"
+  },
+  {
+    "name": "待改装无可见弹窗时就绪补给可点",
+    "status": "PASS"
+  },
+  {
+    "name": "待恢复选择无可见弹窗时就绪补给可点",
+    "status": "PASS"
+  },
+  {
+    "name": "日志抽屉不可领取",
+    "status": "PASS"
+  },
+  {
+    "name": "普通弹窗不可领取",
+    "status": "PASS"
+  },
+  {
+    "name": "改装弹窗不可领取",
+    "status": "PASS"
+  },
+  {
+    "name": "未冷却不可领取",
+    "status": "PASS"
+  },
+  {
+    "name": "广告锁不可领取",
+    "status": "PASS"
+  },
+  {
+    "name": "存档保护不可领取",
+    "status": "PASS"
+  },
+  {
+    "name": "后台不可领取",
+    "status": "PASS"
+  },
+  {
+    "name": "封面不可领取",
+    "status": "PASS"
+  },
+  {
+    "name": "弹窗开关立即同步按钮，倒计时文案删除",
+    "status": "PASS"
+  },
+  {
+    "name": "1倍 openingRunIn() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "1倍 startFloorTransit() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "1倍 onKill() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "1倍 openingRunIn() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "1倍 startFloorTransit() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "1倍 onKill() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "2倍 openingRunIn() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "2倍 startFloorTransit() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "2倍 onKill() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "2倍 openingRunIn() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "2倍 startFloorTransit() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "2倍 onKill() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "4倍 openingRunIn() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "4倍 startFloorTransit() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "4倍 onKill() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "4倍 openingRunIn() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "4倍 startFloorTransit() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "4倍 onKill() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "8倍 openingRunIn() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "8倍 startFloorTransit() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "8倍 onKill() 广告completed暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "8倍 openingRunIn() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "8倍 startFloorTransit() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "8倍 onKill() 广告cancelled暂停并恢复",
+    "status": "PASS"
+  },
+  {
+    "name": "第5层Boss死后广告不抢后续选择且奖励唯一",
+    "status": "PASS"
+  },
+  {
+    "name": "第10层Boss死后广告不抢后续选择且奖励唯一",
+    "status": "PASS"
+  },
+  {
+    "name": "第100层Boss死后广告不抢后续选择且奖励唯一",
+    "status": "PASS"
+  },
+  {
+    "name": "玩家死亡animationend竞态延后受阻弹窗",
+    "status": "PASS"
+  },
+  {
+    "name": "60ms待恢复技能不盖广告且原候选保留",
+    "status": "PASS"
+  },
+  {
+    "name": "后台与广告分别保持暂停，关闭广告仍在后台不推进",
+    "status": "PASS"
+  },
+  {
+    "name": "广告期间后台切回不解除暂停",
+    "status": "PASS"
+  },
+  {
+    "name": "存档失败保持演出暂停，重试仅领取一次",
+    "status": "PASS"
+  },
+  {
+    "name": "复位清广告及无敌，旧回调失效，新跑入正常",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段1击杀立即显效，敌人入场起算，时长/免伤不变",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段2击杀立即显效，敌人入场起算，时长/免伤不变",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段3击杀立即显效，敌人入场起算，时长/免伤不变",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段4击杀立即显效，敌人入场起算，时长/免伤不变",
+    "status": "PASS"
+  },
+  {
+    "name": "阶段5击杀立即显效，敌人入场起算，时长/免伤不变",
+    "status": "PASS"
+  },
+  {
+    "name": "待生效仅显示，不修改实际免伤判定",
+    "status": "PASS"
+  },
+  {
+    "name": "普通重塑清待无敌和显示",
+    "status": "PASS"
+  },
+  {
+    "name": "晋升清无敌且保留新阶段基础护盾",
+    "status": "PASS"
+  }
+]

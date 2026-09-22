@@ -1,0 +1,144 @@
+{
+  "version": "v2.44",
+  "environment": "Node VM, real game functions, isolated storage and virtual clock",
+  "count": 34,
+  "passed": 34,
+  "results": [
+    {
+      "name": "10/20/30/100 层在 Boss 奖励后提示，显示已通关层",
+      "status": "PASS"
+    },
+    {
+      "name": "9/11 层不提示，5/15 层仍直接选技能",
+      "status": "PASS"
+    },
+    {
+      "name": "Boss 完整退场后才显示提示，待选意图立即保存",
+      "status": "PASS"
+    },
+    {
+      "name": "提示期间不继续战斗或重复掉落",
+      "status": "PASS"
+    },
+    {
+      "name": "继续后选技能一次并进入 11 层，同层不再提醒",
+      "status": "PASS"
+    },
+    {
+      "name": "预览和返回不提交，继续后才生成技能候选",
+      "status": "PASS"
+    },
+    {
+      "name": "刷新待选页不重发 Boss 奖励",
+      "status": "PASS"
+    },
+    {
+      "name": "Boss 死亡动画中刷新恢复选择而非直接开战",
+      "status": "PASS"
+    },
+    {
+      "name": "刷新预览保持冻结收益，返回继续正确接上技能",
+      "status": "PASS"
+    },
+    {
+      "name": "继续后刷新仅恢复原技能候选，不再弹重塑",
+      "status": "PASS"
+    },
+    {
+      "name": "预览不提前显示完成，不隐藏普通结算或模拟标识",
+      "status": "PASS"
+    },
+    {
+      "name": "普通重塑只结算本轮，保留原碎片与永久成长",
+      "status": "PASS"
+    },
+    {
+      "name": "回收按通关层估值，非递增后的下一层",
+      "status": "PASS"
+    },
+    {
+      "name": "普通重塑延迟连点、刷新后重试均不会重复结算",
+      "status": "PASS"
+    },
+    {
+      "name": "没有有效预览或未看广告不能结算或直接翻倍",
+      "status": "PASS"
+    },
+    {
+      "name": "广告点击仅发起模拟，未完成不发奖；完成仅翻倍本轮碎片",
+      "status": "PASS"
+    },
+    {
+      "name": "广告取消和失败保留本轮，普通重塑仍可用",
+      "status": "PASS"
+    },
+    {
+      "name": "请求中重复点按、普通结算、返回均不穿透",
+      "status": "PASS"
+    },
+    {
+      "name": "旧广告回调不得结算重试中的新请求",
+      "status": "PASS"
+    },
+    {
+      "name": "广告成功重复回调只提交一次",
+      "status": "PASS"
+    },
+    {
+      "name": "广告中刷新返回预览，未把请求当作观看完成",
+      "status": "PASS"
+    },
+    {
+      "name": "普通结算存档失败不结束本轮，恢复存储后可重试一次",
+      "status": "PASS"
+    },
+    {
+      "name": "已看广告但结算写失败保留资格，可刷新后免费重试",
+      "status": "PASS"
+    },
+    {
+      "name": "重塑立即存档；动画未完成时刷新不重复收益",
+      "status": "PASS"
+    },
+    {
+      "name": "重塑清理技能意图和旧转场，不在新局出现旧技能",
+      "status": "PASS"
+    },
+    {
+      "name": "新一轮再次通关 10 层可以再次选择",
+      "status": "PASS"
+    },
+    {
+      "name": "同轮下一里程碑重新出现，累计未结算碎片保留",
+      "status": "PASS"
+    },
+    {
+      "name": "死亡／受阻仍仅可重塑，无返回活战入口",
+      "status": "PASS"
+    },
+    {
+      "name": "死亡动画中及死亡预览刷新恢复受阻，不复活继续战斗",
+      "status": "PASS"
+    },
+    {
+      "name": "里程碑期间复位取消恢复原选择，确认则彻底丢弃旧流程",
+      "status": "PASS"
+    },
+    {
+      "name": "Boss 退场时被复位确认盖住，取消恢复里程碑",
+      "status": "PASS"
+    },
+    {
+      "name": "复位后即使旧广告返回成功也不发奖",
+      "status": "PASS"
+    },
+    {
+      "name": "旧 v2.43 存档不凭当前层补发提醒，待选技能照常恢复",
+      "status": "PASS"
+    },
+    {
+      "name": "日志区分里程碑选择、广告结果和最终一次结算",
+      "status": "PASS"
+    }
+  ]
+}

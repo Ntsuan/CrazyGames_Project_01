@@ -1,0 +1,27 @@
+{
+  "rows": [
+    {
+      "connected": false,
+      "stale": true,
+      "switched": false,
+      "test": "speed icon"
+    },
+    {
+      "connected": true,
+      "count": 1,
+      "pass": true,
+      "test": "updated crate detail across refresh"
+    },
+    {
+      "opacity": "1",
+      "test": "actual enemy death",
+      "x": "-990px"
+    },
+    {
+      "modal": true,
+      "test": "death2x to1x",
+      "x": "-330px"
+    }
+  ],
+  "version": "v2.39"
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>光学迷彩效果候选 · 霓虹猎手</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0e17; font-family:"PingFang SC","Microsoft YaHei",sans-serif; padding:30px;
+         color:#e6edf3; display:flex; flex-direction:column; align-items:center; }
+  h1 { font-size:16px; color:#00F0FF; margin-bottom:6px; }
+  .sub { color:#8b95a7; font-size:12px; margin-bottom:26px; }
+  .row { display:flex; gap:26px; flex-wrap:wrap; justify-content:center; }
+  .cell { background:#131a2a; border:1px solid #1e2a44; border-radius:14px; padding:22px;
+          width:230px; text-align:center; }
+  .cell h3 { font-size:14px; margin-bottom:4px; color:#00F0FF; }
+  .cell .tag { font-size:11px; color:#8b95a7; margin-bottom:16px; }
+  .stage { height:150px; display:flex; align-items:flex-end; justify-content:center;
+           background:linear-gradient(180deg,#0d1420,#16203a); border-radius:8px; overflow:hidden; }
+  .spr { width:110px; height:110px; image-rendering:pixelated;
+         background:url('gunner_idle.png') 0 0/400% 100%; animation:idle 1s steps(4) infinite; }
+  @keyframes idle { to { background-position:400% 0; } }
+
+  /* A：掠食者微光——半透明+青色描边脉冲 */
+  .fx-a .spr { animation:idle 1s steps(4) infinite, cloakA 2s ease-in-out infinite; }
+  @keyframes cloakA {
+    0%,100% { opacity:.45; filter:drop-shadow(0 0 6px #16E6F5) saturate(.7); }
+    50%     { opacity:.75; filter:drop-shadow(0 0 14px #16E6F5) saturate(1.1); }
+  }
+
+  /* B：RGB 残影故障——双层错位色差 */
+  .fx-b .wrap { position:relative; }
+  .fx-b .spr { position:relative; z-index:2; animation:idle 1s steps(4) infinite; }
+  .fx-b .ghost-r,.fx-b .ghost-c { content:""; position:absolute; inset:0; z-index:1;
+    background:url('gunner_idle.png') 0 0/400% 100%; animation:idle 1s steps(4) infinite; }
+  .fx-b .ghost-r { filter:sepia(1) saturate(6) hue-rotate(-50deg); opacity:.55;
+    animation:idle 1s steps(4) infinite, gR .9s steps(3) infinite; }
+  .fx-b .ghost-c { filter:sepia(1) saturate(6) hue-rotate(160deg); opacity:.55;
+    animation:idle 1s steps(4) infinite, gC .9s steps(3) infinite; }
+  @keyframes gR { 0%,100%{transform:translateX(-3px)} 50%{transform:translateX(-6px)} }
+  @keyframes gC { 0%,100%{transform:translateX(3px)} 50%{transform:translateX(6px)} }
+  .fx-b .spr { opacity:.8; filter:brightness(1.2); }
+
+  /* C：扫描线消散——纵向条纹遮罩+上飘 */
+  .fx-c .spr { animation:idle 1s steps(4) infinite, cloakC 1.6s linear infinite;
+    -webkit-mask-image:repeating-linear-gradient(180deg,#000 0 6px,transparent 6px 9px);
+    mask-image:repeating-linear-gradient(180deg,#000 0 6px,transparent 6px 9px); }
+  @keyframes cloakC {
+    0%,100% { opacity:.5; filter:drop-shadow(0 0 8px #00F0FF); }
+    50%     { opacity:.85; filter:drop-shadow(0 0 4px #00F0FF); }
+  }
+
+  .note { max-width:760px; margin-top:22px; font-size:12px; line-height:2; color:#8b95a7; }
+  .note b { color:#FFD166; }
+</style>
+</head>
+<body>
+<h1>光学迷彩 · 无敌态视觉候选</h1>
+<div class="sub">触发：击杀后无敌 2 秒（ghoststep 技能）· 需求：一眼可读"打不到我"+ 不挡战斗信息</div>
+<div class="row">
+  <div class="cell">
+    <h3>A · 掠食者微光</h3>
+    <div class="tag">半透明 + 青色描边呼吸（推荐）</div>
+    <div class="stage fx-a"><div class="spr"></div></div>
+  </div>
+  <div class="cell">
+    <h3>B · RGB 残影</h3>
+    <div class="tag">双层错位色差故障感</div>
+    <div class="stage fx-b"><div class="wrap" style="position:relative;width:110px;height:110px">
+      <div class="ghost-r"></div><div class="ghost-c"></div><div class="spr"></div></div></div>
+  </div>
+  <div class="cell">
+    <h3>C · 扫描线消散</h3>
+    <div class="tag">横向条纹遮罩 + 透明度脉冲</div>
+    <div class="stage fx-c"><div class="spr"></div></div>
+  </div>
+</div>
+<div class="note">
+  <b>实现量</b>：A/C 纯 CSS 一个 class（改 .fighter.cloaked .psprite）；
+  B 需要在玩家容器里预置两个 ghost 层（DOM 多 2 个节点）。<br>
+  <b>联动建议</b>：无敌期间玩家血条改青色（现在金色盾条同族），敌人子弹穿过时不跳伤害数字（现在本来就不结算伤害，纯视觉对齐）。
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+[
+  {
+    "expected": 1,
+    "level": 0,
+    "test": "valid tap 100ms after cancelled swipe"
+  },
+  {
+    "frames": [
+      {
+        "left": 146.797,
+        "ms": 499,
+        "opacity": "1",
+        "transition": "left"
+      },
+      {
+        "left": 151.031,
+        "ms": 501,
+        "opacity": "1",
+        "transition": "left"
+      },
+      {
+        "left": 154.844,
+        "ms": 512,
+        "opacity": "1",
+        "transition": "left"
+      },
+      {
+        "left": 159.125,
+        "ms": 549,
+        "opacity": "1",
+        "transition": "left"
+      },
+      {
+        "left": 163.156,
+        "ms": 550,
+        "opacity": "1",
+        "transition": "left"
+      },
+      {
+        "left": 167.203,
+        "ms": 562,
+        "opacity": "1",
+        "transition": "left"
+      },
+      {
+        "left": 320.766,
+        "ms": 579,
+        "opacity": "1",
+        "transition": "opacity"
+      },
+      {
+        "left": 320.766,
+        "ms": 600,
+        "opacity": "1",
+        "transition": "opacity"
+      },
+      {
+        "left": 320.766,
+        "ms": 612,
+        "opacity": "0.929265",
+        "transition": "opacity"
+      },
+      {
+        "left": 320.766,
+        "ms": 649,
+        "opacity": "0.784481",
+        "transition": "opacity"
+      },
+      {
+        "left": 320.766,
+        "ms": 650,
+        "opacity": "0.591975",
+        "transition": "opacity"
+      },
+      {
+        "left": 320.766,
+        "ms": 662,
+        "opacity": "0.426914",
+        "transition": "opacity"
+      }
+    ],
+    "test": "2x exit transition frames"
+  },
+  {
+    "after": "0.36s",
+    "before": "0.36s",
+    "newRunDurationMs": 180,
+    "test": "1x to 2x during enemy run",
+    "totalMs": 436
+  }
+]

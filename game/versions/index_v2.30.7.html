@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>霓虹猎手 · 数值原型 v0.1</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --cyan:#00F0FF; --magenta:#FF2A6D; --bg:#0a0e17; --panel:#111827;
+    --dim:#8b95a7; --gold:#FFD166;
+  }
+  body { background:var(--bg); color:#e6edf3; font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+         max-width:960px; margin:0 auto; padding:12px; user-select:none;
+         -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none;
+         touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
+  h1 { font-size:20px; letter-spacing:2px; color:var(--cyan); text-shadow:0 0 12px var(--cyan); }
+  h1 span { color:var(--magenta); text-shadow:0 0 12px var(--magenta); }
+  .tag { font-size:11px; color:var(--dim); margin:2px 0 12px; }
+
+  /* 战斗区（v1.10：工业楼层背景，地面线 77.8% 高度处对齐脚底） */
+  #arena { position:relative; height:280px; background:url('assets/arena-bg.webp') center/cover;
+           border:1px solid #1e2a44; border-radius:12px; overflow:hidden; margin-bottom:12px; }
+  /* v2.16：楼层数醒目化（左上大号发光）+ 资源 HUD（中上方） */
+  #floorLabel { position:absolute; top:10px; left:14px; text-align:left; color:#e6edf3;
+                text-shadow:0 1px 4px #000; }
+  #floorLabel .fl-big { font-size:22px; font-weight:700; letter-spacing:1px;
+                        text-shadow:0 0 10px rgba(0,240,255,.5); }
+  #floorLabel .fl-big b { color:var(--cyan); font-size:26px; }
+  #floorLabel .fl-sub { font-size:10px; color:#8b95a7; margin-top:2px; }
+  #resHud { position:absolute; top:8px; left:50%; transform:translateX(-50%); z-index:2;
+            display:flex; gap:14px; background:rgba(10,14,23,.72); border:1px solid #1e2a44;
+            border-radius:20px; padding:5px 16px; font-size:14px; backdrop-filter:blur(2px); }
+  #resHud .rg { color:var(--gold); font-weight:700; }
+  #resHud .rs { color:#c07bff; font-weight:700; }
+  .fighter { position:absolute; bottom:56px; width:64px; height:96px; transition:transform .12s; }
+  #player { left:22%; }
+  #enemy  { right:22%; }
+  .body { position:absolute; inset:0; border-radius:10px 10px 4px 4px; }
+  #player .body { background:linear-gradient(180deg,#0e3a44,#062a33); border:2px solid var(--cyan);
+                  box-shadow:0 0 18px rgba(0,240,255,.55); }
+  #enemy .body { background:linear-gradient(180deg,#3a0e22,#33061a); border:2px solid var(--magenta);
+                 box-shadow:0 0 18px rgba(255,42,109,.55); }
+  #enemy.boss .body { border-width:3px; box-shadow:0 0 30px var(--magenta); }
+  .eye { position:absolute; top:18px; width:10px; height:6px; border-radius:3px; }
+  #player .eye { background:var(--cyan); right:12px; box-shadow:0 0 8px var(--cyan); }
+  #enemy .eye { background:var(--magenta); left:12px; box-shadow:0 0 8px var(--magenta); }
+  .lunge-p { transform:translateX(46px); }
+  .lunge-e { transform:translateX(-46px); }
+  /* v1.9：佣兵精灵图主角（gunner-sprites-v2 素材包，128px 帧条） */
+  #player { width:110px; height:110px; bottom:46px; }
+  #player .body, #player .eye { display:none; }
+  .psprite { position:absolute; inset:0; image-rendering:pixelated; transform-origin:bottom center;
+             background:url('assets/gunner_idle.png') 0 0/400% 100% no-repeat;
+             animation:gunnerIdle 1s steps(4) infinite; }
+  /* v1.9.2：steps() 动画必须用 px 位移（百分比定位×steps 会按错误步长切片，角色横移） */
+  @keyframes gunnerIdle { from{background-position-x:0} to{background-position-x:-440px} }
+  .psprite.atk { background-image:url('assets/gunner_shoot.png'); background-size:1600% 100%;
+                 animation:gunnerShoot .32s steps(16) 1; }
+  @keyframes gunnerShoot { from{background-position-x:0} to{background-position-x:-1760px} }
+  .fighter.hit .psprite { filter:brightness(2.6); }
+  /* v2.1：跑步动画 + 楼层转场 */
+  .psprite.run { background-image:url('assets/gunner_run.png'); background-size:800% 100%;
+                 animation:gunnerRun .667s steps(8) infinite; }
+  @keyframes gunnerRun { from{background-position-x:0} to{background-position-x:-880px} }
+  .bgSlide { position:absolute; top:0; bottom:0; left:0; width:100%; z-index:1;
+             background-position:center; background-size:cover; transition:left .45s ease-in-out; }
+  .fighter, .hpbar, .hptext, #floorLabel, #mobProgress { z-index:2; }
+  /* v2.5：安保兵敌人精灵图（待机/射击/受击/死亡四组） */
+  #enemy { width:110px; height:110px; bottom:46px; }
+  #enemy .body, #enemy .eye { display:none; }
+  .esprite { position:absolute; inset:0; image-rendering:pixelated; transform-origin:bottom center;
+             background:url('assets/security_idle.png') 0 0/400% 100% no-repeat;
+             animation:secIdle 1s steps(4) infinite; }
+  @keyframes secIdle { from{background-position-x:0} to{background-position-x:-440px} }
+  #enemy.boss .esprite { transform:scale(1.4); filter:drop-shadow(0 0 12px rgba(255,42,109,.8)); }
+  .esprite.shoot { background-image:url('assets/security_shoot.png'); background-size:800% 100%;
+                   animation:secShoot .333s steps(8) 1; }
+  @keyframes secShoot { from{background-position-x:0} to{background-position-x:-880px} }
+  .esprite.hurt { background-image:url('assets/security_hurt.png'); background-size:300% 100%;
+                  animation:secHurt .2s steps(3) 1; }
+  @keyframes secHurt { from{background-position-x:0} to{background-position-x:-330px} }
+  .esprite.die { width:165px; left:-13px; background-image:url('assets/security_death.png');
+                 background-size:990px 110px; animation:secDie .6s steps(6) forwards; }
+  @keyframes secDie { from{background-position-x:0} to{background-position-x:-990px} }
+  /* v2.5：敌人跑入 */
+  .esprite.run { background-image:url('assets/security_run.png'); background-size:800% 100%;
+                 animation:secRun .667s steps(8) infinite; }
+  @keyframes secRun { from{background-position-x:0} to{background-position-x:-880px} }
+  /* v2.7：重装典狱长 Boss（165×124 帧，内建 1.5× 体型，覆盖小兵帧条） */
+  #enemy.boss { width:165px; height:124px; bottom:42px; }
+  #enemy.boss .esprite { transform:none; filter:drop-shadow(0 0 12px rgba(255,42,109,.8));
+                         background-image:url('assets/warden_idle.png'); background-size:400% 100%;
+                         animation:wardenIdle 1s steps(4) infinite; }
+  @keyframes wardenIdle { from{background-position-x:0} to{background-position-x:-660px} }
+  #enemy.boss .esprite.shoot { background-image:url('assets/warden_shoot.png'); background-size:800% 100%;
+                               animation:wardenShoot .4s steps(8) 1; }
+  @keyframes wardenShoot { from{background-position-x:0} to{background-position-x:-1320px} }
+  #enemy.boss .esprite.hurt { background-image:url('assets/warden_idle.png'); background-size:400% 100%;
+                              animation:wardenIdle 1s steps(4) infinite; }  /* Boss 无受击帧，保持待机 */
+  #enemy.boss .esprite.run { width:100%; left:0; background-image:url('assets/warden_run.png');
+                             background-size:800% 100%; animation:wardenRun .8s steps(8) infinite; }
+  @keyframes wardenRun { from{background-position-x:0} to{background-position-x:-1320px} }
+  #enemy.boss .esprite.die { width:100%; left:0; background-image:url('assets/warden_death.png');
+                             background-size:800% 100%; animation:wardenDie .8s steps(8) forwards; }
+  @keyframes wardenDie { from{background-position-x:0} to{background-position-x:-1320px} }
+  /* v2.9：监察官·棱镜（里程碑层 Boss，10/20/30…层），150px 方帧，白金悬浮体型 */
+  #enemy.prism { width:150px; height:150px; bottom:46px; }
+  #enemy.prism .esprite { background-image:url('assets/prism_idle.png'); background-size:400% 100%;
+                          animation:prismIdle 1s steps(4) infinite;
+                          filter:drop-shadow(0 0 14px rgba(192,123,255,.7)); }
+  @keyframes prismIdle { from{background-position-x:0} to{background-position-x:-600px} }
+  #enemy.prism .esprite.shoot { background-image:url('assets/prism_shoot.png'); background-size:600% 100%;
+                                animation:prismShoot .4s steps(6) 1; }
+  @keyframes prismShoot { from{background-position-x:0} to{background-position-x:-900px} }
+  #enemy.prism .esprite.slash { background-image:url('assets/prism_slash.png'); background-size:600% 100%;
+                                animation:prismSlash .5s steps(6) 1; }
+  @keyframes prismSlash { from{background-position-x:0} to{background-position-x:-900px} }
+  #enemy.prism .esprite.run { width:100%; left:0; background-image:url('assets/prism_move.png');
+                              background-size:600% 100%; animation:prismMove .75s steps(6) infinite; }
+  @keyframes prismMove { from{background-position-x:0} to{background-position-x:-900px} }
+  #enemy.prism .esprite.hurt { background-image:url('assets/prism_idle.png'); background-size:400% 100%;
+                               animation:prismIdle 1s steps(4) infinite; }  /* 无受击帧，保持待机 */
+  #enemy.prism .esprite.die { width:100%; left:0; background-image:url('assets/prism_death.png');
+                              background-size:800% 100%; animation:prismDie .89s steps(8) forwards; }
+  @keyframes prismDie { from{background-position-x:0} to{background-position-x:-1200px} }
+  /* v2.15：巡猎机械犬（小怪随机种，110×82，体高 45%） */
+  #enemy.hound { width:110px; height:82px; bottom:46px; }
+  #enemy.hound .esprite { background-image:url('assets/hound_idle.png'); background-size:400% 100%;
+                          animation:houndIdle 1s steps(4) infinite; }
+  @keyframes houndIdle { from{background-position-x:0} to{background-position-x:-440px} }
+  #enemy.hound .esprite.run { background-image:url('assets/hound_run.png'); background-size:800% 100%;
+                              animation:houndRun .667s steps(8) infinite; }
+  @keyframes houndRun { from{background-position-x:0} to{background-position-x:-880px} }
+  #enemy.hound .esprite.bite { background-image:url('assets/hound_bite.png'); background-size:600% 100%;
+                               animation:houndBite .5s steps(6) 1; }
+  @keyframes houndBite { from{background-position-x:0} to{background-position-x:-660px} }
+  #enemy.hound .esprite.shoot { background-image:url('assets/hound_idle.png'); background-size:400% 100%;
+                                animation:houndIdle 1s steps(4) infinite; }  /* 犬无射击帧，兜底 */
+  #enemy.hound .esprite.hurt { background-image:url('assets/hound_hurt.png'); background-size:300% 100%;
+                               animation:houndHurt .2s steps(3) 1; }
+  @keyframes houndHurt { from{background-position-x:0} to{background-position-x:-330px} }
+  #enemy.hound .esprite.die { width:100%; left:0; background-image:url('assets/hound_death.png');
+                              background-size:600% 100%; animation:houndDie .667s steps(6) forwards; }
+  @keyframes houndDie { from{background-position-x:0} to{background-position-x:-660px} }
+  /* v2.23：天枢·零号主机（100 层主 Boss，190×142 帧条） */
+  #enemy.tianshu { width:190px; height:142px; bottom:40px; }
+  #enemy.tianshu .esprite { background-image:url('assets/tianshu_idle.png'); background-size:400% 100%;
+                            animation:tsIdle 1s steps(4) infinite; }
+  @keyframes tsIdle { from{background-position-x:0} to{background-position-x:-760px} }
+  #enemy.tianshu .esprite.run { background-image:url('assets/tianshu_move.png'); background-size:600% 100%;
+                                animation:tsMove .6s steps(6) infinite; }
+  @keyframes tsMove { from{background-position-x:0} to{background-position-x:-1140px} }
+  #enemy.tianshu .esprite.shoot { background-image:url('assets/tianshu_machinegun.png'); background-size:600% 100%;
+                                  animation:tsMg .4s steps(6) infinite; }   /* 机枪连射（循环） */
+  @keyframes tsMg { from{background-position-x:0} to{background-position-x:-1140px} }
+  #enemy.tianshu .esprite.charge { background-image:url('assets/tianshu_charge.png'); background-size:400% 100%;
+                                   animation:tsCharge .5s steps(4) forwards; }   /* 蓄力保持末帧=预警 */
+  @keyframes tsCharge { from{background-position-x:0} to{background-position-x:-760px} }
+  #enemy.tianshu .esprite.cannon { background-image:url('assets/tianshu_cannon.png'); background-size:600% 100%;
+                                   animation:tsCannon .5s steps(6) 1; }
+  @keyframes tsCannon { from{background-position-x:0} to{background-position-x:-1140px} }
+  #enemy.tianshu .esprite.hurt { background-image:url('assets/tianshu_idle.png'); background-size:400% 100%;
+                                 animation:tsIdle 1s steps(4) infinite; }   /* 无受击帧（素材规范），兜底待机 */
+  #enemy.tianshu .esprite.die { width:100%; left:0; background-image:url('assets/tianshu_death.png');
+                                background-size:800% 100%; animation:tsDie .8s steps(8) forwards; }
+  @keyframes tsDie { from{background-position-x:0} to{background-position-x:-1520px} }
+  .hpbar { position:absolute; bottom:30px; width:180px; height:14px; background:#1a2436;
+           border:1px solid #2b3a55; border-radius:7px; overflow:hidden; }
+  #playerHp { left:calc(22% - 35px); } #enemyHp { right:calc(22% - 58px); }   /* 静态兜底（实际位置由 renderCombat 按容器中心实时对齐，v2.24.13） */
+  /* v2.18：护盾独立细横条（血条上方，无盾时隐藏） */
+  .shbar { position:absolute; bottom:47px; width:180px; height:8px; background:#141c2c;
+           border:1px solid #2b3a55; border-radius:3px; overflow:hidden; display:none; }
+  #playerSh { left:calc(22% - 58px); } #enemySh { right:calc(22% - 58px); }
+  .shfill { height:100%; transition:width .15s;
+            background:linear-gradient(90deg,#7fd4ff,#c07bff); box-shadow:0 0 6px rgba(192,123,255,.6); }
+  .shtext { position:absolute; bottom:45px; width:180px; text-align:center; font-size:8px;
+            line-height:11px; color:#eaf3ff; text-shadow:0 1px 2px #000; z-index:2; display:none; }
+  #playerShT { left:calc(22% - 58px); } #enemyShT { right:calc(22% - 58px); }
+  /* v2.20：倍速按钮（战斗区左下角胶囊，首次重塑后可见） */
+  .speedbtn { position:absolute; left:14px; bottom:14px; z-index:3;
+              background:rgba(10,14,23,.8); border:1px solid #2b3a55; color:#8b95a7;
+              border-radius:18px; padding:6px 14px; font-size:13px; cursor:pointer; display:none; }
+  .speedbtn.on { border-color:var(--cyan); color:var(--cyan); box-shadow:0 0 8px rgba(0,240,255,.25); }
+  /* v2.20：护盾白色光环（贴合轮廓的 drop-shadow 呼吸发光，替代轮扩描边环） */
+  .fighter.shielded { animation:auraGlow 1.6s ease-in-out infinite; }
+  @keyframes auraGlow {
+    0%,100% { filter:drop-shadow(0 0 10px rgba(255,255,255,.75)); }
+    50%     { filter:drop-shadow(0 0 22px rgba(255,255,255,1)); } }
+  .hpfill { height:100%; transition:width .15s; }
+  #playerHp .hpfill { background:linear-gradient(90deg,#00c8d4,var(--cyan)); }
+  #enemyHp .hpfill { background:linear-gradient(90deg,#d41e5a,var(--magenta)); }
+  .hptext { position:absolute; bottom:31px; width:180px; text-align:center; font-size:10px; color:#fff; z-index:2; }
+  #playerHpT { left:calc(22% - 58px); } #enemyHpT { right:calc(22% - 58px); }
+  .dmg { position:absolute; font-weight:bold; font-size:15px; pointer-events:none;
+         animation:floatUp 0.9s ease-out forwards; text-shadow:0 0 6px currentColor; }
+  @keyframes floatUp { 0%{opacity:1; transform:translateY(0);} 100%{opacity:0; transform:translateY(-56px);} }
+  #mobProgress { position:absolute; bottom:8px; left:0; right:0; text-align:center; font-size:11px; color:var(--dim); }
+
+  /* 面板 */
+  .row { display:flex; gap:10px; flex-wrap:wrap; }
+  /* v2.24：移动端适配层（≤640px，桌面零影响） */
+  @media (max-width:640px){
+    body { padding:8px; padding-top:calc(58vw + 10px); touch-action:manipulation; }   /* v2.24.6：顶部预留 fixed 战斗区高度 */
+    /* 顶栏压缩：版本号缩小、按钮紧凑 */
+    #topbar h1 { font-size:16px; }
+    #topbar .tag { font-size:10px; }
+    .tools button { font-size:10px; padding:5px 8px; }
+    /* 战斗区按屏宽比例（v2.24.4：56vw 更宽画幅 + 背景按宽撑满不裁横向） */
+    #arena { height:58vw; background-size:cover; background-position:center; background-repeat:no-repeat;
+             position:fixed; top:0; left:0; right:0; z-index:5; border-radius:0;   /* v2.24.6：fixed 常驻 */
+             box-shadow:0 6px 18px rgba(0,0,0,.55); }
+             }
+    /* HUD 缩小贴底（v2.24.3：压到血条组下方，避免干涉） */
+    #resHud { top:auto; bottom:2px; font-size:11px; padding:3px 10px; gap:8px; }
+    #floorLabel .fl-big { font-size:18px; }
+    #floorLabel .fl-big b { font-size:22px; }
+    /* 击杀进度挪右上角 */
+    #mobProgress { bottom:auto; top:10px; left:auto; right:12px; text-align:right; }
+    /* v2.24.3：双方拉开距离（更多场景画幅），血条组跟随 */
+    #player { left:8%; } #enemy { right:8%; }
+    .hpbar, .shbar, .hptext, .shtext { width:120px; }
+    #playerHp,#playerSh,#playerHpT,#playerShT { left:calc(8% - 5px); }
+    #enemyHp,#enemySh,#enemyHpT,#enemyShT { right:calc(8% - 5px); }
+    /* 面板单列全宽 */
+    .row { flex-direction:column; }
+    .panel { width:100%; }
+    /* 抽屉全屏 */
+    #drawer { width:100vw; max-width:100vw; }
+    /* 倍速按钮挪右下角（HUD 下移底部居中后避免叠压） */
+    .speedbtn { left:auto; right:12px; bottom:14px; }
+  }
+  .panel { background:var(--panel); border:1px solid #1e2a44; border-radius:10px; padding:10px 12px; flex:1; min-width:200px; }
+  .panel h3 { font-size:13px; color:var(--cyan); margin-bottom:8px; font-weight:600; }
+  .sub-h3 { font-size:13px; color:var(--cyan); margin-bottom:8px; font-weight:600; }
+  .divider { border-top:1px solid #1e2a44; margin:9px 0; }
+  /* v2.12：升级按钮三段式（名称+等级箭头 / 提升数值 / 费用右置） */
+  /* v2.28.1：旧版式规则退役（升级按钮已接入 .nh-button 体系） */
+
+
+  /* v2.18：定制图标体系（线稿 SVG，替代表情） */
+  .ic { width:19px; height:19px; vertical-align:-4px; margin-right:6px; }   /* v2.21.1：栏目标题图标 16→19px（README 建议 24，小尺寸下锁扣等细节丢失） */
+  .ic.sm { width:13px; height:13px; vertical-align:-2px; margin-right:2px; }
+  .stat { font-size:12px; color:var(--dim); line-height:1.9; }
+  .stat b { color:#e6edf3; }
+  button { background:#13202f; color:var(--cyan); border:1px solid var(--cyan); border-radius:8px;
+           padding:8px 10px; font-size:12px; cursor:pointer; margin:3px 2px; font-family:inherit; }
+  /* v2.30.3：通用 hover 加亮删除——它才是盖过 nh-button 悬停提亮（元素+伪类优先级）的真凶 */
+  button:disabled { opacity:.35; cursor:not-allowed; }
+  button.mag { color:var(--magenta); border-color:var(--magenta); }
+  /* v2.30.7：mag hover 删除（全游戏无悬停反馈） */
+  button.gold { color:var(--gold); border-color:var(--gold); }
+  /* v2.30.7：gold hover 删除 */
+  .pulse { animation:pulse 1s infinite; }
+  @keyframes pulse { 50% { box-shadow:0 0 14px currentColor; } }
+
+  .item { display:inline-block; font-size:11px; padding:4px 7px; border-radius:6px; margin:2px;
+          border:1px solid; cursor:pointer; }
+  .q0{color:#5a6472;border-color:#3a3f46;} .q1{color:#b8c0cc;border-color:#8b95a7;}
+  .q2{color:#3ddc84;border-color:#3ddc84;} .q3{color:#4aa8ff;border-color:#4aa8ff;}
+  .q4{color:#c07bff;border-color:#c07bff;} .q5{color:#ff6b6b;border-color:#ff4d4d;}
+  .q6{color:#ffb020;border-color:#ffb020; box-shadow:0 0 8px rgba(255,176,32,.4);}
+  .q7{color:#ff2a6d;border-color:#ff2a6d; box-shadow:0 0 8px rgba(255,42,109,.45);}
+  .q8{color:#d9fbff;border-color:#d9fbff; box-shadow:0 0 10px rgba(0,240,255,.55);}
+  /* v2.25：不朽=全息虹彩（渐变文字+旋转虹彩框） */
+  .q9{color:#FFD166; background:linear-gradient(90deg,#00F0FF,#c07bff,#FFD166);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  span.q9, .ib.q9 { -webkit-text-fill-color:initial; color:#FFD166; background:none; }
+  .ib.q9 { border:1px solid transparent; border-radius:7px;
+           background:linear-gradient(#131a2a,#131a2a) padding-box,
+                      conic-gradient(#00F0FF,#c07bff,#FFD166,#00F0FF) border-box;
+           animation:irisSpin 3s linear infinite; }
+  @keyframes irisSpin { to { filter:hue-rotate(360deg); } }
+  .equipped-label { font-size:10px; color:var(--dim); }
+  /* v1.10：装备图标方框（品质=边框+底色） */
+  .ib { display:inline-block; position:relative; width:38px; height:38px; border-radius:7px; border:2px solid;
+        margin:1px; vertical-align:middle; }
+  .ib img { width:100%; height:100%; }
+  .ib .cnt { position:absolute; bottom:-4px; right:-4px; font-size:9px; line-height:1; color:#cfd8e3;
+             background:#0d1420; border:1px solid #2b3a55; border-radius:6px; padding:1px 3px; }
+  .ib .cnt.hot { color:var(--gold); border-color:var(--gold); }
+  .ib{border-width:1px;}   /* v2.25：线框变细（用户审美定） */
+  .ib.q0{background:rgba(58,63,70,.25)} .ib.q1{background:rgba(154,164,178,.12)}
+  .ib.q2{background:rgba(61,220,132,.13)} .ib.q3{background:rgba(74,168,255,.14)}
+  .ib.q4{background:rgba(192,123,255,.15)} .ib.q5{background:rgba(255,77,77,.14)}
+  .ib.q6{background:rgba(255,176,32,.16)} .ib.q7{background:rgba(255,42,109,.16)}
+  .ib.q8{background:rgba(0,240,255,.10)}
+  .ib.big { width:52px; height:52px; cursor:default; }
+  /* v1.8：装备四分栏 */
+  .geargrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; }
+  .gearcol { background:#0d1626; border:1px solid #1e2a44; border-radius:8px; padding:7px; font-size:11px; }
+  .gc-title { color:var(--dim); margin-bottom:5px; }
+  .gc-eq { border:1px solid; border-radius:6px; padding:4px 6px; margin-bottom:5px; font-size:11px; }
+  .gc-eq small { display:block; color:var(--dim); font-size:10px; }
+  .qchip { display:inline-block; border-radius:4px; padding:2px 6px; margin:1px; font-size:10px;
+           border:1px solid; cursor:pointer; }
+  .gc-btn { width:100%; font-size:11px; padding:4px; margin-top:4px; }
+  .gc-hint { font-size:10px; color:var(--dim); text-align:center; padding:4px 0 2px; }
+
+  /* v2.6：开始封面 */
+  #cover { position:fixed; inset:0; z-index:60; background:#0a0e17; display:flex;
+           align-items:center; justify-content:center; transition:opacity .4s; }
+  #cover.hide { opacity:0; pointer-events:none; }
+  #cover::before { content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 70% 45% at 50% 108%, rgba(0,240,255,.14), transparent),
+      radial-gradient(ellipse 45% 30% at 85% 15%, rgba(255,42,109,.10), transparent),
+      repeating-linear-gradient(90deg, rgba(0,240,255,.04) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(0deg, rgba(0,240,255,.04) 0 1px, transparent 1px 64px); }
+  .c-inner { position:relative; text-align:center; padding:24px; width:100%; max-width:340px; }
+  .c-logo { font-size:44px; font-weight:700; letter-spacing:8px; color:var(--cyan);
+            text-shadow:0 0 18px rgba(0,240,255,.75),0 0 46px rgba(0,240,255,.35); }
+  .c-logo span { color:var(--magenta); text-shadow:0 0 18px rgba(255,42,109,.75),0 0 46px rgba(255,42,109,.35); }
+  .c-en { font-size:13px; letter-spacing:10px; color:var(--dim); margin-top:8px; }
+  .c-slogan { font-size:13px; color:var(--dim); margin-top:18px; line-height:1.7; }
+  .c-slogan b { color:var(--gold); font-weight:500; }
+  .c-btn { display:block; width:100%; margin-top:34px; padding:17px 0; font-size:18px; letter-spacing:4px;
+           background:linear-gradient(90deg,rgba(0,240,255,.16),rgba(0,240,255,.08));
+           border:2px solid var(--cyan); border-radius:12px; color:var(--cyan);
+           text-shadow:0 0 10px rgba(0,240,255,.6); box-shadow:0 0 18px rgba(0,240,255,.25); }
+  .c-btn small { display:block; font-size:11px; letter-spacing:1px; color:var(--dim); margin-top:3px; text-shadow:none; }
+  .c-gear { position:absolute; top:14px; right:14px; width:44px; height:44px; border-radius:10px;
+            background:rgba(58,65,82,.35); border:1px solid #3a4152; color:var(--dim); font-size:18px; margin:0; }
+  .c-settings { position:absolute; top:66px; right:14px; width:210px; background:#111827;
+                border:1px solid #1e2a44; border-radius:12px; padding:10px; display:none; }
+  .c-settings.show { display:block; }
+  .c-settings .row2 { display:flex; justify-content:space-between; align-items:center;
+                      padding:9px 6px; font-size:13px; color:#cfd8e3; border-bottom:1px solid #1e2a44; cursor:pointer; }
+  .c-settings .row2:last-child { border-bottom:none; }
+  .c-settings .val { color:var(--cyan); font-size:12px; }
+  .c-settings .danger { color:var(--magenta); }
+  .c-foot { position:absolute; bottom:14px; left:0; right:0; text-align:center; font-size:10px;
+            color:#4a5568; letter-spacing:1px; }
+
+  /* 弹窗 */
+  #overlay { position:fixed; inset:0; background:rgba(4,8,16,.82); display:none;
+             align-items:center; justify-content:center; z-index:70; }   /* v2.27：压过封面 60 */
+  #overlay.show { display:flex; }
+  .modal { background:var(--panel); border:1px solid var(--cyan); border-radius:14px; padding:22px;
+           max-width:520px; width:92%; box-shadow:0 0 40px rgba(0,240,255,.25); text-align:center; }
+  .modal h2 { font-size:17px; color:var(--cyan); margin-bottom:10px; }
+  .modal p { font-size:13px; color:var(--dim); margin:8px 0 14px; line-height:1.7; }
+  .choice { display:block; width:100%; text-align:left; margin:6px 0; padding:12px; font-size:13px; }
+  .choice b { display:block; margin-bottom:3px; }
+  .choice small { color:var(--dim); }
+  #toast { position:fixed; top:14px; left:50%; transform:translateX(-50%); background:#13202f;
+           border:1px solid var(--cyan); color:#e6edf3; padding:8px 18px; border-radius:20px;
+           font-size:12px; display:none; z-index:60; }
+
+  /* 顶部工具栏 */
+  #topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap; }
+  .tools { display:flex; gap:4px; padding-top:6px; }
+  .tools button { font-size:11px; padding:6px 10px; }
+
+  /* 日志抽屉 */
+  #drawer { position:fixed; top:0; right:0; bottom:0; width:360px; max-width:92vw; z-index:70;   /* v2.27 */
+            background:#0d1420; border-left:1px solid var(--cyan); padding:16px;
+            transform:translateX(105%); transition:transform .25s; overflow-y:auto;
+            box-shadow:-8px 0 30px rgba(0,0,0,.5); }
+  #drawer.show { transform:translateX(0); }
+  #drawer h3 { color:var(--cyan); font-size:14px; margin-bottom:10px; }
+  .sess { border:1px solid #1e2a44; border-radius:8px; padding:10px; margin-bottom:8px; font-size:12px; }
+  .sess .meta { color:var(--dim); line-height:1.8; }
+  .sess.current { border-color:var(--cyan); box-shadow:0 0 10px rgba(0,240,255,.2); }
+  .sess button { font-size:11px; padding:4px 8px; }
+</style>
+<link rel="stylesheet" href="assets/start-screen/start-screen.css">   <!-- v2.27 -->
+<link rel="stylesheet" href="assets/buttons.css">   <!-- v2.28：立体按钮体系 -->
+<style>/* v2.28.3：按钮垂直间距（须在 buttons.css 后加载才能覆盖 margin:0） */
+.nh-button { margin:7px 0 12px; }
+/* v2.30：去 hover 态——只留可点击/按下/不可用 */
+/* v2.30.5：触摸反馈桥——iOS Safari 的 :active 不触发，用 .pressing 类镜像按下态（桌面端 touch 事件不触发，零影响） */
+.nh-button.pressing { transform:translateY(3px)!important; filter:brightness(.94)!important;
+  box-shadow:inset 0 2px 6px #0004,0 1px 0 var(--nh-base),0 2px 0 var(--nh-edge)!important; }
+/* v2.30.7：主入口 c-btn 悬停压死（start-screen.css 的提亮+上浮） */
+#cover .c-btn:hover { filter:none!important; transform:none!important; }
+/* v2.30.4：悬停屏蔽仅限未按下——否则 !important 会把按下的 :active 态也压死 */
+.nh-button:not(:disabled):hover:not(:active) { filter:none!important; transform:none!important;
+  border-color:var(--nh-edge)!important;
+  box-shadow:inset 0 1px 0 #ffffff20,inset 0 -1px 0 #0003,0 4px 0 var(--nh-base),0 5px 0 var(--nh-edge),0 8px 14px #0003!important; }
+/* v2.30：合成/拆解按钮单行紧凑 */
+.nh-button--fuse { min-height:38px; padding:7px 12px; gap:8px; }
+.nh-button--fuse .nh-button__icon { width:16px; height:16px; flex-basis:16px; }
+.nh-button--fuse .nh-button__title { font-size:12px; }
+</style>
+</head>
+<body>
+  <div id="topbar">
+    <div>
+      <h1>霓虹猎手 <span>NEON HUNTER</span></h1>
+      <div class="tag" id="topVer"></div>
+    </div>
+    <div class="tools">
+      <button onclick="askReset()">🔄 复位</button>
+      <button class="mag" onclick="endTest()">⏹️ 结束测试</button>
+      <button class="gold" onclick="toggleDrawer()">📋 日志</button>
+    </div>
+  </div>
+
+  <div id="arena">
+    <div id="floorLabel"></div>
+    <div id="resHud"></div>   <!-- v2.16：资源 HUD（信用点+可用碎片） -->
+    <button id="btnSpeed" class="speedbtn" onclick="toggleSpeed()"></button>   <!-- v2.20：倍速按钮（战斗区左下，重塑后可见） -->
+    <div id="player" class="fighter"><div class="body"></div><div class="eye"></div><div class="psprite" id="playerSpr"></div></div>
+    <div id="enemy" class="fighter"><div class="body"></div><div class="eye"></div><div class="esprite" id="enemySpr"></div></div>
+    <div class="shbar" id="playerSh"><div class="shfill" style="width:0%"></div></div>   <!-- v2.18：护盾独立横条 -->
+    <div class="shtext" id="playerShT"></div>
+    <div class="hpbar" id="playerHp"><div class="hpfill" style="width:100%"></div></div>
+    <div class="hptext" id="playerHpT"></div>
+    <div class="shbar" id="enemySh"><div class="shfill" style="width:0%"></div></div>
+    <div class="shtext" id="enemyShT"></div>
+    <div class="hpbar" id="enemyHp"><div class="hpfill" style="width:100%"></div></div>
+    <div class="hptext" id="enemyHpT"></div>
+    <div id="mobProgress"></div>
+  </div>
+
+  <div class="row">
+    <div class="panel">
+      <div class="sub-h3"><img class="ic" src="assets/icons/enhance.svg" alt="">强化</div>
+      <div class="stat" id="statBox"></div>
+      <button id="btnAtk" class="nh-button nh-button--upgrade"></button>   <!-- v2.28.1 -->
+      <button id="btnHp" class="nh-button nh-button--upgrade"></button>
+      <div class="divider"></div>
+      <div class="sub-h3"><img class="ic" src="assets/icons/skills.svg" alt="">技能</div>
+      <div id="skillBox" class="stat">尚未获得（每过 10 层触发一次三选一）</div>
+    </div>
+    <div class="panel">
+      <h3><img class="ic" src="assets/icons/cybernetics.svg" alt="">义体 <span class="equipped-label">(自动装备)</span></h3>
+      <div id="gearBox" class="geargrid"></div>
+    </div>
+    <div class="panel">
+      <div class="sub-h3"><img class="ic" src="assets/icons/reshape.svg" alt="">重塑</div>
+      <div class="stat" id="soulBox"></div>
+      <div id="treeBox" style="margin-top:6px"></div>
+      <div class="divider"></div>
+      <div class="sub-h3"><img class="ic" src="assets/icons/supply.svg" alt="">补给</div>
+      <div class="stat" id="crateBox"></div>
+      <button id="btnCrate" class="nh-button nh-button--gold nh-button--compact"><img class="nh-button__icon" src="assets/icons/supply.svg" alt=""><span class="nh-button__body"><span class="nh-button__title">开补给箱</span><span class="nh-button__detail">观看广告领取</span></span></button>
+    </div>
+  </div>
+
+  <div id="drawer">
+    <h3>📋 测试日志 <button style="float:right" onclick="toggleDrawer()">收起 ✕</button></h3>
+    <div id="drawerBody"></div>
+  </div>
+  <div id="overlay"><div class="modal" id="modalBox"></div></div>
+  <div id="toast"></div>
+
+  <!-- v2.6：开始封面（v2.27：主视觉插画接入） -->
+  <div id="cover">
+    <picture class="c-art" aria-hidden="true">
+      <source media="(max-width:700px) and (orientation:portrait)" srcset="assets/start-screen/night-city-mobile.webp">
+      <img src="assets/start-screen/night-city-desktop.webp" alt="" width="1672" height="941" fetchpriority="high">
+    </picture>
+    <div class="c-layout">
+      <div class="c-inner">
+        <div class="c-kicker">赛博朋克 · 放置爬塔</div>
+        <div class="c-logo">霓虹<span>猎手</span></div>
+        <div class="c-en">NEON HUNTER</div>
+        <div class="c-rule" aria-hidden="true"></div>
+        <div class="c-slogan">赛博朋克放置爬塔 · 自动战斗<br>爆义体 · 合成升阶 · <b>重塑变强</b></div>
+        <button class="c-btn nh-button nh-button--primary" id="btnStart"></button>   <!-- v2.30.6：并入按钮体系，吃按下反馈+触摸桥 -->
+      </div>
+    </div>
+    <button class="c-gear" aria-label="设置" onclick="document.getElementById('coverSettings').classList.toggle('show')">⚙</button>
+    <div class="c-settings" id="coverSettings">
+      <div class="row2"><span>语言</span><span class="val">中文（EN 制作中）</span></div>
+      <div class="row2" onclick="toggleSfx()"><span>音效</span><span class="val" id="sfxVal">开</span></div>
+      <div class="row2" onclick="toggleDrawer();this.parentElement.classList.remove('show')"><span>测试日志</span><span class="val">查看</span></div>
+      <div class="row2 danger" onclick="askCoverReset()"><span class="danger">清除存档</span><span class="val danger">二次确认</span></div>
+    </div>
+    <div class="c-foot" id="covVer"></div>
+  </div>
+
+<script>
+"use strict";
+// ============ 数值模型（设计文档 v1.0 锁定参数） ============
+const ATK0=8, HP0=100, GROWTH=1.10, COST0=6, COST_G=1.25;   // v2.14：1.22→1.25 首卡再提前（真人预计 20~25 层/12~15min）
+const ASPD0=1.3;   // v0.11：开局手感提速（T1 实测前 10 层 28~38s/层偏慢）
+const MOB_HP0=20, MOB_G=1.15, MOB_ATK0=1.5, MOB_ATK_G=1.15, GOLD_R=0.10;   // v2.14：怪攻 1.14→1.15
+const BOSS={hp:6, atk:1.8, gold:5};
+// v2.25：品质阶梯 10 档——报废/破损垫底，数值整体前移 2 档（前期曲线不变），不朽=虹彩封顶
+const QUALITY=["报废","破损","民用","改装","军用","原型","传说","神话","永恒","不朽"];
+function qualityName(q){ return QUALITY[Math.min(q,9)]||"不朽"; }   // v2.25：合成封顶不朽，取消无上限
+function qClass(q){ return "q"+Math.min(q,9); }
+const QCOL=["#3a3f46","#b8c0cc","#3ddc84","#4aa8ff","#c07bff","#ff6b6b","#ffb020","#ff2a6d","#d9fbff","IRIS"];
+function multOf(slot,q){ const b=MULT[slot]; return q<=4?b[q]:Math.round(b[4]*Math.pow(1.35,q-4)); }   // v2.0 回调：橙后 1.45→1.35/阶
+const SLOT_ICON={weapon:"weapon",implant:"neural",armor:"armor",chip:"chip"};
+const SLOT_BUFF={weapon:"攻击",implant:"攻速",armor:"生命",chip:"信用点"};
+// v2.3：固定词条（取消随机），同部位同品质完全同构
+const FIXED_AFFIX={weapon:"crit",implant:"aspd",armor:"ls",chip:null};
+const AFFIX_BASE={crit:5,aspd:10,ls:3}, AFFIX_STEP={crit:1,aspd:2,ls:1};   // v2.25：词条随品质递增（传说 q6 起）
+const affixOf=(slot,q)=>{ const t=FIXED_AFFIX[slot]; return (t&&q>=6)?{t,v:AFFIX_BASE[t]+AFFIX_STEP[t]*(q-6)}:null; };
+const SLOTS={weapon:"义体武器",implant:"神经插件",armor:"皮下装甲",chip:"芯片"};
+const MULT={weapon:[10,25,45,70,100], implant:[5,10,18,28,40],
+            armor:[10,25,45,70,100], chip:[10,20,35,55,80]};
+// （DROPS 旧掉落表已于 v1.8 移除，改 dropBand 楼层区间制）
+// v2.19：技能体系重构——10层=常驻属性池 / 5层=条件触发器池；全部单循环生效重塑清空
+const SKILLS={
+  // —— 10 层常驻属性（棱镜核心） ——
+  overclock:{n:"战斗超频",d:"暴击率 +10%（可叠加）"},
+  fatal:{n:"致命固件",d:"暴击伤害 +50%"},
+  neuro:{n:"神经加速",d:"攻速 +15%"},
+  fire:{n:"火力协议",d:"攻击 +25%"},
+  subdermal:{n:"皮下加固",d:"生命 +30%"},
+  nano:{n:"纳米修复",d:"吸血 +5%"},
+  shield:{n:"应急护盾",d:"战斗开始获得 10% 最大生命护盾（每场刷新）"},
+  blackmarket:{n:"黑市渠道",d:"信用点 +30%"},
+  resonance:{n:"碎片共鸣",d:"Boss 碎片掉落 +10%"},
+  // —— 5 层条件触发器（中庭） ——
+  killcycle:{n:"杀戮循环",d:"暴击后攻速 +20%，持续 3 秒"},
+  adrenaline:{n:"肾上腺素",d:"生命低于 50% 时攻速 +30%"},
+  critsurge:{n:"狂暴节奏",d:"暴击后攻速 +30%，持续 5 秒"},
+  ghoststep:{n:"光学迷彩",d:"击杀后无敌 2 秒"},
+  lowhp:{n:"困兽协议",d:"生命低于 30% 时伤害 +40%"},
+  soulrush:{n:"猎手直觉",d:"破盾后攻速 +25%，持续 4 秒"},
+};
+const POOL_10=["overclock","fatal","neuro","fire","subdermal","nano","shield","blackmarket","resonance"];
+const POOL_5=["killcycle","adrenaline","critsurge","ghoststep","lowhp","soulrush"];
+const TRIGGER_KEYS=new Set(POOL_5);   // 触发型标记（面板 ⚡ 标注）
+const TREE={
+  dmg:{n:"伤害增幅",per:"+5% 伤害/级"},
+  gold:{n:"信用点优化",per:"+10% 信用点/级"},
+  soul:{n:"灵魂共鸣",per:"+10% 重塑碎片/级"},   // v2.0：碎片提升碎片获得
+};   // v2.0：全部无上限，成本=等级+1 线性（多项式收入追指数怪血，不失控）
+const TREE_PCT={dmg:5,gold:10,soul:10};   // v2.21：离线协议分支删除
+
+// ============ 状态 ============
+let S;
+function freshState(){ return {
+  gold:0, atkLv:0, hpLv:0, floor:1, maxFloor:1, mobIdx:0,
+  v:1, souls:0, runSouls:0, tree:{dmg:0,gold:0,soul:0}, prestiges:0, bestEver:0, speed2:false, sfxOn:true,
+  equip:{weapon:null,implant:null,armor:null,chip:null},
+  inv:[], skills:[], pity:0, crateReady:Date.now(), lastSave:Date.now(),
+};}
+function save(){
+  S.lastSave=Date.now(); S.playerHp=player.hp;   // v2.24.2：层内血量持久化
+  try{ localStorage.setItem("neonHunter", JSON.stringify(S)); saveLogs(false); }
+  catch(e){ toast("存档写入失败（存储空间不足）"); }   // v2.29：存储异常隔离，不中断主循环
+}
+const SAVE_V=1;   // v2.29：存档版本标记——历史迁移只在旧档执行一次（修每次读档 q+2）
+function load(){
+  try{ const d=JSON.parse(localStorage.getItem("neonHunter")); if(d&&d.floor) {
+    S=Object.assign(freshState(),d);
+    S.tree=Object.assign({dmg:0,gold:0,soul:0},S.tree); delete S.tree.offline;   // v2.21：旧档 offline 字段清除
+    S.skills=(S.skills||[]).filter(k=>SKILLS[k]);   // v2.24.14：已删技能静默剔除
+    [...S.inv,...Object.values(S.equip).filter(Boolean)].forEach(it=>{
+      if(!d.v) it.q=Math.min((it.q||0)+2,9);   // v2.29：品质 +2 迁移仅限未标记旧档（幂等）
+      it.affix=affixOf(it.slot,it.q);
+    });
+    S.v=SAVE_V;
+    return true; } }catch(e){}
+  S=freshState(); return false;
+}
+
+// ============ 派生属性 ============
+function count(id){ return S.skills.filter(s=>s===id).length; }
+function affix(slot,type){ const it=S.equip[slot]; return (it&&it.affix&&it.affix.t===type)?it.affix.v:0; }
+function allAffix(type){ return ["weapon","implant","armor","chip"].reduce((s,k)=>s+affix(k,type),0); }
+function equipMult(slot){ const it=S.equip[slot]; return it?1+multOf(slot,it.q)/100:1; }
+function calcStats(){
+  let atkMult = equipMult("weapon")*(1+0.05*S.tree.dmg)*(1+0.25*count("fire"));
+  const hpMult  = equipMult("armor")*(1+0.30*count("subdermal"));
+  const hpMax=HP0*Math.pow(GROWTH,S.hpLv)*hpMult;
+  // v2.19：条件触发型乘区——肾上腺素（低血50%攻速）/困兽协议（低血30%伤害）/猎手直觉（破盾攻速）
+  let aspd = ASPD0*equipMult("implant")*(1+0.15*count("neuro"))*(1+allAffix("aspd")/100);
+  const now=Date.now();
+  if(player.hp<hpMax*0.5) aspd*=1+0.3*count("adrenaline");
+  if(player.hp<hpMax*0.3) atkMult*=1+0.4*count("lowhp");
+  if(buff.soulrush>now) aspd*=1+0.25*count("soulrush");
+  if(buff.killcycle>now) aspd*=1+0.2*count("killcycle");
+  if(buff.critsurge>now) aspd*=1+0.3*count("critsurge");
+  return {
+    atk: ATK0*Math.pow(GROWTH,S.atkLv)*atkMult,
+    hp:  HP0*Math.pow(GROWTH,S.hpLv)*hpMult,
+    aspd,
+    crit: 0.05+0.10*count("overclock")+allAffix("crit")/100,
+    critDmg: 1.5+0.5*count("fatal"),
+    lifesteal: 0.05*count("nano")+allAffix("ls")/100,
+    shieldPct: 0.10*count("shield"),
+    goldMult: equipMult("chip")*(1+0.10*S.tree.gold)*(1+0.30*count("blackmarket")),
+  };
+}
+const mobHp   = f => MOB_HP0*Math.pow(MOB_G,f);
+const mobAtk  = f => MOB_ATK0*Math.pow(MOB_ATK_G,f);
+const mobGold = f => GOLD_R*mobHp(f);
+const isBoss  = () => S.mobIdx===5;
+const isPrism = () => isBoss() && S.floor%10===0 && S.floor%100!==0;   // v2.9：里程碑层（10/20/30…）Boss=监察官·棱镜；v2.23 百层让位天枢
+const isTianshu = () => isBoss() && S.floor%100===0;   // v2.23：每 100 层主 Boss 天枢·零号主机
+const cost    = n => COST0*Math.pow(COST_G,n);
+const fmt = n => {
+  if(n<1000) return Math.floor(n).toString();
+  const u=["K","M","B","T","Q"]; let i=-1;
+  do{ n/=1000; i++; }while(n>=1000&&i<u.length-1);
+  return n.toFixed(n<10?2:n<100?1:0)+u[i];
+};
+const fmtUp = n => n<100 ? (Math.round(n*10)/10).toString() : fmt(n);   // v2.12.1：小数值保留 1 位小数（升级预览 Lv.0 不再显示 8→8）
+
+// v2.6：技能面板显示叠加后总值（触发型标注）
+const SKILL_TOTAL={
+  overclock:v=>`暴击率 +${10*v}%`, fatal:v=>`暴击伤害 +${50*v}%`,
+  killcycle:v=>`暴击后攻速 +${20*v}% · 3 秒`, adrenaline:v=>`低血 50% 攻速 +${30*v}%`,
+  critsurge:v=>`暴击后攻速 +${30*v}% · 5 秒`, ghoststep:v=>`击杀后无敌 ${(2+0.5*(v-1)).toFixed(1)} 秒`,
+  lowhp:v=>`低血 30% 伤害 +${40*v}%`, soulrush:v=>`破盾后攻速 +${25*v}% · 4 秒`,   // v2.24.19：计时型补持续秒数
+  neuro:v=>`攻速 +${15*v}%`, fire:v=>`攻击 +${25*v}%`,
+  subdermal:v=>`生命 +${30*v}%`, nano:v=>`吸血 +${5*v}%`, shield:v=>`护盾 ${10*v}% 生命`,
+  blackmarket:v=>`信用点 +${30*v}%`, resonance:v=>`碎片掉落 +${10*v}%`,
+};
+
+// ============ 战斗 ============
+let cur={hp:1,max:1,atk:0,fightT:0,shield:0,maxShield:0}, player={hp:1,shield:0}, buff={adrenaline:0,killcycle:0,critsurge:0,soulrush:0};   // v2.18：Boss 护盾；v2.19：触发器 buff
+
+// ============ 音效（v2.26：激光枪声，池化 3 并发 + 70ms 节流） ============
+const SFX_SRC="assets/sfx/laser-shot-01.wav";
+const sfxPool=[0,1,2].map(()=>{ const a=new Audio(SFX_SRC); a.volume=0.32; a.preload="auto"; return a; });
+let sfxIdx=0, sfxLastT=0;
+function playShot(){
+  if(!S.sfxOn||paused||document.hidden) return;   // 开关/暂停/切后台不播
+  const now=performance.now();
+  if(now-sfxLastT<70) return;                     // 高频节流
+  sfxLastT=now;
+  try{ const a=sfxPool[sfxIdx=(sfxIdx+1)%3]; a.currentTime=0; a.play().catch(()=>{}); }catch(e){}
+}
+function toggleSfx(){ S.sfxOn=!S.sfxOn; save(); renderSfxRow(); toast(S.sfxOn?"音效：开":"音效：关"); }
+function renderSfxRow(){ const el=$("sfxVal"); if(el) el.textContent=S.sfxOn?"开":"关"; }
+let atkTimer=0, paused=false, wall=false;
+
+function spawnMob(){
+  const boss=isBoss();
+  const now=Date.now();
+  if(S.mobIdx===0) floorEnterT=now;
+  if(boss) bossEnterT=now;
+  const tianshu=boss&&S.floor%100===0;
+  cur.max=mobHp(S.floor)*(boss?(tianshu?10:BOSS.hp):1);   // v2.23：天枢血×10
+  cur.hp=cur.max;
+  cur.atk=mobAtk(S.floor)*(boss?(tianshu?3:BOSS.atk):1);   // v2.23：天枢攻×3
+  // v2.18：Boss 护盾——典狱长 50% 血量、棱镜 80%、天枢 100%（终极破盾战）
+  cur.maxShield = boss ? Math.round(cur.max*(tianshu?1.0:(isPrism()?0.8:0.5))) : 0;
+  cur.shield = cur.maxShield;
+  cur.fightT=0; cur.phase=0; cur.phaseT=8;   // v2.23：天枢主炮相位（0=机枪常态,1=蓄力,2=发射）
+  const st=calcStats();
+  // v2.17：层内不回血——仅进层（mobIdx=0）回满；护盾仍每场刷新（应急护盾卖点保留）
+  if(S.playerHp!=null){ player.hp=Math.min(S.playerHp,st.hp); S.playerHp=null; }   // v2.29：读档血量优先（修首只怪交战中刷新回满）
+  else if(S.mobIdx===0) player.hp=st.hp;
+  else player.hp=Math.min(player.hp,st.hp);
+  player.shield=st.hp*st.shieldPct;
+  if(player.pendingInvuln){ player.invulnUntil=Date.now()+player.pendingInvuln; player.pendingInvuln=0; }   // v2.19.3
+  atkTimer=0;
+  const eEl=document.getElementById("enemy");
+  eEl.classList.toggle("boss",boss);
+  eEl.classList.toggle("prism",boss&&S.floor%10===0&&S.floor%100!==0);   // v2.9：里程碑层棱镜（百层让位天枢）
+  eEl.classList.toggle("tianshu",tianshu);   // v2.23
+  eEl.classList.toggle("hound",!boss&&mobKind==="hound");   // v2.15：机械犬小怪
+  eEl.style.transition=""; eEl.style.opacity="";   // v2.24.7：不再清内联 right（跑入目标位即站位，消除回跳）
+  const es=document.getElementById("enemySpr");
+  if(es) es.classList.remove("die","shoot","hurt","run","slash","bite","charge","cannon");   // v2.5：新怪重置动画
+}
+function calcGold(f,boss){
+  return mobGold(f)*(boss?BOSS.gold:1)*calcStats().goldMult;
+}
+function dealPlayerHit(){ playShot();   // v2.26：枪声
+  const st=calcStats();
+  let dmg=st.atk;
+  const isCrit=Math.random()<st.crit;
+  if(isCrit){ dmg*=st.critDmg;
+    if(count("killcycle")) buff.killcycle=Date.now()+3000;
+    if(count("critsurge")) buff.critsurge=Date.now()+5000; }   // v2.19：触发器池（暴击系）
+  // v2.18：护盾优先承伤，破盾瞬间飘字
+  if(cur.shield>0){
+    const s=Math.min(cur.shield,dmg); cur.shield-=s; dmg-=s;
+    if(cur.shield<=0){ floatDmg("enemy","破盾！","#FF2A6D",true);
+      if(count("soulrush")) buff.soulrush=Date.now()+4000; }   // v2.19：猎手直觉（破盾→攻速）
+    if(dmg<=0){ floatDmg("enemy",fmt(s),"#7fd4ff",false); lunge("player"); enemyAnim("hurt",200); return; }
+    floatDmg("enemy",fmt(s), "#7fd4ff", false);
+  }
+  cur.hp-=dmg;
+  if(st.lifesteal>0) player.hp=Math.min(st.hp, player.hp+dmg*st.lifesteal);
+  floatDmg("enemy", fmt(dmg), isCrit?"#FFD166":"#00F0FF", isCrit);
+  lunge("player");
+  enemyAnim("hurt",200);   // v2.5：敌人受击帧
+  if(cur.hp<=0) onKill();
+}
+// v2.5：敌人动画控制（优先级 die > hurt/shoot > idle）
+function enemyAnim(cls,ms){
+  const sp=$("enemySpr"); if(!sp||sp.classList.contains("die")) return;
+  if(cls==="shoot"&&isBoss()) ms=400;   // 典狱长/棱镜射击均 0.4s（小兵 333ms 由调用方传入）
+  if(cls==="slash") ms=500;                            // v2.9：棱镜能量斩击 6f@12fps
+  sp.classList.remove("shoot","hurt","slash","bite","charge","cannon"); void sp.offsetWidth;
+  sp.classList.add(cls);
+  clearTimeout(sp._t); sp._t=setTimeout(()=>sp.classList.remove(cls),ms);
+}
+function enemyDie(){
+  const sp=$("enemySpr");
+  clearTimeout(sp._t); sp.classList.remove("shoot","hurt","bite","charge","cannon"); sp.classList.add("die");
+}
+function onKill(){
+  cur.hp=1e18;   // v2.5：尸体无敌，死亡动画期间防重复触发
+  $("enemyHp").style.display="none"; $("enemyHpT").style.display="none"; $("enemySh").style.display="none"; $("enemyShT").style.display="none";   // v2.24.18：死亡即藏血条
+  const boss=isBoss(), prismKill=boss&&S.floor%10===0, st=calcStats();
+  const gained=calcGold(S.floor,boss);
+  S.gold+=gained; floorGoldEarned+=gained;
+  floatDmg("enemy","+"+fmt(gained)+" "+IC("credits",1),"#FFD166",false);   // v2.9：击杀信用点飘字（v2.18 图标化）
+  if(count("ghoststep")) player.pendingInvuln=2000+500*(count("ghoststep")-1);   // v2.19.3：击杀触发计时起点改为新敌人就位（过场不烧 buff）
+  dropRoll(boss);
+  enemyDie();
+  if(boss){
+    // v2.14：Boss 必掉碎片——普通 1、棱镜 2~3 随机，每 25 层 +1，灵魂共鸣加成
+    const tier=Math.floor(S.floor/25);
+    const base=(prismKill?2+Math.floor(Math.random()*2):1)+tier;
+    const drop=Math.ceil(base*(1+0.1*(S.tree.soul||0))*(1+0.1*count("resonance")));   // v2.19：碎片共鸣技能改造为掉落增益
+    S.runSouls+=drop;   // v2.16：掉落进本循环累计（重塑后才转可用）
+    floatDmg("enemy",`+${drop} ${IC("soul-shard",1)}`,"#c07bff",true);
+    logEvent("souldrop",{count:drop,floor:S.floor,prism:prismKill});
+    if(S.floor>=S.maxFloor) S.maxFloor=S.floor;
+    if(S.floor>S.bestEver) S.bestEver=S.floor;   // v2.19：历史最高层（跨重塑保留，倍速判定）
+    pushFloorSummary();
+    const willSkill = S.floor%10===0;   // v1.7 起：每 10 层一次三选一，无上限
+    const willTemp  = S.floor%10===5;   // 5/15/25… 中庭层触发器池（v2.19：双池）
+    if(willSkill||willTemp) S.pendingOffer={pool:willSkill?"p10":"p5",picks:null};   // v2.24.15：推进即存意图
+    S.floor++; S.mobIdx=0;
+    const seqK=runSeq;   // v2.29：复位后丢弃旧 Boss 转场/弹窗回调
+    setTimeout(()=>{
+      if(seqK!==runSeq) return;   // v2.29
+      if(willSkill){ offerSkills("p10",null,S.floor-1); pendingTransit=true; }   // v2.29：文案用刚完成的层
+      else if(willTemp){ offerSkills("p5"); pendingTransit=true; }
+      else startFloorTransit();
+    },prismKill?1100:900);
+  } else {
+    S.mobIdx++;
+    // v2.5：顺序式刷新——尸体停留→淡出→新敌人跑入→刷怪
+    const seq=runSeq;   // v2.14.4：复位/重塑期间作废旧定时器
+    setTimeout(()=>{ if(seq!==runSeq) return; const e=$("enemy"); e.style.transition="opacity .3s"; e.style.opacity="0"; },1300);
+    setTimeout(()=>{ if(seq!==runSeq) return; enemyRunIn(); },1650);
+  }
+  save();
+}
+// v2.5：敌人从右侧屏幕外跑入战斗位
+const fightPos=()=>window.innerWidth<=640?"8%":"22%";   // v2.24.4：跑入目标位跟随媒体查询（修复跑近再瞬移）
+// v2.24.8：端侧隔离——跑入速度双档（手机快/桌面原速），CSS 过渡与 JS 定时器同源
+// v2.24.16：手机端速度恒定——跑入时长=距离(23%)÷跑出基准速度(78%/1.2s)≈360ms；桌面端保持原节奏不动
+const runCfg=()=>window.innerWidth<=640?{e:360,p:360,settle:650,t:360}:{e:900,p:1400,settle:1000,t:1400};
+let mobKind="trooper";   // v2.15：当前小怪种类（trooper/hound），Boss 恒为 trooper 槽位外观体系
+function enemyRunIn(seq){
+  const e=$("enemy"), sp=$("enemySpr");
+  mobKind = isBoss() ? "trooper" : (Math.random()<0.5 ? "hound" : "trooper");   // v2.15：小怪种类随机
+  e.classList.toggle("boss",isBoss());   // v2.7.1：跑入前就切好 Boss 外观（否则小兵/Boss 互相串皮）
+  e.classList.toggle("prism",isPrism()); // v2.9：里程碑层棱镜外观同理
+  e.classList.toggle("tianshu",isTianshu());   // v2.23
+  e.classList.toggle("hound",mobKind==="hound");
+  $("enemyHp").style.display="none"; $("enemyHpT").style.display="none"; $("enemySh").style.display="none"; $("enemyShT").style.display="none";
+  sp.classList.remove("die","shoot","hurt"); sp.classList.add("run");
+  e.style.transition="none"; e.style.right="-15%"; e.style.opacity="1"; void e.offsetWidth;
+  const rc=runCfg(); e.style.transition=`right ${rc.e}ms linear`; e.style.right=fightPos();
+  setTimeout(()=>{
+    if(seq!==undefined&&seq!==runSeq) return;   // v2.14.4：代次过期则丢弃
+    e.style.transition=""; sp.classList.remove("run");
+    $("enemyHp").style.display=""; $("enemyHpT").style.display="";
+    spawnMob();
+  },rc.e+50);
+}
+// v2.14：开局双方跑入（新开局/重塑/复位/读档统一演出）
+let runSeq=0;   // v2.14.4：流程代次令牌——复位/重塑递增，旧定时器全部作废
+function openingRunIn(){
+  $("arena").style.backgroundImage=`url('${bgForFloor(S.floor)}')`;   // v2.29：读档/开局统一初始化场景
+  const seq=++runSeq;
+  transit=true; paused=true;
+  // v2.14.2：先清场——旧敌人与血条立即隐藏（复位/重开时不残留）
+  const e=$("enemy"), es=$("enemySpr");
+  es.classList.remove("die","shoot","hurt","run","slash");
+  e.style.transition="none"; e.style.opacity="0"; e.style.right="-15%";
+  $("enemyHp").style.display="none"; $("enemyHpT").style.display="none"; $("enemySh").style.display="none"; $("enemyShT").style.display="none";
+  const p=$("player"), sp=$("playerSpr");
+  sp.classList.remove("atk"); sp.classList.add("run");
+  p.style.transition="none"; p.style.left="-15%"; p.style.opacity="1"; void p.offsetWidth;
+  $("playerHp").style.display="none"; $("playerHpT").style.display="none"; $("playerSh").style.display="none"; $("playerShT").style.display="none";   // v2.24.9：跑入过程不显示血条
+  const rc=runCfg(); p.style.transition=`left ${rc.p}ms linear`; p.style.left=fightPos();
+  setTimeout(()=>{
+    if(seq!==runSeq) return;   // v2.14.4：期间发生复位/重塑则作废
+    p.style.transition=""; sp.classList.remove("run");
+    $("playerHp").style.display=""; $("playerHpT").style.display=""; $("playerSh").style.display=""; $("playerShT").style.display="";   // v2.24.9：就位显示
+    dispFloor=S.floor;   // v2.28.8
+    transit=false;
+    enemyRunIn(seq);
+    setTimeout(()=>{ if(seq!==runSeq) return; if(!wall) paused=false; save(); renderPanels();
+      if(S.pendingOffer){ const po=S.pendingOffer; offerSkills(po.pool,po.picks); }   // v2.24.14：读档恢复三选一
+    },rc.settle);
+  },rc.p+50);
+}
+// ============ 楼层转场（v2.1：跑出→场景左滑→跑入） ============
+let transit=false, pendingTransit=false, prismAlt=false, dispFloor=1;   // v2.28.8：楼层文本显示层（转场完成才更新）
+const ARENA_BGS=["assets/arena-bg.webp","assets/arena-bg2.webp","assets/arena-bg5.webp","assets/arena-bg6.webp"];
+// v2.11：场景调度——f%10=0 棱镜核心、f%10=5 高空中庭、日常层 工业→机房→维修→货运 四场轮换
+function bgForFloor(f){ if(f%10===0) return "assets/arena-bg4.webp"; if(f%10===5) return "assets/arena-bg3.webp"; return ARENA_BGS[f%4]; }
+function startFloorTransit(){
+  const seq=++runSeq;   // v2.14.4：转场同样纳入代次管理
+  transit=true; paused=true;
+  player.hp=calcStats().hp;   // v2.24.20：进层回血前移到转场开始（血条恢复显示即满血）
+  $("playerHp").style.display="none"; $("playerHpT").style.display="none"; $("playerSh").style.display="none"; $("playerShT").style.display="none";   // v2.24.18：跑出旧层藏血条（防跟随拖尾）
+  const p=document.getElementById("player"), sp=document.getElementById("playerSpr");
+  sp.classList.remove("atk"); sp.classList.add("run");
+  p.style.transition="left 1.2s linear"; p.style.left="86%";          // 匀速跑到门口
+  setTimeout(()=>{ if(seq!==runSeq) return; p.style.transition="opacity .2s"; p.style.opacity="0"; },1150);  // 到门淡出
+  setTimeout(()=>{ if(seq!==runSeq) return; sceneSwap(seq); },1400);
+}
+function sceneSwap(seq){
+  const arena=document.getElementById("arena");
+  const nextBg=bgForFloor(S.floor);   // v2.8：按层选景（里程碑中庭/奇偶轮换）
+  const mk=left=>{ const d=document.createElement("div"); d.className="bgSlide"; d.style.left=left; return d; };
+  const oldBg=mk("0"); oldBg.style.backgroundImage=getComputedStyle(arena).backgroundImage;
+  const newBg=mk("100%"); newBg.style.backgroundImage=`url('${nextBg}')`;
+  arena.appendChild(oldBg); arena.appendChild(newBg);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ oldBg.style.left="-100%"; newBg.style.left="0"; }));
+  setTimeout(()=>{ if(seq!==runSeq){ oldBg.remove(); newBg.remove(); return; } arena.style.backgroundImage=`url('${nextBg}')`; oldBg.remove(); newBg.remove(); runIn(seq); },480);
+}
+function runIn(seq){
+  const p=document.getElementById("player"), sp=document.getElementById("playerSpr");
+  p.style.transition="none"; p.style.left="-15%"; p.style.opacity="1"; void p.offsetWidth;
+  $("playerHp").style.display="none"; $("playerHpT").style.display="none"; $("playerSh").style.display="none"; $("playerShT").style.display="none";   // v2.24.11：跑动不显示血条
+  const rc=runCfg(); p.style.transition=`left ${rc.t}ms linear`; p.style.left=fightPos();   // v2.24.10：与跑出同速
+  setTimeout(()=>{
+    if(seq!==runSeq) return;   // v2.14.4
+    p.style.transition=""; sp.classList.remove("run");
+    $("playerHp").style.display=""; $("playerHpT").style.display=""; $("playerSh").style.display=""; $("playerShT").style.display="";   // v2.24.11
+    dispFloor=S.floor;   // v2.28.8：新楼层就位才更新楼层文本
+    transit=false;
+    enemyRunIn(seq);   // v2.5：玩家到位后敌人再跑入
+    setTimeout(()=>{ if(seq!==runSeq) return; if(!wall) paused=false; save(); renderPanels(); },rc.settle);
+  },rc.t+50);
+}
+function checkWall(dt){
+  cur.fightT+=dt;
+  const tLimit=90*(cur.maxShield>0?1+cur.maxShield/cur.max:1);   // v2.18：有盾 Boss 按盾量放宽超时
+  if(player.hp<=0 || cur.fightT>tLimit){
+    const reason=player.hp<=0?"hp_zero":"timeout_90s";
+    logEvent("wall",{reason});
+    wall=true; paused=true;
+    showModal(`<img class="ic" style="width:32px;height:32px;vertical-align:-8px;margin-right:12px" src="assets/icons/movement-blocked.svg" alt="">行动受阻`,
+      `猎手在第 <b>${S.floor}</b> 层被压制了。<br>「重塑」换一具更强的克隆体（本循环已掉落 <b style="color:#c07bff">${S.runSouls}</b> 碎片将转为可用，装备回收为信用点带入新局）。`,
+      `<button class="nh-button nh-button--violet" onclick="closeModal();doPrestige()"><img class="nh-button__icon" src="assets/icons/reshape.svg" alt=""><span class="nh-button__body"><span class="nh-button__title">重塑 · 结算本循环</span></span></button>`);
+  }
+}
+// v2.21：死亡只能重塑，继续硬磨已取消（retryFight 废弃，无入口）
+
+// ============ 装备 ============
+// v1.8：掉落区间随楼层上移——高层不掉无效低品质，保证永远能进 3 合 1 链
+function dropBand(f){ return f<25?[0,2]:f<50?[1,3]:f<75?[2,4]:[3,5]; }   // v2.25.1：f75+ 加入原型 q5
+function rollQuality(f){
+  const [lo,hi]=dropBand(f);
+  if(S.pity>=10){ S.pity=0; return hi; }   // 保底：连续 10 次未出区间最高档 → 必出
+  // v2.0 数值回调：最高档降权（紫 13→8 / 橙 13→6 / f75+ 橙 35→20），合成链才是主通道
+  const w=hi-lo===2?({2:[60,30,10],3:[60,32,8],4:[60,34,6],5:[58,36,6]}[hi]):[80,20];   // v2.25.1：q5 档权重
+  return lo+weighted(w);
+}
+function weighted(ws){ const s=ws.reduce((a,b)=>a+b,0); let r=Math.random()*s;
+  for(let i=0;i<ws.length;i++){ r-=ws[i]; if(r<0) return i; } return 0; }
+function dropRoll(boss){
+  if(!boss && Math.random()>0.25) return;
+  const q=rollQuality(S.floor);
+  if(q>=dropBand(S.floor)[1]) S.pity=0; else S.pity++;
+  const slot=["weapon","implant","armor","chip"][Math.floor(Math.random()*4)];
+  // v2.25：部位已到顶级（不朽）→ 掉落自动转信用点
+  const eqTop=S.equip[slot];
+  if(eqTop&&eqTop.q>=9){
+    const v=Math.round(2*Math.pow(q+1,2)*Math.pow(MOB_G,S.floor));
+    S.gold+=v; logEvent("drop_convert",{slot,q,value:v});
+    toast(`${qualityName(q)}·${SLOTS[slot]} 已满级 → +${fmt(v)} 信用点`); return;
+  }
+  const item={slot,q};
+  item.affix=affixOf(slot,q);   // v2.25：词条 q6 起、随品质递增
+  logEvent("drop",{slot,q,affix:item.affix?item.affix.t:null,boss});
+  // v2.3：全自动装备——更高品质直接换上，换下回背包当合成材料
+  const eq=S.equip[slot];
+  if(!eq||item.q>eq.q){
+    if(eq) S.inv.push(eq);
+    S.equip[slot]=item;
+    logEvent("autoequip",{desc:itemDesc(item)});
+    toast(`自动装备 ${qualityName(q)}·${SLOTS[slot]}`);
+  } else {
+    S.inv.push(item);   // v1.8：背包无上限
+    toast(`获得 ${qualityName(q)}·${SLOTS[slot]}`);
+  }
+}
+function itemDesc(it){
+  let s=`${qualityName(it.q)}·${SLOTS[it.slot]} +${multOf(it.slot,it.q)}%`;
+  if(it.affix) s+= ` (${{crit:"暴击",aspd:"攻速",ls:"吸血"}[it.affix.t]}+${it.affix.v}%)`;
+  return s;
+}
+function sell(i){
+  const it=S.inv.splice(i,1)[0];
+  const v=Math.round(2*Math.pow(it.q+1,2)*Math.pow(MOB_G,S.floor));
+  S.gold+=v; logEvent("sell",{desc:itemDesc(it),value:v});
+  toast(`出售 +${fmt(v)} 信用点`); save(); renderPanels();
+}
+// ============ 合成与拆解（v1.8：按部位，已装备参与，产物直装） ============
+function fuseInfo(slot){
+  // 返回该部位可合成组 {q, invN, useEquip} 或 null
+  const eq=S.equip[slot], groups={};
+  S.inv.forEach(it=>{ if(it.slot===slot&&it.q<9) groups[it.q]=(groups[it.q]||0)+1; });   // v2.25：合成封顶不朽
+  for(const qStr of Object.keys(groups).sort((a,b)=>a-b)){   // v2.30：低品质优先
+    const q=+qStr, need=3-groups[qStr];
+    if(need<=0) return {q, useEquip:false};
+    if(eq&&eq.q===q&&need===1) return {q, useEquip:true};
+  }
+  return null;
+}
+function fuseSlot(slot){
+  // v2.30：按一次只合成一件（取消连烧循环）
+  {
+    const info=fuseInfo(slot);
+    if(!info) return;
+    const q=info.q, idx=[];
+    S.inv.forEach((it,i)=>{ if(it.slot===slot&&it.q===q&&idx.length<3) idx.push(i); });
+    idx.sort((a,b)=>b-a).forEach(i=>S.inv.splice(i,1));
+    if(info.useEquip) S.equip[slot]=null;   // 已装备作为第 3 件材料
+    const ni={slot,q:q+1};
+    ni.affix=affixOf(slot,ni.q);
+    const cur=S.equip[slot];
+    if(!cur||ni.q>=cur.q){ if(cur) S.inv.push(cur); S.equip[slot]=ni; }   // 产物直装
+    else S.inv.push(ni);
+    logEvent("fuse",{slot,from:q,to:ni.q,usedEquip:info.useEquip});
+  }
+  toast(`合成完成（已装备升阶）`); save(); renderPanels();
+}
+function salvageInfo(slot){
+  const lo=dropBand(S.floor)[0];   // v2.0：掉落区间驱动——楼层不再掉落的品质=过时
+  if(lo<=0) return {n:0,v:0};
+  let n=0,v=0;
+  S.inv.forEach(it=>{ if(it.slot===slot&&it.q<lo&&it.q<4){ n++; v+=Math.round(2*Math.pow(it.q+1,2)*Math.pow(MOB_G,S.floor)); } });
+  return {n,v};
+}
+function salvage(slot){
+  const lo=dropBand(S.floor)[0], info=salvageInfo(slot);
+  if(!info.n) return;
+  for(let i=S.inv.length-1;i>=0;i--){
+    const it=S.inv[i];
+    if(it.slot===slot&&it.q<lo&&it.q<4) S.inv.splice(i,1);
+  }
+  S.gold+=info.v; logEvent("salvage",{slot,count:info.n,value:info.v,reason:"outdated"});
+  toast(`拆解低品质装备 ${info.n} 件 → +${fmt(info.v)} 信用点`);
+  save(); renderPanels();   // v2.29：从注释尾恢复（v2.24.17 误吞）
+}
+
+// ============ 技能（v2.19：双池——10层常驻属性 / 5层条件触发器） ============
+let curOffer=[], skillOfferOpen=false;
+function offerSkills(poolKey,preset,forFloor){
+  skillOfferOpen=true;
+  paused=true;
+  const pool=poolKey==="p5"?POOL_5:POOL_10;
+  const picks=(preset||[]).filter(k=>pool.includes(k));
+  while(picks.length<3){ const k=pool[Math.floor(Math.random()*pool.length)]; if(!picks.includes(k)) picks.push(k); }
+  curOffer=picks;
+  S.pendingOffer={pool:poolKey,picks:curOffer.slice()}; save();   // v2.24.14：弹窗持久化（刷新不丢机会）
+  const trig=poolKey==="p5";
+  showModal(`<img class="ic" style="width:26px;height:26px;vertical-align:-6px;margin-right:9px" src="assets/icons/skill-choice.svg" alt="">神经技能 · 三选一`,   // v2.30：⚡/🎯 → skill-choice.svg
+    trig?`中继站接入完成！选择一项技能强化`
+        :`突破第 ${forFloor||S.floor} 层！选择一项属性强化`,
+    picks.map(k=>`<button class="nh-button nh-button--upgrade" onclick="pickSkill('${k}')"><span class="nh-button__body"><span class="nh-button__title">${SKILLS[k].n}</span><span class="nh-button__detail">${SKILLS[k].d}</span></span></button>`).join(""));
+}
+function pickSkill(k){
+  if(!skillOfferOpen || !curOffer.includes(k)) return;   // v0.7：防脚本/连点绕过弹窗刷技能
+  skillOfferOpen=false;
+  S.pendingOffer=null;   // v2.24.14
+  S.skills.push(k);
+  logEvent("skill",{picked:k,rejected:curOffer.filter(x=>x!==k)});
+  closeModal(); save(); renderPanels();
+  toast(`习得技能：${SKILLS[k].n}`);
+  if(pendingTransit){ pendingTransit=false; startFloorTransit(); }   // v2.1：技能选完进入转场
+  else paused=false;
+}
+
+// v2.28.6：广告点位防连点锁——按下即锁，流程完成才释放（测试版占位广告也要防穿透）
+let adLock=false;
+function adGuard(){ if(adLock) return false; adLock=true; return true; }
+function adRelease(){ adLock=false; }
+
+// ============ 重塑（v2.16：掉落累计制 + 装备回收 + 仅死亡可选） ============
+const PRESTIGE_SALVAGE_RATE=0.15;   // v2.16.1：回收率 15%（S59 实测全额回收 18K 带入二轮，前期金币经济作废）
+function salvageAllGold(){   // 身上+背包全量回收估值（沿用拆解公式 ×15% 回收率）
+  const v=it=>Math.floor(2*Math.pow(it.q+1,2)*Math.pow(1.15,S.floor)*PRESTIGE_SALVAGE_RATE);
+  let g=0, n=0;
+  Object.values(S.equip).forEach(it=>{ if(it){ g+=v(it); n++; } });
+  S.inv.forEach(it=>{ g+=v(it); n++; });
+  return {g,n};
+}
+function doPrestige(){
+  const rs=S.runSouls, sv=salvageAllGold();
+  paused=true;
+  showModal(`<img class="ic" style="width:28px;height:28px;vertical-align:-6px;margin-right:10px" src="assets/icons/reshape.svg" alt="">重塑完成`,
+    `人格已备份，克隆体上线。本循环战果结算：
+     <div style="text-align:left;background:#0d1420;border:1px solid #1e2a44;border-radius:10px;padding:10px 14px;margin:10px 0;font-size:13px;line-height:2">
+       <img class="ic sm" src="assets/icons/soul-shard.svg" alt=""> 掉落碎片转换（Boss 掉落）<b style="float:right;color:#c07bff">+${rs}</b><br>
+       <img class="ic sm" src="assets/icons/equipment-recycle.svg" alt=""> 装备回收（身上+背包 ${sv.n} 件 · 15% 回收率）<b style="float:right;color:var(--gold)">+${fmt(sv.g)} <img class="ic sm" src="assets/icons/credits.svg" alt=""></b><br>
+       <span style="border-top:1px dashed #1e2a44;display:block;padding-top:5px;margin-top:5px">新开局携带 <b style="float:right;color:var(--gold)">${fmt(sv.g)} <img class="ic sm" src="assets/icons/credits.svg" alt=""></b></span>
+     </div>`,
+    `<button class="nh-button nh-button--gold" onclick="applyPrestige(2)"><img class="nh-button__icon" src="assets/icons/watch-ad.svg" alt=""><span class="nh-button__body"><span class="nh-button__title">看广告：碎片 ×2</span><span class="nh-button__detail">+${rs*2} 碎片</span></span></button>
+     <button class="mag" onclick="applyPrestige(1)">收下，进入新开局</button>`);
+}
+function applyPrestige(mult){
+  if(mult>1&&!adGuard()) return;   // v2.28.6：广告按钮防连点
+  const rs=S.runSouls, sg=salvageAllGold().g;
+  logEvent("prestige",{souls:rs, salvage:sg, mult, fromFloor:S.maxFloor});
+  S.prestiges=(S.prestiges||0)+1;
+  S.souls+=rs*mult;                // v2.21：广告 ×2 改乘碎片（信用点回收单倍）
+  S.floor=1; S.mobIdx=0; S.gold=sg; S.atkLv=0; S.hpLv=0;
+  S.maxFloor=1; S.runSouls=0;
+  S.equip={weapon:null,implant:null,armor:null,chip:null};
+  S.inv=[]; S.skills=[]; S.pity=0;
+  floorGoldEarned=0;
+  save();   // v2.29：结算结果立即持久化，动画仅为后续表现
+  closeModal(); wall=false;
+  spawnMob(); openingRunIn();
+  setTimeout(adRelease,1500);
+}
+function treeCost(k){ return S.tree[k]+1; }   // 成本=当前等级+1（v2.0 起无上限）
+function buyTree(k){
+  if(!S.prestiges){ toast("加成树在首次重塑后解锁"); return; }   // v2.14.3：防止未重塑就用掉落碎片点树
+  const c=treeCost(k);
+  if(S.souls<c) return;
+  S.souls-=c; S.tree[k]++;
+  logEvent("tree",{key:k,level:S.tree[k],cost:c});
+  save(); renderPanels();
+}
+
+// ============ 补给箱（广告原型位） ============
+function openCrate(){
+  if(!adGuard()) return;   // v2.28.6
+  const now=Date.now();
+  // v2.28.7：测试版取消补给箱冷却（占位广告无限点；正式版接 SDK 后恢复 60 分钟冷却）
+  const g=Math.round(mobGold(S.floor)*60*calcStats().goldMult);   // v0.4：≈6 层收益，修复"蚊子腿"问题
+  S.gold+=g; S.crateReady=now;
+  logEvent("crate",{gold:g});
+  toast(`补给箱：+${fmt(g)} 信用点`); save(); renderPanels();
+  adRelease();   // 冷却天然存在，立即解锁即可
+}
+
+// v2.21：离线收益系统已取消（纯在线循环驱动）
+
+// ============ UI ============
+const $=id=>document.getElementById(id);
+const IC=(n,sm)=>`<img class="ic${sm?" sm":""}" src="assets/icons/${n}.svg" alt="">`;   // v2.18：图标辅助
+// v2.28.4：飘字泳道分层——并发飘字竖向错开不重叠
+const floatLane={enemy:0,player:0};
+function floatDmg(who,text,color,big){
+  const d=document.createElement("div");
+  d.className="dmg"; d.innerHTML=(big?"暴击 ":"")+text;   // v2.18：innerHTML 支持飘字内嵌货币图标
+  d.style.color=color; if(big) d.style.fontSize="19px";
+  const f=$(who==="enemy"?"enemy":"player");
+  const lane=Math.min(floatLane[who],3); floatLane[who]++;
+  d.style.left=(f.offsetLeft+6+Math.random()*56)+"px";
+  d.style.top=(f.offsetTop-6-lane*19+Math.random()*6)+"px";   // 每条泳道抬高 19px
+  $("arena").appendChild(d);
+  setTimeout(()=>{ d.remove(); floatLane[who]=Math.max(0,floatLane[who]-1); },900);
+}
+function lunge(who){
+  if(who==="player"){
+    // v1.9.1：玩家原地播放射击动画，不再前后位移
+    const sp=$("playerSpr");
+    sp.classList.remove("atk"); void sp.offsetWidth; sp.classList.add("atk");
+    setTimeout(()=>sp.classList.remove("atk"),330);
+    return;
+  }
+  const el=$(who); el.classList.add("lunge-e");
+  setTimeout(()=>el.classList.remove("lunge-e"),120);
+}
+function showModal(title,html,btns){
+  $("modalBox").innerHTML=`<h2>${title}</h2><p>${html}</p>${btns}`;
+  $("overlay").classList.add("show");
+}
+function closeModal(){ $("overlay").classList.remove("show"); }
+let toastTimer;
+function toast(msg){
+  const t=$("toast"); t.textContent=msg; t.style.display="block";
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.style.display="none",2200);
+}
+function renderPanels(){
+  const st=calcStats();
+  // v2.21：触发增益生效属性实时高亮（金色+↑）
+  const _now=Date.now();
+  const atkTrig=player.hp<st.hp*0.3&&count("lowhp")>0;
+  const aspdTrig=(player.hp<st.hp*0.5&&count("adrenaline")>0)||buff.killcycle>_now||buff.critsurge>_now||buff.soulrush>_now;
+  const hl=(on,txt)=>on?`<b style="color:var(--gold)">${txt} ↑</b>`:`<b>${txt}</b>`;
+  $("statBox").innerHTML=
+    `攻击 ${hl(atkTrig,fmt(st.atk))} · 生命 <b>${fmt(st.hp)}</b> · 攻速 ${hl(aspdTrig,st.aspd.toFixed(2))}/秒<br>`+
+    `暴击 <b>${(st.crit*100).toFixed(0)}%</b> × ${st.critDmg.toFixed(1)} · 吸血 <b>${(st.lifesteal*100).toFixed(0)}%</b>`;   // v2.16：信用点移入 HUD
+  $("resHud").innerHTML=`${IC("credits")} <span class="rg">${fmt(S.gold)}</span> · ${IC("soul-shard")} <span class="rs">${S.souls}</span>`;   // v2.16：资源 HUD（v2.18 图标化）
+  // v2.12：升级按钮改版——两行竖排、Lv.x→Lv.x+1、提升数值、费用右置（v2.18：图标化）
+  // v2.28：立体按钮三分区（图标+名称成长+费用区）
+  const upgBtn=(icon,title,detail,price)=>
+    `<img class="nh-button__icon" src="assets/icons/${icon}.svg" alt=""><span class="nh-button__body">`+
+    `<span class="nh-button__title">${title}</span><span class="nh-button__detail">${detail}</span></span>`+
+    `<span class="nh-button__cost"><span class="nh-button__price"><img src="assets/icons/credits.svg" alt="">${fmt(price)}</span><span class="nh-button__hint">点击升级</span></span>`;
+  $("btnAtk").innerHTML=upgBtn("attack",`攻击 Lv.${S.atkLv} → Lv.${S.atkLv+1}`,`攻击 ${fmtUp(st.atk)} → ${fmtUp(st.atk*GROWTH)}`,cost(S.atkLv));
+  $("btnAtk").disabled=S.gold<cost(S.atkLv);
+  $("btnHp").innerHTML=upgBtn("health",`生命 Lv.${S.hpLv} → Lv.${S.hpLv+1}`,`生命 ${fmtUp(st.hp)} → ${fmtUp(st.hp*GROWTH)}`,cost(S.hpLv));
+  $("btnHp").disabled=S.gold<cost(S.hpLv);
+  // v2.3：装备图标化四分栏（堆叠+数量角标+品质降序+全自动装备）
+  const qs=q=>["白","绿","蓝","紫","红","神","永","朽"][q]||`朽+${q-7}`;
+  $("gearBox").innerHTML=Object.keys(SLOTS).map(k=>{
+    const eq=S.equip[k];
+    const fi=fuseInfo(k), si=salvageInfo(k);
+    const icon=`assets/icons/${SLOT_ICON[k]}.png`;
+    const groups={};
+    S.inv.forEach(it=>{ if(it.slot===k) (groups[it.q]=groups[it.q]||[]).push(it); });
+    const sortedQ=Object.keys(groups).map(Number).sort((a,b)=>b-a);   // 品质降序，高品质在左
+    const chipsHtml=sortedQ.map(q=>{
+      const n=groups[q].length;
+      const hot=n+((eq&&eq.q===q)?1:0)>=3;   // 够 3 件（含已装备）角标高亮=可合成
+      return `<span class="ib ${qClass(q)}" title="${qualityName(q)}·${SLOTS[k]} ${SLOT_BUFF[k]} +${multOf(k,q)}%"><img src="${icon}"><span class="cnt${hot?" hot":""}">${n}</span></span>`;
+    }).join("")||'<span class="gc-hint">无</span>';
+    return `<div class="gearcol">
+      <div class="gc-title">${SLOTS[k]}</div>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:5px;min-height:52px">
+        <span class="ib big ${eq?qClass(eq.q):''}" style="${eq?'':'border-color:#2b3a55'}">${eq?`<img src="${icon}">`:''}</span>
+        <div style="font-size:11px;line-height:1.55">${eq?
+          `<span class="${qClass(eq.q)}" style="border:none;box-shadow:none">${qualityName(eq.q)}</span><br><b>${SLOT_BUFF[k]} +${multOf(k,eq.q)}%</b>${eq.affix?`<br><small style="color:var(--dim)">词条 ${({crit:"暴击",aspd:"攻速",ls:"吸血"})[eq.affix.t]}+${eq.affix.v}%</small>`:""}`
+          :'<span style="color:#3a4556">空</span>'}</div>
+      </div>
+      <div>${chipsHtml}</div>
+      ${fi?`<button class="nh-button nh-button--magenta nh-button--fuse" onclick="fuseSlot('${k}')"><img class="nh-button__icon" src="assets/icons/synthesis.svg" alt=""><span class="nh-button__title">合成 3×${qualityName(fi.q)} → 1×${qualityName(fi.q+1)}</span></button>`:""}
+      ${si.n?`<button class="nh-button nh-button--neutral nh-button--fuse" onclick="salvage('${k}')"><img class="nh-button__icon" src="assets/icons/equipment-recycle.svg" alt=""><span class="nh-button__title">拆解低品质 ×${si.n} → +${fmt(si.v)}</span></button>`:""}
+    </div>`;
+  }).join("");
+  // v2.16：掉落累计制——面板只显示本循环已掉落；可用存款在 HUD
+  $("soulBox").innerHTML=`本循环已掉落碎片：<b style="color:#c07bff">${S.runSouls}</b> ${IC("soul-shard",1)}<br>
+    <small style="color:var(--dim)">死亡受阻时选「重塑」→ 掉落转为可用 · 装备回收为信用点</small>`;
+  // v2.12：加成树按钮同款版式（含下级收益预览，解决灵魂共鸣零购买）
+  // v2.14.3：首次重塑前锁定（碎片掉落改为 Boss 必掉后，防止绕过"卡关→重塑"循环）
+  // v2.17：树按钮带效果说明词
+  const TREE_DESC={dmg:"攻击力增加",gold:"信用点增加",soul:"碎片掉落增加"};
+  const treeLocked=!S.prestiges;
+  $("treeBox").innerHTML=(treeLocked?`<div style="font-size:11px;color:var(--dim);margin-bottom:5px"><img class="ic sm" src="assets/icons/locked.svg" alt=""> 首次重塑后解锁</div>`:"")
+    +Object.keys(TREE).map(k=>{
+    const c=treeCost(k), lv=S.tree[k], p=TREE_PCT[k];
+    return `<button class="nh-button nh-button--violet nh-button--upgrade" onclick="buyTree('${k}')" ${treeLocked||S.souls<c?"disabled":""}>
+      <span class="nh-button__body"><span class="nh-button__title">${TREE[k].n} Lv.${lv} → Lv.${lv+1}</span>
+      <span class="nh-button__detail">${TREE_DESC[k]} +${lv*p}% → +${(lv+1)*p}%</span></span>
+      <span class="nh-button__cost"><span class="nh-button__price"><img src="assets/icons/soul-shard.svg" alt="">${c}</span><span class="nh-button__hint">${treeLocked?"未解锁":S.souls<c?"碎片不足":"点击升级"}</span></span></button>`;
+  }).join("");
+  // v2.19：触发型技能 ⚡ 前缀标注
+  $("skillBox").innerHTML=S.skills.length?
+    Object.entries(S.skills.reduce((m,s)=>(m[s]=(m[s]||0)+1,m),{}))
+      .map(([k,n])=>`• ${SKILLS[k].n} <b style="color:var(--gold)">Lv.${n}</b> <small style="color:var(--dim)">· ${SKILL_TOTAL[k](n)}</small>`).join("<br>")
+    :"尚未获得";
+  $("crateBox").textContent="补给箱已就绪！";   // v2.28.7：测试版无冷却
+  $("btnCrate").disabled=false;
+  renderSpeedBtn();   // v2.19：倍速按钮状态
+}
+function renderCombat(){
+  const st=calcStats();
+  // v2.16：楼层数醒目化 + 场景预告副行
+  const SCENE_NAME={"assets/arena-bg.webp":"工业层","assets/arena-bg2.webp":"数据机房","assets/arena-bg5.webp":"维修层","assets/arena-bg6.webp":"货运层","assets/arena-bg3.webp":"高空中庭","assets/arena-bg4.webp":"棱镜核心"};
+  const bossTag=isBoss()?(isTianshu()?' · <span style="color:#c07bff">天枢·零号主机</span>':isPrism()?' · <span style="color:#c07bff">监察官·棱镜</span>':' · <span style="color:var(--magenta)">区域头目</span>'):'';
+  $("floorLabel").style.display=transit?"none":"";   // v2.28.8：转场移动中隐藏
+  $("floorLabel").innerHTML=`<div class="fl-big">第 <b>${dispFloor}</b> 层${bossTag}</div>
+    <div class="fl-sub">${SCENE_NAME[bgForFloor(dispFloor)]}</div>`;
+  $("mobProgress").textContent=`敌人 ${S.mobIdx+1}/6 ${wall?"· ⚠️ 受阻":""}`;
+  // v2.24.13：血条组按角色容器中心实时对齐（各体型通吃，端侧自适配）
+  ["player","enemy"].forEach(id=>{
+    const f=$(id), cx=f.offsetLeft+f.offsetWidth/2;
+    [id+"Hp",id+"Sh",id+"HpT",id+"ShT"].forEach(bid=>{
+      const el=$(bid); if(el){ el.style.right="auto"; el.style.left=(cx-el.offsetWidth/2)+"px"; }
+    });
+  });
+  $("playerHp").firstElementChild.style.width=Math.max(0,player.hp/st.hp*100)+"%";
+  $("playerHpT").textContent=`${fmt(Math.max(0,player.hp))} / ${fmt(st.hp)}`;
+  // v2.18：护盾独立横条（带数值，无盾隐藏；v2.18.2 去掉"未破防"字样）
+  const pshMax=st.hp*st.shieldPct;
+  $("player").classList.toggle("shielded",player.shield>0.5);   // v2.19：护盾轮扩包边
+  $("enemy").classList.toggle("shielded",cur.shield>0.5&&cur.hp<=1e17);
+  $("playerSh").style.display=pshMax>0?"block":"none";
+  $("playerShT").style.display=pshMax>0?"block":"none";
+  if(pshMax>0){ $("playerSh").firstElementChild.style.width=Math.max(0,player.shield/pshMax*100)+"%";
+    $("playerShT").textContent=fmt(Math.max(0,player.shield)); }
+  const ehp=cur.hp>1e17?0:Math.max(0,Math.min(cur.hp,cur.max));   // v2.5.1：尸体/间隔期显示 0，不再残留满血条
+  $("enemyHp").firstElementChild.style.width=(ehp/cur.max*100)+"%";
+  $("enemyHpT").textContent=`${fmt(ehp)} / ${fmt(cur.max)}`;
+  const eshOn=cur.maxShield>0&&cur.hp<=1e17;
+  $("enemySh").style.display=eshOn?"block":"none";
+  $("enemyShT").style.display=eshOn?"block":"none";
+  if(eshOn){ $("enemySh").firstElementChild.style.width=Math.max(0,cur.shield/cur.maxShield*100)+"%";
+    $("enemyShT").textContent=fmt(Math.max(0,cur.shield)); }
+  // v2.23：Boss 预估文本已删除（需求⑬，Boss 战信息做减法）
+}
+
+// ============ 主循环 ============
+let lastT=performance.now(), saveTimer=0;
+function loop(now){
+  let dt=Math.min((now-lastT)/1000,0.1); lastT=now;
+  dt*=effSpeed();   // v2.19：2 倍速（已通过楼层）
+  if(S.speed2&&S.floor>S.bestEver&&!speedDropNotified){ speedDropNotified=true; toast("已进入未探索楼层，恢复常速"); }
+  if(S.floor<=S.bestEver) speedDropNotified=false;
+  if(!paused && cur.hp<1e17){   // v2.5：尸体/跑入间隔期不结算战斗
+    const st=calcStats();
+    // 玩家攻击
+    atkTimer+=dt*st.aspd;
+    if(atkTimer>=1){ atkTimer-=1; dealPlayerHit(); }
+    // 敌人反击（持续伤害）
+    if(cur.hp<1e17&&!wall&&!(player.invulnUntil>Date.now())){   // v2.29：击杀当帧敌人不反击；v2.18：光学迷彩无敌期
+      const dmg=cur.atk*dt;
+      if(player.shield>0){ const s=Math.min(player.shield,dmg); player.shield-=s; player.hp-=(dmg-s); }
+      else player.hp-=dmg;
+      if(isTianshu()){   // v2.23：天枢双武器相位机
+        cur.phaseT-=dt;
+        if(cur.phase===0&&cur.phaseT<=0){ cur.phase=1; cur.phaseT=0.5; enemyAnim("charge",500); }   // 蓄力预警
+        else if(cur.phase===1&&cur.phaseT<=0){
+          cur.phase=2; cur.phaseT=0.5; enemyAnim("cannon",500);
+          const burst=cur.atk*2.5;   // 主炮重击（单发）
+          if(player.shield>0){ const sh=Math.min(player.shield,burst); player.shield-=sh; player.hp-=(burst-sh); }
+          else player.hp-=burst;
+          floatDmg("player",fmt(burst),"#FF2A6D",true);
+        }
+        else if(cur.phase===2&&cur.phaseT<=0){ cur.phase=0; cur.phaseT=8; }
+        else if(cur.phase===0&&Math.random()<dt*1.2){ floatDmg("player",fmt(cur.atk),"#FF2A6D",false); enemyAnim("shoot",400); }   // 机枪常态
+      }
+      else if(Math.random()<dt*1.2){
+        floatDmg("player",fmt(cur.atk),"#FF2A6D",false);
+        if(isPrism()){ prismAlt=!prismAlt; enemyAnim(prismAlt?"shoot":"slash"); }   // v2.9：棱镜翼炮/斩击交替演出
+        else if(mobKind==="hound") enemyAnim("bite",500);   // v2.15：机械犬扑咬
+        else enemyAnim("shoot",333);
+      }
+      checkWall(dt);
+    }
+  }
+  saveTimer+=dt;
+  if(saveTimer>0.5){ saveTimer=0; try{ renderPanels(); if(drawerOpen) renderDrawer(); }catch(e){} }   // v2.29：渲染异常不中断循环
+  if(Math.floor(now/5000)!==Math.floor((now-dt*1000)/5000)) save();
+  renderCombat();
+  // v2.30.5：触摸反馈桥（仅移动端触发）
+document.addEventListener("touchstart",e=>{
+  const b=e.target.closest(".nh-button"); if(b&&!b.disabled) b.classList.add("pressing");
+},{passive:true});
+["touchend","touchcancel"].forEach(ev=>document.addEventListener(ev,()=>{
+  document.querySelectorAll(".nh-button.pressing").forEach(b=>b.classList.remove("pressing"));
+},{passive:true}));
+requestAnimationFrame(loop);
+}
+
+// ============ 测试日志系统 ============
+// 版本管理：每次修改递增 VERSION，并同步维护 game/CHANGELOG.md 与 game/versions/ 快照
+const VERSION="v2.30.7";   // 清剿残留 hover：mag/gold 遗留规则 + 主入口 c-btn 悬停
+new Image().src="assets/gunner_shoot.png";   // 预加载攻击帧条防首击闪烁
+new Image().src="assets/gunner_run.png";
+new Image().src="assets/arena-bg2.webp";
+new Image().src="assets/arena-bg3.webp";
+new Image().src="assets/arena-bg4.webp";
+new Image().src="assets/arena-bg5.webp";
+new Image().src="assets/arena-bg6.webp";
+["security_idle","security_shoot","security_hurt","security_death","security_run",
+ "warden_idle","warden_shoot","warden_run","warden_death",
+ "prism_idle","prism_shoot","prism_slash","prism_move","prism_death",
+ "hound_idle","hound_run","hound_bite","hound_hurt","hound_death",
+ "tianshu_idle","tianshu_move","tianshu_machinegun","tianshu_charge","tianshu_cannon","tianshu_death"].forEach(n=>{ new Image().src=`assets/${n}.png`; });
+let sessions=[], curSession=null, seqCounter=1;
+let floorEnterT=0, bossEnterT=0, floorGoldEarned=0, lastLogSave=0;
+let drawerOpen=false;
+
+function newSession(){
+  curSession={id:"S"+String(seqCounter++).padStart(2,"0"), build:VERSION,
+    startedAt:Date.now(), endedAt:null, events:[], floors:[]};
+  logEvent("session_start",{fromFloor:S.floor});
+}
+function saveLogs(force){
+  const now=Date.now();
+  if(!force && now-lastLogSave<3000) return;
+  lastLogSave=now;
+  localStorage.setItem("neonHunterLogs", JSON.stringify({sessions, current:curSession, seq:seqCounter}));
+}
+function loadLogs(){
+  try{
+    const d=JSON.parse(localStorage.getItem("neonHunterLogs"));
+    if(d){ sessions=d.sessions||[]; seqCounter=d.seq||(sessions.length+1);
+      if(d.current && !d.current.endedAt){ curSession=d.current; return true; } }
+  }catch(e){}
+  return false;
+}
+// v2.19：2 倍速——已通过楼层（floor<=bestEver）生效，新边境自动降 1 倍
+function toggleSpeed(){ S.speed2=!S.speed2; save(); renderSpeedBtn(); toast(S.speed2?"2 倍速开启（仅限已通过楼层）":"恢复常速"); }
+function effSpeed(){ return S.speed2 && S.floor<=S.bestEver ? 2 : 1; }
+let speedDropNotified=false;
+function renderSpeedBtn(){
+  const b=$("btnSpeed");
+  // v2.20.1：仅在可倍速场景显示（重塑后且处于已通过楼层）；新边境/首轮隐藏
+  if(!S.prestiges||S.floor>S.bestEver){ b.style.display="none"; return; }
+  b.style.display="block";
+  b.textContent=S.speed2?"⏩ 2×":"⏩ 1×";
+  b.classList.toggle("on",S.speed2);
+}
+function logEvent(type,data){
+  if(!curSession) return;
+  const st=calcStats();
+  curSession.events.push(Object.assign({
+    t:Date.now()-curSession.startedAt, type,
+    snap:{floor:S.floor, gold:Math.round(S.gold), atkLv:S.atkLv, hpLv:S.hpLv,
+          atk:Math.round(st.atk), hp:Math.round(st.hp), aspd:+st.aspd.toFixed(2)}
+  }, data||{}));
+  saveLogs(false);
+}
+function pushFloorSummary(){
+  if(!curSession) return;
+  const now=Date.now();
+  curSession.floors.push({
+    floor:S.floor,
+    enterT:floorEnterT-curSession.startedAt,
+    clearDur:now-floorEnterT,
+    bossDur:now-bossEnterT,
+    atkLv:S.atkLv, hpLv:S.hpLv, gold:Math.round(floorGoldEarned)
+  });
+  floorGoldEarned=0;
+  saveLogs(true);
+}
+
+// ---- 日志自动落盘（File System Access API，首次需授权一次文件夹） ----
+let logDirHandle=null;
+function idbOpen(){
+  return new Promise((res,rej)=>{
+    const r=indexedDB.open("neonHunterFS",1);
+    r.onupgradeneeded=()=>r.result.createObjectStore("kv");
+    r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error);
+  });
+}
+async function idbGet(k){
+  try{ const db=await idbOpen();
+    return new Promise(res=>{ const q=db.transaction("kv").objectStore("kv").get(k);
+      q.onsuccess=()=>res(q.result||null); q.onerror=()=>res(null); });
+  }catch(e){ return null; }
+}
+async function idbSet(k,v){
+  try{ const db=await idbOpen();
+    return new Promise(res=>{ const q=db.transaction("kv","readwrite").objectStore("kv").put(v,k);
+      q.onsuccess=()=>res(); q.onerror=()=>res(); });
+  }catch(e){}
+}
+async function ensureLogDir(){
+  if(!window.showDirectoryPicker) return null;
+  if(!logDirHandle) logDirHandle=await idbGet("logDir");
+  if(logDirHandle){
+    if(await logDirHandle.queryPermission({mode:"readwrite"})==="granted") return logDirHandle;
+    if(await logDirHandle.requestPermission({mode:"readwrite"})==="granted") return logDirHandle;
+  }
+  return null;
+}
+async function pickLogDir(){
+  try{
+    logDirHandle=await window.showDirectoryPicker({id:"neonHunterLogs"});
+    await idbSet("logDir",logDirHandle);
+    toast("已绑定日志文件夹，之后自动保存");
+    return logDirHandle;
+  }catch(e){ return null; }
+}
+function tsName(d){
+  const p=n=>String(n).padStart(2,"0");
+  return `${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`;
+}
+// 统一命名规则：neonhunter_<版本>_<测试段>_<时间戳>.<json|csv>
+function sessionBaseName(s){
+  return `neonhunter_${s.build}_${s.id}_${tsName(new Date(s.endedAt||Date.now()))}`;
+}
+async function writeToFolder(name,content,mime){
+  let dir=await ensureLogDir();
+  if(!dir) dir=await pickLogDir();   // 首次：弹系统选择器，请选项目下的 logs 文件夹
+  if(dir){
+    try{
+      const fh=await dir.getFileHandle(name,{create:true});
+      const w=await fh.createWritable();
+      await w.write(content); await w.close();
+      toast("已存入文件夹："+name);
+      return true;
+    }catch(e){}
+  }
+  download(name,content,mime);   // 降级：浏览器下载
+  toast("未授权文件夹，已改为浏览器下载："+name);
+  return false;
+}
+function saveSessionToFolder(s){
+  return writeToFolder(sessionBaseName(s)+".json", JSON.stringify(s,null,2), "application/json");
+}
+function csvContent(s){
+  const rows=[["floor","enter_t_s","clear_dur_s","boss_dur_s","atk_lv","hp_lv","gold_earned"]];
+  s.floors.forEach(f=>rows.push([f.floor,(f.enterT/1000).toFixed(1),(f.clearDur/1000).toFixed(1),
+    (f.bossDur/1000).toFixed(1),f.atkLv,f.hpLv,f.gold]));
+  return "﻿"+rows.map(r=>r.join(",")).join("\n");
+}
+function saveCsvToFolder(s){
+  return writeToFolder(sessionBaseName(s)+".csv", csvContent(s), "text/csv");
+}
+
+// ---- 复位 / 结束测试 ----
+function askReset(){
+  showModal("🔄 确认复位？",
+    "将<b>清空存档</b>并作废当前未封存的日志段，回到全新开局。<br>已封存的历史测试段会保留。",
+    `<button class="nh-button nh-button--danger nh-button--compact" onclick="doReset()">确认复位</button>
+     <button onclick="closeModal()">取消</button>`);
+}
+function doReset(){
+  skillOfferOpen=false; curOffer=[]; S.pendingOffer=null; closeModal();   // v2.29：复位清理技能弹窗流程态
+  localStorage.removeItem("neonHunter");
+  S=freshState();
+  wall=false; paused=false;
+  buff={adrenaline:0,killcycle:0,critsurge:0,soulrush:0};
+  floorGoldEarned=0;
+  newSession();
+  spawnMob(); closeModal(); openingRunIn();   // v2.14：复位后双方跑入
+  renderPanels(); renderDrawer();
+  saveLogs(true); save();
+  toast("已完全复位，新测试段 "+curSession.id+" 开始");
+}
+function endTest(){
+  if(!curSession) return;
+  curSession.endedAt=Date.now();
+  logEvent("session_end",{maxFloor:S.maxFloor});
+  sessions.push(curSession);
+  if(sessions.length>3) sessions=sessions.slice(-3);   // v2.6：浏览器端只保留最新 3 段（磁盘 logs/ 文件不受影响）
+  const sealed=curSession;
+  newSession();           // 静默开启新段，游戏继续
+  const html=summarize(sealed);
+  saveLogs(true);
+  saveSessionToFolder(sealed);   // 自动落盘 JSON + CSV 到 logs/ 文件夹（首次弹授权）
+  saveCsvToFolder(sealed);
+  showModal("⏹️ 测试段 "+sealed.id+" 已封存", html,
+    `<button class="gold" onclick="closeModal();saveSessionToFolder(findSession('${sealed.id}'))">存入 logs 文件夹</button>
+     <button class="gold" onclick="closeModal();exportCSV('${sealed.id}')">导出楼层 CSV</button>
+     <button onclick="closeModal()">继续游戏</button>`);
+  renderDrawer();
+}
+function summarize(s){
+  const durMin=((s.endedAt-s.startedAt)/60000);
+  const maxF=s.floors.length?s.floors[s.floors.length-1].floor:0;
+  const walls=s.events.filter(e=>e.type==="wall");
+  const ups=s.events.filter(e=>e.type==="upgrade");
+  const upsAtk=ups.filter(e=>e.kind==="atk").length, upsHp=ups.filter(e=>e.kind==="hp").length;
+  const sk=s.events.filter(e=>e.type==="skill");
+  const pr=s.events.filter(e=>e.type==="prestige");
+  const ads=s.events.filter(e=>e.type==="prestige"&&e.mult===2).length;
+  const crates=s.events.filter(e=>e.type==="crate").length;
+  const drops=s.events.filter(e=>e.type==="drop");
+  let wallLine="本次未卡关";
+  if(walls.length){
+    const w=walls[0], inTarget=w.snap.floor>=25&&w.snap.floor<=40;
+    wallLine=`首卡：第 ${w.snap.floor} 层 / ${(w.t/60000).toFixed(1)} 分钟
+      （设计目标 25~40 层 ${inTarget?"✅":"⚠️ 偏离"}，原因：${w.reason==="hp_zero"?"站不住":"击杀超时"}）`;
+  }
+  return `时长 <b>${durMin.toFixed(1)}</b> 分钟 · 通过 <b>${maxF}</b> 层 · 事件 <b>${s.events.length}</b> 条<br>
+    ${wallLine}<br>
+    强化 <b>${ups.length}</b> 次（攻 ${upsAtk} / 血 ${upsHp}）· 爆装 <b>${drops.length}</b> 件 ·
+    技能 <b>${sk.length}</b> 次<br>
+    重塑 <b>${pr.length}</b> 次 · 广告按钮点击 <b>${ads}</b> 次 · 补给箱 <b>${crates}</b> 次<br>
+    <small>新测试段 ${curSession.id} 已静默开启</small>`;
+}
+
+// ---- 导出 ----
+function findSession(id){ return id===curSession.id?curSession:sessions.find(x=>x.id===id); }
+function download(name,content,mime){
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([content],{type:mime}));
+  a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function exportJSON(id){
+  const s=findSession(id); if(!s) return;
+  saveSessionToFolder(s);
+}
+function exportCSV(id){
+  const s=findSession(id); if(!s) return;
+  saveCsvToFolder(s);
+}
+
+// ---- 日志抽屉 ----
+function toggleDrawer(){
+  drawerOpen=!drawerOpen;
+  document.getElementById("drawer").classList.toggle("show",drawerOpen);
+  if(drawerOpen) renderDrawer();
+}
+function renderDrawer(){
+  const body=document.getElementById("drawerBody");
+  if(!body) return;
+  let html="";
+  if(curSession){
+    const dur=((Date.now()-curSession.startedAt)/60000).toFixed(1);
+    html+=`<div class="sess current"><b>▶ 当前段 ${curSession.id}</b> <span style="color:#5a6472">${curSession.build}</span>
+      <div class="meta">时长 ${dur} 分钟 · 事件 ${curSession.events.length} 条 · 已过 ${curSession.floors.length} 层</div>
+      <button class="gold" onclick="saveSessionToFolder(curSession)">💾 存到文件夹</button>
+      <button class="gold" onclick="exportCSV('${curSession.id}')">CSV</button></div>`;
+  }
+  html+=[...sessions].slice(-3).reverse().map(s=>{   // v2.6：界面也只显示最新 3 段
+    const dur=((s.endedAt-s.startedAt)/60000).toFixed(1);
+    const maxF=s.floors.length?s.floors[s.floors.length-1].floor:0;
+    const w=s.events.find(e=>e.type==="wall");
+    return `<div class="sess"><b>${s.id}</b> <span style="color:#5a6472">${s.build}</span>
+      <div class="meta">${dur} 分钟 · 过 ${maxF} 层 · ${s.events.length} 事件${w?` · 首卡 ${w.snap.floor} 层`:""}</div>
+      <button class="gold" onclick="saveSessionToFolder(findSession('${s.id}'))">💾 存到文件夹</button>
+      <button class="gold" onclick="exportCSV('${s.id}')">CSV</button></div>`;
+  }).join("");
+  body.innerHTML=html||'<div class="meta" style="color:var(--dim)">暂无测试段</div>';
+}
+
+// ============ 事件 ============
+$("btnAtk").onclick=()=>{ if(S.gold>=cost(S.atkLv)){ const c=cost(S.atkLv); S.gold-=c; S.atkLv++; logEvent("upgrade",{kind:"atk",level:S.atkLv,cost:Math.round(c)}); renderPanels(); } };
+$("btnHp").onclick=()=>{ if(S.gold>=cost(S.hpLv)){ const before=calcStats().hp; const c=cost(S.hpLv); S.gold-=c; S.hpLv++;
+  player.hp=Math.min(calcStats().hp,player.hp+(calcStats().hp-before));   // v2.17：买血加增量（层内不回血下避免"买了不加血"）
+  logEvent("upgrade",{kind:"hp",level:S.hpLv,cost:Math.round(c)}); renderPanels(); } };
+// v2.3：装备全自动（掉落/合成时更高品质直接换上），无手动换装按钮
+// v2.16：主动重塑按钮已移除，重塑仅在「行动受阻」弹窗可选
+$("btnCrate").onclick=openCrate;
+window.addEventListener("beforeunload",save);
+// v0.8：记录切后台/回前台，区分"打不过"与"人走了"
+document.addEventListener("visibilitychange",()=>{
+  logEvent(document.hidden?"tab_hidden":"tab_visible");
+  if(!document.hidden) lastT=performance.now();   // 回前台重置计时，防 dt 跳变
+});
+
+// ============ 启动 ============
+const hadSave=load();
+loadLogs();
+if(!curSession) newSession();
+spawnMob();
+renderPanels();
+// v2.6 封面 + v2.14 开局跑入：封面期间战斗暂停；点击开始 → 离线结算（如有）→ 双方跑入
+paused=true;
+$("covVer").textContent=VERSION+" · CrazyGames 版"; renderSfxRow();
+$("topVer").textContent=VERSION.toUpperCase(); document.title="霓虹猎手 "+VERSION;   // v2.29：版本文字统一由 VERSION 生成
+$("btnStart").innerHTML=hadSave?`▶ 进入夜城<small>继续第 ${S.floor} 层 · 自动保存</small>`:`▶ 开始游戏<small>新的猎杀 · 自动保存</small>`;
+$("btnStart").onclick=()=>{ $("cover").classList.add("hide"); setTimeout(()=>$("cover").remove(),450);
+  openingRunIn(); };
+function askCoverReset(){
+  showModal("⚠️ 清除存档","确定要清空全部进度吗？此操作不可恢复。",
+    `<button class="nh-button nh-button--danger nh-button--compact" onclick="doReset();$('cover').classList.add('hide');setTimeout(()=>$('cover').remove(),450)">确认清除并开始新游戏</button>
+     <button onclick="closeModal()">取消</button>`);
+}
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

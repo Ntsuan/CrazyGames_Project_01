@@ -1,0 +1,11 @@
+{
+  "connected": false,
+  "fused": false,
+  "name": "realLoop700msHold",
+  "nextSkillTap": {
+    "fused": true,
+    "skills": 0,
+    "trackerStuck": false
+  },
+  "trackerStuck": true
+}

@@ -1,0 +1,11 @@
+{
+  "version": "v2.32",
+  "sha256": "c8a0bedd64fefadaca468181f5c6e5aa6e377c53824be91eea818c03397ed667",
+  "snapshotMatches": true,
+  "assetCount": 59,
+  "staticRefs": 53,
+  "missingReferences": [],
+  "snapshotCount": 120,
+  "mainBytes": 99302,
+  "gitRepository": false
+}

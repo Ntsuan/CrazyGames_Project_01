@@ -1,0 +1,372 @@
+Neon Hunter
+Neon Hunter
+Home
+Test only: 1× / 4× / 8×. Reload to restore normal speed.
+Test 1×
+🔄 Reset
+⏹️ End Test
+📋 Logs
+Enhancements
+Skills
+No skills yet
+Cybernetics
+(Auto-equip)
+Reforge
+Supplies
+Open Supply Crate
+Simulated ad · Every 60 seconds
+📋 Test Logs
+Close ✕
+CYBERPUNK · IDLE TOWER CLIMBER
+NEON 
+HUNTER
+Choose game mode
+Endless Mode
+Pick 1 of 3 random skills
+Adapt your build. Push your limits.
+Build Mode
+Unlocked
+Choose from the full skill pool
+Reach Stage 5 in Endless Mode to unlock
+Entering Night City
+Asset loading progress
+Preparing combat assets…
+Retry
+Settings
+Language
+English
+Sound Effects
+On
+Test Logs
+View
+Clear Save
+Confirmation required
+Scrap
+Damaged
+Civilian
+Modified
+Military
+Prototype
+Legendary
+Mythic
+Eternal
+Immortal
+Attack
+Attack Speed
+Health
+Credits
+Cyberweapon
+Neural Implant
+Subdermal Armor
+Chip
+Combat Overclock
+Crit chance +10%
+Lethal Firmware
+Crit damage +50%
+Neural Acceleration
+Attack speed +15%
+Firepower Protocol
+Attack +25%
+Subdermal Reinforcement
+Health +30%
+Nano Repair
+Lifesteal +5%
+Emergency Shield
+Gain a shield equal to 10% of max health
+Black Market Network
+Credits +30%
+Shard Resonance
+Boss shard drops +10%
+Adrenaline
+Attack speed +30% below 50% health
+Frenzied Rhythm
+Attack speed +30% for 5s after a critical hit
+Optical Camouflage
+Invulnerable for 2s after a kill
+Cornered Protocol
+Damage +40% below 30% health
+Hunter's Instinct
+Attack speed +25% for 4s after breaking a shield
+Damage Amplifier
++5% damage / level
+Credit Optimization
++10% credits / level
+Soul Resonance
++10% reforge shards / level
+Baseline Hunter
+Limb Replacement
+Torso Reconstruction
+Neural Integration
+Full Cybernetic Body
+Invalid saved floor
+Unsupported stage save version
+Invalid stage data
+Invalid upgrade recovery data
+Mode preferences are unavailable
+Could not save mode selection. Check browser storage and retry.
+Could not save mode selection. Please retry.
+Floor 5: triggers · Floor 10: attributes
+Play {0}
+Stage {0} · Floor {1}
+Save unavailable
+Original save preserved · Click to export a backup
+Could not read the backup. Check browser storage permissions.
+Could not save: storage is full
+Save mode mismatch
+Invalid supply save data
+Could not save. Resources have not been cleared. Free up storage and retry.
+Upgrade animation complete, but saving failed. Free up storage and retry.
+Retry Save
+Save and continue
+Could not save. Free up storage and retry.
+Base Attack
+Base Health
+Stage {0} Complete
+Upgrade your body to enter the next stage
+Built-in Emergency Shield · Lv.{0} → Lv.{1}
+Gain a shield equal to {0}% of max health each fight. Stacks with this run's skills.
+After upgrading, start again on Floor 1
+All credits, banked and current-run shards, equipment, inventory, enhancements, run skills, and the bonus tree will be reset. Equipment will not be salvaged for starting credits.
+Sound settings and stage history are kept. Earn your speed boost again.
+Legacy save upgrade: your resources and settled choices are preserved until you confirm. This upgrade advances you to Stage 2 only.
+Upgrade Body
+Enter Stage {0} · {1}
+Body Upgrade in Progress
+Cybernetic upgrade animation
+Preparing upgrade
+Upgrade progress
+Stage {0} · {1}
+All progression resources have been reset. Your new body is ready.
+Built-in Emergency Shield Lv.{0}: gain a shield equal to {1}% of max health each fight.
+Endless Challenge Unlocked
+Body Upgrade Complete
+Begin an endless climb from Floor 1. You can still reforge every 10 floors.
+Next body upgrade: clear Floor 100 in this stage.
+Start Endless Challenge
+Enter Floor 1
+Start your climb with new base stats
+Animation assets are not ready. Retry loading.
+Retry Loading
+Keep current upgrade progress
+Synchronizing cybernetics
+The animation could not be displayed. Progress is preserved. Please retry.
+Retry Animation
+Resume from the saved playback position
+Loading animation assets…
+Crit chance +{0}%
+Crit damage +{0}%
+Below 50% health: attack speed +{0}%
+After a crit: attack speed +{0}% · 5s
+After a kill: invulnerable for {0}s
+Below 30% health: damage +{0}%
+After breaking a shield: attack speed +{0}% · 4s
+Attack speed +{0}%
+Attack +{0}%
+Health +{0}%
+Lifesteal +{0}%
+Shield: {0}% of max health
+Credits +{0}%
+Shard drops +{0}%
+Sound effects: on
+Sound effects: off
+Off
+Shield Break!
+Run Blocked
+Your hunter was stopped on Floor
+.
+Reforge into a stronger clone. Bank the
+shards earned this run and salvage equipment into credits for the next run.
+Reforge · End This Run
+{0} · {1} maxed → +{2} credits
+Auto-equipped: {0} · {1}
+Acquired: {0} · {1}
+Crit
+Lifesteal
+Sold for +{0} credits
+Fused: {0} · {1} equipped
+Fused: {0} · {1} added to inventory
+Salvaged {0} low-tier items → +{1} credits
+Neural Skills · {0}
+Full Trigger Pool
+Full Attribute Pool
+Pick 1 of 3 Triggers
+Pick 1 of 3 Attributes
+Floor {0} cleared · Choose 1 of {1} upgrades
+Floor {0} cleared! Choose a trigger skill
+Floor {0} cleared! Choose an attribute upgrade
+Invulnerability lasts 0.5s longer
+Skill learned: {0}
+Floor {0} Cleared
+Keep climbing, or reforge to grow stronger?
+Combat is paused while you choose
+shards available from this run
+Keep climbing to gain a skill upgrade
+Reforge to spend shards on this stage's bonuses
+Keep Climbing
+Choose a skill, then enter Floor {0}
+Reforge
+Review your rewards first
+Next prompt: after clearing Floor {0}
+Confirm Reforge
+Choose how to bank this run's shards
+Shards earned this run
+Watch an ad for ×2 · Current-run shards only
+{0} Equipment salvage
++{0} credits
+{0} items · 15% salvage value · Credits are not doubled
+Return to Floor 1. Reset enhancements and run skills.
+Salvage equipment. Keep stage bonuses and banked shards.
+Current-run credits do not carry over.
+Claim ×2 & Reforge · +{0} shards
+Reward confirmed. No need to watch again.
+Reforge · +{0} shards
+Bank rewards now
+Watch Ad & Reforge · +{0} shards
+Test simulation · Finish watching to double shards and reforge
+‹ Back to Choices
+Ad Test Simulation
+This is a test build. No real ad will play.
+Simulate a completed ad to double shards. Cancel to return to the preview without ending this run.
+Simulate Completed Ad
+Reforge and gain {0} shards
+Cancel Ad
+Return to reward preview
+Ad cancelled. Run progress and rewards are preserved.
+Ad unavailable. Run progress and rewards are preserved. Retry, reforge normally, or go back.
+Could not save. Rewards have not been settled. Free up storage and retry.
+Reforged: +{0} shards
+The bonus tree unlocks after your first reforge
+Supply Crate · Ad Simulation
+Finish watching to claim
+Test simulation: real ads are not connected yet.{0}
+Claim this supply
+Keep this claim available
+Could not save. Supply has not been claimed. Free up storage and retry.
+Supply crate: +{0} credits
+Confirm Reset
+Attack {0} · Health
+· Attack speed {0}/s
+× {0} · Lifesteal
+Upgrade
+Attack Lv.{0} → Lv.{1}
+Attack {0} → {1}
+Health Lv.{0} → Lv.{1}
+Health {0} → {1}
+White
+Green
+Blue
+Purple
+Red
+Mythic
+Eternal
+Immortal
+Immortal+{0}
+">Fuse 3×<span id="gs-fq1-
+Empty
+None
+Salvage low-tier ×
+Shards earned this run:
+Reforge every 10 cleared floors, or when your run is blocked. Bank shards and salvage equipment into credits.
+More damage
+More credits
+More shard drops
+Unlocks after your first reforge
+Locked
+Not enough shards
+No skills yet
+Next supply: {0}s
+Supply ready · +{0} credits
+Industrial Floor
+Server Room
+Maintenance Deck
+Cargo Deck
+Sky Atrium
+Prism Core
+Tianshu · Core Zero
+Overseer · Prism
+Sector Boss
+Stage {0} · {1}{2}
+Floor {0}{1}
+Floor
+{0}{1}
+· ∞ Endless
+Enemy
+⚠️ Blocked
+New territory: normal speed restored
+Asset loading timed out
+Image failed to load
+Upgrade animation is not ready
+Upgrade animation failed to load
+Sound effect failed to load
+Sound file is empty
+Stylesheet failed to load
+Save unavailable. Export a backup first, or explicitly clear the save in Settings to start over.
+Loading is taking longer. Please wait…
+Some assets failed to load. Please retry.
+Ready
+Log storage is full. This session is kept in memory only.
+2× speed enabled on cleared floors only
+Normal speed restored
+Test speed {0}× · Upgrade animations stay at normal speed
+Test {0}×
+Test speed {0}×. Click to change.
+Log folder connected. Future logs will save automatically.
+Saved to folder:
+No folder access. Downloaded through the browser:
+🔄 Confirm Reset?
+Clear all progress in
+and discard the current unarchived log session to start fresh.
+The other mode, Build Mode unlock, and archived logs will be kept.
+Cancel
+Could not save the unlock record. Progress has not been cleared.
+Could not clear the save. Original progress is preserved. Check browser storage.
+Reset complete. New test session
+started
+⏹️ Test session
+archived
+Save to logs folder
+Export Floor CSV
+Continue Playing
+No progression block this session
+First block: Floor {0} / {1} min (target: Floors 25–40 {2}; reason: {3})
+⚠️ Off target
+Health depleted
+Kill timed out
+Duration
+min · Cleared
+floors · Events
+total
+total (ATK {0} / HP {1}) · Drops
+items · Skills
+total
+total · Ad clicks
+total · Crates
+New test session {0} started automatically
+▶ Current Session {0}
+Duration {0} min · {1} events · {2} floors cleared
+💾 Save to Folder
+· Test-speed sample
+{0} min · {1} floors cleared · {2} events{3}
+· First block: Floor {0}
+No test sessions yet
+· CrazyGames Edition
+⚠️ Clear Save
+Clear all progress in {0}? This cannot be undone. The other mode and Build Mode unlock will be kept.
+Clear Save & Start New Game
+Entering repair pod
+Handing over weapon
+Closing pod
+Upgrading cybernetics and weapon
+Upgrade complete · Opening pod
+Retrieving upgraded rifle
+Emerging in a new form
+Stage 02 · Limb Replacement
+Could not load asset:
+Retrieving electromagnetic rifle
+Stage 03 · Torso Reconstruction
+Retrieving pulse gun
+Stage 04 · Neural Integration
+Recycling pulse gun
+Full-body reconstruction · Integrating arm cannon
+Calibrating arm cannon · Activating core
+Stage 05 · Full Cybernetic Body

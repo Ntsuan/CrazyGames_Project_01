@@ -1,0 +1,215 @@
+{
+  "note": "10 seeded runs × 3 prestige cycles; 30 FPS virtual clock; actual game functions with DOM/audio mocks; not real-device soak",
+  "results": [
+    {
+      "seed": 1,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 678.8000000001773,
+          "events": 128
+        },
+        {
+          "floor": 23,
+          "seconds": 580.433333332924,
+          "events": 284
+        },
+        {
+          "floor": 23,
+          "seconds": 471.89999999890125,
+          "events": 426
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 658.8666666668207,
+          "events": 116
+        },
+        {
+          "floor": 23,
+          "seconds": 585.5999999996483,
+          "events": 273
+        },
+        {
+          "floor": 20,
+          "seconds": 417.26666666569514,
+          "events": 406
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 19,
+          "seconds": 719.3333333335578,
+          "events": 123
+        },
+        {
+          "floor": 24,
+          "seconds": 670.2666666659067,
+          "events": 279
+        },
+        {
+          "floor": 23,
+          "seconds": 470.299999998905,
+          "events": 430
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 18,
+          "seconds": 673.0666666668372,
+          "events": 106
+        },
+        {
+          "floor": 19,
+          "seconds": 460.8333333332225,
+          "events": 223
+        },
+        {
+          "floor": 25,
+          "seconds": 626.9999999985401,
+          "events": 380
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 19,
+          "seconds": 725.7666666668987,
+          "events": 116
+        },
+        {
+          "floor": 20,
+          "seconds": 486.2999999996459,
+          "events": 243
+        },
+        {
+          "floor": 23,
+          "seconds": 576.4333333319912,
+          "events": 384
+        }
+      ]
+    },
+    {
+      "seed": 6,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 17,
+          "seconds": 663.7000000001598,
+          "events": 103
+        },
+        {
+          "floor": 24,
+          "seconds": 697.7666666660369,
+          "events": 271
+        },
+        {
+          "floor": 27,
+          "seconds": 639.1333333318695,
+          "events": 438
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 19,
+          "seconds": 707.6666666668775,
+          "events": 119
+        },
+        {
+          "floor": 25,
+          "seconds": 674.6666666659372,
+          "events": 273
+        },
+        {
+          "floor": 23,
+          "seconds": 487.26666666553217,
+          "events": 421
+        }
+      ]
+    },
+    {
+      "seed": 8,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 15,
+          "seconds": 581.7333333333976,
+          "events": 92
+        },
+        {
+          "floor": 23,
+          "seconds": 611.7999999998567,
+          "events": 258
+        },
+        {
+          "floor": 25,
+          "seconds": 535.8333333320858,
+          "events": 430
+        }
+      ]
+    },
+    {
+      "seed": 9,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 17,
+          "seconds": 654.1333333334819,
+          "events": 106
+        },
+        {
+          "floor": 24,
+          "seconds": 655.8999999995011,
+          "events": 253
+        },
+        {
+          "floor": 25,
+          "seconds": 573.4333333319983,
+          "events": 409
+        }
+      ]
+    },
+    {
+      "seed": 10,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 20,
+          "seconds": 755.6666666669335,
+          "events": 129
+        },
+        {
+          "floor": 20,
+          "seconds": 453.89999999961685,
+          "events": 265
+        },
+        {
+          "floor": 26,
+          "seconds": 656.3999999984717,
+          "events": 437
+        }
+      ]
+    }
+  ]
+}

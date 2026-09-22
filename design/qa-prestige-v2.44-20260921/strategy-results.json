@@ -1,0 +1,409 @@
+{
+  "note": "5 seeds x 3 policies x 3 cycles = 45 cycles. Actual game functions in Node VM at 30FPS, upgrade ratio1.5, first skill option, fuse promptly, damage tree, previously-cleared floors2x. No crate, no ad bonus or ad duration, no human input delay. Policy20 falls back to death when unable to reach20. Not real-device or long-term balance approval.",
+  "summary": [
+    {
+      "target": 10,
+      "cycles": 15,
+      "totalSouls": 171,
+      "totalSeconds": 3508.6000000010195,
+      "soulsPerMinute": 2.9242432879202584,
+      "firstCycleFloors": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "target": 20,
+      "cycles": 15,
+      "totalSouls": 337,
+      "totalSeconds": 7103.066666663628,
+      "soulsPerMinute": 2.8466577816166705,
+      "firstCycleFloors": [
+        18,
+        18,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "target": "wall",
+      "cycles": 15,
+      "totalSouls": 407,
+      "totalSeconds": 8672.599999993306,
+      "soulsPerMinute": 2.815764591935388,
+      "firstCycleFloors": [
+        18,
+        18,
+        24,
+        20,
+        24
+      ]
+    }
+  ],
+  "results": [
+    {
+      "target": 10,
+      "seed": 1,
+      "cycles": [
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 12,
+          "seconds": 371.73333333324496
+        },
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 11,
+          "seconds": 152.36666666675225
+        },
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 12,
+          "seconds": 153.13333333351162
+        }
+      ]
+    },
+    {
+      "target": 10,
+      "seed": 2,
+      "cycles": [
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 12,
+          "seconds": 432.3666666665571
+        },
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 11,
+          "seconds": 157.46666666685
+        },
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 11,
+          "seconds": 148.16666666683915
+        }
+      ]
+    },
+    {
+      "target": 10,
+      "seed": 3,
+      "cycles": [
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 11,
+          "seconds": 373.7666666665771
+        },
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 11,
+          "seconds": 155.06666666675895
+        },
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 11,
+          "seconds": 165.26666666685907
+        }
+      ]
+    },
+    {
+      "target": 10,
+      "seed": 4,
+      "cycles": [
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 12,
+          "seconds": 395.0666666665647
+        },
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 11,
+          "seconds": 162.70000000013835
+        },
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 11,
+          "seconds": 156.40000000018208
+        }
+      ]
+    },
+    {
+      "target": 10,
+      "seed": 5,
+      "cycles": [
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 11,
+          "seconds": 366.73333333324786
+        },
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 12,
+          "seconds": 171.400000000099
+        },
+        {
+          "floor": 10,
+          "source": "milestone",
+          "souls": 12,
+          "seconds": 146.96666666683777
+        }
+      ]
+    },
+    {
+      "target": 20,
+      "seed": 1,
+      "cycles": [
+        {
+          "floor": 18,
+          "source": "wall",
+          "souls": 19,
+          "seconds": 696.3333333335311
+        },
+        {
+          "floor": 20,
+          "source": "wall",
+          "souls": 21,
+          "seconds": 376.9000000000034
+        },
+        {
+          "floor": 20,
+          "source": "milestone",
+          "souls": 23,
+          "seconds": 308.4999999992817
+        }
+      ]
+    },
+    {
+      "target": 20,
+      "seed": 2,
+      "cycles": [
+        {
+          "floor": 18,
+          "source": "wall",
+          "souls": 26,
+          "seconds": 818.866666667007
+        },
+        {
+          "floor": 20,
+          "source": "wall",
+          "souls": 21,
+          "seconds": 393.23333333287076
+        },
+        {
+          "floor": 20,
+          "source": "milestone",
+          "souls": 23,
+          "seconds": 312.5999999992722
+        }
+      ]
+    },
+    {
+      "target": 20,
+      "seed": 3,
+      "cycles": [
+        {
+          "floor": 20,
+          "source": "milestone",
+          "souls": 23,
+          "seconds": 756.8000000002681
+        },
+        {
+          "floor": 20,
+          "source": "milestone",
+          "souls": 23,
+          "seconds": 298.533333333308
+        },
+        {
+          "floor": 20,
+          "source": "milestone",
+          "souls": 22,
+          "seconds": 297.56666666597386
+        }
+      ]
+    },
+    {
+      "target": 20,
+      "seed": 4,
+      "cycles": [
+        {
+          "floor": 20,
+          "source": "wall",
+          "souls": 21,
+          "seconds": 855.9000000003834
+        },
+        {
+          "floor": 20,
+          "source": "milestone",
+          "souls": 23,
+          "seconds": 329.56666666622294
+        },
+        {
+          "floor": 20,
+          "source": "milestone",
+          "souls": 24,
+          "seconds": 297.8333333326399
+        }
+      ]
+    },
+    {
+      "target": 20,
+      "seed": 5,
+      "cycles": [
+        {
+          "floor": 20,
+          "source": "milestone",
+          "souls": 22,
+          "seconds": 763.2000000002755
+        },
+        {
+          "floor": 20,
+          "source": "milestone",
+          "souls": 23,
+          "seconds": 300.9666666666133
+        },
+        {
+          "floor": 20,
+          "source": "milestone",
+          "souls": 23,
+          "seconds": 296.26666666597686
+        }
+      ]
+    },
+    {
+      "target": "wall",
+      "seed": 1,
+      "cycles": [
+        {
+          "floor": 18,
+          "source": "wall",
+          "souls": 19,
+          "seconds": 696.3333333335311
+        },
+        {
+          "floor": 20,
+          "source": "wall",
+          "souls": 21,
+          "seconds": 376.9000000000034
+        },
+        {
+          "floor": 25,
+          "source": "wall",
+          "souls": 27,
+          "seconds": 478.1999999988866
+        }
+      ]
+    },
+    {
+      "target": "wall",
+      "seed": 2,
+      "cycles": [
+        {
+          "floor": 18,
+          "source": "wall",
+          "souls": 26,
+          "seconds": 818.866666667007
+        },
+        {
+          "floor": 20,
+          "source": "wall",
+          "souls": 21,
+          "seconds": 393.23333333287076
+        },
+        {
+          "floor": 27,
+          "source": "wall",
+          "souls": 31,
+          "seconds": 563.8999999986871
+        }
+      ]
+    },
+    {
+      "target": "wall",
+      "seed": 3,
+      "cycles": [
+        {
+          "floor": 24,
+          "source": "wall",
+          "souls": 26,
+          "seconds": 913.3333333337837
+        },
+        {
+          "floor": 23,
+          "source": "wall",
+          "souls": 25,
+          "seconds": 335.69999999934146
+        },
+        {
+          "floor": 25,
+          "source": "wall",
+          "souls": 41,
+          "seconds": 428.93333333233466
+        }
+      ]
+    },
+    {
+      "target": "wall",
+      "seed": 4,
+      "cycles": [
+        {
+          "floor": 20,
+          "source": "wall",
+          "souls": 21,
+          "seconds": 855.9000000003834
+        },
+        {
+          "floor": 27,
+          "source": "wall",
+          "souls": 31,
+          "seconds": 627.3999999988629
+        },
+        {
+          "floor": 27,
+          "source": "wall",
+          "souls": 31,
+          "seconds": 415.2666666656998
+        }
+      ]
+    },
+    {
+      "target": "wall",
+      "seed": 5,
+      "cycles": [
+        {
+          "floor": 24,
+          "source": "wall",
+          "souls": 28,
+          "seconds": 956.6666666671391
+        },
+        {
+          "floor": 25,
+          "source": "wall",
+          "souls": 27,
+          "seconds": 417.63333333236096
+        },
+        {
+          "floor": 25,
+          "source": "wall",
+          "souls": 32,
+          "seconds": 394.3333333324152
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "version": "v2.33",
+  "verdict": "未通过：1 P1、4 P2",
+  "core": {
+    "total": 74,
+    "pass": 70,
+    "fail": 4
+  },
+  "browser": {
+    "total": 47,
+    "pass": 41,
+    "fail": 6
+  },
+  "assets": 60,
+  "simulationCycles": 90,
+  "issues": {
+    "P1": 1,
+    "P2": 4
+  },
+  "sourceChanged": [],
+  "sourceHash": "5c6314737216d9f6adca7571c9c53407a38456aca463fd2187b65308b32b11ab",
+  "performance": {
+    "averageMs": 16.59888888869021,
+    "frames": 180,
+    "hidden": false,
+    "maxMs": 17.599999999998545,
+    "p95Ms": 17.400000000000546
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "build": "v2.30.11",
+  "endedAt": 1789873008884,
+  "events": [
+    {
+      "fromFloor": 1,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 0,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 0,
+      "type": "session_start"
+    },
+    {
+      "affix": null,
+      "boss": true,
+      "q": 0,
+      "slot": "armor",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 12,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 1904,
+      "type": "drop"
+    },
+    {
+      "desc": "报废·皮下装甲 +10%",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 12,
+        "hp": 110,
+        "hpLv": 0
+      },
+      "t": 1904,
+      "type": "autoequip"
+    },
+    {
+      "count": 1,
+      "floor": 1,
+      "prism": false,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 12,
+        "hp": 110,
+        "hpLv": 0
+      },
+      "t": 1905,
+      "type": "souldrop"
+    },
+    {
+      "affix": null,
+      "boss": true,
+      "q": 0,
+      "slot": "armor",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 10,
+        "gold": 40,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 6242,
+      "type": "drop"
+    },
+    {
+      "desc": "报废·皮下装甲 +10%",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 10,
+        "gold": 40,
+        "hp": 110,
+        "hpLv": 0
+      },
+      "t": 6242,
+      "type": "autoequip"
+    },
+    {
+      "count": 2,
+      "floor": 10,
+      "prism": true,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 10,
+        "gold": 40,
+        "hp": 110,
+        "hpLv": 0
+      },
+      "t": 6243,
+      "type": "souldrop"
+    },
+    {
+      "picked": "fire",
+      "rejected": [
+        "blackmarket",
+        "resonance"
+      ],
+      "snap": {
+        "aspd": 1.3,
+        "atk": 10,
+        "atkLv": 0,
+        "floor": 11,
+        "gold": 40,
+        "hp": 110,
+        "hpLv": 0
+      },
+      "t": 21486,
+      "type": "skill"
+    },
+    {
+      "from": 0,
+      "slot": "weapon",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 19,
+        "atkLv": 0,
+        "floor": 25,
+        "gold": 0,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 52218,
+      "to": 1,
+      "type": "fuse",
+      "usedEquip": false
+    },
+    {
+      "count": 1,
+      "reason": "outdated",
+      "slot": "weapon",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 25,
+        "gold": 66,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 52555,
+      "type": "salvage",
+      "value": 66
+    },
+    {
+      "cost": 1,
+      "key": "dmg",
+      "level": 1,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 1000,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 114271,
+      "type": "tree"
+    },
+    {
+      "affix": null,
+      "boss": true,
+      "q": 0,
+      "slot": "implant",
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 5,
+        "gold": 20,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 212677,
+      "type": "drop"
+    },
+    {
+      "desc": "报废·神经插件 +5%",
+      "snap": {
+        "aspd": 1.37,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 5,
+        "gold": 20,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 212677,
+      "type": "autoequip"
+    },
+    {
+      "count": 1,
+      "floor": 5,
+      "prism": false,
+      "snap": {
+        "aspd": 1.37,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 5,
+        "gold": 20,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 212678,
+      "type": "souldrop"
+    },
+    {
+      "maxFloor": 1,
+      "snap": {
+        "aspd": 1.3,
+        "atk": 8,
+        "atkLv": 0,
+        "floor": 1,
+        "gold": 0,
+        "hp": 100,
+        "hpLv": 0
+      },
+      "t": 214558,
+      "type": "session_end"
+    }
+  ],
+  "floors": [
+    {
+      "atkLv": 0,
+      "bossDur": 31,
+      "clearDur": 1082,
+      "enterT": 823,
+      "floor": 1,
+      "gold": 12,
+      "hpLv": 0
+    },
+    {
+      "atkLv": 0,
+      "bossDur": 15,
+      "clearDur": 732,
+      "enterT": 5511,
+      "floor": 10,
+      "gold": 40,
+      "hpLv": 0
+    },
+    {
+      "atkLv": 0,
+      "bossDur": 13,
+      "clearDur": 6244,
+      "enterT": 206434,
+      "floor": 5,
+      "gold": 20,
+      "hpLv": 0
+    },
+    {
+      "atkLv": 0,
+      "bossDur": 1828,
+      "clearDur": 11,
+      "enterT": 214482,
+      "floor": 1,
+      "gold": 0,
+      "hpLv": 0
+    }
+  ],
+  "id": "S02",
+  "startedAt": 1789872794327
+}

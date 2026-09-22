@@ -1,0 +1,109 @@
+{
+  "neonHunterModes": {
+    "schema": 1,
+    "selected": "build",
+    "buildUnlocked": true
+  },
+  "neonHunter": {
+    "mode": "endless",
+    "economySchema": 1,
+    "crateCooldownMs": 60000,
+    "stageSchema": 2,
+    "stage": 5,
+    "stageHistory": [],
+    "stageUpgrade": null,
+    "legacyUpgradeEligible": false,
+    "gold": 1234,
+    "atkLv": 0,
+    "hpLv": 0,
+    "floor": 11,
+    "maxFloor": 11,
+    "mobIdx": 0,
+    "v": 1,
+    "souls": 19,
+    "runSouls": 0,
+    "tree": {
+      "dmg": 0,
+      "gold": 0,
+      "soul": 0
+    },
+    "prestiges": 0,
+    "bestEver": 0,
+    "speed2": false,
+    "sfxOn": true,
+    "cratesRun": 0,
+    "equip": {
+      "weapon": null,
+      "implant": null,
+      "armor": null,
+      "chip": null
+    },
+    "prestigeOffer": null,
+    "lastPrestigeMilestone": 0,
+    "lastPrestigeId": null,
+    "inv": [],
+    "skills": [
+      "ghoststep"
+    ],
+    "pity": 0,
+    "crateReady": 100000,
+    "lastSave": 1790053378586,
+    "playerHp": null
+  },
+  "neonHunter.build": {
+    "mode": "build",
+    "economySchema": 1,
+    "crateCooldownMs": 56185.29999996435,
+    "stageSchema": 2,
+    "stage": 1,
+    "stageHistory": [],
+    "stageUpgrade": null,
+    "legacyUpgradeEligible": false,
+    "gold": 87,
+    "atkLv": 0,
+    "hpLv": 0,
+    "floor": 5,
+    "maxFloor": 5,
+    "mobIdx": 0,
+    "v": 1,
+    "souls": 0,
+    "runSouls": 0,
+    "tree": {
+      "dmg": 0,
+      "gold": 0,
+      "soul": 0
+    },
+    "prestiges": 0,
+    "bestEver": 0,
+    "speed2": false,
+    "sfxOn": true,
+    "cratesRun": 0,
+    "equip": {
+      "weapon": null,
+      "implant": null,
+      "armor": null,
+      "chip": null
+    },
+    "prestigeOffer": null,
+    "lastPrestigeMilestone": 0,
+    "lastPrestigeId": null,
+    "inv": [],
+    "skills": [
+      "ghoststep",
+      "soulrush"
+    ],
+    "pity": 0,
+    "crateReady": 100000,
+    "lastSave": 1790053436126,
+    "pendingOffer": null,
+    "playerHp": null
+  },
+  "neonHunterLogs": {
+    "mode": "endless",
+    "build": "v2.57"
+  },
+  "neonHunterLogs.build": {
+    "mode": "build",
+    "build": "v2.57"
+  }
+}

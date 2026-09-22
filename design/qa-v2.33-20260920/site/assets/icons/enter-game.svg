@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" color="#073747" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="enter-game-title">
+  <title id="enter-game-title">开始游戏</title>
+  <path d="M18.36 5.64a9 9 0 1 0 0 12.72" stroke-width="2"/>
+  <path d="m9.25 7.5 7 4.5-7 4.5Z" fill="currentColor" stroke-width=".8"/>
+</svg>

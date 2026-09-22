@@ -1,0 +1,30 @@
+{
+  "version": "v2.30.11",
+  "date": "2026-09-20",
+  "verdict": "未通过：优先修复 P1 后复测",
+  "core": {
+    "total": 64,
+    "pass": 54,
+    "fail": 10
+  },
+  "browser": {
+    "total": 40,
+    "pass": 33,
+    "fail": 7
+  },
+  "assets": 58,
+  "issues": {
+    "P1": 2,
+    "P2": 1,
+    "P3": 2
+  },
+  "sourceChanged": [],
+  "sourceHash": "e023ed6140a88e6c372e28a68a4bca1a5038ece6cdbfb2495a6eab1bc4627223",
+  "performance": {
+    "averageMs": 16.578333333333365,
+    "frames": 180,
+    "hidden": false,
+    "maxMs": 17.70000000001164,
+    "p95Ms": 17.59999999999127
+  }
+}

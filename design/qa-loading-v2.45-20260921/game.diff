@@ -1,0 +1,233 @@
+diff --git a/design/qa-loading-v2.45-20260921/baseline/index.html b/game/index.html
+index 477f101..7d362dd 100644
+--- a/design/qa-loading-v2.45-20260921/baseline/index.html
++++ b/game/index.html
+@@ -425,7 +425,7 @@
+   .sess.current { border-color:var(--cyan); box-shadow:0 0 10px rgba(0,240,255,.2); }
+   .sess button { font-size:11px; padding:4px 8px; }
+ </style>
+-<link rel="stylesheet" href="assets/start-screen/start-screen.css?v=2307">   <!-- v2.30.8：版本指纹防缓存 -->   <!-- v2.27 -->
++<link rel="stylesheet" href="assets/start-screen/start-screen.css?v=2450">   <!-- v2.30.8：版本指纹防缓存 -->   <!-- v2.27 -->
+ <link rel="stylesheet" href="assets/buttons.css?v=2307">   <!-- v2.28：立体按钮体系 -->
+ <style>/* v2.28.3：按钮垂直间距（须在 buttons.css 后加载才能覆盖 margin:0） */
+ .nh-button { margin:7px 0 12px; }
+@@ -448,7 +448,7 @@
+ .nh-button--fuse .nh-button__title { font-size:12px; }
+ </style>
+ </head>
+-<body>
++<body class="booting">
+   <div id="topbar">
+     <div>
+       <h1>霓虹猎手 <span>NEON HUNTER</span></h1>
+@@ -478,7 +478,7 @@
+     <div id="mobProgress"></div>
+   </div>
+ 
+-  <div class="row">
++  <div class="row" id="panels">
+     <div class="panel">
+       <div class="sub-h3"><img class="ic" src="assets/icons/enhance.svg" alt="">强化</div>
+       <div class="stat" id="statBox"></div>
+@@ -523,6 +523,15 @@
+         <div class="c-en">NEON HUNTER</div>
+         <div class="c-rule" aria-hidden="true"></div>
+         <div class="c-slogan">赛博朋克放置爬塔 · 自动战斗<br>爆义体 · 合成升阶 · <b>重塑变强</b></div>
++        <section class="c-loading" id="coverLoading" aria-labelledby="loadingTitle" tabindex="-1" hidden>
++          <h2 id="loadingTitle">正在进入夜城</h2>
++          <div class="c-progress-row">
++            <div class="c-progress" id="loadingProgress" role="progressbar" aria-label="素材加载进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="loadingFill"></div></div>
++            <span id="loadingPercent" aria-hidden="true">0%</span>
++          </div>
++          <p id="loadingStatus" role="status" aria-live="polite">正在准备战斗素材…</p>
++          <button id="btnLoadRetry" class="nh-button nh-button--primary nh-button--compact" hidden>重试</button>
++        </section>
+         <button class="c-btn nh-button nh-button--primary" id="btnStart"></button>   <!-- v2.30.6：并入按钮体系，吃按下反馈+触摸桥 -->
+       </div>
+     </div>
+@@ -684,7 +693,7 @@ let cur={hp:1,max:1,atk:0,fightT:0,shield:0,maxShield:0}, player={hp:1,shield:0}
+ 
+ // ============ 音效（v2.26：激光枪声，池化 3 并发 + 70ms 节流） ============
+ const SFX_SRC="assets/sfx/laser-shot-01.wav";
+-const sfxPool=[0,1,2].map(()=>{ const a=new Audio(SFX_SRC); a.volume=0.32; a.preload="auto"; return a; });
++const sfxPool=[0,1,2].map(()=>{ const a=new Audio(); a.volume=0.32; a.preload="auto"; return a; });
+ let sfxIdx=0, sfxLastT=0;
+ function playShot(){
+   if(!S.sfxOn||paused||document.hidden) return;   // 开关/暂停/切后台不播
+@@ -1516,6 +1525,7 @@ function renderCombat(){
+ let lastT=performance.now(), saveTimer=0;
+ function loop(now){
+   const realDt=Math.min((now-lastT)/1000,0.1); lastT=now;
++  if(boot.phase!=="playing"){ requestAnimationFrame(loop); return; } // 封面／加载期间冻结战斗和计时
+   let dt=realDt*effSpeed();   // v2.19：2 倍速（已通过楼层）
+   syncPresentationSpeed();
+   if(S.speed2&&S.floor>S.bestEver&&!speedDropNotified){ speedDropNotified=true; toast("已进入未探索楼层，恢复常速"); }
+@@ -1559,23 +1569,124 @@ function loop(now){
+   requestAnimationFrame(loop);
+ }
+ 
++// ============ v2.45：统一素材清单与封面加载门控 ============
++const BOOT_IMAGES=[
++  ...["arena-bg","arena-bg2","arena-bg3","arena-bg4","arena-bg5","arena-bg6"].map(n=>`assets/${n}.webp`),
++  ...["gunner_idle","gunner_shoot","gunner_run","stage01-death",
++    "security_idle","security_shoot","security_hurt","security_death","security_run",
++    "warden_idle","warden_shoot","warden_run","warden_death",
++    "prism_idle","prism_shoot","prism_slash","prism_move","prism_death",
++    "hound_idle","hound_run","hound_bite","hound_hurt","hound_death",
++    "tianshu_idle","tianshu_move","tianshu_machinegun","tianshu_charge","tianshu_cannon","tianshu_death"].map(n=>`assets/${n}.png`),
++  ...["idle","walk","shoot","death"].map(n=>`assets/riftclaw/${n}.webp`),
++  ...["attack","credits","cybernetics","enhance","enter-game","equipment-recycle","fast-play","health","locked",
++    "movement-blocked","reshape","skill-choice","skills","soul-shard","supply","synthesis","watch-ad"].map(n=>`assets/icons/${n}.svg`),
++  ...["weapon","armor","chip","neural"].map(n=>`assets/icons/${n}.png`),
++  "assets/start-screen/night-city-desktop.webp","assets/start-screen/night-city-mobile.webp"
++];
++const boot={phase:"cover",assets:[],batch:null,resetRequested:false,slowTimer:0,audioUrl:null};
++function makeBootAssets(){
++  return [...new Set(BOOT_IMAGES)].map(url=>({url,type:"image",state:"pending"})).concat(
++    {url:SFX_SRC,type:"audio",state:"pending"},
++    Array.from(document.querySelectorAll('link[rel="stylesheet"]')).map(link=>({url:link.href,type:"style",link,state:"pending"}))
++  );
++}
++function loadBootAsset(asset){
++  return new Promise((resolve,reject)=>{
++    let settled=false, image=null, controller=null, cleanup=()=>{};
++    const finish=error=>{
++      if(settled) return; settled=true; clearTimeout(timer); cleanup();
++      if(error){ controller?.abort(); if(image) image.src=""; reject(error); }
++      else resolve();
++    };
++    const timer=setTimeout(()=>finish(new Error("素材加载超时")),20000);
++    if(asset.type==="image"){
++      image=new Image();
++      cleanup=()=>{image.onload=null;image.onerror=null;};
++      image.onload=async()=>{
++        try{ if(image.decode) await image.decode(); if(!settled){asset.image=image;finish();} }
++        catch(error){finish(error);}
++      };
++      image.onerror=()=>finish(new Error("图片加载失败"));
++      image.src=asset.url;
++    } else if(asset.type==="audio"){
++      // 完整下载后复用本地 Blob，避免移动端等待自动播放许可而卡住加载。
++      controller=new AbortController();
++      fetch(asset.url,{signal:controller.signal}).then(response=>{
++        if(!response.ok) throw new Error("音效加载失败"); return response.blob();
++      }).then(blob=>{
++        if(settled) return;
++        if(!blob.size) throw new Error("音效为空");
++        boot.audioUrl=URL.createObjectURL(blob);
++        sfxPool.forEach(a=>{a.src=boot.audioUrl;a.load();}); finish();
++      }).catch(finish);
++    } else {
++      const link=asset.link;
++      if(link.sheet){finish();return;}
++      const loaded=()=>finish(), failed=()=>finish(new Error("样式加载失败"));
++      link.addEventListener("load",loaded); link.addEventListener("error",failed);
++      cleanup=()=>{link.removeEventListener("load",loaded);link.removeEventListener("error",failed);};
++      // 脚本运行前已失败的样式也能重试；保留原节点和 CSS 层叠顺序。
++      const url=new URL(asset.url,document.baseURI); url.searchParams.set("loadAttempt",String(asset.attempts)); link.href=url.href;
++    }
++  });
++}
++function updateLoadingUI(message){
++  if(boot.phase!=="loading") return;
++  const ready=boot.assets.filter(a=>a.state==="ready").length;
++  const percent=boot.assets.length?Math.floor(ready/boot.assets.length*100):0;
++  $("loadingFill").style.width=percent+"%";
++  $("loadingPercent").textContent=percent+"%";
++  $("loadingProgress").setAttribute("aria-valuenow",String(percent));
++  if(message) $("loadingStatus").textContent=message;
++}
++function prepareAssets(){
++  if(boot.batch) return boot.batch;
++  if(!boot.assets.length) boot.assets=makeBootAssets();
++  const queue=boot.assets.filter(a=>a.state!=="ready");
++  async function worker(){
++    while(queue.length){
++      const asset=queue.shift(); asset.state="loading"; asset.attempts=(asset.attempts||0)+1;
++      try{ await loadBootAsset(asset); asset.state="ready"; }
++      catch(error){asset.state="failed";}
++      updateLoadingUI();
++    }
++  }
++  boot.batch=Promise.all(Array.from({length:Math.min(6,queue.length)},worker)).finally(()=>{boot.batch=null;});
++  return boot.batch;
++}
++async function startCoverLoad(reset=false){
++  if(boot.phase!=="cover"&&boot.phase!=="failed") return;
++  boot.phase="loading"; boot.resetRequested=reset; paused=true;
++  const cover=$("cover"), panel=$("coverLoading");
++  cover.classList.add("loading"); $("coverSettings").classList.remove("show");
++  $("btnStart").disabled=true; $("btnLoadRetry").hidden=true;
++  panel.hidden=false; panel.setAttribute("aria-busy","true"); panel.focus({preventScroll:true});
++  updateLoadingUI("正在准备战斗素材…");
++  boot.slowTimer=setTimeout(()=>updateLoadingUI("加载较慢，请稍候…"),8000);
++  await prepareAssets();
++  clearTimeout(boot.slowTimer);
++  panel.setAttribute("aria-busy","false");
++  if(boot.assets.some(a=>a.state!=="ready")){
++    updateLoadingUI("部分素材加载失败，请重试"); boot.phase="failed";
++    $("btnLoadRetry").hidden=false; $("btnLoadRetry").focus({preventScroll:true}); return;
++  }
++  updateLoadingUI("准备完成"); boot.phase="entering";
++  // 给 100% 一次实际绘制机会，随后直接淡出，不加入假倒计时。
++  requestAnimationFrame(()=>requestAnimationFrame(()=>{
++    cover.classList.add("hide");
++    setTimeout(()=>{
++      cover.remove(); document.body.classList.remove("booting"); boot.phase="playing"; lastT=performance.now();
++      for(const id of ["topbar","arena","panels"]) if($(id)) $(id).inert=false;
++      if(boot.resetRequested) doReset(); else openingRunIn();
++      if(!S.prestigeOffer){$("btnSpeed").focus({preventScroll:true});}
++    },matchMedia("(prefers-reduced-motion: reduce)").matches?0:450);
++  }));
++}
++
+ // ============ 测试日志系统 ============
+ // 版本管理：每次修改递增 VERSION，并同步维护 game/CHANGELOG.md 与 game/versions/ 快照
+-const VERSION="v2.44.1";   // Codex：重塑信息框统一灰蓝，彩色立体效果保留给操作按钮
+-new Image().src="assets/gunner_shoot.png";   // 预加载攻击帧条防首击闪烁
+-new Image().src="assets/gunner_run.png";
+-new Image().src="assets/arena-bg2.webp";
+-new Image().src="assets/arena-bg3.webp";
+-new Image().src="assets/arena-bg4.webp";
+-new Image().src="assets/arena-bg5.webp";
+-new Image().src="assets/arena-bg6.webp";
+-["security_idle","security_shoot","security_hurt","security_death","security_run",
+- "warden_idle","warden_shoot","warden_run","warden_death",
+- "prism_idle","prism_shoot","prism_slash","prism_move","prism_death",
+- "hound_idle","hound_run","hound_bite","hound_hurt","hound_death",
+- "tianshu_idle","tianshu_move","tianshu_machinegun","tianshu_charge","tianshu_cannon","tianshu_death"].forEach(n=>{ new Image().src=`assets/${n}.png`; });
+-["idle","walk","shoot","death"].forEach(n=>{ new Image().src=`assets/riftclaw/${n}.webp`; });
+-new Image().src="assets/stage01-death.png";   // v2.38.2：死亡素材预加载
++const VERSION="v2.45";   // Codex：素材就绪后进入游戏，加载进度与失败重试
+ let sessions=[], curSession=null, seqCounter=1;
+ let floorEnterT=0, bossEnterT=0, floorGoldEarned=0, lastLogSave=0;
+ let drawerOpen=false;
+@@ -1738,6 +1849,7 @@ function cancelReset(){
+   if(S.prestigeOffer) showPrestigeOffer();
+ }
+ function doReset(){
++  if(boot.phase!=="playing"){ closeModal(); startCoverLoad(true); return; }
+   prestigeAd=null; adRelease(); pendingTransit=false; S.prestigeOffer=null;
+   confirmOpen=false; pendingSkillOffer=null;   // v2.31：确认复位则丢弃挂起的技能请求
+   skillOfferOpen=false; curOffer=[]; S.pendingOffer=null; closeModal();   // v2.29：复位清理技能弹窗流程态
+@@ -1879,13 +1991,17 @@ $("covVer").textContent=VERSION+" · CrazyGames 版"; renderSfxRow();
+ $("topVer").textContent=VERSION.toUpperCase(); document.title="霓虹猎手 "+VERSION;   // v2.29：版本文字统一由 VERSION 生成
+ const enterIc=`<img src="assets/icons/enter-game.svg" alt="" style="width:22px;height:22px;vertical-align:-5px;margin-right:8px">`;   // v2.33：▶ → enter-game.svg
+ $("btnStart").innerHTML=hadSave?`${enterIc}进入夜城<small>继续第 ${S.floor} 层 · 自动保存</small>`:`${enterIc}开始游戏<small>新的猎杀 · 自动保存</small>`;
+-$("btnStart").onclick=()=>{ $("cover").classList.add("hide"); setTimeout(()=>$("cover").remove(),450);
+-  openingRunIn(); };
++$("btnStart").onclick=()=>startCoverLoad();
++$("btnLoadRetry").onclick=()=>startCoverLoad(boot.resetRequested);
+ function askCoverReset(){
++  if(boot.phase!=="cover") return;
+   showModal("⚠️ 清除存档","确定要清空全部进度吗？此操作不可恢复。",
+-    `<button class="nh-button nh-button--danger nh-button--compact" onclick="doReset();$('cover').classList.add('hide');setTimeout(()=>$('cover').remove(),450)">确认清除并开始新游戏</button>
++    `<button class="nh-button nh-button--danger nh-button--compact" onclick="closeModal();startCoverLoad(true)">确认清除并开始新游戏</button>
+      <button onclick="closeModal()">取消</button>`);
+ }
++// 禁止键盘穿透封面；设置里的日志和确认弹窗仍可正常操作。
++for(const id of ["topbar","arena","panels"]) if($(id)) $(id).inert=true;
++prepareAssets(); // 封面预热；点击时复用正在加载和已就绪的资源。
+ // v2.35：触摸状态机完整化（INPUT-01）——hypot 直线距离、松手坐标复核、目标存活检查、取消守卫
+ let tapBtn=null, tapId=null, tapX=0, tapY=0, tapCancelled=false, suppressClickFor=null;
+ function tapReset(){ if(tapBtn) tapBtn.classList.remove("pressing"); tapBtn=null; tapId=null; tapCancelled=false; }

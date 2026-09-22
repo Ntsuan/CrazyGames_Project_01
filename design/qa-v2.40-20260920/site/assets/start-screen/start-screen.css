@@ -1,0 +1,75 @@
+/* Load after the existing game styles. All visual rules are scoped to #cover. */
+#cover { position:fixed; inset:0; z-index:60; display:block; overflow:auto; isolation:isolate;
+  color:#e6edf3; background:#070e19; transition:opacity .4s; }
+#cover.hide { opacity:0; pointer-events:none; }
+#cover::before { display:none; }
+#cover .c-art { position:absolute; inset:0; z-index:-2; overflow:hidden; pointer-events:none; }
+#cover .c-art img { width:100%; height:100%; object-fit:cover; object-position:65% center; display:block; }
+#cover::after { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:linear-gradient(90deg,rgba(5,12,22,.5),transparent 65%),linear-gradient(0deg,#070e19 0%,transparent 24%,transparent 88%,rgba(7,14,25,.25)); }
+#cover .c-layout { min-height:100%; min-height:100svh; display:flex; align-items:center;
+  padding:92px clamp(32px,8vw,160px) 100px; }
+#cover .c-inner { position:relative; width:48%; max-width:640px; padding:0; text-align:left; }
+#cover .c-kicker { display:flex; align-items:center; gap:10px; color:#98c9d2; font-size:11px; letter-spacing:3px; margin-bottom:28px; }
+#cover .c-kicker::before { content:""; width:24px; height:2px; background:#00f0ff; box-shadow:0 0 10px #00f0ff80; }
+#cover .c-logo { color:#00f0ff; font-size:clamp(44px,5.6vw,88px); line-height:1.15; font-weight:900; letter-spacing:4px; white-space:nowrap;
+  text-shadow:0 0 25px #00f0ff40; }
+#cover .c-logo span { color:#ff2a6d; text-shadow:0 0 25px #ff2a6d40; }
+#cover .c-en { font-size:clamp(12px,1.1vw,17px); letter-spacing:clamp(5px,.8vw,12px); color:#e0e8f4; margin:16px 0 0 4px; }
+#cover .c-rule { width:48px; height:2px; background:#ff2a6d; margin:30px 0 24px; }
+#cover .c-slogan { font-size:15px; color:#aab9cb; line-height:1.9; margin:0; text-shadow:0 2px 10px #050b15; }
+#cover .c-slogan b { color:#ffd166; font-weight:500; }
+#cover .c-btn { display:block; width:310px; max-width:100%; min-height:78px; margin-top:34px; padding:17px 0;
+  border-radius:5px; border:1px solid #5bf3ff; background:linear-gradient(110deg,#00ddeb,#02b3cb); color:#032434;
+  box-shadow:0 0 28px #00d9f62b,inset 0 1px 0 #bafaff9c; font-size:19px; font-weight:700;
+  text-shadow:none; letter-spacing:3px; transition:filter .16s,transform .16s; }
+#cover .c-btn small { display:block; color:#174555; font-size:11px; font-weight:500; margin-top:6px; letter-spacing:1px; text-shadow:none; }
+#cover .c-btn:hover { filter:brightness(1.13); transform:translateY(-2px); }
+#cover .c-btn:active { transform:translateY(0); }
+#cover button:focus-visible { outline:2px solid white; outline-offset:5px; }
+#cover .c-gear { position:absolute; z-index:3; top:max(22px,env(safe-area-inset-top)); right:max(24px,env(safe-area-inset-right));
+  width:44px; height:44px; padding:0; margin:0; border-radius:10px; background:#0c1727c9; border:1px solid #58708066; color:#c8d8e6; font-size:20px; }
+#cover .c-settings { position:fixed; z-index:4; top:76px; right:max(24px,env(safe-area-inset-right));
+  width:230px; padding:18px; background:#111827; border:1px solid #294357; border-radius:10px; box-shadow:0 12px 45px #0009; font-size:13px; }
+#cover .c-settings div { padding:8px 0; }
+#cover .c-settings span { float:right; color:#00f0ff; }
+#cover .c-settings p { color:#8b95a7; font-size:11px; }
+#cover .c-foot { position:absolute; left:0; right:0; text-align:center; bottom:max(22px,env(safe-area-inset-bottom)); color:#758597; font-size:10px; letter-spacing:1px; }
+/* The following notice belongs to the standalone preview only. */
+#previewNote { position:fixed; bottom:18px; left:50%; transform:translateX(-50%); z-index:100;
+  width:max-content; max-width:90%; padding:12px 20px; color:#d5faff; border:1px solid #00bccc; background:#101b2b; border-radius:8px; font-size:12px; }
+@media (max-width:700px) and (orientation:portrait) {
+  #cover .c-art { height:60svh; min-height:300px; }
+  #cover .c-art img { object-position:58% 15%; }
+  #cover::after { height:61svh; min-height:305px; background:linear-gradient(0deg,#070e19 0%,rgba(7,14,25,.92) 10%,transparent 42%); }
+  #cover .c-layout { min-height:100svh; display:flex; align-items:center; justify-content:flex-end; flex-direction:column;
+    padding:46svh 24px max(64px,calc(env(safe-area-inset-bottom) + 42px)); }
+  #cover .c-inner { width:100%; max-width:380px; text-align:center; }
+  #cover .c-kicker { justify-content:center; font-size:9px; letter-spacing:2px; margin-bottom:14px; }
+  #cover .c-kicker::before { width:16px; }
+  #cover .c-logo { font-size:clamp(36px,10.7vw,58px); letter-spacing:5px; }
+  #cover .c-en { font-size:11px; letter-spacing:7px; margin-top:10px; }
+  #cover .c-rule { width:32px; margin:20px auto 16px; }
+  #cover .c-slogan { font-size:12px; line-height:1.9; }
+  #cover .c-btn { width:100%; min-height:72px; margin-top:24px; font-size:18px; }
+  #cover .c-gear { top:max(16px,env(safe-area-inset-top)); right:max(16px,env(safe-area-inset-right)); }
+  #cover .c-foot { font-size:9px; bottom:max(18px,env(safe-area-inset-bottom)); }
+}
+@media (max-height:720px) and (orientation:portrait) {
+  #cover .c-layout { padding-top:40svh; padding-bottom:46px; }
+  #cover .c-kicker { margin-bottom:10px; }
+  #cover .c-rule { margin:14px auto 10px; }
+  #cover .c-btn { margin-top:18px; min-height:64px; padding:12px 0; }
+}
+@media (max-height:540px) and (orientation:landscape) {
+  #cover .c-layout { padding:40px 7vw 50px; }
+  #cover .c-inner { width:48%; }
+  #cover .c-kicker { font-size:9px; margin-bottom:12px; }
+  #cover .c-logo { font-size:clamp(32px,5.2vw,54px); }
+  #cover .c-en { margin-top:8px; font-size:10px; letter-spacing:6px; }
+  #cover .c-rule { margin:16px 0 12px; }
+  #cover .c-slogan { font-size:11px; }
+  #cover .c-btn { margin-top:18px; min-height:62px; padding:10px 0; font-size:16px; width:280px; }
+  #cover .c-foot { bottom:12px; font-size:9px; }
+}
+@media (prefers-reduced-motion:reduce) { #cover,#cover .c-btn { transition:none; } }

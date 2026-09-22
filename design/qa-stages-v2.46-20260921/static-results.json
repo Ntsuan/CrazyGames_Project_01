@@ -1,0 +1,21 @@
+{
+  "unchangedRules": [
+    "const ATK0=8, HP0=100, GROWTH=1.10, COST0=6, COST_G=1.25;",
+    "const MOB_HP0=20, MOB_G=1.15, MOB_ATK0=1.5, MOB_ATK_G=1.15, GOLD_R=0.10;",
+    "const PRESTIGE_SALVAGE_RATE=0.15;",
+    "const mult=1+0.25*n+0.02*n*n;",
+    "const milestone=(n+1)%10===0?2:1;"
+  ],
+  "retainedWardenDeath": true,
+  "retainedGhoststepCopy": true,
+  "upgradeAssets": {
+    "desktop": {
+      "uniqueImages": 20,
+      "bytes": 11381686
+    },
+    "mobile": {
+      "uniqueImages": 20,
+      "bytes": 3304330
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "version": "v2.44",
+  "sha256": "5463f1e10bb94bd5df88dd7b84a93f010d764b2adaf8122461049411228b4b9f",
+  "bytes": 120505,
+  "files": [
+    "game/index.html",
+    "game/versions/index_v2.44.html",
+    "design/qa-prestige-v2.44-20260921/site/index.html"
+  ],
+  "baseline": "baseline/index.html",
+  "qaFixture": "site/qa.html (source + isolated keys + test controls only)"
+}

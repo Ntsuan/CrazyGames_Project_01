@@ -1,0 +1,9 @@
+{
+  "atkLv": 0,
+  "durationMs": 100,
+  "endPrevented": false,
+  "fixture": "saveTimer=.49 to align next scheduled render inside tap",
+  "speed": 2,
+  "targetConnected": false,
+  "trackerStuck": true
+}

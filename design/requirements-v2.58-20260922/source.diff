@@ -1,0 +1,207 @@
+--- design/requirements-v2.58-20260922/baseline/game/index.html	2026-09-22 13:10:37
++++ game/index.html	2026-09-22 13:34:23
+@@ -456,7 +456,7 @@
+ </style>
+ <link rel="stylesheet" href="assets/stages/stages.css?v=2470">
+ <link rel="stylesheet" href="assets/stages/upgrade.css?v=2490">
+-<link rel="stylesheet" href="assets/start-screen/modes.css?v=2572">
++<link rel="stylesheet" href="assets/start-screen/modes.css?v=2580">
+ </head>
+ <body class="booting">
+   <div id="topbar">
+@@ -498,6 +498,7 @@
+       <button id="btnHp" class="nh-button nh-button--upgrade"></button>
+       <div class="divider"></div>
+       <div class="sub-h3"><img class="ic" src="assets/icons/skills.svg" alt="">技能</div>
++      <div id="activeSkillBuffs" hidden aria-label="当前激活增益"></div>
+       <div id="skillBox" class="stat">尚未获得（每过 10 层触发一次三选一）</div>
+     </div>
+     <div class="panel">
+@@ -600,13 +601,13 @@
+ // 10层=常驻属性池 / 5层=条件触发器池；本轮获取的技能重塑清空，阶段自带护盾按阶段派生。
+ const SKILLS={
+   // —— 10 层常驻属性（棱镜核心） ——
+-  overclock:{n:"战斗超频",d:"暴击率 +10%（可叠加）"},
++  overclock:{n:"战斗超频",d:"暴击率 +10%"},
+   fatal:{n:"致命固件",d:"暴击伤害 +50%"},
+   neuro:{n:"神经加速",d:"攻速 +15%"},
+   fire:{n:"火力协议",d:"攻击 +25%"},
+   subdermal:{n:"皮下加固",d:"生命 +30%"},
+   nano:{n:"纳米修复",d:"吸血 +5%"},
+-  shield:{n:"应急护盾",d:"战斗开始获得 10% 最大生命护盾（每场刷新）"},
++  shield:{n:"应急护盾",d:"获得10%最大生命护盾"},
+   blackmarket:{n:"黑市渠道",d:"信用点 +30%"},
+   resonance:{n:"碎片共鸣",d:"Boss 碎片掉落 +10%"},
+   // —— 5 层条件触发器（中庭） ——
+@@ -633,6 +634,9 @@
+ let testSpeed=1, combatTick=0, combatRemainder=0;
+ const COMBAT_STEP=1/60;
+ const combatNow=()=>combatTick*1000/60;
++// 技能时钟只在双方可战斗时前进，演出/日志仍使用原游戏时钟。
++let skillTick=0, enemyEntering=false;
++const skillNow=()=>skillTick*1000/60;
+ // 装饰随机不消耗掉落/暴击随机序列，视觉限流不改变战斗结果。
+ let visualSeed=123456789;
+ function visualRandom(){visualSeed=(Math.imul(visualSeed,1664525)+1013904223)>>>0;return visualSeed/4294967296;}
+@@ -945,7 +949,7 @@
+   const hpMax=stageConfig().hp*Math.pow(GROWTH,S.hpLv)*hpMult;
+   // v2.19：条件触发型乘区——肾上腺素（低血50%攻速）/困兽协议（低血30%伤害）/猎手直觉（破盾攻速）
+   let aspd = ASPD0*equipMult("implant")*(1+0.15*count("neuro"))*(1+allAffix("aspd")/100);
+-  const now=combatNow();
++  const now=skillNow();
+   if(player.hp<hpMax*0.5) aspd*=1+0.3*count("adrenaline");
+   if(player.hp<hpMax*0.3) atkMult*=1+0.4*count("lowhp");
+   if(buff.soulrush>now) aspd*=1+0.25*count("soulrush");
+@@ -1006,6 +1010,7 @@
+ let atkTimer=0, paused=false, wall=false;
+ 
+ function spawnMob(){
++  enemyEntering=false;
+   cancelDeathWait();
+   const boss=isBoss();
+   const now=Date.now();
+@@ -1027,7 +1032,7 @@
+   if(S.mobIdx===0) player.hp=st.hp;
+   else player.hp=Math.min(player.hp,st.hp);
+   player.shield=st.hp*st.shieldPct;
+-  if(player.pendingInvuln){ player.invulnUntil=combatNow()+player.pendingInvuln; player.pendingInvuln=0; }   // v2.19.3
++  if(player.pendingInvuln){ player.invulnUntil=skillNow()+player.pendingInvuln; player.pendingInvuln=0; }   // v2.19.3
+   syncPlayerInvulnVisual();
+   atkTimer=0;
+   const eEl=document.getElementById("enemy");
+@@ -1049,12 +1054,13 @@
+   let dmg=st.atk;
+   const isCrit=Math.random()<st.crit;
+   if(isCrit){ dmg*=st.critDmg;
+-    if(count("critsurge")) buff.critsurge=combatNow()+5000; }   // v2.19：触发器池（暴击系）
++    if(count("critsurge")) buff.critsurge=skillNow()+5000; }   // v2.19：触发器池（暴击系）
++  renderActiveSkillBuffs();
+   // v2.18：护盾优先承伤，破盾瞬间飘字
+   if(cur.shield>0){
+     const s=Math.min(cur.shield,dmg); cur.shield-=s; dmg-=s;
+     if(cur.shield<=0){ floatDmg("enemy","破盾！","#FF2A6D",true);
+-      if(count("soulrush")) buff.soulrush=combatNow()+4000; }   // v2.19：猎手直觉（破盾→攻速）
++      if(count("soulrush")) buff.soulrush=skillNow()+4000;renderActiveSkillBuffs(); }   // v2.19：猎手直觉（破盾→攻速）
+     if(dmg<=0){ floatDmg("enemy",fmt(s),"#7fd4ff",false); lunge("player"); enemyAnim("hurt",200); return; }
+     floatDmg("enemy",fmt(s), "#7fd4ff", false);
+   }
+@@ -1140,6 +1146,7 @@
+   if(d.spr.removeEventListener) d.spr.removeEventListener("animationend",d.listener);
+ }
+ function beginPresentationRun(){
++  enemyEntering=false;
+   ++runSeq; cancelDeathWait();
+   for(const task of presentationTasks) clearTimeout(task.timer);
+   presentationTasks.clear();
+@@ -1177,7 +1184,7 @@
+   S.gold+=gained; floorGoldEarned+=gained;
+   floatDmg("enemy","+"+fmt(gained)+" "+IC("credits",1),"#FFD166",false);   // v2.9：击杀信用点飘字（v2.18 图标化）
+   if(count("ghoststep")) player.pendingInvuln=2000+500*(count("ghoststep")-1);   // v2.19.3：击杀触发计时起点改为新敌人就位（过场不烧 buff）
+-  syncPlayerInvulnVisual(); // 待生效无敌先显示，起算仍由spawnMob负责
++  syncPlayerInvulnVisual();renderActiveSkillBuffs(); // 击杀后先显示，等到实际战斗再扣时
+   dropRoll(boss);
+   enemyDie();
+   if(boss){
+@@ -1238,6 +1245,7 @@
+ function pickNormalMobKind(){ return NORMAL_MOB_KINDS[Math.floor(Math.random()*NORMAL_MOB_KINDS.length)]; }
+ function enemyRunIn(seq=runSeq){
+   if(seq!==runSeq) return;
++  enemyEntering=true;
+   const e=$("enemy"), sp=$("enemySpr");
+   mobKind = isBoss() ? "trooper" : pickNormalMobKind();
+   e.classList.toggle("boss",isBoss());   // v2.7.1：跑入前就切好 Boss 外观（否则小兵/Boss 互相串皮）
+@@ -1780,7 +1788,7 @@
+   renderTestSpeed();
+   const st=calcStats();
+   // v2.21：触发增益生效属性实时高亮（金色+↑）
+-  const _now=combatNow();
++  const _now=skillNow();
+   const atkTrig=player.hp<st.hp*0.3&&count("lowhp")>0;
+   const aspdTrig=(player.hp<st.hp*0.5&&count("adrenaline")>0)||buff.critsurge>_now||buff.soulrush>_now;
+   const hl=(on,txt)=>on?`<b style="color:var(--gold)">${txt} ↑</b>`:`<b>${txt}</b>`;
+@@ -1872,21 +1880,43 @@
+   }).join("");
+   }
+   // v2.19：触发型技能 ⚡ 前缀标注
++  renderActiveSkillBuffs();
+   const skillLevels=S.skills.reduce((m,s)=>(m[s]=(m[s]||0)+1,m),{});
+   if(stageShieldLevel())skillLevels.shield=(skillLevels.shield||0)+stageShieldLevel();
+   $("skillBox").innerHTML=Object.keys(skillLevels).length?
+     Object.entries(skillLevels)
+-      .map(([k,n])=>`• ${SKILLS[k].n} <b style="color:var(--gold)">Lv.${n}</b> <small style="color:var(--dim)">· ${SKILL_TOTAL[k](n)}${k==="shield"&&stageShieldLevel()?` · 阶段自带 Lv.${stageShieldLevel()}`:""}</small>`).join("<br>")
++      .map(([k,n])=>`• ${SKILLS[k].n} <b style="color:var(--gold)">Lv.${n}</b> <small style="color:var(--dim)">· ${SKILL_TOTAL[k](n)}</small>`).join("<br>")
+     :"尚未获得";
+   $("crateBox").textContent=S.crateCooldownMs>0?`下次补给：${Math.ceil(S.crateCooldownMs/1000)} 秒`:
+     `补给已就绪 · +${fmt(Math.round(mobGold(S.floor)*CRATE_GOLD_MULT*calcStats().goldMult))} 信用点`;
+   $("btnCrate").disabled=!canOpenCrate();
+   renderSpeedBtn();   // v2.19：倍速按钮状态
+ }
++function activeSkillBuffs(){
++  const now=skillNow(), rows=[];
++  for(const [key,ms,pct] of [["critsurge",buff.critsurge-now,30],["soulrush",buff.soulrush-now,25]]){
++    const lv=count(key);if(lv&&ms>0)rows.push({key,name:SKILLS[key].n,effect:`攻速 +${pct*lv}%`,ms});
++  }
++  const cloakMs=player.pendingInvuln>0?player.pendingInvuln:(player.invulnUntil||0)-now;
++  if(count("ghoststep")&&cloakMs>0)rows.push({key:"ghoststep",name:SKILLS.ghoststep.n,effect:"无敌",ms:cloakMs});
++  const hp=calcStats().hp;
++  for(const [key,limit,pct,label] of [["adrenaline",.5,30,"攻速"],["lowhp",.3,40,"伤害"]]){
++    const lv=count(key);if(lv&&player.hp>0&&player.hp<hp*limit)rows.push({key,name:SKILLS[key].n,effect:`${label} +${pct*lv}%`,ms:null});
++  }
++  return rows;
++}
++function renderActiveSkillBuffs(){
++  const box=$("activeSkillBuffs");if(!box)return;
++  const fighting=skillCombatRunning();
++  const html=activeSkillBuffs().map(x=>`<div class="active-skill" data-skill="${x.key}"><b>${x.name}</b><span>${x.effect}</span><small>${x.ms===null?"生效中":`${(Math.ceil(x.ms/100)/10).toFixed(1)} 秒${fighting?"":" · 暂停计时"}`}</small></div>`).join("");
++  box.hidden=!html;
++  if(box._html!==html){box._html=html;box.innerHTML=html;}
++}
+ function syncPlayerInvulnVisual(){
+-  $("player").classList.toggle("cloaked",player.pendingInvuln>0||player.invulnUntil>combatNow());
++  $("player").classList.toggle("cloaked",player.pendingInvuln>0||player.invulnUntil>skillNow());
+ }
+ function renderCombat(){
++  renderActiveSkillBuffs();
+   const st=calcStats();
+   // v2.16：楼层数醒目化 + 场景预告副行
+   const SCENE_NAME={"assets/arena-bg.webp":"工业层","assets/arena-bg2.webp":"数据机房","assets/arena-bg5.webp":"维修层","assets/arena-bg6.webp":"货运层","assets/arena-bg3.webp":"高空中庭","assets/arena-bg4.webp":"棱镜核心"};
+@@ -1932,8 +1962,12 @@
+ function gameClockRunning(){
+   return boot.phase==="playing"&&!document.hidden&&!crateAd&&!stageBusy()&&!wall&&!confirmOpen&&!skillOfferOpen&&!S.prestigeOffer&&(!paused||transit);
+ }
++function skillCombatRunning(){
++  return gameClockRunning()&&!paused&&!transit&&!enemyEntering&&cur.hp>0&&cur.hp<1e17&&player.hp>0&&
++    !$("overlay").classList.contains("show")&&$("stageOverlay").hidden!==false;
++}
+ function combatStep(dt){
+-  if(paused||cur.hp>=1e17||wall||S.prestigeOffer||stageBusy())return;
++  if(!skillCombatRunning())return;
+   const st=calcStats();
+   atkTimer+=dt*st.aspd;
+   // 一次绘制可以结算多次攻击；击杀/受阻/弹窗立即停止，余额不移交下一个敌人。
+@@ -1942,7 +1976,7 @@
+     atkTimer=Math.max(0,atkTimer-1);dealPlayerHit();
+     if(cur.hp>=1e17||paused||wall||S.prestigeOffer||stageBusy())return;
+   }
+-  if(cur.hp>=1e17||wall||player.invulnUntil>combatNow())return;
++  if(cur.hp>=1e17||wall||player.invulnUntil>skillNow())return;
+   const dmg=cur.atk*dt;
+   if(player.shield>0){const sh=Math.min(player.shield,dmg);player.shield-=sh;player.hp-=dmg-sh;}
+   else player.hp-=dmg;
+@@ -1976,6 +2010,7 @@
+   // 最多48个固定步/正常帧（8×、现实dt上限100ms），没有后台追帧。
+   while(combatRemainder+1e-10>=COMBAT_STEP){
+     combatRemainder=Math.max(0,combatRemainder-COMBAT_STEP);combatTick++;
++    if(skillCombatRunning())skillTick++;
+     combatStep(COMBAT_STEP);
+     if(!gameClockRunning()){combatRemainder=0;break;}
+   }
+@@ -2133,7 +2168,7 @@
+ 
+ // ============ 测试日志系统 ============
+ // 版本管理：每次修改递增 VERSION，并同步维护 game/CHANGELOG.md 与 game/versions/ 快照
+-const VERSION="v2.57";   // Codex：双模式独立存档、阶段五解锁构筑、封面与HUD
++const VERSION="v2.58";   // Codex：技能实战计时、持续增益显示与紧凑HUD
+ let sessions=[], curSession=null, seqCounter=1;
+ let floorEnterGameT=0,bossEnterGameT=0;
+ let floorEnterT=0, bossEnterT=0, floorGoldEarned=0, lastLogSave=0;

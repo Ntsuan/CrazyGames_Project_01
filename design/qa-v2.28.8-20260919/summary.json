@@ -1,0 +1,30 @@
+{
+  "version": "v2.28.8",
+  "date": "2026-09-19T19:54:05.061553",
+  "sourceHash": "7d278364177e382d824ed7f637ee5d8edd464ea1bba32d15b66ef2644cee7b98",
+  "core": {
+    "total": 48,
+    "passed": 40,
+    "failed": 8
+  },
+  "browser": {
+    "total": 31,
+    "passed": 19,
+    "failed": 9,
+    "partialOrObservation": 3
+  },
+  "assets": {
+    "total": 57,
+    "failures": 0
+  },
+  "soakCycles": 30,
+  "findings": {
+    "P1": 2,
+    "P2": 6,
+    "P3": 3
+  },
+  "gameModified": false,
+  "testServerStopped": true,
+  "testTabClosed": true,
+  "viewportReset": true
+}

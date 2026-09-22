@@ -1,0 +1,1162 @@
+[
+  {
+    "id": "B01",
+    "passed": true,
+    "detail": "新档启动页可用；默认暂停；设置音效关闭并入档；开始按钮进入游戏。"
+  },
+  {
+    "id": "B02",
+    "passed": true,
+    "detail": "真实开局自动战斗推进、掉落自动装备、升级点击可用，无页面脚本错误（截图另存）。"
+  },
+  {
+    "id": "B03",
+    "passed": false,
+    "detail": {
+      "issue": "每次读档装备品质再次 +2",
+      "before": {
+        "floor": 2,
+        "q": {
+          "armor": 2,
+          "chip": 2,
+          "weapon": 0
+        }
+      },
+      "once": {
+        "floor": 2,
+        "q": {
+          "armor": 4,
+          "chip": 4,
+          "weapon": 2
+        }
+      },
+      "twice": {
+        "floor": 2,
+        "q": {
+          "armor": 6,
+          "chip": 6,
+          "weapon": 4
+        }
+      }
+    }
+  },
+  {
+    "id": "B04",
+    "passed": true,
+    "detail": {
+      "note": "手机390×844正常布局截图已保存；音效关闭可持久化"
+    }
+  },
+  {
+    "id": "B05",
+    "passed": false,
+    "detail": {
+      "actual": "url(\"http://127.0.0.1:19319/assets/arena-bg.webp\")",
+      "expected": "assets/arena-bg4.webp",
+      "floor": 10,
+      "label": "第 10 层 · 监察官·棱镜\n棱镜核心"
+    }
+  },
+  {
+    "id": "B06",
+    "passed": true,
+    "detail": "刷新后三选一恢复相同候选"
+  },
+  {
+    "id": "B07",
+    "passed": true,
+    "detail": "通过实际按钮选择技能后恢复战斗"
+  },
+  {
+    "id": "B08",
+    "passed": false,
+    "detail": {
+      "issue": "受阻重塑按钮丢失新版样式",
+      "className": "mag"
+    }
+  },
+  {
+    "id": "B09",
+    "passed": true,
+    "detail": "实际结算按钮双击：仅一次重塑，12 碎片翻倍为24"
+  },
+  {
+    "id": "B10",
+    "passed": true,
+    "detail": [
+      {
+        "buttons": [
+          {
+            "rect": {
+              "bottom": 263.046875,
+              "height": 76,
+              "left": 35.796875,
+              "right": 284.1953125,
+              "top": 187.046875,
+              "width": 248.3984375,
+              "x": 35.796875,
+              "y": 187.046875
+            },
+            "text": "火力协议\n攻击 +25%"
+          },
+          {
+            "rect": {
+              "bottom": 351.046875,
+              "height": 76,
+              "left": 35.796875,
+              "right": 284.1953125,
+              "top": 275.046875,
+              "width": 248.3984375,
+              "x": 35.796875,
+              "y": 275.046875
+            },
+            "text": "纳米修复\n吸血 +5%"
+          },
+          {
+            "rect": {
+              "bottom": 439.046875,
+              "height": 76,
+              "left": 35.796875,
+              "right": 284.1953125,
+              "top": 363.046875,
+              "width": 248.3984375,
+              "x": 35.796875,
+              "y": 363.046875
+            },
+            "text": "应急护盾\n战斗开始获得 10% 最大生命护盾（每场刷新）"
+          }
+        ],
+        "h": 568,
+        "modal": {
+          "bottom": 474.046875,
+          "height": 380.09375,
+          "left": 12.796875,
+          "right": 307.1953125,
+          "top": 93.953125,
+          "width": 294.3984375,
+          "x": 12.796875,
+          "y": 93.953125
+        },
+        "pageW": 320,
+        "w": 320
+      },
+      {
+        "buttons": [
+          {
+            "rect": {
+              "bottom": 401.046875,
+              "height": 76,
+              "left": 38.6015625,
+              "right": 351.3984375,
+              "top": 325.046875,
+              "width": 312.796875,
+              "x": 38.6015625,
+              "y": 325.046875
+            },
+            "text": "火力协议\n攻击 +25%"
+          },
+          {
+            "rect": {
+              "bottom": 489.046875,
+              "height": 76,
+              "left": 38.6015625,
+              "right": 351.3984375,
+              "top": 413.046875,
+              "width": 312.796875,
+              "x": 38.6015625,
+              "y": 413.046875
+            },
+            "text": "纳米修复\n吸血 +5%"
+          },
+          {
+            "rect": {
+              "bottom": 577.046875,
+              "height": 76,
+              "left": 38.6015625,
+              "right": 351.3984375,
+              "top": 501.046875,
+              "width": 312.796875,
+              "x": 38.6015625,
+              "y": 501.046875
+            },
+            "text": "应急护盾\n战斗开始获得 10% 最大生命护盾（每场刷新）"
+          }
+        ],
+        "h": 844,
+        "modal": {
+          "bottom": 612.046875,
+          "height": 380.09375,
+          "left": 15.6015625,
+          "right": 374.3984375,
+          "top": 231.953125,
+          "width": 358.796875,
+          "x": 15.6015625,
+          "y": 231.953125
+        },
+        "pageW": 390,
+        "w": 390
+      },
+      {
+        "buttons": [
+          {
+            "rect": {
+              "bottom": 445.046875,
+              "height": 76,
+              "left": 40.203125,
+              "right": 389.796875,
+              "top": 369.046875,
+              "width": 349.59375,
+              "x": 40.203125,
+              "y": 369.046875
+            },
+            "text": "火力协议\n攻击 +25%"
+          },
+          {
+            "rect": {
+              "bottom": 532.1549072265625,
+              "height": 76,
+              "left": 40.203125,
+              "right": 389.796875,
+              "top": 456.1549072265625,
+              "width": 349.59375,
+              "x": 40.203125,
+              "y": 456.1549072265625
+            },
+            "text": "纳米修复\n吸血 +5%"
+          },
+          {
+            "rect": {
+              "bottom": 621.046875,
+              "height": 76,
+              "left": 40.203125,
+              "right": 389.796875,
+              "top": 545.046875,
+              "width": 349.59375,
+              "x": 40.203125,
+              "y": 545.046875
+            },
+            "text": "应急护盾\n战斗开始获得 10% 最大生命护盾（每场刷新）"
+          }
+        ],
+        "h": 932,
+        "modal": {
+          "bottom": 656.046875,
+          "height": 380.09375,
+          "left": 17.203125,
+          "right": 412.796875,
+          "top": 275.953125,
+          "width": 395.59375,
+          "x": 17.203125,
+          "y": 275.953125
+        },
+        "pageW": 430,
+        "w": 430
+      },
+      {
+        "buttons": [
+          {
+            "rect": {
+              "bottom": 491.046875,
+              "height": 76,
+              "left": 147,
+              "right": 621,
+              "top": 415.046875,
+              "width": 474,
+              "x": 147,
+              "y": 415.046875
+            },
+            "text": "火力协议\n攻击 +25%"
+          },
+          {
+            "rect": {
+              "bottom": 579.0100708007812,
+              "height": 76,
+              "left": 147,
+              "right": 621,
+              "top": 503.0100708007813,
+              "width": 474,
+              "x": 147,
+              "y": 503.0100708007813
+            },
+            "text": "纳米修复\n吸血 +5%"
+          },
+          {
+            "rect": {
+              "bottom": 667.046875,
+              "height": 76,
+              "left": 147,
+              "right": 621,
+              "top": 591.046875,
+              "width": 474,
+              "x": 147,
+              "y": 591.046875
+            },
+            "text": "应急护盾\n战斗开始获得 10% 最大生命护盾（每场刷新）"
+          }
+        ],
+        "h": 1024,
+        "modal": {
+          "bottom": 702.046875,
+          "height": 380.09375,
+          "left": 124,
+          "right": 644,
+          "top": 321.953125,
+          "width": 520,
+          "x": 124,
+          "y": 321.953125
+        },
+        "pageW": 768,
+        "w": 768
+      },
+      {
+        "buttons": [
+          {
+            "rect": {
+              "bottom": 339.046875,
+              "height": 76,
+              "left": 403,
+              "right": 877,
+              "top": 263.046875,
+              "width": 474,
+              "x": 403,
+              "y": 263.046875
+            },
+            "text": "火力协议\n攻击 +25%"
+          },
+          {
+            "rect": {
+              "bottom": 427.046875,
+              "height": 76,
+              "left": 403,
+              "right": 877,
+              "top": 351.046875,
+              "width": 474,
+              "x": 403,
+              "y": 351.046875
+            },
+            "text": "纳米修复\n吸血 +5%"
+          },
+          {
+            "rect": {
+              "bottom": 515.046875,
+              "height": 76,
+              "left": 403,
+              "right": 877,
+              "top": 439.046875,
+              "width": 474,
+              "x": 403,
+              "y": 439.046875
+            },
+            "text": "应急护盾\n战斗开始获得 10% 最大生命护盾（每场刷新）"
+          }
+        ],
+        "h": 720,
+        "modal": {
+          "bottom": 550.046875,
+          "height": 380.09375,
+          "left": 380,
+          "right": 900,
+          "top": 169.953125,
+          "width": 520,
+          "x": 380,
+          "y": 169.953125
+        },
+        "pageW": 1280,
+        "w": 1280
+      },
+      {
+        "buttons": [
+          {
+            "rect": {
+              "bottom": 174.046875,
+              "height": 76,
+              "left": 185,
+              "right": 659,
+              "top": 98.046875,
+              "width": 474,
+              "x": 185,
+              "y": 98.046875
+            },
+            "text": "火力协议\n攻击 +25%"
+          },
+          {
+            "rect": {
+              "bottom": 262.046875,
+              "height": 76,
+              "left": 185,
+              "right": 659,
+              "top": 186.046875,
+              "width": 474,
+              "x": 185,
+              "y": 186.046875
+            },
+            "text": "纳米修复\n吸血 +5%"
+          },
+          {
+            "rect": {
+              "bottom": 350.046875,
+              "height": 76,
+              "left": 185,
+              "right": 659,
+              "top": 274.046875,
+              "width": 474,
+              "x": 185,
+              "y": 274.046875
+            },
+            "text": "应急护盾\n战斗开始获得 10% 最大生命护盾（每场刷新）"
+          }
+        ],
+        "h": 390,
+        "modal": {
+          "bottom": 385.046875,
+          "height": 380.09375,
+          "left": 162,
+          "right": 682,
+          "top": 4.953125,
+          "width": 520,
+          "x": 162,
+          "y": 4.953125
+        },
+        "pageW": 844,
+        "w": 844
+      }
+    ]
+  },
+  {
+    "id": "B11",
+    "passed": true,
+    "detail": [
+      {
+        "hp": 18990527646.04649,
+        "phase": 1,
+        "shield": 1898614158.5308125,
+        "t": 0.4841999999999971
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 1,
+        "shield": 1897906047.5200405,
+        "t": 0.35019999999999707
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 1,
+        "shield": 1897555691.102024,
+        "t": 0.28389999999999416
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 1,
+        "shield": 1897028306.9313145,
+        "t": 0.1841000000000058
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 1,
+        "shield": 1896499865.8784993,
+        "t": 0.08410000000000581
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 1,
+        "shield": 1896147395.6962717,
+        "t": 0.017400000000008714
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 2,
+        "shield": 1882143707.796671,
+        "t": 0.4339000000000087
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 2,
+        "shield": 1881788595.409179,
+        "t": 0.3666999999999971
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 2,
+        "shield": 1881348404.012184,
+        "t": 0.28340000000000876
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 2,
+        "shield": 1880558384.6382256,
+        "t": 0.13390000000000876
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 2,
+        "shield": 1880208028.2202091,
+        "t": 0.06760000000000585
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 0,
+        "shield": 1879499917.209437,
+        "t": 8
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 0,
+        "shield": 1879145861.7040508,
+        "t": 7.933
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 0,
+        "shield": 1878441978.221701,
+        "t": 7.799800000000003
+      },
+      {
+        "hp": 18990527646.04649,
+        "phase": 0,
+        "shield": 1878001786.8247056,
+        "t": 7.7165
+      }
+    ]
+  },
+  {
+    "id": "B12",
+    "passed": false,
+    "detail": {
+      "enemyHp": 17.649999999999995,
+      "floor": 2,
+      "hp": 100,
+      "overlay": "show",
+      "paused": false,
+      "wall": true
+    }
+  },
+  {
+    "id": "B13",
+    "passed": false,
+    "detail": {
+      "gold": 166,
+      "live": 1,
+      "saved": 2
+    }
+  },
+  {
+    "id": "B14",
+    "passed": true,
+    "detail": "通过合成按钮将已装备+背包两件 q2 升为q3"
+  },
+  {
+    "id": "B15",
+    "passed": true,
+    "detail": "树购买两次花费1+2，余额不足后按钮禁用"
+  },
+  {
+    "id": "B16",
+    "passed": true,
+    "detail": "倍速按钮可切换且旧层倍率生效"
+  },
+  {
+    "id": "B17",
+    "passed": true,
+    "detail": {
+      "note": "v2.28.7明确取消测试版补给冷却；双击发两次奖励，为当前设计",
+      "gold": 276
+    }
+  },
+  {
+    "id": "B18",
+    "passed": true,
+    "detail": "日志抽屉打开且当前段可见"
+  },
+  {
+    "id": "B19",
+    "passed": null,
+    "detail": {
+      "status": "PARTIAL",
+      "note": "实际结束测试已封存并开启新段，JSON/CSV内容已验证及留档。触发降级下载提示，但浏览器工具未返回download事件，磁盘下载和原生文件夹授权未验收。"
+    }
+  },
+  {
+    "id": "B20",
+    "passed": true,
+    "detail": "取消复位保留当前进度"
+  },
+  {
+    "id": "B21",
+    "passed": true,
+    "detail": "确认复位清空游戏成长，保留已封存日志"
+  },
+  {
+    "id": "B22",
+    "passed": false,
+    "detail": {
+      "hp": 100,
+      "max": 100,
+      "mob": 0
+    }
+  },
+  {
+    "id": "B23",
+    "passed": false,
+    "detail": {
+      "floor": 1,
+      "modal": "⚡ 神经技能 · 三选一\n\n中继站接入完成！选择一项技能强化\n\n狂暴节奏\n暴击后攻速 +30%，持续 5 秒\n光学迷彩\n击杀后无敌 2 秒\n困兽协议\n生命低于 30% 时伤害 +40%",
+      "paused": true,
+      "pending": {
+        "picks": [
+          "critsurge",
+          "ghoststep",
+          "lowhp"
+        ],
+        "pool": "p5"
+      },
+      "skillOfferOpen": true
+    }
+  },
+  {
+    "id": "B24",
+    "passed": true,
+    "detail": [
+      {
+        "button": {
+          "bottom": 519,
+          "height": 72,
+          "left": 26,
+          "right": 298,
+          "top": 447,
+          "width": 272,
+          "x": 26,
+          "y": 447
+        },
+        "h": 568,
+        "image": "http://127.0.0.1:19319/assets/start-screen/night-city-mobile.webp",
+        "settings": {
+          "bottom": 60,
+          "height": 44,
+          "left": 260,
+          "right": 304,
+          "top": 16,
+          "width": 44,
+          "x": 260,
+          "y": 16
+        },
+        "w": 320
+      },
+      {
+        "button": {
+          "bottom": 777,
+          "height": 82,
+          "left": 26,
+          "right": 368,
+          "top": 695,
+          "width": 342,
+          "x": 26,
+          "y": 695
+        },
+        "h": 844,
+        "image": "http://127.0.0.1:19319/assets/start-screen/night-city-mobile.webp",
+        "settings": {
+          "bottom": 60,
+          "height": 44,
+          "left": 330,
+          "right": 374,
+          "top": 16,
+          "width": 44,
+          "x": 330,
+          "y": 16
+        },
+        "w": 390
+      },
+      {
+        "button": {
+          "bottom": 865,
+          "height": 82,
+          "left": 27,
+          "right": 407,
+          "top": 783,
+          "width": 380,
+          "x": 27,
+          "y": 783
+        },
+        "h": 932,
+        "image": "http://127.0.0.1:19319/assets/start-screen/night-city-mobile.webp",
+        "settings": {
+          "bottom": 60,
+          "height": 44,
+          "left": 370,
+          "right": 414,
+          "top": 16,
+          "width": 44,
+          "x": 370,
+          "y": 16
+        },
+        "w": 430
+      },
+      {
+        "button": {
+          "bottom": 684.796875,
+          "height": 83.5,
+          "left": 63.4375,
+          "right": 373.09375,
+          "top": 601.296875,
+          "width": 309.65625,
+          "x": 63.4375,
+          "y": 601.296875
+        },
+        "h": 1024,
+        "image": "http://127.0.0.1:19319/assets/start-screen/night-city-desktop.webp",
+        "settings": {
+          "bottom": 66,
+          "height": 44,
+          "left": 700,
+          "right": 744,
+          "top": 22,
+          "width": 44,
+          "x": 700,
+          "y": 22
+        },
+        "w": 768
+      },
+      {
+        "button": {
+          "bottom": 550.4609375,
+          "height": 83.5,
+          "left": 104.3984375,
+          "right": 414.3984375,
+          "top": 466.9609375,
+          "width": 310,
+          "x": 104.3984375,
+          "y": 466.9609375
+        },
+        "h": 720,
+        "image": "http://127.0.0.1:19319/assets/start-screen/night-city-desktop.webp",
+        "settings": {
+          "bottom": 66,
+          "height": 44,
+          "left": 1212,
+          "right": 1256,
+          "top": 22,
+          "width": 44,
+          "x": 1212,
+          "y": 22
+        },
+        "w": 1280
+      },
+      {
+        "button": {
+          "bottom": 314.6328125,
+          "height": 65.5,
+          "left": 61.078125,
+          "right": 341.078125,
+          "top": 249.1328125,
+          "width": 280,
+          "x": 61.078125,
+          "y": 249.1328125
+        },
+        "h": 390,
+        "image": "http://127.0.0.1:19319/assets/start-screen/night-city-desktop.webp",
+        "settings": {
+          "bottom": 66,
+          "height": 44,
+          "left": 776,
+          "right": 820,
+          "top": 22,
+          "width": 44,
+          "x": 776,
+          "y": 22
+        },
+        "w": 844
+      }
+    ]
+  },
+  {
+    "id": "B25",
+    "passed": true,
+    "detail": {
+      "coverZ": "60",
+      "modal": "⚠️ 清除存档\n\n确定要清空全部进度吗？此操作不可恢复。\n\n确认清除并开始新游戏\n取消",
+      "overlayZ": "70"
+    }
+  },
+  {
+    "id": "B26",
+    "passed": true,
+    "detail": {
+      "arenaBottom": 226.1953125,
+      "arenaTop": 0,
+      "scroll": 602.5,
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  {
+    "id": "B27",
+    "passed": true,
+    "detail": {
+      "audio": [
+        {
+          "currentTime": 0.152018,
+          "duration": 0.152018,
+          "error": null,
+          "readyState": 4
+        },
+        {
+          "currentTime": 0.152018,
+          "duration": 0.152018,
+          "error": null,
+          "readyState": 4
+        },
+        {
+          "currentTime": 0.152018,
+          "duration": 0.152018,
+          "error": null,
+          "readyState": 4
+        }
+      ],
+      "frames": 180,
+      "maxMs": 100.20000000001164,
+      "meanMs": 66.00888888888892,
+      "nodes": 181,
+      "sfxIdx": 2
+    }
+  },
+  {
+    "id": "B28",
+    "passed": false,
+    "detail": {
+      "lastFrameAgeMs": 5981,
+      "note": "故障注入：存储写入抛QuotaExceededError；已恢复原方法"
+    }
+  },
+  {
+    "id": "B29",
+    "passed": null,
+    "detail": {
+      "status": "ENVIRONMENT",
+      "note": "空白页帧调度对照；用于区分测试容器节流与游戏负载",
+      "frames": 90,
+      "hidden": false,
+      "maxMs": 133.4000000000001,
+      "meanMs": 25.89000000039736
+    }
+  },
+  {
+    "id": "B30",
+    "passed": null,
+    "detail": {
+      "status": "PERFORMANCE_OBSERVATION",
+      "profile": {
+        "frames": 120,
+        "meanMs": 61.309999999999974,
+        "p50": 66.20000000000073,
+        "p95": 82.59999999999854
+      },
+      "before": {
+        "metrics": [
+          {
+            "name": "Timestamp",
+            "value": 274490.615339
+          },
+          {
+            "name": "AudioHandlers",
+            "value": 0
+          },
+          {
+            "name": "AudioWorkletProcessors",
+            "value": 0
+          },
+          {
+            "name": "Documents",
+            "value": 12
+          },
+          {
+            "name": "Frames",
+            "value": 12
+          },
+          {
+            "name": "JSEventListeners",
+            "value": 208
+          },
+          {
+            "name": "LayoutObjects",
+            "value": 617
+          },
+          {
+            "name": "MediaKeySessions",
+            "value": 0
+          },
+          {
+            "name": "MediaKeys",
+            "value": 0
+          },
+          {
+            "name": "Nodes",
+            "value": 841
+          },
+          {
+            "name": "Resources",
+            "value": 17
+          },
+          {
+            "name": "ContextLifecycleStateObservers",
+            "value": 23
+          },
+          {
+            "name": "V8PerContextDatas",
+            "value": 4
+          },
+          {
+            "name": "WorkerGlobalScopes",
+            "value": 0
+          },
+          {
+            "name": "UACSSResources",
+            "value": 0
+          },
+          {
+            "name": "RTCPeerConnections",
+            "value": 0
+          },
+          {
+            "name": "ResourceFetchers",
+            "value": 12
+          },
+          {
+            "name": "AdSubframes",
+            "value": 0
+          },
+          {
+            "name": "DetachedScriptStates",
+            "value": 0
+          },
+          {
+            "name": "ArrayBufferContents",
+            "value": 0
+          },
+          {
+            "name": "LayoutCount",
+            "value": 0
+          },
+          {
+            "name": "RecalcStyleCount",
+            "value": 0
+          },
+          {
+            "name": "LayoutDuration",
+            "value": 0
+          },
+          {
+            "name": "RecalcStyleDuration",
+            "value": 0
+          },
+          {
+            "name": "DevToolsCommandDuration",
+            "value": 0.000048
+          },
+          {
+            "name": "ScriptDuration",
+            "value": 0
+          },
+          {
+            "name": "V8CompileDuration",
+            "value": 0
+          },
+          {
+            "name": "TaskDuration",
+            "value": 0.000082
+          },
+          {
+            "name": "TaskOtherDuration",
+            "value": 0.000034
+          },
+          {
+            "name": "ThreadTime",
+            "value": 0.000231
+          },
+          {
+            "name": "ProcessTime",
+            "value": 98.438479
+          },
+          {
+            "name": "JSHeapUsedSize",
+            "value": 5595040
+          },
+          {
+            "name": "JSHeapTotalSize",
+            "value": 6475776
+          },
+          {
+            "name": "FirstMeaningfulPaint",
+            "value": 274460.468435
+          },
+          {
+            "name": "DomContentLoaded",
+            "value": 274460.220586
+          },
+          {
+            "name": "NavigationStart",
+            "value": 274460.173179
+          }
+        ]
+      },
+      "after": {
+        "metrics": [
+          {
+            "name": "Timestamp",
+            "value": 274498.006109
+          },
+          {
+            "name": "AudioHandlers",
+            "value": 0
+          },
+          {
+            "name": "AudioWorkletProcessors",
+            "value": 0
+          },
+          {
+            "name": "Documents",
+            "value": 12
+          },
+          {
+            "name": "Frames",
+            "value": 12
+          },
+          {
+            "name": "JSEventListeners",
+            "value": 217
+          },
+          {
+            "name": "LayoutObjects",
+            "value": 1316
+          },
+          {
+            "name": "MediaKeySessions",
+            "value": 0
+          },
+          {
+            "name": "MediaKeys",
+            "value": 0
+          },
+          {
+            "name": "Nodes",
+            "value": 1760
+          },
+          {
+            "name": "Resources",
+            "value": 22
+          },
+          {
+            "name": "ContextLifecycleStateObservers",
+            "value": 23
+          },
+          {
+            "name": "V8PerContextDatas",
+            "value": 4
+          },
+          {
+            "name": "WorkerGlobalScopes",
+            "value": 0
+          },
+          {
+            "name": "UACSSResources",
+            "value": 0
+          },
+          {
+            "name": "RTCPeerConnections",
+            "value": 0
+          },
+          {
+            "name": "ResourceFetchers",
+            "value": 12
+          },
+          {
+            "name": "AdSubframes",
+            "value": 0
+          },
+          {
+            "name": "DetachedScriptStates",
+            "value": 0
+          },
+          {
+            "name": "ArrayBufferContents",
+            "value": 0
+          },
+          {
+            "name": "LayoutCount",
+            "value": 270
+          },
+          {
+            "name": "RecalcStyleCount",
+            "value": 302
+          },
+          {
+            "name": "LayoutDuration",
+            "value": 0.067519
+          },
+          {
+            "name": "RecalcStyleDuration",
+            "value": 0.056388
+          },
+          {
+            "name": "DevToolsCommandDuration",
+            "value": 0.002136
+          },
+          {
+            "name": "ScriptDuration",
+            "value": 0.085982
+          },
+          {
+            "name": "V8CompileDuration",
+            "value": 0
+          },
+          {
+            "name": "TaskDuration",
+            "value": 0.38322
+          },
+          {
+            "name": "TaskOtherDuration",
+            "value": 0.171195
+          },
+          {
+            "name": "ThreadTime",
+            "value": 0.404866
+          },
+          {
+            "name": "ProcessTime",
+            "value": 99.119824
+          },
+          {
+            "name": "JSHeapUsedSize",
+            "value": 5770248
+          },
+          {
+            "name": "JSHeapTotalSize",
+            "value": 6475776
+          },
+          {
+            "name": "FirstMeaningfulPaint",
+            "value": 274460.468435
+          },
+          {
+            "name": "DomContentLoaded",
+            "value": 274460.220586
+          },
+          {
+            "name": "NavigationStart",
+            "value": 274460.173179
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "B31",
+    "passed": false,
+    "detail": {
+      "completed": 10,
+      "floor": 11,
+      "text": "🎯 神经技能 · 三选一\n\n突破第 11 层！选择一项属性强化\n\n应急护盾\n战斗开始获得 10% 最大生命护盾（每场刷新）\n火力协议\n攻击 +25%\n纳米修复\n吸血 +5%"
+    }
+  }
+]

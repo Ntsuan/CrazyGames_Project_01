@@ -1,0 +1,55 @@
+{
+  "checks": [
+    {
+      "label": "测试自动装备",
+      "state": {
+        "mode": "endless",
+        "local": "自动装备 民用·皮下装甲",
+        "global": "",
+        "inventory": 1,
+        "gold": 0
+      }
+    },
+    {
+      "label": "测试满级折算",
+      "state": {
+        "mode": "endless",
+        "local": "民用·皮下装甲 已满级 → +21 信用点",
+        "global": "",
+        "inventory": 1,
+        "gold": 21
+      }
+    },
+    {
+      "label": "测试构筑掉落",
+      "state": {
+        "mode": "build",
+        "local": "获得 民用·皮下装甲",
+        "global": "",
+        "inventory": 1,
+        "gold": 0
+      }
+    },
+    {
+      "label": "测试提示并存",
+      "state": {
+        "mode": "build",
+        "local": "获得 民用·皮下装甲",
+        "global": "操作提示保留顶部",
+        "inventory": 2,
+        "gold": 0
+      }
+    }
+  ],
+  "sequence": [
+    {
+      "at": 2300,
+      "text": "自动装备 民用·皮下装甲"
+    },
+    {
+      "at": 3500,
+      "text": ""
+    }
+  ],
+  "logs": []
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "layersAfterReset": 0,
+    "name": "death途中复位",
+    "pass": true,
+    "shows": 0,
+    "spawns": 2,
+    "spawnsAtReset": 1
+  },
+  {
+    "layersAfterReset": 0,
+    "name": "enemy途中复位",
+    "pass": true,
+    "shows": 0,
+    "spawns": 2,
+    "spawnsAtReset": 1
+  },
+  {
+    "layersAfterReset": 0,
+    "name": "scene途中复位",
+    "pass": true,
+    "shows": 0,
+    "spawns": 2,
+    "spawnsAtReset": 1
+  },
+  {
+    "layersAfterReset": 0,
+    "name": "transit途中复位",
+    "pass": true,
+    "shows": 0,
+    "spawns": 2,
+    "spawnsAtReset": 1
+  },
+  {
+    "name": "动画结束与兜底只弹一次",
+    "pass": true,
+    "shows": 1
+  },
+  {
+    "name": "突破记录立即回1×",
+    "pass": true
+  },
+  {
+    "name": "安保兵自然死亡末帧",
+    "pass": true,
+    "x": -825
+  },
+  {
+    "name": "机械犬自然死亡末帧",
+    "pass": true,
+    "x": -550
+  },
+  {
+    "name": "典狱长自然死亡末帧",
+    "pass": true,
+    "x": -1155
+  },
+  {
+    "name": "棱镜自然死亡末帧",
+    "pass": true,
+    "x": -1050
+  },
+  {
+    "name": "天枢自然死亡末帧",
+    "pass": true,
+    "x": -1330
+  }
+]

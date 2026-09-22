@@ -1,0 +1,6 @@
+PASS unchanged game logic after removing localization wrappers: game/index.html
+PASS unchanged game logic after removing localization wrappers: game/assets/upgrades/1-2.js
+PASS unchanged game logic after removing localization wrappers: game/assets/upgrades/2-3.js
+PASS unchanged game logic after removing localization wrappers: game/assets/upgrades/3-4.js
+PASS unchanged game logic after removing localization wrappers: game/assets/upgrades/4-5.js
+PASS localization JavaScript syntax

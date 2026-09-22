@@ -1,0 +1,45 @@
+--- v2.44
+
++++ v2.44.1
+
+@@ -386,12 +386,14 @@
+
+   .modal { max-height:calc(100dvh - 24px); overflow-y:auto; overscroll-behavior:contain; }
+   .prestige-kicker { color:var(--cyan); font-size:13px; letter-spacing:1px; margin-bottom:6px; }
+   .prestige-title { color:#e6edf3; font-size:22px; line-height:1.4; margin:8px 0; }
+-  .prestige-reward { margin:16px 0; padding:16px; border:1px solid #7048a3; border-radius:12px;
+-    background:linear-gradient(135deg,#251b3a,#141b2b); color:#c88aff; }
+-  .prestige-amount { display:block; font-size:38px; font-weight:800; line-height:1.4; }
++  .prestige-reward, .prestige-recycle, .prestige-rules {
++    background:#17202b; border:1px solid #3c4b5a; color:#b7c3d2; box-shadow:none; }
++  .prestige-reward { margin:16px 0; padding:16px; border-radius:12px; }
++  .prestige-amount { display:block; font-size:38px; font-weight:800; line-height:1.4; color:#c88aff; }
+   .prestige-amount .ic { width:32px; height:32px; vertical-align:-2px; }
+-  .prestige-recycle { padding:10px 12px; border:1px solid #80652e; border-radius:9px; color:var(--gold); background:#282316; }
+-  .prestige-rules { padding:12px; margin:12px 0; border:1px solid #283c57; border-radius:9px; text-align:left; }
++  .prestige-recycle { padding:10px 12px; border-radius:9px; }
++  .prestige-credit { color:var(--gold); font-weight:700; }
++  .prestige-rules { padding:12px; margin:12px 0; border-radius:9px; text-align:left; }
+   .prestige-note { font-size:12px; margin-top:10px; color:#a7b3c6; }
+   .modal .prestige-action { width:100%; min-height:76px; margin:10px 0; text-align:left; justify-content:flex-start; }
+   .prestige-action .nh-button__title { font-size:16px; }
+@@ -1215,7 +1217,7 @@
+
+   showModal("确认重塑",
+     `<div class="prestige-title">选择本轮碎片结算方式</div>
+      <div class="prestige-reward">本轮累计碎片<span class="prestige-amount">${fmt(p.souls)} → ${fmt(p.souls*2)}</span>观看广告 ×2 · 仅翻倍本轮碎片</div>
+-     <div class="prestige-recycle">${IC("equipment-recycle")} 装备回收 +${fmt(p.salvage)} 信用点<br><small>${p.items} 件 · 15% 回收率 · 信用点不翻倍</small></div>
++     <div class="prestige-recycle">${IC("equipment-recycle")} 装备回收 <span class="prestige-credit">+${fmt(p.salvage)} 信用点</span><br><small>${p.items} 件 · 15% 回收率 · 信用点不翻倍</small></div>
+      <div class="prestige-rules">回到第 1 层，重置强化与本轮技能<br>装备回收，保留永久加成与已有碎片<br>本轮信用点不带入</div>
+      ${message?`<div role="status" class="prestige-note">${message}</div>`:""}`,
+     (p.adRewarded?prestigeButton("gold","applyPrestige(2)",`领取翻倍并重塑 · +${fmt(p.souls*2)} 碎片`,"奖励已确认，无需再次观看","watch-ad"):
+@@ -1559,7 +1561,7 @@
+
+ 
+ // ============ 测试日志系统 ============
+ // 版本管理：每次修改递增 VERSION，并同步维护 game/CHANGELOG.md 与 game/versions/ 快照
+-const VERSION="v2.44";   // Codex：每十层可选重塑、双倍预览与一次性结算
++const VERSION="v2.44.1";   // Codex：重塑信息框统一灰蓝，彩色立体效果保留给操作按钮
+ new Image().src="assets/gunner_shoot.png";   // 预加载攻击帧条防首击闪烁
+ new Image().src="assets/gunner_run.png";
+ new Image().src="assets/arena-bg2.webp";

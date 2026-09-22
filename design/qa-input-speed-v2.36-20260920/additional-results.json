@@ -1,0 +1,22 @@
+[
+  {
+    "name": "other finger end does not trigger",
+    "pass": true
+  },
+  {
+    "name": "owner end executes once",
+    "pass": true
+  },
+  {
+    "effective": 1,
+    "name": "new floor restores normal speed",
+    "pass": true
+  },
+  {
+    "disabled": true,
+    "name": "prestige supplies missing tree funds",
+    "pass": false,
+    "souls": 14,
+    "treeCost": 14
+  }
+]

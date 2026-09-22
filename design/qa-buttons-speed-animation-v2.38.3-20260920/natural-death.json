@@ -1,0 +1,9 @@
+{
+  "backgroundSize": "990px 110px",
+  "elapsedMs": 802,
+  "mobSentinel": 1000000000000000000,
+  "name": "secDie",
+  "parentOpacity": "1",
+  "position": "-990px",
+  "test": "actual normal kill at800ms"
+}

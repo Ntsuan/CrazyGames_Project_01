@@ -1,0 +1,62 @@
+{
+  "version": "v2.44.1",
+  "environment": "In-app Chromium, desktop1280x720/mobile390x844; isolated QA storage; not real-device touch",
+  "surfaces": {
+    "amountColor": "rgb(200, 138, 255)",
+    "buttons": [
+      {
+        "image": "linear-gradient(rgb(73, 53, 102), rgb(43, 37, 67))",
+        "shadow": "rgba(255, 255, 255, 0.125) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset, rgb(26, 18, 43) 0px 4px 0px 0px, rgb(131, 103, 176) 0px 5px 0px 0px, rgba(0, 0, 0, 0.2) 0px 8px 14px 0px",
+        "text": "普通重塑 · +24 碎片直接结算"
+      },
+      {
+        "image": "linear-gradient(rgb(98, 74, 46), rgb(58, 44, 34))",
+        "shadow": "rgba(255, 255, 255, 0.125) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset, rgb(36, 26, 18) 0px 4px 0px 0px, rgb(166, 139, 83) 0px 5px 0px 0px, rgba(0, 0, 0, 0.2) 0px 8px 14px 0px",
+        "text": "看广告重塑 · +48 碎片测试模拟 · 完整观看后翻倍并重塑"
+      }
+    ],
+    "creditColor": "rgb(255, 209, 102)",
+    "surface": [
+      {
+        "background": "rgb(23, 32, 43)",
+        "border": "rgb(60, 75, 90)",
+        "className": "prestige-reward",
+        "color": "rgb(183, 195, 210)",
+        "image": "none",
+        "shadow": "none"
+      },
+      {
+        "background": "rgb(23, 32, 43)",
+        "border": "rgb(60, 75, 90)",
+        "className": "prestige-recycle",
+        "color": "rgb(183, 195, 210)",
+        "image": "none",
+        "shadow": "none"
+      },
+      {
+        "background": "rgb(23, 32, 43)",
+        "border": "rgb(60, 75, 90)",
+        "className": "prestige-rules",
+        "color": "rgb(183, 195, 210)",
+        "image": "none",
+        "shadow": "none"
+      }
+    ]
+  },
+  "mobile": {
+    "bottom": 749.71875,
+    "height": 844,
+    "left": 15,
+    "right": 360,
+    "top": 94.265625,
+    "width": 390
+  },
+  "backToChoice": "PASS",
+  "errors": [],
+  "screenshots": [
+    "desktop-choice.png",
+    "desktop-preview.png",
+    "mobile-choice.png",
+    "mobile-preview.png"
+  ]
+}

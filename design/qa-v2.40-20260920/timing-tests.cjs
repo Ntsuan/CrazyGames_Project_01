@@ -1,0 +1,18 @@
+const {make}=require('./core-tests.cjs');const assert=require('assert'),fs=require('fs');const results=[];
+function test(name,fn){const g=make();g.run('S.bestEver=200;S.prestiges=1;S.speed2=false;syncPresentationSpeed();');try{fn(g);results.push({name,pass:true});}catch(e){results.push({name,pass:false,error:e.message});}}
+function count(g,n){assert.equal(g.run('hits'),n)}
+test('1→2：保留已播放100ms，剩余900ms用450ms',g=>{g.run('var hits=0;afterPresentation(1000,()=>hits++)');g.advance(100);g.run('toggleSpeed()');g.advance(449);count(g,0);g.advance(1);count(g,1);g.advance(1000);count(g,1)});
+test('2→1：保留已播放200ms，剩余800ms',g=>{g.run('toggleSpeed();var hits=0;afterPresentation(1000,()=>hits++)');g.advance(100);g.run('toggleSpeed()');g.advance(799);count(g,0);g.advance(1);count(g,1)});
+test('反复切速不重置、不重复回调',g=>{g.run('var hits=0;afterPresentation(1000,()=>hits++)');g.advance(100);g.run('toggleSpeed()');g.advance(100);g.run('toggleSpeed()');g.advance(100);g.run('toggleSpeed()');g.advance(299);count(g,0);g.advance(1);count(g,1)});
+test('新代次清空待执行演出',g=>{g.run('var hits=0;afterPresentation(1000,()=>hits++);beginPresentationRun()');g.advance(2000);count(g,0);assert.equal(g.run('presentationTasks.size'),0)});
+test('外部过期代次不执行',g=>{g.run('var hits=0;afterPresentation(1000,()=>hits++);++runSeq');g.advance(1000);count(g,0)});
+test('显式取消不回调',g=>{g.run('var hits=0;var task=afterPresentation(100,()=>hits++);cancelPresentation(task)');g.advance(100);count(g,0)});
+test('自动到新楼层恢复1×并重排剩余时间',g=>{g.run('S.bestEver=1;toggleSpeed();var hits=0;afterPresentation(1000,()=>hits++)');g.advance(100);g.run('S.floor=2;syncPresentationSpeed()');g.advance(799);count(g,0);g.advance(1);count(g,1)});
+for(const speed of [false,true])test(`固定${speed?2:1}×换怪仅刷新一次`,g=>{g.run(`S.speed2=${speed};var hits=0;var originalSpawn=spawnMob;spawnMob=()=>{hits++;originalSpawn()};onKill()`);g.advance(2060/(speed?2:1)-1);count(g,0);g.advance(1);count(g,1);g.advance(3000);count(g,1)});
+test('换怪途中1→2同步尸体/跑入/刷新',g=>{g.run('var hits=0;var originalSpawn=spawnMob;spawnMob=()=>{hits++;originalSpawn()};onKill()');g.advance(100);g.run('toggleSpeed()');g.advance(979);count(g,0);g.advance(1);count(g,1)});
+test('死亡兜底2→1不会沿用原600ms提前弹窗',g=>{g.run('toggleSpeed();player.hp=0;checkWall(0)');g.advance(100);g.run('toggleSpeed()');g.advance(999);assert(!g.run('$("overlay").classList.contains("show")'));g.advance(1);assert(g.run('$("overlay").classList.contains("show")&&!deathWait'));});
+test('死亡兜底1→2只等待剩余演出时间',g=>{g.run('player.hp=0;checkWall(0)');g.advance(100);g.run('toggleSpeed()');g.advance(549);assert(!g.run('$("overlay").classList.contains("show")'));g.advance(1);assert(g.run('$("overlay").classList.contains("show")'));});
+test('死亡中复位不遗留旧弹窗',g=>{g.run('player.hp=0;checkWall(0)');g.advance(100);g.run('doReset()');g.advance(5000);assert(g.run('!deathWait&&!wall&&!$("overlay").classList.contains("show")&&!$("playerSpr").classList.contains("death")'));});
+for(const speed of [false,true])test(`固定${speed?2:1}×完整楼层转场`,g=>{g.run(`S.speed2=${speed};startFloorTransit()`);g.advance(2940/(speed?2:1)-1);assert(g.run('paused'));g.advance(1);assert(g.run('!paused&&!transit&&presentationTasks.size===0'));});
+test('死亡等待时购买生命升级仍完成受阻流程',g=>{g.run('S.gold=100;player.hp=0;checkWall(0);$("btnHp").onclick()');assert(g.run('player.hp>0&&wall'));g.advance(1200);assert(g.run('$("overlay").classList.contains("show")&&!deathWait'));});
+fs.writeFileSync(__dirname+'/timing-results.json',JSON.stringify({environment:'Node VM virtual clock; actual game timers, DOM stubs',results},null,2));console.log('Timing',results.filter(x=>x.pass).length+'/'+results.length);for(const r of results.filter(x=>!x.pass))console.log(r);process.exitCode=results.some(x=>!x.pass)?1:0;

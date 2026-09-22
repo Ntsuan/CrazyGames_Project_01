@@ -1,0 +1,8 @@
+{
+  "branches": {"codex/develop": "development", "main": "basic"},
+  "profiles": {
+    "development": {"packageEnabled": true, "testTools": true, "ads": "simulation", "supplies": "simulated-ad", "platformSubmission": false},
+    "basic": {"packageEnabled": true, "testTools": false, "ads": "off", "supplies": "free-60s", "platformSubmission": "requires-platform-QA"},
+    "full": {"packageEnabled": false, "testTools": false, "ads": "crazygames-sdk-pending", "supplies": "pending-sdk", "blockedReason": "CrazyGames SDK ads and cloud-save integration / platform QA are not complete."}
+  }
+}

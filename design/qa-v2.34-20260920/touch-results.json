@@ -1,0 +1,51 @@
+[
+  {
+    "expected": 1,
+    "level": 1,
+    "name": "单指",
+    "pressing": false,
+    "prevented": true
+  },
+  {
+    "expected": 1,
+    "level": 1,
+    "name": "9px抖动",
+    "pressing": false,
+    "prevented": true
+  },
+  {
+    "expected": 0,
+    "level": 0,
+    "name": "11px滑动",
+    "pressing": false,
+    "prevented": false
+  },
+  {
+    "expected": 0,
+    "level": 0,
+    "name": "主手指取消",
+    "pressing": false,
+    "prevented": false
+  },
+  {
+    "expected": 0,
+    "level": 0,
+    "name": "其他手指抬起",
+    "pressing": true,
+    "prevented": false
+  },
+  {
+    "expected": 1,
+    "level": 1,
+    "name": "发起手指抬起只执行一次",
+    "pressing": false,
+    "prevented": true
+  },
+  {
+    "expected": 1,
+    "level": 1,
+    "name": "其他手指移动不干扰主手指",
+    "pressing": false,
+    "prevented": true
+  }
+]

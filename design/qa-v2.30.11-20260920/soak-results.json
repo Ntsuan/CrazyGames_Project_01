@@ -1,0 +1,215 @@
+{
+  "note": "10 seeded runs × 3 prestige cycles; 30 FPS virtual clock; actual game functions with DOM/audio mocks; not real-device soak",
+  "results": [
+    {
+      "seed": 1,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 2,
+          "seconds": 66.10000000000568,
+          "events": 14
+        },
+        {
+          "floor": 1,
+          "seconds": 1.066666666666977,
+          "events": 17
+        },
+        {
+          "floor": 7,
+          "seconds": 247.03333333327245,
+          "events": 63
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 2,
+          "seconds": 70.33333333334024,
+          "events": 12
+        },
+        {
+          "floor": 1,
+          "seconds": 1.066666666666977,
+          "events": 15
+        },
+        {
+          "floor": 2,
+          "seconds": 52.76666666668202,
+          "events": 29
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 2,
+          "seconds": 69.43333333333997,
+          "events": 14
+        },
+        {
+          "floor": 1,
+          "seconds": 1.066666666666977,
+          "events": 17
+        },
+        {
+          "floor": 2,
+          "seconds": 52.400000000015254,
+          "events": 33
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 2,
+          "seconds": 69.8333333333401,
+          "events": 12
+        },
+        {
+          "floor": 1,
+          "seconds": 1.066666666666977,
+          "events": 15
+        },
+        {
+          "floor": 5,
+          "seconds": 176.03333333331054,
+          "events": 47
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 2,
+          "seconds": 66.23333333333905,
+          "events": 9
+        },
+        {
+          "floor": 1,
+          "seconds": 1.066666666666977,
+          "events": 12
+        },
+        {
+          "floor": 3,
+          "seconds": 93.83333333336064,
+          "events": 33
+        }
+      ]
+    },
+    {
+      "seed": 6,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 2,
+          "seconds": 66.46666666667245,
+          "events": 12
+        },
+        {
+          "floor": 1,
+          "seconds": 1.066666666666977,
+          "events": 15
+        },
+        {
+          "floor": 4,
+          "seconds": 133.23333333333838,
+          "events": 38
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 3,
+          "seconds": 102.96666666668307,
+          "events": 22
+        },
+        {
+          "floor": 1,
+          "seconds": 1.066666666666977,
+          "events": 25
+        },
+        {
+          "floor": 3,
+          "seconds": 74.63333333334062,
+          "events": 45
+        }
+      ]
+    },
+    {
+      "seed": 8,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 2,
+          "seconds": 70.56666666667364,
+          "events": 12
+        },
+        {
+          "floor": 1,
+          "seconds": 1.066666666666977,
+          "events": 15
+        },
+        {
+          "floor": 3,
+          "seconds": 89.36666666669268,
+          "events": 34
+        }
+      ]
+    },
+    {
+      "seed": 9,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 2,
+          "seconds": 69.50000000000666,
+          "events": 13
+        },
+        {
+          "floor": 1,
+          "seconds": 1.066666666666977,
+          "events": 16
+        },
+        {
+          "floor": 2,
+          "seconds": 52.666666666682,
+          "events": 27
+        }
+      ]
+    },
+    {
+      "seed": 10,
+      "passed": true,
+      "cycles": [
+        {
+          "floor": 2,
+          "seconds": 66.76666666667253,
+          "events": 9
+        },
+        {
+          "floor": 1,
+          "seconds": 1.066666666666977,
+          "events": 12
+        },
+        {
+          "floor": 10,
+          "seconds": 348.09999999987974,
+          "events": 76
+        }
+      ]
+    }
+  ]
+}

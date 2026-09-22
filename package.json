@@ -1,0 +1,42 @@
+{
+  "name": "crazygames",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview",
+    "test:e2e": "npm run build && playwright test",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm test",
+    "neon:check": "node scripts/neon-tests/release.cjs && node scripts/neon-tests/core.cjs && node scripts/neon-tests/pools.cjs",
+    "neon:build": "node scripts/neon-release.cjs build",
+    "neon:basic": "node scripts/neon-release.cjs build basic",
+    "neon:dev": "node scripts/neon-release.cjs build development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.63.0",
+    "eslint": "10.10.0",
+    "jsfxr": "1.4.1",
+    "prettier": "3.9.6",
+    "sharp": "0.35.4",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.70.0",
+    "vite": "8.2.2",
+    "vitest": "5.0.0"
+  },
+  "dependencies": {
+    "phaser": "4.2.1"
+  }
+}

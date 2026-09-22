@@ -1,0 +1,100 @@
+/* v2.57：封面双模式、全技能选择与战斗文字；信息面板保持平面灰蓝。 */
+#cover .c-inner { max-width:460px; }
+#cover .c-layout { padding-top:64px; padding-bottom:68px; }
+#cover .c-kicker { margin-bottom:18px; }
+#cover .c-logo { font-size:clamp(40px,4.8vw,72px); }
+#cover .c-en { margin-top:12px; }
+#cover .c-modes { display:grid; gap:12px; margin-top:30px; text-align:left; }
+#cover .mode-card { display:flex; align-items:center; gap:16px; width:100%; min-height:102px; margin:0; padding:17px 18px;
+  border:1px solid #55677c; border-radius:4px; background:linear-gradient(110deg,#162437f5,#101c2deb); color:#e4edf8;
+  box-shadow:none; text-align:left; font-family:inherit; line-height:1.3; cursor:pointer; }
+#cover .mode-card.selected { border:2px solid #6bdde7; padding:16px 17px; background:linear-gradient(110deg,#1b3545f5,#132839ed); }
+#cover .mode-card:disabled { opacity:1; cursor:default; color:#abbdd6; background:#101e2de8; border-color:#46576d; }
+#cover .mode-icon { width:48px; flex:0 0 48px; font-size:46px; font-weight:500; text-align:center; line-height:1; color:#9eb6d2; }
+#cover .selected .mode-icon { color:#90f0f3; }
+#cover .mode-copy { display:grid; gap:4px; min-width:0; }
+#cover .mode-copy strong { font-size:22px; font-weight:800; letter-spacing:1px; }
+#cover .mode-rule { font-size:16px; font-weight:700; }
+#cover .mode-copy small { font-size:12px; line-height:1.5; color:#b5c4d7; }
+#cover .mode-copy em { display:inline-block; vertical-align:middle; padding:2px 5px; border:1px solid #60798a; color:#b9dbdf; font-size:10px; font-weight:500; font-style:normal; letter-spacing:0; }
+#cover .mode-check { margin-left:auto; align-self:flex-start; color:#9ceef1; font-size:18px; visibility:hidden; }
+#cover .selected .mode-check { visibility:visible; }
+#cover .c-btn { width:100%; margin-top:20px; min-height:74px; }
+#cover.loading .c-modes { display:none; }
+#modalBox.build-offer { width:760px; max-width:94vw; }
+.build-skills { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; padding:2px 0 8px; }
+#modalBox .build-skills .nh-button { width:100%; min-height:92px; margin:0; padding:12px; text-align:left; justify-content:flex-start; }
+#modalBox .build-skills .nh-button__title { font-size:15px; }
+#modalBox .build-skills .nh-button__detail { font-size:12px; line-height:1.5; white-space:normal; }
+#floorLabel { padding:7px 10px; max-width:calc(50% - 22px); border:1px solid #8195ac55; border-radius:4px;
+  background:linear-gradient(110deg,#101a29ed,#101a29cd); text-shadow:0 1px 2px #000; }
+#floorLabel .fl-stage { color:#f0f4fa; font-size:13px; line-height:1.5; font-weight:700; letter-spacing:0; }
+#floorLabel .fl-sub { color:#e6edf6; font-size:13px; line-height:1.5; font-weight:600; }
+#mobProgress { width:max-content; max-width:calc(100% - 24px); margin:0 auto; padding:5px 9px; border:1px solid #8195ac55; border-radius:4px;
+  color:#eef3fa; background:#101a29e8; font-size:14px; font-weight:700; line-height:1.4; text-shadow:0 1px 2px #000; font-variant-numeric:tabular-nums; }
+#mobProgress b { color:#ffe29b; font-size:16px; } #mobProgress span { color:#d7e1ee; }
+@media (max-width:700px) and (orientation:portrait) {
+  #cover .c-layout { justify-content:flex-end; padding:32svh 20px max(52px,calc(env(safe-area-inset-bottom) + 34px)); }
+  #cover .c-inner { max-width:400px; }
+  #cover .c-kicker { display:none; }
+  #cover .c-logo { font-size:clamp(36px,10.7vw,58px); }
+  #cover .c-modes { margin-top:24px; gap:10px; }
+  #cover .mode-card { min-height:98px; padding:14px 13px; gap:12px; }
+  #cover .mode-card.selected { padding:13px 12px; }
+  #cover .mode-icon { width:42px; flex-basis:42px; font-size:42px; }
+  #cover .mode-copy strong { font-size:21px; }
+  #cover .mode-rule { font-size:16px; }
+  #cover .mode-copy small { font-size:12px; }
+  #cover .c-btn { margin-top:18px; min-height:68px; }
+}
+@media (max-width:600px) {
+  #floorLabel { left:8px; top:8px; padding:4px 7px; max-width:calc(100% - 124px); }
+  #floorLabel .fl-stage,#floorLabel .fl-sub { font-size:12px; }
+  #mobProgress { top:8px; right:8px; margin:0; padding:4px 7px; font-size:13px; }
+  #mobProgress b { font-size:15px; }
+  #btnSpeed.nh-button { right:8px; top:44px; }
+}
+@media (max-width:480px) {
+  .build-skills { grid-template-columns:1fr; gap:10px; }
+  #modalBox .build-skills .nh-button { min-height:76px; }
+}
+@media (max-width:350px) and (orientation:portrait) {
+  #cover .c-layout { padding:25svh 14px 48px; }
+  #cover .c-modes { margin-top:18px; }
+  #cover .mode-card { gap:8px; }
+  #cover .mode-icon { width:34px; flex-basis:34px; font-size:36px; }
+  #cover .mode-copy strong { font-size:19px; }
+  #cover .mode-copy small { font-size:11px; }
+}
+@media (max-height:540px) and (orientation:landscape) {
+  #cover .c-layout { padding:24px 6vw 36px; }
+  #cover .c-inner { width:52%; max-width:440px; }
+  #cover .c-kicker { display:none; }
+  #cover .c-logo { font-size:32px; }
+  #cover .c-en { font-size:10px; margin-top:6px; }
+  #cover .c-modes { margin-top:14px; gap:8px; }
+  #cover .mode-card { min-height:74px; padding:9px 12px; gap:10px; }
+  #cover .mode-card.selected { padding:8px 11px; }
+  #cover .mode-icon { font-size:34px; width:36px; flex-basis:36px; }
+  #cover .mode-copy { gap:1px; }
+  #cover .mode-copy strong { font-size:18px; }
+  #cover .mode-rule { font-size:14px; }
+  #cover .mode-copy small { font-size:11px; }
+  #cover .c-btn { min-height:54px; padding:8px 0; margin-top:12px; font-size:16px; }
+  #cover .c-btn small { margin-top:3px; font-size:10px; }
+}
+
+/* 长阶段名/头目名单行截断，完整名称可通过标题读取；窄屏受阻另起一行。 */
+#floorLabel .fl-stage,#floorLabel .fl-big { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+#mobProgress .mob-wall { font-size:11px; color:#f0d5a4; }
+#mobProgress .mob-wall::before { content:" · "; }
+@media (max-width:600px) {
+  #mobProgress .mob-wall { display:block; line-height:1.4; }
+  #mobProgress .mob-wall::before { content:none; }
+  #arena.hud-blocked #btnSpeed.nh-button { top:62px; }
+}
+
+@media (max-width:600px) {
+  /* 为阶段五较高的人物素材留出HUD上沿空间，窄屏不压住人物头部。 */
+  #arena { min-height:240px; }
+}

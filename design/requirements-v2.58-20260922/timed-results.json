@@ -1,0 +1,170 @@
+[
+  {
+    "name": "尸体保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "已死敌人保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "敌人入场保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "人物过场保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "普通暂停保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "技能选择保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "确认保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "普通弹窗保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "改装卡保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "受阻保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "死亡保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "后台保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "重塑选择保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "补给广告保留三技能时间与显示",
+    "status": "PASS"
+  },
+  {
+    "name": "1倍按实战消耗且各技能独立到期",
+    "status": "PASS"
+  },
+  {
+    "name": "2倍按实战消耗且各技能独立到期",
+    "status": "PASS"
+  },
+  {
+    "name": "4倍按实战消耗且各技能独立到期",
+    "status": "PASS"
+  },
+  {
+    "name": "8倍按实战消耗且各技能独立到期",
+    "status": "PASS"
+  },
+  {
+    "name": "过场只冻结技能时钟，日志时钟和补给在线时钟仍推进",
+    "status": "PASS"
+  },
+  {
+    "name": "广告完成与取消后接着消耗剩余时间",
+    "status": "PASS"
+  },
+  {
+    "name": "暴击再次触发刷新5秒，不累加时长或层数，打盾也触发",
+    "status": "PASS"
+  },
+  {
+    "name": "破盾触发4秒，再次破盾刷新不叠时长",
+    "status": "PASS"
+  },
+  {
+    "name": "暴击破盾同时击杀，三增益立即显示并保留到新怪战斗",
+    "status": "PASS"
+  },
+  {
+    "name": "endless阶段1真实换怪期间不扣无敌/攻速，开战才扣",
+    "status": "PASS"
+  },
+  {
+    "name": "build阶段1真实换怪期间不扣无敌/攻速，开战才扣",
+    "status": "PASS"
+  },
+  {
+    "name": "endless阶段2真实换怪期间不扣无敌/攻速，开战才扣",
+    "status": "PASS"
+  },
+  {
+    "name": "build阶段2真实换怪期间不扣无敌/攻速，开战才扣",
+    "status": "PASS"
+  },
+  {
+    "name": "endless阶段3真实换怪期间不扣无敌/攻速，开战才扣",
+    "status": "PASS"
+  },
+  {
+    "name": "build阶段3真实换怪期间不扣无敌/攻速，开战才扣",
+    "status": "PASS"
+  },
+  {
+    "name": "endless阶段4真实换怪期间不扣无敌/攻速，开战才扣",
+    "status": "PASS"
+  },
+  {
+    "name": "build阶段4真实换怪期间不扣无敌/攻速，开战才扣",
+    "status": "PASS"
+  },
+  {
+    "name": "endless阶段5真实换怪期间不扣无敌/攻速，开战才扣",
+    "status": "PASS"
+  },
+  {
+    "name": "build阶段5真实换怪期间不扣无敌/攻速，开战才扣",
+    "status": "PASS"
+  },
+  {
+    "name": "新敌人已生成但仍暂停等待时不扣时",
+    "status": "PASS"
+  },
+  {
+    "name": "无敌期间仍扣技能时间，到期重新承伤",
+    "status": "PASS"
+  },
+  {
+    "name": "无敌待生效只显示，不提前授予免伤",
+    "status": "PASS"
+  },
+  {
+    "name": "Boss蓄力、攻击间隔均按战斗扣时",
+    "status": "PASS"
+  },
+  {
+    "name": "条件技能按生命阈值显示，不添加倒计时",
+    "status": "PASS"
+  },
+  {
+    "name": "到期仅删除激活状态，仍显示已获得技能说明",
+    "status": "PASS"
+  },
+  {
+    "name": "重塑及复位清理激活状态",
+    "status": "PASS"
+  },
+  {
+    "name": "晋升清理旧增益并保留新阶段基础盾",
+    "status": "PASS"
+  },
+  {
+    "name": "文案精简保持技能机制和面板真实总护盾",
+    "status": "PASS"
+  }
+]

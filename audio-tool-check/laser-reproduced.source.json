@@ -1,0 +1,16 @@
+{
+  "tool": "jfxr",
+  "version": "0.13.0",
+  "source": "https://github.com/ttencate/jfxr",
+  "generated_at": "2026-09-18T07:27:43.963Z",
+  "preset": null,
+  "input": "/Users/zmy/Documents/ChatGPT/CrazyGames_1/audio-tool-check/laser.jfxr",
+  "origin": "User supplied parameters; origin must be retained",
+  "sample_rate": 44100,
+  "channels": 1,
+  "seconds": 0.15201814058956917,
+  "peak": 0.5,
+  "rms": 0.18455897015404604,
+  "sha256": "5dcff7249bfd3e0b29326c800dd57ef3e59c60d6b2b4e7634e7ea37299976529",
+  "rights_source": "https://jfxr.frozenfractal.com"
+}

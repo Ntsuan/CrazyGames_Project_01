@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "environment": "Codex in-app browser; localhost disposable QA fixture; not a real phone or SDK test",
+  "desktop": [
+    "v2.52 boot and loading",
+    "3-second boundary fixture reached ready",
+    "ad preview pauses combat",
+    "cancel preserves eligibility",
+    "complete credits46 and starts60s cooldown",
+    "reload preserves46 gold,1 claim and remaining~31.85s"
+  ],
+  "mobile390x844": [
+    "fixture toolbar initially obstructed input; added hide-tool control, production unchanged",
+    "ad preview fits viewport",
+    "cancel and retry work",
+    "complete returns to60s cooldown"
+  ],
+  "consoleErrors": [],
+  "screenshots": [
+    "desktop-crate.png",
+    "mobile-crate.png"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "sourceUnchanged": true,
+  "changed": [],
+  "snapshotSHA256": "750b631e15c2b749cd40eb702b8e763b7006c291490188a99e2f5daf4ecc5246",
+  "scope": "INPUT-01 and SPEED-01 targeted regression; not full game regression",
+  "syntax": "PASS",
+  "nativeUI": [
+    "start",
+    "attack upgrade",
+    "skill choice"
+  ],
+  "cleanup": "isolated storage cleared, browser tab closed, viewport reset, server stopped"
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "frames": [],
+    "name": "exit transition",
+    "speed": 1,
+    "totalMs": 2960,
+    "transition": "1.2s"
+  },
+  {
+    "callbackMs": 500,
+    "duration": "0.5s",
+    "name": "tianshu charge",
+    "speed": 1
+  },
+  {
+    "frames": [
+      {
+        "left": 264.188,
+        "ms": 488,
+        "transition": "left"
+      },
+      {
+        "left": 271.797,
+        "ms": 504,
+        "transition": "left"
+      },
+      {
+        "left": 280.375,
+        "ms": 523,
+        "transition": "left"
+      },
+      {
+        "left": 288.281,
+        "ms": 538,
+        "transition": "left"
+      },
+      {
+        "left": 296.375,
+        "ms": 555,
+        "transition": "left"
+      },
+      {
+        "left": 304.578,
+        "ms": 572,
+        "transition": "left"
+      },
+      {
+        "left": 320.766,
+        "ms": 588,
+        "transition": "opacity"
+      },
+      {
+        "left": 320.766,
+        "ms": 605,
+        "transition": "opacity"
+      },
+      {
+        "left": 320.766,
+        "ms": 622,
+        "transition": "opacity"
+      }
+    ],
+    "name": "exit transition",
+    "speed": 2,
+    "totalMs": 1756,
+    "transition": "0.6s"
+  },
+  {
+    "callbackMs": 250,
+    "duration": "0.25s",
+    "name": "tianshu charge",
+    "speed": 2
+  },
+  {
+    "currentTransition": "0.36s",
+    "elapsedMs": 421,
+    "name": "mid-run 1x to 2x",
+    "newRunCfg": 180
+  }
+]

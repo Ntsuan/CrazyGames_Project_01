@@ -1,0 +1,8 @@
+{
+  "version": "v2.51",
+  "baseline": "v2.50",
+  "gameSha256": "91086f3fa8de3af2e9b2479bf8c319d748504b0ab8f5707d6c9951cd7259621a",
+  "baselineSha256": "9975a8e2ec80befa21bcb782d90ec54f914a8ebae772eb3c50ce05a3d3a3ea18",
+  "snapshotIdentical": true,
+  "productionHasQaControls": false
+}
