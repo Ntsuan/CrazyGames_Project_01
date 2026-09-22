@@ -1,6 +1,21 @@
 # CrazyGames 游戏项目交接
 
-更新日期：2026-09-20
+更新日期：2026-09-21
+
+## 当前有效状态：搜打撤项目已取消（2026-09-21 核对）
+
+用户已明确：搜打撤游戏已取消。下方搜打撤玩法、原型范围、数值及开发待办，以及本目录的 GAME_DESIGN.md、GAME_BALANCE.md、PROTOTYPE_SPEC.md，均保留为旧方案历史资料，不再作为现行开发需求。下方 2026-09-20 工作目录约定也已被实际项目的最新交接覆盖。
+
+当前游戏为《霓虹猎手》，是赛博朋克放置战斗爬塔游戏，核心循环为自动战斗爬塔 → 死亡／受阻后强制重塑 → 碎片与装备变现结算 → 永久加成树消费 → 再战；已取消离线收益。
+
+- 实际游戏工程：`/Users/zmy/WorkBuddy/CrazyGames`。本目录是旧环境工程与历史资料，不是当前游戏实现目录。
+- 接手先读：[协作约定](/Users/zmy/WorkBuddy/CrazyGames/AGENTS.md)、[当前交接文档](/Users/zmy/WorkBuddy/CrazyGames/交接文档.md)、[最新修改与接手记录](/Users/zmy/WorkBuddy/CrazyGames/design/数值调整记录.md)。
+- 游戏入口：[game/index.html](/Users/zmy/WorkBuddy/CrazyGames/game/index.html)，采用纯 HTML/CSS/JavaScript 单文件实现，不沿用本目录 Phaser 环境工程作为当前技术状态。
+- 本次读取代码 VERSION 与 CHANGELOG 确认本地版本为 v2.43；最新交接记录为裂爪巡猎蛛加入普通敌人池。记录注明该版本未发布，真机验收仍待完成；本次未重新运行测试或核验线上。
+
+本次由 Codex 修正旧交接入口，保留原有目录约定和历史内容；未修改游戏代码、数值或版本。
+
+## 以下为旧项目历史记录
 
 本文件记录项目需求、决策、进度和待办。工作习惯与协作约定见 [agent.md](agent.md)。
 
@@ -11,6 +26,16 @@
 开发工具、配置原则和启用顺序见 [TOOLCHAIN.md](TOOLCHAIN.md)。
 
 推荐 skills 与后续工作流引入方案见 [SKILLS_WORKFLOW.md](SKILLS_WORKFLOW.md)：首批 8 个，按原型、存档、手感和动画阶段引入，安装与验证进度见下节。
+
+## 工作目录约定（2026-09-20 用户确认）
+
+| 用途 | 绝对路径 |
+| --- | --- |
+| WorkBuddy 工作文件夹 | `/Users/zmy/WorkBuddy/CrazyGames` |
+| 本项目工作文件夹 | `/Users/zmy/Documents/ChatGPT/CrazyGames_1` |
+| 美术素材文件夹 | `/Users/zmy/Documents/Codex/2026-09-15/xian/outputs` |
+
+后续本项目的工程编辑、命令执行和 Git 操作默认在本项目工作文件夹进行；查阅 WorkBuddy 工作文件或美术素材时，按上表定位对应目录。跨目录引用与交接应明确来源和目标路径。本次仅记录目录约定，未执行目录同步或素材导入。
 
 ## 2026-09-20 仓库与提交历史更新
 
