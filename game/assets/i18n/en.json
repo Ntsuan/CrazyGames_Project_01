@@ -388,5 +388,9 @@
   "音乐": "Music",
   "音乐音量": "Music volume",
   "音乐设置暂未保存": "Music settings could not be saved.",
-  "音效、音乐设置与阶段记录保留；倍速资格重新积累。": "Sound and music settings and stage records are kept; speed eligibility must be earned again."
+  "音效、音乐设置与阶段记录保留；倍速资格重新积累。": "Sound and music settings and stage records are kept; speed eligibility must be earned again.",
+  "导出存档备份": "Export save backup",
+  "正在读取存档…": "Reading save…",
+  "正在连接存档…": "Connecting to save…",
+  "存档连接失败，请重试。原始进度未被覆盖。": "Save connection failed. Please retry. Original progress is intact."
 }

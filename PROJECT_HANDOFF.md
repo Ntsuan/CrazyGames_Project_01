@@ -1,5 +1,7 @@
 # CrazyGames 游戏项目交接
 
+> **2026-09-28 Codex：开发分支v2.78已接入CrazyGames SDK v3 Game/Data。** SDK初始化后才读取双模式进度；旧本地档一次迁移，已有云档优先，原始数据保留作备份；平台Data不可用时封面阻断并提供重试/导出。Basic不接广告，Full仍封锁，main暂留v2.77。发布15/15、技能38/38，核心75/76（既有C75失败）；模拟SDK专项、双配置各210文件包及本地Basic英文启动/入场通过。CrazyGames Preview账号与跨设备、实体手机、Progress Save选项未验，未平台上线。回退至v2.77快照及本轮提交父提交；见[实施报告](design/sdk-cloud-v2.78-20260928/修改与验证.md)。
+
 > **2026-09-28 Codex：v2.77 GitHub同步。** 以WorkBuddy实际编辑工程为来源，将v2.65–v2.77运行源码、素材、快照和交接资料同步到本Git目录。`codex/develop`保持development，`main`按PR使用basic；两配置各209文件包与检查通过。发布15/15、技能38/38；核心75/76，既有C75仍失败。SDK、云存档、实体手机和CrazyGames Preview仍待做；GitHub推送不等于平台发布。回退到同步前的开发分支`70ab0d5`、主分支`6818f37`，详见[本轮记录](design/github-sync-v2.77-20260928/修改与验证.md)。下方v2.73状态是同步前的历史记录。
 
 > **2026-09-28 Codex：实际编辑工程已更新至v2.73，新场景接入完成。** 11张普通背景随机，百层使用天台，中英文同步。实际源码位于`/Users/zmy/WorkBuddy/CrazyGames`；本Git同步目录运行源码仍为v2.64，未执行双向覆盖。场景14/14、发布15/15、技能38/38，核心75/76（既有C75）；双配置205文件打包通过，未推送或发布。详见[实际工程接入报告](/Users/zmy/WorkBuddy/CrazyGames/design/scenes-v2.73-20260928/修改与验证.md)。
