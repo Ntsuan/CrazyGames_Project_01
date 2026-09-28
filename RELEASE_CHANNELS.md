@@ -1,6 +1,6 @@
 # GitHub 分支与发布配置
 
-2026-09-22 · Codex · Neon Hunter v2.63
+2026-09-28 · Codex · Neon Hunter v2.77
 
 | Git 分支 | 源码默认配置 | 用途 |
 | --- | --- | --- |
@@ -26,10 +26,11 @@ node scripts/neon-release.cjs check codex/develop
 npm run neon:check
 npm run neon:basic
 npm run neon:dev
-node scripts/neon-tests/package.cjs
+node scripts/neon-tests/package.cjs basic
+node scripts/neon-tests/package.cjs development
 ```
 
-出包目录：`dist/neon/basic` 或 `dist/neon/development`；对应清单在上一级`*-manifest.json`。package检查验证的是源码当前通道，需先构建该通道。上传CrazyGames时使用Basic运行包，index.html在ZIP根部。不要上传整个源码仓库或development包。
+出包目录：`dist/neon/basic` 或 `dist/neon/development`；对应清单在上一级`*-manifest.json`。package检查可显式指定basic或development，省略时验证源码当前通道；需先构建对应通道。上传CrazyGames时使用Basic运行包，index.html在ZIP根部。不要上传整个源码仓库或development包。
 
 本地预览示例：`python3 -m http.server 8000 --directory dist/neon/basic`。
 
@@ -62,7 +63,7 @@ node scripts/neon-tests/package.cjs
 - `game/`、`design/`、`交接文档.md`为当前工程；原`src/`和旧Phaser配置是历史环境，不能替代当前发布包。
 - 私人工作工具缓存、文件夹授权数据和玩家测试日志不上传。发布包与Git源码包分开。
 
-本轮冻结说明：同步期间WorkBuddy目录出现其他任务的音效修改，GitHub版本使用已通过本轮测试的v2.63运行源（保存在实际工程design/release-v2.63-20260922/verified/game/index.html）。这些并行音效代码未纳入本次分支提交，也未覆盖实际工作目录中的修改。后续同步须以差异合并为准，不能整目录反向覆盖。
+v2.63 GitHub提交时的历史冻结说明：同步期间WorkBuddy目录出现其他任务的音效修改，GitHub版本使用已通过本轮测试的v2.63运行源（保存在实际工程design/release-v2.63-20260922/verified/game/index.html）。这些并行音效代码未纳入本次分支提交，也未覆盖实际工作目录中的修改。后续同步须以差异合并为准，不能整目录反向覆盖。
 
 ## 分支保护
 
@@ -70,3 +71,10 @@ node scripts/neon-tests/package.cjs
 - main要求通过PR更新，批准人数设为0（适配个人项目）；合并前必须通过`Validate and package`且解决讨论，检查要求与目标分支保持最新。
 - codex/develop允许正常直接提交，开发中的失败会保留在Actions结果里，不阻断后续修复提交。
 - main仍是GitHub默认分支；这只是源码与候选构建管理，不启用自动平台发布。
+## 历史：本地 Basic v2.64（2026-09-22）
+
+已同步移动音效并合入打包兼容补丁；本地两种配置均为v2.64，源配置仍为development。Basic运行包135个文件，ZIP为`dist/neon/neon-hunter-v2.64-basic.zip`。本轮未提交或推送GitHub，远端分支仍为v2.63。验证与回退见 [本地升级报告](design/basic-v2.64-20260922/修改与验证.md)。
+
+## v2.77 GitHub 同步（2026-09-28）
+
+实际编辑工程v2.65–v2.77的运行源码、素材、版本快照与交接资料已整理到Git同步目录；开发分支保持`development`，发布分支经PR使用`basic`。SDK与云存档仍未接入，本轮仅推送GitHub源码，不提交CrazyGames平台。`npm run neon:check`为发布15/15、技能38/38、核心75/76，既有C75仍失败；两配置各209个运行文件，匹配包检查通过。详见[同步与验证](design/github-sync-v2.77-20260928/修改与验证.md)。
