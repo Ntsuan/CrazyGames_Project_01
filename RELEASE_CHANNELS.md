@@ -1,6 +1,6 @@
 # GitHub 分支与发布配置
 
-2026-09-28 · Codex · Neon Hunter v2.78（开发分支；main仍为v2.77 Basic候选）
+2026-09-28 · Codex · Neon Hunter v2.79（开发分支；main仍为v2.77 Basic候选）
 
 | Git 分支 | 源码默认配置 | 用途 |
 | --- | --- | --- |
@@ -59,6 +59,8 @@ node scripts/neon-tests/package.cjs
 ## v2.78 SDK与Data开发（2026-09-28）
 
 `codex/develop`保留development并接入SDK v3的Game/Data；`main`暂不晋升。开发分支Basic/development测试包各210运行文件、31.38 MiB，专项与回退见[实施报告](design/sdk-cloud-v2.78-20260928/修改与验证.md)。不接真实广告、不提交CrazyGames；Full仍因广告与平台验证未完成被禁止打包。核心既有C75继续单独报告为75/76。
+
+v2.79调整Game模块事件边界，同层换怪不中断Gameplay；见[事件修正与验证](design/sdk-gameplay-v2.79-20260928/修改与验证.md)。
 
 ## 工作目录与历史资料
 

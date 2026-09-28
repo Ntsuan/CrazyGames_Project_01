@@ -1,5 +1,10 @@
 # CHANGELOG - 霓虹猎手（Neon Hunter）
 
+## v2.79（2026-09-28）— Codex 修正 SDK Gameplay 事件边界
+
+- 同一楼层内敌人死亡和下一只敌人跑入视为连续玩法，不再反复发送 gameplayStop/Start；楼层转场、暂停和游戏内弹窗仍正常停止，返回可玩状态再开始。
+- 保留 v2.78 Data 云存档、Basic 无广告和双模式行为；验证及回退见 design/sdk-gameplay-v2.79-20260928/修改与验证.md。既有核心 C75 继续单独报告。
+
 ## v2.78（2026-09-28）— Codex 接入 CrazyGames SDK 与 Data 云存档
 
 - CrazyGames 域名与本地 SDK 预览先初始化 SDK v3/Data，再读取双模式存档；平台 Data 不可用时停在封面，提供重试和原始备份导出，不生成新档覆盖进度。

@@ -22,8 +22,11 @@ async function run(){
   const game=require('./harness.cjs').make();
   assert.equal(game.json('sdkGameplayRunning()'),true);
   game.run('document.hidden=true');assert.equal(game.json('sdkGameplayRunning()'),true);
+  game.run('enemyEntering=true;cur.hp=0');assert.equal(game.json('sdkGameplayRunning()'),true);
+  game.run('transit=true');assert.equal(game.json('sdkGameplayRunning()'),false);
+  game.run('transit=false');
   game.run('gameSettingsOpen=true');assert.equal(game.json('sdkGameplayRunning()'),false);
-  console.log('PASS gameplay lifecycle ignores focus loss and stops for in-game settings');
+  console.log('PASS gameplay lifecycle ignores focus and mob changes, stops for floor transition and settings');
 
   let x=setup({local:{neonHunter:save,'neonHunter.build':build,neonHunterModes:JSON.stringify({schema:1,selected:'build',buildUnlocked:true})}});
   let result=await x.platform.init(validate);assert.equal(result.cloud,true);

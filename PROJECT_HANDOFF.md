@@ -1,5 +1,7 @@
 # CrazyGames 游戏项目交接
 
+> **2026-09-28 Codex：开发分支v2.79修正SDK Gameplay事件。** 同一楼层换怪保持连续Gameplay；楼层转场、设置/技能弹窗等中断仍触发Stop，失焦不手动Stop。v2.78 Data云存档与Basic无广告保持。发布15/15、技能38/38、SDK专项及双配置各210文件包通过；核心75/76（既有C75失败）。平台Preview账号/事件节奏和实体手机待验，main仍v2.77。回退v2.78快照；见[修改与验证](design/sdk-gameplay-v2.79-20260928/修改与验证.md)。
+
 > **2026-09-28 Codex：开发分支v2.78已接入CrazyGames SDK v3 Game/Data。** SDK初始化后才读取双模式进度；旧本地档一次迁移，已有云档优先，原始数据保留作备份；平台Data不可用时封面阻断并提供重试/导出。Basic不接广告，Full仍封锁，main暂留v2.77。发布15/15、技能38/38，核心75/76（既有C75失败）；模拟SDK专项、双配置各210文件包及本地Basic英文启动/入场通过。CrazyGames Preview账号与跨设备、实体手机、Progress Save选项未验，未平台上线。回退至v2.77快照及本轮提交父提交；见[实施报告](design/sdk-cloud-v2.78-20260928/修改与验证.md)。
 
 > **2026-09-28 Codex：v2.77 GitHub同步。** 以WorkBuddy实际编辑工程为来源，将v2.65–v2.77运行源码、素材、快照和交接资料同步到本Git目录。`codex/develop`保持development，`main`按PR使用basic；两配置各209文件包与检查通过。发布15/15、技能38/38；核心75/76，既有C75仍失败。SDK、云存档、实体手机和CrazyGames Preview仍待做；GitHub推送不等于平台发布。回退到同步前的开发分支`70ab0d5`、主分支`6818f37`，详见[本轮记录](design/github-sync-v2.77-20260928/修改与验证.md)。下方v2.73状态是同步前的历史记录。
