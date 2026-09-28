@@ -30,6 +30,8 @@ jobs:
         run: node scripts/neon-tests/core.cjs
       - name: Skill-pool regression
         run: node scripts/neon-tests/pools.cjs
+      - name: SDK and cloud-save regression
+        run: node scripts/neon-tests/sdk-cloud.cjs
       - name: Package current channel
         run: node scripts/neon-release.cjs build
       - name: Validate package and blocked Full channel
