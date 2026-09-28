@@ -351,7 +351,6 @@ window.NeonEnglish = {
   "{0} 分钟 · 过 {1} 层 · {2} 事件{3}": "{0} min · {1} floors cleared · {2} events{3}",
   "· 首卡 {0} 层": "· First block: Floor {0}",
   "暂无测试段": "No test sessions yet",
-  "· CrazyGames 版": "· CrazyGames Edition",
   "⚠️ 清除存档": "⚠️ Clear Save",
   "确定清空{0}的全部进度吗？此操作不可恢复。另一模式进度和构筑解锁状态保留。": "Clear all progress in {0}? This cannot be undone. The other mode and Build Mode unlock will be kept.",
   "确认清除并开始新游戏": "Clear Save & Start New Game",
@@ -376,5 +375,19 @@ window.NeonEnglish = {
   "免费补给 · 每60秒可领取": "Free supplies · Every 60 seconds",
   "补给暂不可用": "Supplies unavailable",
   "存档暂不可读取。请保留备份并重试，原始进度不会被覆盖。": "Save unavailable. Keep your backup and try again. Your existing progress will not be overwritten.",
-  "装备回收": "Equipment salvage"
+  "装备回收": "Equipment salvage",
+  "回到首页": "Back to Home",
+  "返回游戏": "Return to Game",
+  "办公室": "Office",
+  "餐厅": "Restaurant",
+  "酒吧": "Bar",
+  "娱乐层": "Arcade",
+  "实验室": "Laboratory",
+  "生产线": "Production Line",
+  "仓库": "Warehouse",
+  "楼顶天台": "Rooftop",
+  "音乐": "Music",
+  "音乐音量": "Music volume",
+  "音乐设置暂未保存": "Music settings could not be saved.",
+  "音效、音乐设置与阶段记录保留；倍速资格重新积累。": "Sound and music settings and stage records are kept; speed eligibility must be earned again."
 };

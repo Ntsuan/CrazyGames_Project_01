@@ -1,6 +1,6 @@
 # Neon Hunter / 霓虹猎手
 
-当前游戏为v2.63 HTML/CSS/JavaScript放置爬塔游戏，入口 `game/index.html`。GitHub仓库：Ntsuan/CrazyGames_Project_01。
+当前游戏为v2.77 HTML/CSS/JavaScript放置爬塔游戏，入口 `game/index.html`。GitHub仓库：Ntsuan/CrazyGames_Project_01。
 
 - `codex/develop`：开发版，保留测试工具和模拟广告。
 - `main`：Basic候选版，关闭测试功能/广告模拟，补给在线60秒免费领取。
