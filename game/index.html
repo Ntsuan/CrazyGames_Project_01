@@ -464,9 +464,10 @@
 <link rel="stylesheet" href="assets/stages/stages.css?v=2470">
 <link rel="stylesheet" href="assets/stages/upgrade.css?v=2490">
 <link rel="stylesheet" href="assets/start-screen/modes.css?v=2590">
-<script src="assets/i18n/en.js?v=2630"></script>
+<script src="assets/i18n/en.js?v=2750"></script>
 <script src="assets/i18n/runtime.js?v=2620"></script>
 <link rel="stylesheet" href="assets/i18n/layout.css?v=2620">
+<link rel="stylesheet" href="assets/navigation.css?v=2770">
 </head>
 <body class="booting">
   <div id="topbar">
@@ -475,13 +476,27 @@
       <div class="tag" id="topVer"></div>
     </div>
     <div class="tools">
-      <button id="btnCover" onclick="returnToCover()">封面</button>
-      <button data-dev-only id="btnTestSpeed" class="gold" hidden onclick="toggleTestSpeed()" title="测试专用：1× / 4× / 8×，刷新恢复常速">测试 1×</button>
-      <button data-dev-only onclick="askReset()">🔄 复位</button>
-      <button data-dev-only class="mag" onclick="endTest()">⏹️ 结束测试</button>
-      <button data-dev-only class="gold" onclick="toggleDrawer()">📋 日志</button>
+      <div class="dev-actions">
+        <button data-dev-only id="btnTestSpeed" class="gold" hidden onclick="toggleTestSpeed()" title="测试专用：1× / 4× / 8×，刷新恢复常速">测试 1×</button>
+        <button data-dev-only onclick="askReset()">🔄 复位</button>
+        <button data-dev-only class="mag" onclick="endTest()">⏹️ 结束测试</button>
+        <button data-dev-only class="gold" onclick="toggleDrawer()">📋 日志</button>
+      </div>
+      <div class="nav-actions">
+        <button id="btnCover" class="nh-button nh-button--neutral nav-button" onclick="returnToCover()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 11 12 3l9 8M5.5 10v11h5v-7h3v7h5V10"/></svg><span>回到首页</span></button>
+        <button id="btnGameSettings" class="nh-button nh-button--neutral nav-button gear-button" type="button" aria-label="设置" aria-controls="gameSettings" aria-expanded="false" onclick="toggleGameSettings()"><span class="gear-glyph" aria-hidden="true">⚙</span></button>
+      </div>
     </div>
   </div>
+  <div id="gameSettingsScrim" hidden onclick="closeGameSettings()"></div>
+  <section id="gameSettings" role="dialog" aria-modal="true" aria-labelledby="gameSettingsTitle" hidden>
+    <h2 id="gameSettingsTitle">设置</h2>
+    <div class="game-settings-row"><label for="gameLanguageSelect">语言</label><select id="gameLanguageSelect" data-language-select data-no-i18n onchange="changeLanguage(this.value)"><option value="en">English</option><option value="zh">中文</option></select></div>
+    <div class="game-settings-row"><span id="gameSfxLabel">音效</span><button id="gameSfxToggle" type="button" class="audio-toggle" aria-labelledby="gameSfxLabel gameSfxVal" aria-pressed="true" onclick="toggleSfx()"><span id="gameSfxVal">开</span></button></div>
+    <div class="game-settings-row"><span id="gameMusicLabel">音乐</span><button id="gameMusicToggle" type="button" class="audio-toggle" aria-labelledby="gameMusicLabel gameMusicVal" aria-pressed="true" onclick="toggleMusic()"><span id="gameMusicVal">开</span></button></div>
+    <div class="game-settings-row music-volume-row"><label for="gameMusicVolume">音乐音量</label><input id="gameMusicVolume" type="range" min="0" max="100" step="1" value="60" oninput="setMusicVolume(this.value)"><output id="gameMusicPercent" for="gameMusicVolume" data-no-i18n>60%</output></div>
+    <button id="gameSettingsClose" class="nh-button nh-button--neutral" type="button" onclick="closeGameSettings()">返回游戏</button>
+  </section>
 
   <div id="arena">
     <div id="floorLabel"></div>
@@ -570,10 +585,12 @@
         <button class="c-btn nh-button nh-button--primary" id="btnStart"></button>   <!-- v2.30.6：并入按钮体系，吃按下反馈+触摸桥 -->
       </div>
     </div>
-    <button class="c-gear" aria-label="设置" onclick="document.getElementById('coverSettings').classList.toggle('show')">⚙</button>
+    <button class="c-gear" aria-label="设置" onclick="toggleCoverSettings()">⚙</button>
     <div class="c-settings" id="coverSettings">
       <div class="row2"><label for="languageSelect">语言</label><select id="languageSelect" data-language-select data-no-i18n aria-label="Language / 语言" onchange="changeLanguage(this.value)"><option value="en">English</option><option value="zh">中文</option></select></div>
-      <div class="row2" onclick="toggleSfx()"><span>音效</span><span class="val" id="sfxVal">开</span></div>
+      <div class="row2 audio-setting-row"><span id="coverSfxLabel">音效</span><button id="coverSfxToggle" type="button" class="audio-toggle" aria-labelledby="coverSfxLabel sfxVal" aria-pressed="true" onclick="toggleSfx()"><span id="sfxVal">开</span></button></div>
+      <div class="row2 audio-setting-row"><span id="coverMusicLabel">音乐</span><button id="coverMusicToggle" type="button" class="audio-toggle" aria-labelledby="coverMusicLabel coverMusicVal" aria-pressed="true" onclick="toggleMusic()"><span id="coverMusicVal">开</span></button></div>
+    <div class="row2 music-volume-row"><label for="coverMusicVolume">音乐音量</label><input id="coverMusicVolume" type="range" min="0" max="100" step="1" value="60" oninput="setMusicVolume(this.value)"><output id="coverMusicPercent" for="coverMusicVolume" data-no-i18n>60%</output></div>
       <div data-dev-only class="row2" onclick="toggleDrawer();this.parentElement.classList.remove('show')"><span>测试日志</span><span class="val">查看</span></div>
       <div data-dev-only class="row2 danger" onclick="askCoverReset()"><span class="danger">清除存档</span><span class="val danger">二次确认</span></div>
     </div>
@@ -765,7 +782,13 @@ function writeStageState(next){
   try{localStorage.setItem(saveKey(),JSON.stringify(next));S=next;rememberBuildUnlock();return true;}
   catch(e){return false;}
 }
+// 场景种子独立于战斗/掉落随机；随模式存档保存，同层读取不重抽。
+function createSceneSeed(){
+  if(window.crypto?.getRandomValues) return window.crypto.getRandomValues(new Uint32Array(1))[0];
+  return (Date.now()^Math.floor(visualRandom()*4294967296))>>>0;
+}
 function freshState(){ return {
+  sceneSeed:createSceneSeed(),
   mode:gameMode,
   economySchema:ECONOMY_SCHEMA, crateCooldownMs:CRATE_INTERVAL_MS,
   stageSchema:STAGE_SCHEMA, stage:1, stageHistory:[], stageUpgrade:null, legacyUpgradeEligible:false,
@@ -784,6 +807,9 @@ function save(){
 }
 const SAVE_V=1;   // v2.29：存档版本标记——历史迁移只在旧档执行一次（修每次读档 q+2）
 function load(){
+  uiSfx.newState();
+  flowSfx.milestoneId=null;flowSfx.clearId=null;flowSfx.blockedId=null;
+  battleSfx.lowHealthArmed=true;
   saveBlocked=false;
   try{ const raw=localStorage.getItem(saveKey()), d=JSON.parse(raw); if(d) {
     validateStageSave(d);
@@ -802,6 +828,7 @@ function load(){
       d.legacyUpgradeEligible=d.floor>100||d.maxFloor>=100||d.prestigeOffer?.floor>=100||d.pendingOffer?.floor>=100;
     }
     S=Object.assign(freshState(),d);
+    if(!Number.isInteger(S.sceneSeed)||S.sceneSeed<0||S.sceneSeed>4294967295) S.sceneSeed=createSceneSeed();
     S.tree=Object.assign({dmg:0,gold:0,soul:0},S.tree); delete S.tree.offline;   // v2.21：旧档 offline 字段清除
     S.skills=(S.skills||[]).filter(k=>SKILLS[k]);   // v2.24.14：已删技能静默剔除
     [...S.inv,...Object.values(S.equip).filter(Boolean)].forEach(it=>{
@@ -810,6 +837,7 @@ function load(){
     });
     S.stageHistory=Array.isArray(S.stageHistory)?S.stageHistory:[];
     S.v=SAVE_V; S.mode=gameMode; rememberBuildUnlock();
+    uiSfx.restorePanels();
     S.mobIdx=0; S.playerHp=null;   // v2.32：读档=回本层起点（收益不回退）
     return true; } }catch(e){saveBlocked=true;}
   S=freshState(); return false;
@@ -838,6 +866,7 @@ function commitStageUpgrade(){
   confirmOpen=false;pendingSkillOffer=null;skillOfferOpen=false;curOffer=[];
   lastOfferPool=null;lastOfferFloor=null;pendingTransit=false;transit=false;wall=false;paused=true;
   buff={adrenaline:0,critsurge:0,soulrush:0};player={hp:calcStats().hp,shield:0,pendingInvuln:0,invulnUntil:0};
+  battleSfx.lowHealthArmed=true;
   atkTimer=0;floorGoldEarned=0;dispFloor=1;speedDropNotified=false;
   $("player").classList.remove("cloaked","shielded");$("playerSpr").classList.remove("death","atk","run");
   $("player").setAttribute?.("data-stage",String(S.stage));
@@ -852,7 +881,7 @@ function completeStageAnimation(){
     stageMessage(L("演出已完成，存档写入失败。请释放存储空间后重试。"));
     $("stageActions").innerHTML=prestigeButton("upgrade","completeStageAnimation()",L("重试保存"),L("保存后继续"));return false;
   }
-  logEvent("stage_animation_complete",{stage:S.stage});showStageUpgrade();return true;
+  logEvent("stage_animation_complete",{stage:S.stage});showStageUpgrade();uiSfx.play("upgradeComplete");return true;
 }
 function enterNextStage(){
   if(S.stageUpgrade?.status!=="complete") return false;
@@ -877,6 +906,7 @@ function stageSteps(n){return `<ol class="stage-steps">${STAGES.slice(1).map((c,
 function showStageUpgrade(){
   if(deferForCrate(4,()=>showStageUpgrade()))return;
   const u=S.stageUpgrade;if(!u||boot.phase!=="playing") return;
+  stageAudio.stop();
   if(stageClock.raf!=null) cancelAnimationFrame(stageClock.raf);
   stageClock.raf=null;beginPresentationRun();paused=true;transit=false;pendingTransit=false;
   confirmOpen=false;pendingSkillOffer=null;skillOfferOpen=false;prestigeAd=null;adRelease();
@@ -889,7 +919,7 @@ function showStageUpgrade(){
   if(u.status==="clear"){
     box.innerHTML=L`${header}<div class="stage-eyebrow">STAGE ${u.from} / 05 · COMPLETE</div><h2 id="stageTitle">第 ${u.from} 阶段已通关</h2><p class="stage-lead">完成义体改装，开启下一阶段</p>${portrait}${stats}
       <div class="stage-info"><b>阶段自带 · 应急护盾 Lv.${stageShieldLevel(u.from)} → Lv.${stageShieldLevel(u.to)}</b><p>每场战斗获得最大生命 ${stageShieldLevel(u.to)*10}% 的护盾，可与本轮技能叠加。</p></div>
-      <div class="stage-info"><b>改装后，从第 1 层重新开始</b><p>信用点、已有与本轮碎片、装备与背包、强化、本轮获取的技能及加成树全部清零。装备不回收为启动资金。</p><p>音效设置与阶段记录保留；倍速资格重新积累。</p></div>
+      <div class="stage-info"><b>改装后，从第 1 层重新开始</b><p>信用点、已有与本轮碎片、装备与背包、强化、本轮获取的技能及加成树全部清零。装备不回收为启动资金。</p><p>音效、音乐设置与阶段记录保留；倍速资格重新积累。</p></div>
       ${u.legacy?L('<div class="stage-info">旧存档升级预览：已保留你的原有资源与已结算选择，确认后只进入第 2 阶段。</div>'):''}
       <p id="stageMessage" role="status"></p><div id="stageActions">${prestigeButton("upgrade","commitStageUpgrade()",L("开始义体改装"),L`进入阶段 ${u.to} · ${to.name}`,"cybernetics")}</div>`;
   }else if(u.status==="playing"){
@@ -908,6 +938,9 @@ function showStageUpgrade(){
       <p id="stageMessage" role="status"></p><div id="stageActions">${prestigeButton("cyan","enterNextStage()",S.stage===5?L("开启无尽挑战"):L("进入第 1 层"),L("使用新的基础属性开始挑战"),"enter-game")}</div>`;
   }
   box.focus?.({preventScroll:true});
+  if(u.status==="clear"&&!u.legacy&&flowSfx.clearId===u.id){
+    flowSfx.clearId=null;uiSfx.play("milestone");
+  }
 }
 function persistStagePlayback(){
   const u=S.stageUpgrade;if(!u||u.status!=="playing"||u.id!==stageClock.id) return false;
@@ -919,10 +952,11 @@ function playStageFrame(now){
   stageClock.raf=null;
   const u=S.stageUpgrade;if(!u||u.status!=="playing"||u.id!==stageClock.id) return;
   // 不把后台、窗口卡顿或挂起时间折算为已观看时间。
-  if(document.hidden){stageClock.last=null;stageClock.raf=requestAnimationFrame(playStageFrame);return;}
+  if(document.hidden){stageClock.last=null;stageAudio.stop();stageClock.raf=requestAnimationFrame(playStageFrame);return;}
   const pack=UPGRADE_PACKS[u.from],api=window[pack.api];
   const assets=Object.fromEntries(Object.entries(pack[UPGRADE_TIER]).map(([name,url])=>[name,boot.assets.find(a=>a.url===url&&a.state==="ready")?.image]));
   if(!api||Object.values(assets).some(img=>!img)){
+    stageAudio.stop();
     stageMessage(L("演出素材尚未就绪，请重试加载。"));
     $("stageActions").innerHTML=prestigeButton("upgrade","retryStageAssets()",L("重试加载"),L("保留当前改装进度"));return;
   }
@@ -936,10 +970,12 @@ function playStageFrame(now){
     $("upgradeFill").style.width=(stageClock.elapsed/8*100)+"%";
     $("upgradeProgress").setAttribute("aria-valuenow",String(Math.floor(stageClock.elapsed/8*100)));
   }catch(e){
+    stageAudio.stop();
     stageClock.elapsed=Math.max(u.elapsed,stageClock.elapsed-dt);stageClock.last=null;
     stageMessage(L("演出暂时无法显示，请重试。进度已保留。"));
     $("stageActions").innerHTML=prestigeButton("upgrade","showStageUpgrade()",L("重试演出"),L("从已保存的播放位置继续"));return;
   }
+  stageAudio.sync();
   if(stageClock.elapsed-(stageClock.attemptAt||0)>=.5){stageClock.attemptAt=stageClock.elapsed;persistStagePlayback();}
   if(stageClock.elapsed>=8){completeStageAnimation();return;}
   stageClock.raf=requestAnimationFrame(playStageFrame);
@@ -949,7 +985,7 @@ async function retryStageAssets(){
   await prepareAssets();showStageUpgrade();
 }
 document.addEventListener("visibilitychange",()=>{
-  if(S?.stageUpgrade?.status==="playing"){stageClock.last=null;if(document.hidden)persistStagePlayback();}
+  if(S?.stageUpgrade?.status==="playing"){stageClock.last=null;if(document.hidden){stageAudio.stop();persistStagePlayback();}}
 });
 window.addEventListener("beforeunload",()=>{if(S?.stageUpgrade?.status==="playing")persistStagePlayback();});
 document.addEventListener("keydown",e=>{
@@ -1018,22 +1054,550 @@ const SKILL_TOTAL={
 // ============ 战斗 ============
 let cur={hp:1,max:1,atk:0,fightT:0,shield:0,maxShield:0}, player={hp:1,shield:0}, buff={adrenaline:0,critsurge:0,soulrush:0};   // v2.18：Boss 护盾；v2.19：触发器 buff
 
-// ============ 音效（v2.26：激光枪声，池化 3 并发 + 70ms 节流） ============
-const SFX_SRC="assets/sfx/laser-shot-01.wav";
-const sfxPool=[0,1,2].map(()=>{ const a=new Audio(); a.volume=0.32; a.preload="auto"; return a; });
-let sfxIdx=0, sfxLastT=0;
-function playShot(){
-  if(!S.sfxOn||paused||document.hidden) return;   // 开关/暂停/切后台不播
-  const now=performance.now();
-  if(now-sfxLastT<70) return;                     // 高频节流
-  sfxLastT=now;
-  try{ const a=sfxPool[sfxIdx=(sfxIdx+1)%3]; a.currentTime=0; a.play().catch(()=>{}); }catch(e){}
+// ============ 移动音效：仅脚步与楼层滑动；音频失败不阻塞玩法 ============
+const MOVEMENT_SFX={step1:"assets/sfx/footstep-metal-01.wav",step2:"assets/sfx/footstep-metal-02.wav",
+  step3:"assets/sfx/footstep-metal-03.wav",transition:"assets/sfx/floor-transition-01.wav",
+  hound:"assets/sfx/hound-step-01.wav",spider:"assets/sfx/spider-step-01.wav",warden:"assets/sfx/warden-step-01.wav",
+  prism:"assets/sfx/prism-hover-loop-01.wav",tianshu:"assets/sfx/tianshu-tread-loop-01.wav"};
+const ENEMY_MOVEMENT_AUDIO={
+  trooper:{animation:"secRun",volume:.25,beats:2,phase:0},
+  // 八帧动作以第2/6帧作为交替足组接触点；整组发声，不按每条腿叠加。
+  hound:{animation:"houndRun",key:"hound",volume:.25,beats:2,phase:.125},
+  spider:{animation:"spiderWalk",key:"spider",volume:.25,beats:2,phase:.125},
+  warden:{animation:"wardenRun",key:"warden",volume:.3,beats:2,phase:.125},
+  prism:{animation:"prismMove",key:"prism",volume:.2,loop:true},
+  tianshu:{animation:"tsMove",key:"tianshu",volume:.2,loop:true}
+};
+function enemyMovementAudio(){
+  return ENEMY_MOVEMENT_AUDIO[isBoss()?(isTianshu()?"tianshu":isPrism()?"prism":"warden"):mobKind];
 }
-function toggleSfx(){ S.sfxOn=!S.sfxOn; save(); renderSfxRow(); toast(S.sfxOn?L("音效：开"):L("音效：关")); }
-function renderSfxRow(){ const el=$("sfxVal"); if(el) el.textContent=S.sfxOn?L("开"):L("关"); }
+const movementSfx={
+  context:null,buffers:new Map(),voices:new Set(),feet:new Map(),variant:0,
+  getContext(){
+    if(!this.context){const AudioCtx=window.AudioContext||window.webkitAudioContext;if(AudioCtx)this.context=new AudioCtx();}
+    return this.context;
+  },
+  unlock(){try{const ctx=this.getContext();if(ctx?.state==="suspended")ctx.resume().catch(()=>{});}catch(e){}},
+  async load(key,bytes){const ctx=this.getContext();if(ctx)this.buffers.set(key,await ctx.decodeAudioData(bytes));},
+  allowed(){return Boolean(S?.sfxOn)&&boot.phase==="playing"&&!document.hidden&&!presentationSuspended&&
+    !stageBusy()&&!hasGameModal()&&!adLock&&!wall;},
+  stop(owner){
+    for(const voice of [...this.voices])if(!owner||voice.owner===owner){
+      try{const t=this.context.currentTime,g=voice.gain.gain;
+        if(g.cancelAndHoldAtTime)g.cancelAndHoldAtTime(t);
+        else{g.cancelScheduledValues(t);g.setValueAtTime(g.value,t);}
+        g.linearRampToValueAtTime(0,t+.008);voice.source.stop(t+.009);}catch(e){}
+      this.voices.delete(voice);
+    }
+  },
+  reset(){this.stop();this.feet.clear();},
+  sustain(key,owner,volume){
+    if(!this.allowed())return false;
+    if([...this.voices].some(v=>v.owner===owner&&v.loop&&v.key===key))return true;
+    this.stop(owner);
+    return this.play(key,owner,volume,undefined,true);
+  },
+  play(key,owner,volume,maxSeconds,loop=false){
+    const ctx=this.context,buffer=this.buffers.get(key);
+    if(!this.allowed()||!buffer||ctx?.state!=="running"||this.voices.size>=5||
+       [...this.voices].filter(v=>v.owner===owner).length>=(owner==="transition"?1:2))return false;
+    let source,gain,voice;
+    try{
+      source=ctx.createBufferSource();gain=ctx.createGain();source.buffer=buffer;gain.gain.value=volume;
+      source.connect(gain);gain.connect(ctx.destination);
+      voice={source,gain,owner,key,loop};this.voices.add(voice);
+      source.onended=()=>{this.voices.delete(voice);source.disconnect();gain.disconnect();};
+      if(loop){
+        source.loop=true;source.loopStart=0;source.loopEnd=buffer.duration;
+        gain.gain.setValueAtTime(0,ctx.currentTime);gain.gain.linearRampToValueAtTime(volume,ctx.currentTime+.008);
+        source.start();
+      }else{
+        const duration=Math.min(buffer.duration,maxSeconds||buffer.duration),end=ctx.currentTime+duration;
+        gain.gain.setValueAtTime(volume,Math.max(ctx.currentTime,end-.012));gain.gain.linearRampToValueAtTime(0,end);
+        source.start();source.stop(end);
+      }
+      return true;
+    }catch(e){
+      if(voice)this.voices.delete(voice);
+      try{source?.stop();}catch(_){}
+      try{source?.disconnect();gain?.disconnect();}catch(_){}
+      return false;
+    }
+  },
+  step(owner,beat,now,profile){
+    const previous=this.feet.get(owner);
+    this.feet.set(owner,{beat,last:previous?.last??-Infinity});
+    // 玩家首次可见只记录相位，等下一次落脚；避免入场即响后紧接一个动画拍点。
+    if((owner==="player"||profile?.key)&&!previous)return;
+    // 每次渲染至多补一个落脚；高速时按现实时间限流，不追放遗漏拍点。
+    if(previous?.beat===beat||now-(previous?.last??-Infinity)<100)return;
+    const key=profile?.key||["step1","step2","step3"][this.variant++%3];
+    if(this.play(key,owner,profile?.volume??(owner==="player"?.4:.25)))this.feet.get(owner).last=now;
+  }
+};
+function updateMovementSfx(now){
+  if(!movementSfx.allowed()){movementSfx.reset();return;}
+  if(!sceneLayers.size)movementSfx.stop("transition");
+  let arena;
+  for(const owner of ["player","enemy"]){
+    const actor=$(owner),sprite=$(owner==="player"?"playerSpr":"enemySpr");
+    const moving=[...presentationTweens].some(t=>t.seq===runSeq&&t.el===actor&&(t.prop==="left"||t.prop==="right"));
+    const profile=owner==="enemy"?enemyMovementAudio():null;
+    if(!moving||(owner==="enemy"&&!profile)||!sprite.classList.contains("run")){
+      movementSfx.feet.delete(owner);movementSfx.stop(owner);continue;
+    }
+    arena??=$("arena").getBoundingClientRect();
+    const rect=actor.getBoundingClientRect();
+    const animation=sprite.getAnimations?.().find(a=>profile?a.animationName===profile.animation:/run/i.test(a.animationName||""));
+    if(!animation||animation.playbackRate===0||
+       Number(getComputedStyle(actor).opacity)<.1||rect.right<=arena.left||rect.left>=arena.right){
+      movementSfx.feet.delete(owner);movementSfx.stop(owner);continue;
+    }
+    if(profile?.loop){movementSfx.sustain(profile.key,owner,profile.volume);continue;}
+    const duration=Number(animation.effect.getComputedTiming().duration);
+    if(duration>0)movementSfx.step(owner,Math.floor((Number(animation.currentTime)/duration-(profile?.phase||0))*(profile?.beats||2)),now,profile);
+  }
+}
+// 恢复必须由真实手势触发；下载/解码发生在异步加载阶段。
+document.addEventListener("pointerdown",()=>movementSfx.unlock(),{passive:true});
+document.addEventListener("keydown",()=>movementSfx.unlock());
+document.addEventListener("visibilitychange",()=>{if(document.hidden){movementSfx.reset();battleSfx.reset();uiSfx.reset();stageAudio.stop();}});
+function toggleSfx(){ S.sfxOn=!S.sfxOn;if(!S.sfxOn){movementSfx.reset();battleSfx.reset();uiSfx.reset();stageAudio.stop();}else movementSfx.unlock();const saved=save();if(S.sfxOn){if(saved)uiSfx.confirm();else uiSfx.error();} renderSfxRow(); toast(S.sfxOn?L("音效：开"):L("音效：关")); }
+function renderSfxRow(){
+  renderMusicSettings();
+  for(const [toggleId,valueId] of [["coverSfxToggle","sfxVal"],["gameSfxToggle","gameSfxVal"]]){
+    const toggle=$(toggleId),value=$(valueId);
+    if(toggle)toggle.setAttribute("aria-pressed",String(S.sfxOn));
+    if(value)value.textContent=S.sfxOn?L("开"):L("关");
+  }
+}
+// Music uses real audio time, independent of combat speed and the SFX switch.
+const MUSIC_SFX={m01:"assets/music/m01-regular-combat-01.mp3",m02:"assets/music/m02-boss-combat-01.mp3",m03:"assets/music/m03-menu-reforge-01.mp3",m04:"assets/music/m04-tianshu-combat-01.mp3"};
+const MUSIC_BARS={m01:32,m02:32,m03:24,m04:40};
+// Per-track trim preserves each voice's level throughout crossfades.
+const MUSIC_GAIN_DB={m01:0,m02:0,m03:6,m04:0};
+const MUSIC_BAR=4*60/112, MUSIC_SETTINGS_KEY="neonMusic.v1";
+const music={
+  enabled:true,volume:60,unlocked:false,bus:null,buffers:new Map(),loading:new Map(),retry:new Map(),voices:new Set(),
+  current:null,transition:null,offset:0,epoch:null,duckUntil:0,duckSeq:null,lastLevel:null,
+  init(){try{const p=JSON.parse(localStorage.getItem(MUSIC_SETTINGS_KEY));if(p){this.enabled=p.enabled!==false;
+    this.volume=Number.isFinite(p.volume)?Math.max(0,Math.min(100,p.volume)):60;
+    this.offset=Number.isFinite(p.position)?Math.max(0,p.position)%(480*MUSIC_BAR):0;}}catch(e){}},
+  position(){const ctx=movementSfx.context;return this.offset+(this.epoch!==null&&ctx?Math.max(0,ctx.currentTime-this.epoch):0);},
+  persist(){try{localStorage.setItem(MUSIC_SETTINGS_KEY,JSON.stringify({enabled:this.enabled,volume:this.volume,position:this.position()%(480*MUSIC_BAR)}));return true;}catch(e){toast(L("音乐设置暂未保存"));return false;}},
+  unlock(){this.unlocked=true;movementSfx.unlock();this.sync();},
+  dispose(v){if(!v)return;try{v.source.stop();}catch(e){}try{v.source.disconnect();v.gain.disconnect();}catch(e){}this.voices.delete(v);},
+  pause(){
+    this.offset=this.position()%(480*MUSIC_BAR);this.epoch=null;
+    if(this.bus){const p=this.bus.gain,t=movementSfx.context.currentTime;p.cancelScheduledValues(t);p.setValueAtTime(0,t);}
+    for(const v of [...this.voices])this.dispose(v);
+    this.current=null;this.transition=null;this.lastLevel=null;this.duckUntil=0;
+  },
+  target(){
+    if(boot.phase!=="playing")return "m03";
+    if(S.prestigeOffer||wall)return "m03";
+    if((transit||enemyEntering)&&this.current)return this.current.key;
+    return isBoss()?(isTianshu()?"m04":"m02"):"m01";
+  },
+  async ensure(key){
+    if(this.buffers.has(key)||this.loading.has(key)||(this.retry.get(key)||0)>performance.now())return;
+    const ctx=movementSfx.context;if(!ctx)return;
+    const job=(async()=>{try{
+      const response=await fetch(MUSIC_SFX[key]);if(!response.ok)throw Error("music HTTP "+response.status);
+      const buffer=await ctx.decodeAudioData(await response.arrayBuffer());
+      if(buffer.duration<MUSIC_BARS[key]*MUSIC_BAR-.002)throw Error("music truncated");
+      this.buffers.set(key,buffer);this.retry.delete(key);
+    }catch(e){this.retry.set(key,performance.now()+30000);}})();
+    this.loading.set(key,job);await job;this.loading.delete(key);
+    // Loading only caches data; the current state alone decides what may start.
+  },
+  create(key,at,fade){
+    const ctx=movementSfx.context,source=ctx.createBufferSource(),gain=ctx.createGain(),duration=MUSIC_BARS[key]*MUSIC_BAR;
+    source.buffer=this.buffers.get(key);source.loop=true;source.loopStart=0;source.loopEnd=duration;
+    const level=10**(MUSIC_GAIN_DB[key]/20);
+    source.connect(gain);gain.connect(this.bus);gain.gain.setValueAtTime(0,at);gain.gain.linearRampToValueAtTime(level,at+fade);
+    const v={key,source,gain,level};this.voices.add(v);
+    source.onended=()=>{this.voices.delete(v);try{source.disconnect();gain.disconnect();}catch(e){}};
+    source.start(at,(this.position()+at-ctx.currentTime)%duration);return v;
+  },
+  duck(seconds=.8){const ctx=movementSfx.context;if(ctx){this.duckSeq=runSeq;this.duckUntil=Math.max(this.duckUntil,ctx.currentTime+seconds);}},
+  sync(){
+    const ctx=movementSfx.context;
+    if(!this.unlocked||!this.enabled||this.volume===0||!ctx||ctx.state!=="running"||document.hidden||presentationSuspended||adLock||crateAd||prestigeAd||stageBusy()){
+      if(this.epoch!==null||this.voices.size)this.pause();return;
+    }
+    const now=ctx.currentTime,key=this.target();if(this.epoch===null)this.epoch=now;
+    if(!this.bus){this.bus=ctx.createGain();this.bus.gain.value=0;this.bus.connect(ctx.destination);}
+    if(this.duckSeq!==runSeq){this.duckUntil=0;this.duckSeq=runSeq;}
+    const charging=boot.phase==="playing"&&!paused&&!hasGameModal()&&isTianshu()&&cur?.phase===1;
+    const dialog=boot.phase==="playing"&&(gameSettingsOpen||skillOfferOpen||hasGameModal()||paused)&&key!=="m03";
+    const level=10**((charging||now<this.duckUntil?-6:dialog?-6:0)/20)*this.volume/100;
+    if(level!==this.lastLevel){this.bus.gain.setTargetAtTime(level,now,level<(this.lastLevel??0)?.007:.2);this.lastLevel=level;}
+    if(this.transition&&now>=this.transition.end){this.dispose(this.transition.old);this.current=this.transition.next;this.transition=null;}
+    // Replace not-yet-audible switches when a more recent state supersedes them.
+    if(this.transition&&key!==this.transition.next.key&&now<this.transition.start){
+      this.dispose(this.transition.next);const p=this.transition.old.gain.gain;p.cancelScheduledValues(now);p.setValueAtTime(this.transition.old.level,now);
+      this.current=this.transition.old;this.transition=null;
+    }
+    if(this.transition)return; // Coalesce rapid changes; never add a third music voice.
+    if(this.current?.key===key)return;
+    if(!this.buffers.has(key)){this.ensure(key);return;}
+    try{
+      if(!this.current){this.current=this.create(key,now,.25);return;}
+      const position=this.position(),wait=(MUSIC_BAR-position%MUSIC_BAR)%MUSIC_BAR,start=now+wait,end=start+MUSIC_BAR;
+      const next=this.create(key,start,MUSIC_BAR),p=this.current.gain.gain;p.cancelScheduledValues(now);p.setValueAtTime(this.current.level,start);p.linearRampToValueAtTime(0,end);
+      this.transition={old:this.current,next,start,end};
+    }catch(e){this.pause();this.retry.set(key,performance.now()+30000);}
+  }
+};
+music.init();
+function renderMusicSettings(){
+  for(const prefix of ["cover","game"]){
+    const toggle=$(prefix+"MusicToggle"),value=$(prefix+"MusicVal"),slider=$(prefix+"MusicVolume"),label=$(prefix+"MusicPercent");
+    if(toggle)toggle.setAttribute("aria-pressed",String(music.enabled));if(value)value.textContent=music.enabled?L("开"):L("关");
+    if(slider)slider.value=String(music.volume);if(label)label.textContent=music.volume+"%";
+  }
+}
+function toggleMusic(){music.enabled=!music.enabled;if(music.enabled)music.unlock();else music.pause();music.persist();renderMusicSettings();}
+function setMusicVolume(value){const n=Number(value);if(!Number.isFinite(n))return;music.volume=Math.max(0,Math.min(100,n));music.unlock();music.persist();renderMusicSettings();}
+document.addEventListener("pointerdown",()=>music.unlock(),{passive:true});
+document.addEventListener("keydown",()=>music.unlock());
+document.addEventListener("visibilitychange",()=>{if(document.hidden){music.pause();music.persist();}else music.sync();});
+window.addEventListener("pagehide",()=>{music.pause();music.persist();});
+window.addEventListener("beforeunload",()=>music.persist());
+
+// UI is allowed on the cover and in paused dialogs, independently of combat audio.
+const UI_SFX={"uiConfirm":"assets/sfx/ui-confirm-01.wav","uiBack":"assets/sfx/ui-back-01.wav","uiPanel":"assets/sfx/ui-panel-open-01.wav","uiError":"assets/sfx/ui-error-01.wav","uiUpgrade":"assets/sfx/ui-upgrade-01.wav","uiSkill":"assets/sfx/ui-skill-acquire-01.wav","uiTree":"assets/sfx/ui-tree-purchase-01.wav","loot":"assets/sfx/loot-acquire-01.wav","lootRare":"assets/sfx/loot-rare-01.wav","fusion":"assets/sfx/cyber-fusion-01.wav","salvage":"assets/sfx/cyber-salvage-01.wav","supplyClaim":"assets/sfx/supply-claim-01.wav","supplyReady":"assets/sfx/supply-ready-01.wav",
+  "milestone":"assets/sfx/milestone-complete-01.wav","reforge":"assets/sfx/reforge-success-01.wav","blocked":"assets/sfx/action-blocked-01.wav","upgradeComplete":"assets/sfx/upgrade-complete-01.wav",
+  "upgradeTrack":"assets/sfx/upgrade-timeline-a01.wav","upgradeFinalTrack":"assets/sfx/upgrade-timeline-a04.wav"};
+// Real-time spacing and priority, independent of combat speed. At most one active UI voice.
+const UI_RULES={uiConfirm:[80,1],uiBack:[80,6],uiPanel:[250,1],uiError:[750,7],
+  uiUpgrade:[200,3],uiSkill:[500,5],uiTree:[350,3],loot:[300,2],lootRare:[600,4],
+  fusion:[500,4],salvage:[350,3],supplyClaim:[700,5],supplyReady:[1000,0],
+  milestone:[1200,6],reforge:[1000,6],blocked:[1200,6],upgradeComplete:[1500,6]};
+const uiSfx={
+  voice:null,retiring:null,pending:null,bus:null,ticket:0,last:new Map(),panels:new Set(),lootHandled:false,suppressPanels:false,
+  allowed(key="uiConfirm"){return S.sfxOn&&!document.hidden&&!presentationSuspended&&!adLock&&!crateAd&&(!saveBlocked||key==="uiError");},
+  reset(){
+    ++this.ticket;this.pending=null;
+    if(this.retiring){try{this.retiring.source.stop();this.retiring.source.disconnect();this.retiring.gain.disconnect();}catch(e){}this.retiring=null;}
+    const v=this.voice;this.voice=null;if(!v)return;
+    this.retiring=v;
+    try{const t=movementSfx.context.currentTime,p=v.gain.gain;
+      if(p.cancelAndHoldAtTime)p.cancelAndHoldAtTime(t);else{p.cancelScheduledValues(t);p.setValueAtTime(p.value,t);}
+      p.linearRampToValueAtTime(0,t+.005);v.source.stop(t+.006);
+    }catch(e){try{v.source.stop();v.source.disconnect();v.gain.disconnect();}catch(_){}this.retiring=null;}
+  },
+  play(key,{gesture=false}={}){
+    const rule=UI_RULES[key],ctx=movementSfx.context,buffer=movementSfx.buffers.get(key),now=performance.now();
+    if(!rule||!this.allowed(key)||!ctx||!buffer||now-(this.last.get(key)??-Infinity)<rule[0])return false;
+    if(ctx.state!=="running"&&!(gesture&&ctx.state==="suspended"))return false;
+    const active=this.voice||this.pending;
+    if(active&&rule[1]<=active.priority)return false;
+    if(active)this.reset();
+    this.last.set(key,now);const ticket=++this.ticket;
+    const play=()=>{
+      if(ticket!==this.ticket||!this.allowed(key)||ctx.state!=="running"||performance.now()-now>120||this.voice)return false;
+      this.pending=null;let source,gain,v;
+      try{
+        if(!this.bus){this.bus=ctx.createGain();this.bus.gain.value=10**(-6/20);this.bus.connect(ctx.destination);}
+        source=ctx.createBufferSource();gain=ctx.createGain();source.buffer=buffer;
+        const end=ctx.currentTime+buffer.duration;
+        gain.gain.setValueAtTime(1,ctx.currentTime);gain.gain.setValueAtTime(1,Math.max(ctx.currentTime,end-.006));gain.gain.linearRampToValueAtTime(0,end);
+        source.connect(gain);gain.connect(this.bus);v={source,gain,key,priority:rule[1]};this.voice=v;
+        source.onended=()=>{if(this.voice===v)this.voice=null;if(this.retiring===v)this.retiring=null;source.disconnect();gain.disconnect();};
+        source.start();source.stop(end);return true;
+      }catch(e){if(this.voice===v)this.voice=null;try{source?.stop();source?.disconnect();gain?.disconnect();}catch(_){}return false;}
+    };
+    if(ctx.state==="running")return play();
+    this.pending={key,priority:rule[1],at:now};
+    try{ctx.resume().then(()=>{if(ticket===this.ticket){this.pending=null;play();}}).catch(()=>{if(ticket===this.ticket)this.pending=null;});}catch(e){this.pending=null;}
+    return false;
+  },
+  confirm(){return this.play("uiConfirm",{gesture:true});},
+  back(){return this.play("uiBack",{gesture:true});},
+  error(gesture=true){return this.play("uiError",{gesture});},
+  feedback(saved,key){return saved?this.play(key,{gesture:true}):this.error();},
+  panelKey(id){return `${S.stage}:${S.prestiges}:${id}`;},
+  rememberPanel(id){this.panels.add(this.panelKey(id));if(this.panels.size>64)this.panels.delete(this.panels.values().next().value);},
+  panel(id){const seen=this.panels.has(this.panelKey(id));this.rememberPanel(id);if(!seen&&!this.suppressPanels)this.play("uiPanel");},
+  newState(){this.reset();this.panels.clear();this.lootHandled=false;this.last.clear();},
+  restorePanels(){
+    const po=S.pendingOffer,p=S.prestigeOffer;
+    if(po)this.rememberPanel("skill:"+(po.floor??S.floor-1));
+    if(p)this.rememberPanel("prestige:"+p.id+":"+p.stage);
+  },
+  loot(item,shards){
+    if(this.lootHandled)return;this.lootHandled=true;
+    if((!item&&!shards)||battleSfx.records.has("enemyCharge"))return;
+    this.play(item&&item.q>=6?"lootRare":"loot");
+  },
+  update(){
+    const active=this.voice||this.pending;
+    if(!this.allowed(active?.key)||(this.pending&&performance.now()-this.pending.at>120))this.reset();
+  }
+};
+// Tokens exist only for newly committed transitions; restored panels never replay completion cues.
+const flowSfx={milestoneId:null,clearId:null,blockedId:null};
+const stageAudio={
+  voice:null,bus:null,
+  stop(){
+    const v=this.voice;this.voice=null;if(!v)return;
+    try{const t=v.ctx.currentTime,g=v.gain.gain;
+      if(g.cancelAndHoldAtTime)g.cancelAndHoldAtTime(t);else{g.cancelScheduledValues(t);g.setValueAtTime(g.value,t);}
+      g.linearRampToValueAtTime(0,t+.012);v.source.stop(t+.013);
+    }catch(e){try{v.source.stop();}catch(_){}}
+  },
+  sync(){
+    const u=S.stageUpgrade,ctx=movementSfx.context,elapsed=stageClock.elapsed;
+    const allowed=u?.status==="playing"&&u.id===stageClock.id&&elapsed<7.98&&S.sfxOn&&
+      boot.phase==="playing"&&!document.hidden&&!presentationSuspended&&!adLock&&!crateAd&&
+      $("stageOverlay").hidden===false&&ctx?.state==="running";
+    if(!allowed){this.stop();return;}
+    const key=u.from===4?"upgradeFinalTrack":"upgradeTrack",buffer=movementSfx.buffers.get(key);
+    if(!buffer||buffer.duration<7.99){this.stop();return;}
+    const v=this.voice;
+    if(v?.id===u.id&&v.key===key&&Math.abs(v.offset+(ctx.currentTime-v.started)-elapsed)<.10)return;
+    this.stop();
+    try{
+      if(!this.bus){this.bus=ctx.createGain();this.bus.gain.value=10**(-3/20);this.bus.connect(ctx.destination);}
+      const source=ctx.createBufferSource(),gain=ctx.createGain(),offset=Math.max(0,Math.min(elapsed,buffer.duration-.02));
+      source.buffer=buffer;gain.gain.setValueAtTime(0,ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(1,ctx.currentTime+.012);
+      source.connect(gain);gain.connect(this.bus);
+      const voice={source,gain,ctx,id:u.id,key,offset,started:ctx.currentTime};this.voice=voice;
+      source.onended=()=>{if(this.voice===voice)this.voice=null;source.disconnect();gain.disconnect();};
+      source.start(0,offset);source.stop(ctx.currentTime+buffer.duration-offset);
+    }catch(e){this.stop();}
+  }
+};
+function toggleCoverSettings(){
+  if(boot.phase!=="cover"||hasGameModal()||adLock||crateAd)return;
+  const panel=$("coverSettings"),opening=!panel.classList.contains("show");
+  panel.classList.toggle("show");if(opening)uiSfx.play("uiPanel",{gesture:true});else uiSfx.back();
+}
+let gameSettingsWasPaused=false,gameSettingsOpen=false;
+function toggleGameSettings(){
+  if(gameSettingsOpen){closeGameSettings();return true;}
+  if(boot.phase!=="playing"||stageBusy()||transit||enemyEntering||wall||hasGameModal()||
+     adLock||crateAd||prestigeAd||confirmOpen||skillOfferOpen||S.prestigeOffer)return false;
+  gameSettingsWasPaused=paused;paused=true;gameSettingsOpen=true;
+  $("gameSettingsScrim").hidden=false;$("gameSettings").hidden=false;
+  $("btnGameSettings").setAttribute("aria-expanded","true");
+  $("gameLanguageSelect").value=window.NeonI18n?.language||"en";
+  renderSfxRow();$("gameLanguageSelect").focus({preventScroll:true});
+  battleSfx.reset();uiSfx.play("uiPanel",{gesture:true});return true;
+}
+function closeGameSettings(){
+  if(!gameSettingsOpen)return false;
+  gameSettingsOpen=false;
+  $("gameSettings").hidden=true;$("gameSettingsScrim").hidden=true;
+  $("btnGameSettings").setAttribute("aria-expanded","false");
+  paused=gameSettingsWasPaused;lastT=performance.now();
+  $("btnGameSettings").focus({preventScroll:true});uiSfx.back();return true;
+}
+document.addEventListener("keydown",e=>{
+  if(!gameSettingsOpen)return;
+  if(e.key==="Escape"){e.preventDefault();closeGameSettings();return;}
+  if(e.key!=="Tab")return;
+  const items=Array.from($("gameSettings").querySelectorAll("select,input:not(:disabled),button:not(:disabled)"));
+  if(!items.length)return;
+  const i=items.indexOf(document.activeElement);
+  e.preventDefault(); // Explicit order also supports WebKit's restricted native tab navigation.
+  items[i<0?(e.shiftKey?items.length-1:0):(i+(e.shiftKey?-1:1)+items.length)%items.length].focus();
+});
+function cancelCoverReset(){if(boot.phase!=="cover"||!$("overlay").classList.contains("show"))return;closeModal();uiSfx.back();}
+function continueAfterTest(){if(!$("overlay").classList.contains("show"))return;closeModal();uiSfx.confirm();}
+const COMBAT_SFX={"playerShot":"assets/sfx/ballistic-shot-01.wav","impact":"assets/sfx/bullet-impact-01.wav","playerHurt":"assets/sfx/player-hurt-01.wav","playerDeath":"assets/sfx/player-death-01.wav","trooperShot":"assets/sfx/trooper-shot-01.wav","houndBite":"assets/sfx/hound-bite-01.wav","spiderCharge":"assets/sfx/spider-charge-01.wav","spiderFire":"assets/sfx/spider-fire-01.wav","wardenShot":"assets/sfx/warden-shot-01.wav","prismShot":"assets/sfx/prism-shot-01.wav","prismSlash":"assets/sfx/prism-slash-01.wav","tianshuShot":"assets/sfx/tianshu-machinegun-01.wav","cannonCharge":"assets/sfx/tianshu-charge-01.wav","cannonFire":"assets/sfx/tianshu-cannon-01.wav","trooperDeath":"assets/sfx/trooper-death-01.wav","houndDeath":"assets/sfx/hound-death-01.wav","wardenDeath":"assets/sfx/warden-death-01.wav","prismDown":"assets/sfx/prism-powerdown-01.wav","prismFall":"assets/sfx/prism-fall-01.wav","tianshuDown":"assets/sfx/tianshu-failure-01.wav","tianshuExplosion":"assets/sfx/tianshu-explosion-01.wav","spiderCollapse":"assets/sfx/spider-collapse-01.wav","spiderFall":"assets/sfx/spider-fall-01.wav","cannonCharge2":"assets/sfx/tianshu-charge-2x.wav","cannonCharge4":"assets/sfx/tianshu-charge-4x.wav","cannonCharge8":"assets/sfx/tianshu-charge-8x.wav","playerLaser3":"assets/sfx/player-stage3-laser-01.wav","playerLaser4":"assets/sfx/player-stage4-pulse-01.wav","playerLaser5":"assets/sfx/player-stage5-cannon-01.wav","energyImpact":"assets/sfx/player-energy-impact-01.wav",
+  "criticalImpact":"assets/sfx/critical-impact-01.wav","shieldAbsorb":"assets/sfx/shield-absorb-01.wav","shieldBreak":"assets/sfx/shield-break-01.wav","shieldDeploy":"assets/sfx/shield-deploy-01.wav","cloakActivate":"assets/sfx/cloak-activate-01.wav","lowHealth":"assets/sfx/low-health-warning-01.wav","bossEntry":"assets/sfx/boss-entry-warning-01.wav"};
+// v2.67: shared decoded buffers/context, separate battle bus and cancellable presentation events.
+// Match the player artwork: stages 1–2 ballistic; stages 3–5 energy weapons.
+const PLAYER_WEAPON_SFX={
+  1:{shot:"playerShot",impact:"impact"},2:{shot:"playerShot",impact:"impact"},
+  3:{shot:"playerLaser3",impact:"energyImpact"},4:{shot:"playerLaser4",impact:"energyImpact"},
+  5:{shot:"playerLaser5",impact:"energyImpact"}
+};
+const BATTLE_LEVELS={playerShot:-10,playerLaser3:-10,playerLaser4:-10,playerLaser5:-10,
+  impact:-8,energyImpact:-8,playerHurt:-7,playerDeath:-5,
+  trooperShot:-9,houndBite:-7,spiderCharge:-7,spiderFire:-7,wardenShot:-8,
+  prismShot:-7,prismSlash:-6,tianshuShot:-9,cannonCharge:-4,cannonCharge2:-4,cannonCharge4:-4,cannonCharge8:-4,cannonFire:-6,
+  trooperDeath:-6,houndDeath:-6,spiderCollapse:-6,spiderFall:-6,wardenDeath:-6,
+  prismDown:-6,prismFall:-6,tianshuDown:-7,tianshuExplosion:-7,
+  criticalImpact:-8,shieldAbsorb:-8,shieldBreak:-8,shieldDeploy:-8,cloakActivate:-8,lowHealth:-8,bossEntry:-5};
+function battleEnemyKind(){return isBoss()?(isTianshu()?"tianshu":isPrism()?"prism":"warden"):mobKind;}
+const battleSfx={
+  voices:new Set(),records:new Map(),last:new Map(),pendingHurt:0,bus:null,
+  arrivalKey:null,lowHealthArmed:true,
+  allowed(mode="combat"){
+    if(!S.sfxOn||boot.phase!=="playing"||document.hidden||presentationSuspended||hasGameModal()||adLock||crateAd||saveBlocked)return false;
+    if(mode==="playerDeath")return wall&&$("playerSpr").classList.contains("death");
+    if(mode==="enemyDeath")return !wall&&!transit&&$("enemySpr").classList.contains("die");
+    if(mode==="entrance")return !wall&&!transit&&!stageBusy()&&player.hp>0;
+    return !wall&&!paused&&!transit&&!enemyEntering&&!stageBusy()&&player.hp>0;
+  },
+  stopVoices(owner){
+    for(const v of [...this.voices])if(!owner||v.owner===owner){
+      try{const t=movementSfx.context.currentTime,g=v.gain.gain;
+        if(g.cancelAndHoldAtTime)g.cancelAndHoldAtTime(t);else{g.cancelScheduledValues(t);g.setValueAtTime(g.value,t);}
+        g.linearRampToValueAtTime(0,t+.008);v.source.stop(t+.009);}catch(e){}
+      this.voices.delete(v);
+    }
+  },
+  cancel(owner,stop=true){
+    const r=this.records.get(owner);if(r){for(const t of r.tasks)cancelPresentation(t);this.records.delete(owner);}
+    if(stop)this.stopVoices(owner);
+  },
+  reset(){for(const owner of [...this.records.keys()])this.cancel(owner);this.stopVoices();this.pendingHurt=0;},
+  play(key,owner="enemyAttack",mode="combat",opts={}){
+    const ctx=movementSfx.context,buffer=movementSfx.buffers.get(key),now=performance.now();
+    if(!this.allowed(mode)||!buffer||ctx?.state!=="running")return false;
+    const gap=opts.gap??(owner==="playerShot"?80:owner==="impact"?80:owner==="playerHurt"?250:owner==="enemyAttack"?100:0);
+    if(now-(this.last.get(owner)??-Infinity)<gap)return false;
+    const priority=mode==="playerDeath"?4:mode==="enemyDeath"||key==="shieldBreak"||owner==="lowHealth"?3:owner==="playerHurt"||owner==="enemyCharge"?2:1;
+    const cap=owner==="playerShot"||owner==="impact"||owner==="enemyAttack"?2:1;
+    if([...this.voices].filter(v=>v.owner===owner).length>=cap)return false;
+    if(this.voices.size>=8){
+      const low=[...this.voices].find(v=>v.priority<priority);if(!low)return false;
+      this.stopVoices(low.owner);
+    }
+    let source,gain,voice;
+    try{
+      if(!this.bus){
+        this.bus=ctx.createGain();this.bus.gain.value=.7;
+        if(ctx.createDynamicsCompressor){const limiter=ctx.createDynamicsCompressor();
+          limiter.threshold.value=-6;limiter.knee.value=0;limiter.ratio.value=12;limiter.attack.value=.003;limiter.release.value=.08;
+          this.bus.connect(limiter);limiter.connect(ctx.destination);
+        }else this.bus.connect(ctx.destination);
+      }
+      const offset=Math.max(0,opts.offset||0),duration=Math.min(buffer.duration-offset,opts.duration??Infinity);
+      if(!(duration>.002))return false;
+      source=ctx.createBufferSource();gain=ctx.createGain();source.buffer=buffer;
+      const level=10**(((BATTLE_LEVELS[key]??-9)+(opts.gainDb||0))/20),start=ctx.currentTime,end=start+duration;
+      gain.gain.setValueAtTime(offset?0:level,start);
+      if(offset)gain.gain.linearRampToValueAtTime(level,start+Math.min(.003,duration/3));
+      gain.gain.setValueAtTime(level,Math.max(start,end-.012));gain.gain.linearRampToValueAtTime(0,end);
+      source.connect(gain);gain.connect(this.bus);
+      voice={source,gain,owner,key,mode,priority};this.voices.add(voice);
+      source.onended=()=>{this.voices.delete(voice);source.disconnect();gain.disconnect();};
+      source.start(0,offset);source.stop(end);this.last.set(owner,now);
+      if(key==="cannonFire")music.duck(duration+.15);return true;
+    }catch(e){if(voice)this.voices.delete(voice);try{source?.stop();source?.disconnect();gain?.disconnect();}catch(_){}return false;}
+  },
+  shield(key,side){
+    if(key==="shieldBreak")this.stopVoices("shield");
+    else if([...this.voices].some(v=>v.owner==="shield"&&v.key==="shieldBreak"))return false;
+    return this.play(key,"shield","combat",{gap:key==="shieldBreak"?0:200,gainDb:side==="player"?-2:0});
+  },
+  arrive(){
+    const id=`${runSeq}:${S.stage}:${S.floor}:${S.mobIdx}`;
+    if(this.arrivalKey===id)return;
+    this.arrivalKey=id;
+    if(isBoss())this.play("bossEntry","entrance","entrance",{gainDb:isTianshu()?3:isPrism()?2:0});
+    else if(player.shield>0)this.play("shieldDeploy","entrance","entrance",{gap:500});
+  },
+  rearmLowHealth(maxHp){if(player.hp>maxHp*.4)this.lowHealthArmed=true;},
+  lowHealthDamage(before,maxHp){
+    if(this.lowHealthArmed&&before>=maxHp*.3&&player.hp>0&&player.hp<maxHp*.3){
+      this.lowHealthArmed=false;
+      this.play("lowHealth","lowHealth");
+    }
+  },
+  action(owner,sprite,cls,events,mode="combat"){
+    this.cancel(owner);
+    const record={sprite,cls,seq:runSeq,tasks:new Set()};this.records.set(owner,record);
+    for(const event of events){
+      const fire=()=>{
+        if(this.records.get(owner)!==record||record.seq!==runSeq||!sprite.classList.contains(cls))return;
+        event.fire();
+      };
+      if(event.at<=0)fire();else{let task;task=afterPresentation(event.at,()=>{record.tasks.delete(task);fire();},record.seq);record.tasks.add(task);}
+    }
+    return record;
+  },
+  enemyAttack(cls,ms){
+    this.cancel("enemyAttack");
+    if(!this.records.get("enemyCharge")?.phase)this.cancel("enemyCharge");
+    const kind=battleEnemyKind(),sprite=$("enemySpr"),events=[];
+    const hit=(at,key,opts)=>events.push({at,fire:()=>this.play(key,"enemyAttack","combat",opts)});
+    if(cls==="shoot"){
+      if(kind==="trooper")hit(0,"trooperShot");
+      // Nominal 100 ms double shot needs timer-jitter tolerance; faster variants still coalesce.
+      if(kind==="warden"){hit(100,"wardenShot",{gap:90});hit(200,"wardenShot",{gap:90});}
+      if(kind==="prism"){hit(400/3,"prismShot");hit(800/3,"prismShot");}
+      if(kind==="tianshu"){hit(400/6,"tianshuShot");hit(200,"tianshuShot");}
+      if(kind==="spider"){
+        this.play("spiderCharge","enemyCharge");
+        events.push({at:280,fire:()=>{this.stopVoices("enemyCharge");this.play("spiderFire");}});
+      }
+    }else if(cls==="bite"&&kind==="hound"){
+      events.push({at:250,fire:()=>this.play("houndBite","enemyAttack","combat",{offset:.045})});
+    }else if(cls==="slash"&&kind==="prism")hit(500/3,"prismSlash");
+    else if(cls==="cannon"&&kind==="tianshu")hit(500/6,"cannonFire");
+    if(events.length)this.action("enemyAttack",sprite,cls,events);
+    // Hurt feedback follows visible attacks, not each fixed damage integration step.
+    if(["shoot","bite","slash"].includes(cls))this.hurt();
+  },
+  beginCharge(){
+    if(!isTianshu()||cur.phase!==1)return;
+    this.cancel("enemyCharge");
+    const r={seq:runSeq,tasks:new Set(),phase:1,rate:0};
+    this.records.set("enemyCharge",r);this.charge(r);
+  },
+  charge(r){
+    const speed=effSpeed(),rate=speed>=8?8:speed>=4?4:speed>=2?2:1;
+    r.rate=speed;this.stopVoices("enemyCharge");
+    const key=rate===1?"cannonCharge":"cannonCharge"+rate,buffer=movementSfx.buffers.get(key);
+    if(buffer)this.play(key,"enemyCharge","combat",{offset:Math.max(0,Math.min(1,1-cur.phaseT/.5))*buffer.duration});
+  },
+  hurt(){
+    if(this.pendingHurt>0&&player.hp>0&&!(player.invulnUntil>skillNow())&&
+       performance.now()-(this.last.get("shield")??-Infinity)>160&&performance.now()-(this.last.get("lowHealth")??-Infinity)>200)
+      this.play("playerHurt","playerHurt");
+    this.pendingHurt=0;
+  },
+  enemyDeath(){
+    const kind=battleEnemyKind(),sprite=$("enemySpr");
+    this.cancel("enemyAttack");this.cancel("enemyCharge");this.pendingHurt=0;
+    movementSfx.stop("enemy");
+    const events=[],add=(at,key,owner="enemyDeath")=>events.push({at,fire:()=>this.play(key,owner,"enemyDeath")});
+    if(kind==="trooper")add(480,"trooperDeath");
+    if(kind==="hound")add(667*.4,"houndDeath");
+    if(kind==="warden")add(800*6/7,"wardenDeath");
+    if(kind==="spider"){
+      add(270,"spiderCollapse","deathPrelude");
+      events.push({at:370,fire:()=>{this.stopVoices("deathPrelude");this.play("spiderFall","enemyDeath","enemyDeath");}});
+    }
+    if(kind==="prism"||kind==="tianshu"){
+      add(0,kind==="prism"?"prismDown":"tianshuDown","deathPrelude");
+      events.push({at:kind==="prism"?890*5/7:800*3/7,fire:()=>{
+        this.stopVoices("deathPrelude");this.play(kind==="prism"?"prismFall":"tianshuExplosion","enemyDeath","enemyDeath");
+      }});
+    }
+    this.action("enemyDeath",sprite,"die",events,"enemyDeath");
+  },
+  playerDeath(){this.reset();movementSfx.reset();this.play("playerDeath","playerDeath","playerDeath");},
+  update(){
+    for(const [owner,r] of this.records){
+      if(r.seq!==runSeq||(r.phase?cur.phase!==r.phase:!r.sprite.classList.contains(r.cls))){
+        this.cancel(owner);
+        if(owner==="enemyAttack"&&!this.records.get("enemyCharge")?.phase)this.stopVoices("enemyCharge");
+      }
+    }
+    for(const v of [...this.voices])if(!this.allowed(v.mode))this.stopVoices(v.owner);
+    if(document.hidden||presentationSuspended||hasGameModal()||adLock||!S.sfxOn){this.reset();return;}
+    const r=this.records.get("enemyCharge");
+    if(r?.phase===1){
+      if(cur.phase!==1)this.cancel("enemyCharge");else if(r.rate!==effSpeed())this.charge(r);
+    }
+    if(player.invulnUntil>skillNow())this.pendingHurt=0;
+  }
+};
+
 let atkTimer=0, paused=false, wall=false;
 
 function spawnMob(){
+  uiSfx.lootHandled=false;
+  battleSfx.reset();
   enemyEntering=false;
   cancelDeathWait();
   const boss=isBoss();
@@ -1055,6 +1619,7 @@ function spawnMob(){
   // v2.32：血量语义简化——进层回满 / 层内保持（读档=mobIdx 归零走新层满血；快照机制退役）
   if(S.mobIdx===0) player.hp=st.hp;
   else player.hp=Math.min(player.hp,st.hp);
+  battleSfx.rearmLowHealth(st.hp);
   player.shield=st.hp*st.shieldPct;
   if(player.pendingInvuln){ player.invulnUntil=skillNow()+player.pendingInvuln; player.pendingInvuln=0; }   // v2.19.3
   syncPlayerInvulnVisual();
@@ -1073,24 +1638,27 @@ function spawnMob(){
 function calcGold(f,boss){
   return mobGold(f)*(boss?BOSS.gold:1)*calcStats().goldMult;
 }
-function dealPlayerHit(){ playShot();   // v2.26：枪声
+function dealPlayerHit(){
   const st=calcStats();
   let dmg=st.atk;
   const isCrit=Math.random()<st.crit;
+  let shieldCue=null;
   if(isCrit){ dmg*=st.critDmg;
     if(count("critsurge")) buff.critsurge=skillNow()+5000; }   // v2.19：触发器池（暴击系）
   // v2.18：护盾优先承伤，破盾瞬间飘字
   if(cur.shield>0){
     const s=Math.min(cur.shield,dmg); cur.shield-=s; dmg-=s;
+    if(s>0)shieldCue=cur.shield<=0?"shieldBreak":"shieldAbsorb";
     if(cur.shield<=0){ floatDmg("enemy",L("破盾！"),"#FF2A6D",true);
       if(count("soulrush")) buff.soulrush=skillNow()+4000; }   // v2.19：猎手直觉（破盾→攻速）
+    if(shieldCue)battleSfx.shield(shieldCue,"enemy");
     if(dmg<=0){ floatDmg("enemy",fmt(s),"#7fd4ff",false); lunge("player"); enemyAnim("hurt",200); return; }
     floatDmg("enemy",fmt(s), "#7fd4ff", false);
   }
   cur.hp-=dmg;
-  if(st.lifesteal>0) player.hp=Math.min(st.hp, player.hp+dmg*st.lifesteal);
+  if(st.lifesteal>0){player.hp=Math.min(st.hp, player.hp+dmg*st.lifesteal);battleSfx.rearmLowHealth(st.hp);}
   floatDmg("enemy", fmt(dmg), isCrit?"#FFD166":"#00F0FF", isCrit);
-  lunge("player");
+  lunge("player",!shieldCue,isCrit);
   enemyAnim("hurt",200);   // v2.5：敌人受击帧
   if(cur.hp<=0) onKill();
 }
@@ -1140,6 +1708,7 @@ function syncPresentationSpeed(){
 }
 function setPresentationHidden(hidden){
   hidden=hidden||Boolean(crateAd); // 补给广告与后台分别持有暂停，任何一方未解除都不恢复
+  if(hidden){movementSfx.reset();battleSfx.reset();uiSfx.reset();stageAudio.stop();music.pause();}
   if(hidden===presentationSuspended)return;
   const now=performance.now();
   if(hidden){
@@ -1169,6 +1738,10 @@ function cancelDeathWait(){
   if(d.spr.removeEventListener) d.spr.removeEventListener("animationend",d.listener);
 }
 function beginPresentationRun(){
+  uiSfx.reset();
+  battleSfx.reset();
+  movementSfx.reset();
+  stageAudio.stop();
   enemyEntering=false;
   ++runSeq; cancelDeathWait();
   for(const task of presentationTasks) clearTimeout(task.timer);
@@ -1191,12 +1764,14 @@ function enemyAnim(cls,ms){
   sp.classList.remove("shoot","hurt","slash","bite","charge","cannon"); void sp.offsetWidth;
   sp.classList.add(cls);
   cancelPresentation(sp._t); syncPresentationSpeed();
-  sp._t=afterPresentation(ms,()=>{ sp.classList.remove(cls); syncPresentationSpeed(); });
+  battleSfx.enemyAttack(cls,ms);
+  sp._t=afterPresentation(ms,()=>{ sp.classList.remove(cls); battleSfx.cancel("enemyAttack",false);if(!battleSfx.records.get("enemyCharge")?.phase)battleSfx.cancel("enemyCharge");syncPresentationSpeed(); });
+  return true;
 }
 function enemyDie(){
   const sp=$("enemySpr");
   cancelPresentation(sp._t); sp.classList.remove("shoot","hurt","slash","bite","charge","cannon","run"); sp.classList.add("die");
-  syncPresentationSpeed();
+  syncPresentationSpeed();battleSfx.enemyDeath();
 }
 function onKill(){
   if(S.prestigeOffer||S.stageUpgrade) return;   // 已结算掉落的里程碑/受阻选择期间不再结算击杀
@@ -1206,9 +1781,11 @@ function onKill(){
   const gained=calcGold(S.floor,boss);
   S.gold+=gained; floorGoldEarned+=gained;
   floatDmg("enemy","+"+fmt(gained)+" "+IC("credits",1),"#FFD166",false);   // v2.9：击杀信用点飘字（v2.18 图标化）
+  const cloakWasActive=player.pendingInvuln>0||player.invulnUntil>skillNow();
   if(count("ghoststep")) player.pendingInvuln=2000+500*(count("ghoststep")-1);   // v2.19.3：击杀触发计时起点改为新敌人就位（过场不烧 buff）
+  if(!cloakWasActive&&player.pendingInvuln>0)battleSfx.play("cloakActivate","cloakActivate");
   syncPlayerInvulnVisual(); // 击杀后先显示，等到实际战斗再扣时
-  dropRoll(boss);
+  const lootItem=dropRoll(boss);
   enemyDie();
   if(boss){
     // v2.14：Boss 必掉碎片——普通 1、棱镜 2~3 随机，每 25 层 +1，灵魂共鸣加成
@@ -1218,11 +1795,12 @@ function onKill(){
     S.runSouls+=drop;   // v2.16：掉落进本循环累计（重塑后才转可用）
     floatDmg("enemy",`+${drop} ${IC("soul-shard",1)}`,"#c07bff",true);
     logEvent("souldrop",{count:drop,floor:S.floor,prism:prismKill});
+    uiSfx.loot(lootItem,drop>0);
     if(S.floor>=S.maxFloor) S.maxFloor=S.floor;
     if(S.floor>S.bestEver) S.bestEver=S.floor;   // v2.19：历史最高层（跨重塑保留，倍速判定）
     pushFloorSummary();
     if(S.stage<5&&S.floor===100){
-      queueStageClear();
+      if(queueStageClear())flowSfx.clearId=S.stageUpgrade.id;
       const seqK=runSeq;
       afterPresentation(1100,()=>{
         presentationTween($("enemy"),"opacity","0",300,seqK);
@@ -1236,6 +1814,7 @@ function onKill(){
     if(willSkill||willTemp) S.pendingOffer={pool:rewardPool,picks:null,floor:clearedFloor};   // v2.31：楼层随意图入档（N04）   // v2.24.15：推进即存意图
     if(willSkill&&S.lastPrestigeMilestone<S.floor){
       S.prestigeOffer=makePrestigeOffer("milestone",S.floor,"choice");
+      flowSfx.milestoneId=S.prestigeOffer.id;
       logEvent("prestige_prompt",{floor:S.floor,souls:S.runSouls});
     }
     S.floor++; S.mobIdx=0; syncPresentationSpeed();
@@ -1250,6 +1829,7 @@ function onKill(){
       },seqK);
     },seqK);
   } else {
+    uiSfx.loot(lootItem,false);
     S.mobIdx++;
     // v2.5：顺序式刷新——尸体停留→淡出→新敌人跑入→刷怪
     const seq=runSeq;   // v2.14.4：复位/重塑期间作废旧定时器
@@ -1264,11 +1844,22 @@ const fightPos=()=>window.innerWidth<=640?"8%":"22%";   // v2.24.4：跑入目�
 // v2.24.8：端侧隔离——跑入速度双档（手机快/桌面原速），CSS 过渡与 JS 定时器同源
 // v2.24.16：手机端速度恒定——跑入时长=距离(23%)÷跑出基准速度(78%/1.2s)≈360ms；桌面端保持原节奏不动
 const runCfg=()=>window.innerWidth<=640?{e:360,p:360,settle:650,t:360}:{e:900,p:1400,settle:1000,t:1400};
+function startPlayerRun(){
+  const sprite=$("playerSpr");
+  movementSfx.stop("player");movementSfx.feet.delete("player");
+  sprite.classList.remove("atk","death");sprite.classList.add("run");
+  // 跑出与跑入共用相位原点，不能继承背景滑动期间继续推进的跑步动画。
+  for(const animation of sprite.getAnimations?.()||[]){
+    if(/run/i.test(animation.animationName||""))animation.currentTime=0;
+  }
+}
 const NORMAL_MOB_KINDS=["trooper","hound","spider"];   // v2.43：每次普通刷怪独立等概率抽取
 let mobKind="trooper";   // Boss 使用独立外观，禁止继承普通怪种类
 function pickNormalMobKind(){ return NORMAL_MOB_KINDS[Math.floor(Math.random()*NORMAL_MOB_KINDS.length)]; }
 function enemyRunIn(seq=runSeq){
+  battleSfx.reset();
   if(seq!==runSeq) return;
+  movementSfx.stop("enemy");movementSfx.feet.delete("enemy");
   enemyEntering=true;
   const e=$("enemy"), sp=$("enemySpr");
   mobKind = isBoss() ? "trooper" : pickNormalMobKind();
@@ -1280,6 +1871,11 @@ function enemyRunIn(seq=runSeq){
   $("enemyHp").style.display="none"; $("enemyHpT").style.display="none"; $("enemySh").style.display="none"; $("enemyShT").style.display="none";
   cancelPresentation(sp._t);
   sp.classList.remove("die","shoot","hurt","slash","bite","charge","cannon"); sp.classList.add("run");
+  const audioProfile=enemyMovementAudio();
+  for(const animation of sp.getAnimations?.()||[]){
+    if(animation.animationName===audioProfile?.animation)animation.currentTime=0;
+  }
+  if(audioProfile?.key&&!audioProfile.loop)movementSfx.feet.set("enemy",{beat:Math.floor(-audioProfile.phase*audioProfile.beats),last:-Infinity});
   e.style.transition="none"; e.style.right="-15%"; e.style.opacity="1"; void e.offsetWidth;
   const rc=runCfg(); presentationTween(e,"right",fightPos(),rc.e,seq); syncPresentationSpeed();
   afterPresentation(rc.e+50,()=>{
@@ -1287,6 +1883,7 @@ function enemyRunIn(seq=runSeq){
     e.style.transition=""; sp.classList.remove("run");
     $("enemyHp").style.display=""; $("enemyHpT").style.display="";
     spawnMob();
+    battleSfx.arrive();
   },seq);
 }
 // v2.14：开局双方跑入（新开局/重塑/复位/读档统一演出）
@@ -1314,7 +1911,7 @@ function openingRunIn(){
   e.style.transition="none"; e.style.opacity="0"; e.style.right="-15%";
   $("enemyHp").style.display="none"; $("enemyHpT").style.display="none"; $("enemySh").style.display="none"; $("enemyShT").style.display="none";
   const p=$("player"), sp=$("playerSpr");
-  sp.classList.remove("atk","death"); sp.classList.add("run");
+  startPlayerRun();
   p.style.transition="none"; p.style.left="-15%"; p.style.opacity="1"; void p.offsetWidth;
   barsHidden=true; $("playerHp").style.display="none"; $("playerHpT").style.display="none"; $("playerSh").style.display="none"; $("playerShT").style.display="none";   // v2.24.9：跑入过程不显示血条
   const rc=runCfg(); presentationTween(p,"left",fightPos(),rc.p,seq); syncPresentationSpeed();
@@ -1332,19 +1929,37 @@ function openingRunIn(){
 }
 // ============ 楼层转场（v2.1：跑出→场景左滑→跑入） ============
 let transit=false, pendingTransit=false, prismAlt=false, dispFloor=1;   // v2.28.8：楼层文本显示层（转场完成才更新）
-const ARENA_BGS=["assets/arena-bg.webp","assets/arena-bg2.webp","assets/arena-bg5.webp","assets/arena-bg6.webp"];
-// v2.11：场景调度——f%10=0 棱镜核心、f%10=5 高空中庭、日常层 工业→机房→维修→货运 四场轮换
-function bgForFloor(f){ if(f%10===0) return "assets/arena-bg4.webp"; if(f%10===5) return "assets/arena-bg3.webp"; return ARENA_BGS[f%4]; }
+const ARENA_BGS=["assets/arena-bg.webp","assets/arena-bg2.webp","assets/arena-bg5.webp","assets/arena-bg6.webp",
+  ...["office","restaurant","bar","entertainment","laboratory","production","warehouse"].map(n=>`assets/scenes/${n}-v1.webp`)];
+const SCENE_NAMES={"assets/arena-bg.webp":"工业层","assets/arena-bg2.webp":"数据机房",
+  "assets/arena-bg5.webp":"维修层","assets/arena-bg6.webp":"货运层",
+  "assets/arena-bg3.webp":"高空中庭","assets/arena-bg4.webp":"棱镜核心",
+  "assets/scenes/office-v1.webp":"办公室","assets/scenes/restaurant-v1.webp":"餐厅",
+  "assets/scenes/bar-v1.webp":"酒吧","assets/scenes/entertainment-v1.webp":"娱乐层",
+  "assets/scenes/laboratory-v1.webp":"实验室","assets/scenes/production-v1.webp":"生产线",
+  "assets/scenes/warehouse-v1.webp":"仓库","assets/scenes/rooftop-v1.webp":"楼顶天台"};
+// v2.73：百层优先；普通层按存档种子、阶段、轮次和楼层抽样，重复查询不消费随机数。
+function bgForFloor(f){
+  if(f%100===0) return "assets/scenes/rooftop-v1.webp";
+  if(f%10===0) return "assets/arena-bg4.webp";
+  if(f%10===5) return "assets/arena-bg3.webp";
+  let h=2166136261;
+  for(const c of `${S.sceneSeed}:${S.stage}:${S.prestiges}:${f}`) h=Math.imul(h^c.charCodeAt(0),16777619);
+  h=Math.imul(h^(h>>>16),0x85ebca6b);h=Math.imul(h^(h>>>13),0xc2b2ae35);
+  return ARENA_BGS[((h^(h>>>16))>>>0)%ARENA_BGS.length];
+}
 function startFloorTransit(){
+  battleSfx.reset();
   if(stageBusy()) return;
   const seq=beginPresentationRun();   // v2.14.4：转场同样纳入代次管理
   transit=true; paused=true;
   // v2.40.1：旧敌人只属于旧层；保持隐藏直至 enemyRunIn 显式恢复。
   $("enemy").style.transition="none"; $("enemy").style.opacity="0";
   player.hp=calcStats().hp;   // v2.24.20：进层回血（转场开始）
+  battleSfx.rearmLowHealth(calcStats().hp);
   barsHidden=true; $("playerHp").style.display="none"; $("playerHpT").style.display="none"; $("playerSh").style.display="none"; $("playerShT").style.display="none";   // v2.24.18：跑出旧层藏血条（防跟随拖尾）
   const p=document.getElementById("player"), sp=document.getElementById("playerSpr");
-  sp.classList.remove("atk","death"); sp.classList.add("run");
+  startPlayerRun();
   presentationTween(p,"left","86%",1200,seq); syncPresentationSpeed();
   afterPresentation(1200,()=>presentationTween(p,"opacity","0",200,seq),seq);
   afterPresentation(1400,()=>sceneSwap(seq),seq);
@@ -1352,12 +1967,13 @@ function startFloorTransit(){
 function sceneSwap(seq){
   if(seq!==runSeq) return;
   const arena=document.getElementById("arena");
-  const nextBg=bgForFloor(S.floor);   // v2.8：按层选景（里程碑中庭/奇偶轮换）
+  const nextBg=bgForFloor(S.floor);   // 普通层随机结果与 HUD / 读档共用同一选择函数
   const mk=left=>{ const d=document.createElement("div"); d.className="bgSlide"; d.style.left=left; return d; };
   const oldBg=mk("0"); oldBg.style.backgroundImage=getComputedStyle(arena).backgroundImage;
   const newBg=mk("100%"); newBg.style.backgroundImage=`url('${nextBg}')`;
   arena.appendChild(oldBg); arena.appendChild(newBg);
   sceneLayers.add(oldBg); sceneLayers.add(newBg);
+  movementSfx.play("transition","transition",.5,.45/effSpeed());
   presentationTween(oldBg,"left","-100%",450,seq,"ease-in-out");
   presentationTween(newBg,"left","0%",450,seq,"ease-in-out");
   afterPresentation(480,()=>{
@@ -1368,6 +1984,7 @@ function sceneSwap(seq){
 function runIn(seq){
   if(seq!==runSeq) return;
   const p=document.getElementById("player"), sp=document.getElementById("playerSpr");
+  startPlayerRun();
   p.style.transition="none"; p.style.left="-15%"; p.style.opacity="1"; void p.offsetWidth;
   barsHidden=true; $("playerHp").style.display="none"; $("playerHpT").style.display="none"; $("playerSh").style.display="none"; $("playerShT").style.display="none";   // v2.24.11：跑动不显示血条
   const rc=runCfg(); presentationTween(p,"left",fightPos(),rc.t,seq); syncPresentationSpeed();
@@ -1390,13 +2007,14 @@ function checkWall(dt){
     logEvent("wall",{reason});
     wall=true; paused=true;
     if(!S.prestigeOffer) S.prestigeOffer=makePrestigeOffer("wall",S.floor,"blocked");
+    flowSfx.blockedId=S.prestigeOffer.id;
     save();   // 死亡/超时和结算预览也可恢复，不能刷新后绕过本次重塑
     // v2.38：死亡动画播完再弹受阻（超时受阻直接弹，只有真死亡有动画）
     if(reason==="hp_zero"){
       confirmOpen=false; pendingSkillOffer=null;   // v2.38：死亡立即作废复位确认（不等动画）
       const spr=$("playerSpr");
       cancelDeathWait(); cancelPresentation(spr._t);
-      spr.classList.remove("run","atk"); spr.classList.add("death"); syncPresentationSpeed();
+      spr.classList.remove("run","atk"); spr.classList.add("death"); syncPresentationSpeed();battleSfx.playerDeath();
       const seq=runSeq;
       const show=()=>{
         if(seq!==runSeq||!deathWait||!wall) return;
@@ -1416,6 +2034,7 @@ function showWallModal(){
     showModal(L`<img class="ic" style="width:32px;height:32px;vertical-align:-8px;margin-right:12px" src="assets/icons/movement-blocked.svg" alt="">行动受阻`,
       L`猎手在第 <b>${S.floor}</b> 层被压制了。<br>「重塑」换一具更强的克隆体（本循环已掉落 <b style="color:#c07bff">${S.runSouls}</b> 碎片将转为可用，装备回收为信用点带入新局）。`,
       L`<button class="nh-button nh-button--violet" onclick="closeModal();doPrestige()"><img class="nh-button__icon" src="assets/icons/reshape.svg" alt=""><span class="nh-button__body"><span class="nh-button__title">重塑 · 结算本循环</span></span></button>`);
+    if(flowSfx.blockedId===S.prestigeOffer?.id){flowSfx.blockedId=null;uiSfx.play("blocked");}
 }
 // v2.21：死亡只能重塑，继续硬磨已取消（retryFight 废弃，无入口）
 
@@ -1457,6 +2076,7 @@ function dropRoll(boss){
     S.inv.push(item);   // v1.8：背包无上限
     showDropNotice(L`获得 ${qualityName(q)}·${SLOTS[slot]}`);
   }
+  return item;
 }
 function itemDesc(it){
   let s=`${qualityName(it.q)}·${SLOTS[it.slot]} +${multOf(it.slot,it.q)}%`;
@@ -1499,7 +2119,7 @@ function fuseSlot(slot){
   logEvent("fuse",{slot,from:q,to:ni.q,usedEquip:info.useEquip});
   toast(equipped?L`合成完成：${qualityName(ni.q)}·${SLOTS[slot]} 已装备升阶`
                 :L`合成完成：${qualityName(ni.q)}·${SLOTS[slot]} 已存入背包`);
-  save(); renderPanels();
+  const saved=save(); renderPanels();uiSfx.feedback(saved,ni.q>=6?"lootRare":"fusion");
 }
 function salvageInfo(slot){
   const lo=dropBand(S.floor)[0];   // v2.0：掉落区间驱动——楼层不再掉落的品质=过时
@@ -1518,7 +2138,7 @@ function salvage(slot){
   }
   S.gold+=info.v; logEvent("salvage",{slot,count:info.n,value:info.v,reason:"outdated"});
   toast(L`拆解低品质装备 ${info.n} 件 → +${fmt(info.v)} 信用点`);
-  save(); renderPanels();   // v2.29：从注释尾恢复（v2.24.17 误吞）
+  const saved=save(); renderPanels();uiSfx.feedback(saved,"salvage");   // v2.29：从注释尾恢复（v2.24.17 误吞）
 }
 
 // ============ 技能（v2.19：双池——10层常驻属性 / 5层条件触发器） ============
@@ -1549,6 +2169,7 @@ function offerSkills(poolKey,preset,forFloor){
   $("modalBox").scrollTop=0;
   $("modalBox").setAttribute?.("tabindex","-1");
   $("modalBox").focus?.({preventScroll:true});
+  uiSfx.panel("skill:"+forFloor);
 }
 function pickSkill(k){
   if(!skillOfferOpen || !curOffer.includes(k)) return;   // v0.7：防脚本/连点绕过弹窗刷技能
@@ -1556,11 +2177,12 @@ function pickSkill(k){
   S.pendingOffer=null;   // v2.24.14
   S.skills.push(k);
   logEvent("skill",{picked:k,rejected:curOffer.filter(x=>x!==k)});
-  closeModal(); save(); renderPanels();
+  closeModal(); const saved=save(); renderPanels();
   toast(L`习得技能：${SKILLS[k].n}`);
-  if(resumeLegacyUpgrade()) return;
-  if(pendingTransit){ pendingTransit=false; startFloorTransit(); }   // v2.1：技能选完进入转场
-  else paused=false;
+  const resumed=resumeLegacyUpgrade();
+  if(!resumed&&pendingTransit){ pendingTransit=false; startFloorTransit(); }   // v2.1：技能选完进入转场
+  else if(!resumed)paused=false;
+  uiSfx.feedback(saved,"uiSkill");
 }
 
 // v2.28.6：广告点位防连点锁——按下即锁，流程完成才释放（测试版占位广告也要防穿透）
@@ -1586,12 +2208,13 @@ function makePrestigeOffer(source,floor,stage){
 function prestigeButton(color,action,title,detail,icon="reshape"){
   return `<button class="nh-button nh-button--${color} prestige-action" onclick="${action}"><img class="nh-button__icon" src="assets/icons/${icon}.svg" alt=""><span class="nh-button__body"><span class="nh-button__title">${title}</span><span class="nh-button__detail">${detail}</span></span></button>`;
 }
-function showPrestigeOffer(message=""){
-  if(deferForCrate(2,()=>showPrestigeOffer(message)))return;
+function showPrestigeOffer(message="",quiet=false){
+  if(deferForCrate(2,()=>showPrestigeOffer(message,quiet)))return;
   const p=S.prestigeOffer;
   if(!p||confirmOpen||prestigeAd) return;
   paused=true; skillOfferOpen=false;
   if(p.stage==="blocked") return showWallModal();
+  if(p.stage!=="choice"&&!quiet&&!message)uiSfx.panel("prestige:"+p.id+":"+p.stage);
   if(p.stage==="choice"){
     showModal(L`第 ${p.floor} 层已通关`,
       L`<div class="prestige-title">继续挑战，还是重塑变强？</div>本次选择期间，战斗已暂停
@@ -1600,6 +2223,8 @@ function showPrestigeOffer(message=""){
       prestigeButton("upgrade","continueMilestone()",L("继续挑战"),L`选择技能，前往第 ${p.floor+1} 层`,"skill-choice")+
       prestigeButton("violet","doPrestige()",L("前往重塑"),L("先查看结算，再决定"))+
       L`<div class="prestige-note">下次提醒：通关第 ${p.floor+10} 层后</div>`);
+    if(flowSfx.milestoneId===p.id){flowSfx.milestoneId=null;uiSfx.play("milestone");}
+    else if(!quiet&&!message)uiSfx.panel("prestige:"+p.id+":"+p.stage);
     return;
   }
   if(!SIMULATED_ADS_ENABLED){
@@ -1640,12 +2265,12 @@ function doPrestige(){
   if(!S.prestigeOffer){ if(!wall) return; S.prestigeOffer=makePrestigeOffer("wall",S.floor,"blocked"); }
   const p=S.prestigeOffer;
   if(p.stage!=="preview") logEvent("prestige_choice",{floor:p.floor,source:p.source,choice:"reshape"});
-  p.stage="preview"; cancelDeathWait(); save(); showPrestigeOffer();
+  p.stage="preview"; cancelDeathWait(); const saved=save(); showPrestigeOffer("",!saved);if(!saved)uiSfx.error();
 }
 function backToMilestone(){
   const p=S.prestigeOffer;
   if(!p||p.source!=="milestone"||p.stage!=="preview"||prestigeAd||(SIMULATED_ADS_ENABLED&&p.adRewarded)) return;
-  p.stage="choice"; save(); showPrestigeOffer();
+  p.stage="choice"; const saved=save(); showPrestigeOffer("",true);if(saved)uiSfx.back();else uiSfx.error();
 }
 function requestPrestigeAd(){
   if(!SIMULATED_ADS_ENABLED)return false;
@@ -1653,7 +2278,7 @@ function requestPrestigeAd(){
   const p=S.prestigeOffer;
   if(!p||p.stage!=="preview"||p.adRewarded||prestigeAd||!adGuard()) return;
   const attempt=++prestigeAdSerial;
-  prestigeAd={attempt,offerId:p.id,seq:runSeq};
+  prestigeAd={attempt,offerId:p.id,seq:runSeq};uiSfx.reset();
   logEvent("prestige_ad",{source:p.source,floor:p.floor,result:"requested",mode:"simulation"});
   // 当前工程未接 SDK：显式模拟完成/取消，禁止把点击请求当成广告成功。
   showModal(L("广告测试模拟"),L("当前为测试版本，未播放真实广告。<br>模拟完整观看后获得双倍碎片；取消则返回预览，不结束本轮。"),
@@ -1668,7 +2293,8 @@ function finishPrestigeAd(attempt,result){
   prestigeAd=null; adRelease();
   logEvent("prestige_ad",{source:p.source,floor:p.floor,result,mode:"simulation"});
   if(result!=="completed"){
-    showPrestigeOffer(result==="cancelled"?L("已取消观看，本轮进度和收益保留。"):L("广告暂不可用，本轮进度和收益保留。可重试、普通重塑或返回。")); return;
+    showPrestigeOffer(result==="cancelled"?L("已取消观看，本轮进度和收益保留。"):L("广告暂不可用，本轮进度和收益保留。可重试、普通重塑或返回。"),true);
+    if(result==="cancelled")uiSfx.back();else uiSfx.error(false);return;
   }
   p.adRewarded=true; save();   // 成功资格随预览存档；提交失败可重试，不需再看广告
   applyPrestige(2);
@@ -1685,14 +2311,15 @@ function applyPrestige(mult){
     pendingOffer:null,prestigeOffer:null,lastPrestigeMilestone:0,lastPrestigeId:p.id,lastSave:Date.now()};
   // 新奖励与已消费意图在同一个存档项中提交；写失败保留旧局，不能只在内存发奖。
   try{ localStorage.setItem(saveKey(),JSON.stringify(next)); }
-  catch(e){ showPrestigeOffer(L("存档写入失败，尚未结算。请释放存储空间后重试。")); return; }
+  catch(e){ showPrestigeOffer(L("存档写入失败，尚未结算。请释放存储空间后重试。"));uiSfx.error(); return; }
   S=next;clearDropNotice();
   logEvent("prestige",{souls:p.souls,salvage:p.salvage,mult,fromFloor:p.floor,source:p.source,settlementId:p.id});
   confirmOpen=false; pendingSkillOffer=null; skillOfferOpen=false; curOffer=[]; pendingTransit=false;
   lastOfferPool=null; lastOfferFloor=null; prestigeAd=null; adRelease();
   buff={adrenaline:0,critsurge:0,soulrush:0}; player.pendingInvuln=0; player.invulnUntil=0;
+  battleSfx.lowHealthArmed=true;
   floorGoldEarned=0; player.hp=calcStats().hp;
-  closeModal(); wall=false; spawnMob(); openingRunIn(); renderPanels();
+  closeModal(); wall=false; spawnMob(); openingRunIn(); renderPanels();uiSfx.play("reforge");
   toast(L`重塑完成：+${fmt(p.souls*mult)} 碎片`);
 }
 function treeCost(k){ return S.tree[k]+1; }   // 成本=当前等级+1（v2.0 起无上限）
@@ -1703,7 +2330,7 @@ function buyTree(k){
   if(S.souls<c) return;
   S.souls-=c; S.tree[k]++;
   logEvent("tree",{key:k,level:S.tree[k],cost:c});
-  save(); renderPanels();
+  const saved=save(); renderPanels();uiSfx.feedback(saved,"uiTree");
 }
 
 // ============ 补给箱：在线60秒、固定奖励、模拟广告一次性结算 ============
@@ -1715,15 +2342,17 @@ function deferForCrate(priority,resume){
   return true;
 }
 function hasGameModal(){
-  return $("overlay").classList.contains("show")||$("stageOverlay").hidden===false||$("drawer").classList.contains("show");
+  return $("overlay").classList.contains("show")||$("stageOverlay").hidden===false||$("drawer").classList.contains("show")||gameSettingsOpen;
 }
 function crateClockRunning(){
-  return boot.phase==="playing"&&!document.hidden&&!stageBusy()&&!wall&&!confirmOpen&&!skillOfferOpen&&!S.prestigeOffer&&!crateAd&&
+  return boot.phase==="playing"&&!document.hidden&&!stageBusy()&&!wall&&!confirmOpen&&!skillOfferOpen&&!S.prestigeOffer&&!crateAd&&!gameSettingsOpen&&
     (!paused||transit||presentationTasks.size>0);
 }
 function advanceCrateClock(realDt){
+  const before=S.crateCooldownMs;
   if(crateClockRunning())S.crateCooldownMs=Math.max(0,S.crateCooldownMs-Math.max(0,Math.min(realDt,.1))*1000);
   if(S.crateCooldownMs<1e-6)S.crateCooldownMs=0;
+  if(before>0&&S.crateCooldownMs===0&&canOpenCrate())uiSfx.play("supplyReady");
 }
 function canOpenCrate(){
   if(!FREE_SUPPLIES_ENABLED&&!SIMULATED_ADS_ENABLED)return false;
@@ -1735,8 +2364,8 @@ function claimFreeCrate(){
   const gold=Math.round(mobGold(S.floor)*CRATE_GOLD_MULT*calcStats().goldMult);
   const next={...S,gold:S.gold+gold,cratesRun:(S.cratesRun||0)+1,crateCooldownMs:CRATE_INTERVAL_MS,crateReady:Date.now(),lastSave:Date.now()};
   try{localStorage.setItem(saveKey(),JSON.stringify(next));}
-  catch(e){toast(L("存档写入失败，尚未领取。释放存储空间后重试。"));return false;}
-  S=next;renderPanels();toast(L`补给箱：+${fmt(gold)} 信用点`);return true;
+  catch(e){toast(L("存档写入失败，尚未领取。释放存储空间后重试。"));uiSfx.error();return false;}
+  S=next;renderPanels();toast(L`补给箱：+${fmt(gold)} 信用点`);uiSfx.play("supplyClaim",{gesture:true});return true;
 }
 function openCrate(){
   if(FREE_SUPPLIES_ENABLED)return claimFreeCrate();
@@ -1771,8 +2400,10 @@ function finishCrateAd(id,result){
   logEvent("crate_ad",{result:result==="completed"?"completed":"cancelled",mode:"simulation"});
   crateAd=null;adRelease();closeModal();paused=a.wasPaused;
   setPresentationHidden(document.hidden);
-  if(a.resumeUI)a.resumeUI.resume();
+  uiSfx.suppressPanels=true;
+  try{if(a.resumeUI)a.resumeUI.resume();}finally{uiSfx.suppressPanels=false;}
   renderPanels();
+  if(result==="completed")uiSfx.play("supplyClaim",{gesture:true});else if(result==="cancelled")uiSfx.back();
 }
 
 // v2.21：离线收益系统已取消（纯在线循环驱动）
@@ -1795,12 +2426,18 @@ function floatDmg(who,text,color,big){
   $("arena").appendChild(d);
   setTimeout(()=>{ d.remove(); floatLane[who]=Math.max(0,floatLane[who]-1); },900);
 }
-function lunge(who){
+function lunge(who,bodyHit=false,isCrit=false){
   if(who==="player"){
     if(!allowFastEffect("player"))return;
     // v1.9.1：玩家原地播放射击动画，不再前后位移
     const sp=$("playerSpr");
     sp.classList.remove("atk"); void sp.offsetWidth; sp.classList.add("atk");
+    const weapon=PLAYER_WEAPON_SFX[S.stage]||PLAYER_WEAPON_SFX[1];
+    battleSfx.play(weapon.shot,"playerShot");
+    if(bodyHit){
+      const impact=isCrit&&movementSfx.buffers.has("criticalImpact")?"criticalImpact":weapon.impact;
+      battleSfx.play(impact,"impact","combat",{gap:impact==="criticalImpact"?100:80});
+    }
     cancelPresentation(sp._t); syncPresentationSpeed();
     sp._t=afterPresentation(stageConfig().shootMs+10,()=>{ sp.classList.remove("atk"); syncPresentationSpeed(); });
     return;
@@ -1814,6 +2451,7 @@ function showModal(title,html,btns,owner=null){
   $("modalBox").classList.remove("build-offer");
   $("modalBox").innerHTML=`<h2>${title}</h2><div class="modal-copy">${html}</div>${btns}`;
   $("overlay").classList.add("show");
+  battleSfx.reset();
   $("btnCrate").disabled=true;
   if(S.prestigeOffer||skillOfferOpen){
     $("modalBox").setAttribute?.("role","dialog");
@@ -1960,11 +2598,10 @@ function syncPlayerInvulnVisual(){
 function renderCombat(){
   const st=calcStats();
   // v2.16：楼层数醒目化 + 场景预告副行
-  const SCENE_NAME={"assets/arena-bg.webp":L("工业层"),"assets/arena-bg2.webp":L("数据机房"),"assets/arena-bg5.webp":L("维修层"),"assets/arena-bg6.webp":L("货运层"),"assets/arena-bg3.webp":L("高空中庭"),"assets/arena-bg4.webp":L("棱镜核心")};
   const bossTag=isBoss()?(isTianshu()?L(' · <span style="color:#c07bff">天枢·零号主机</span>'):isPrism()?L(' · <span style="color:#c07bff">监察官·棱镜</span>'):L(' · <span style="color:var(--magenta)">区域头目</span>')):'';
   $("floorLabel").style.display=transit?"none":"";   // v2.28.8：转场移动中隐藏
   $("floorLabel").innerHTML=L`<div class="fl-stage" title="阶段 ${S.stage} · ${stageConfig().name}${S.stage===5?L(' · ∞ 无尽'):''}">阶段 ${S.stage} · ${stageConfig().name}${S.stage===5?L(" · ∞ 无尽"):""}</div><div class="fl-big" title="第 ${dispFloor} 层${bossTag.replace(/<[^>]*>/g,'')}">第 <b>${dispFloor}</b>${S.stage===5?"":"<span class=fl-limit> / 100</span>"} 层${bossTag}</div>
-    <div class="fl-sub">${SCENE_NAME[bgForFloor(dispFloor)]}</div>`;
+    <div class="fl-sub">${L(SCENE_NAMES[bgForFloor(dispFloor)])}</div>`;
   $("mobProgress").innerHTML=L`敌人 <b>${S.mobIdx+1}</b><span>/6</span>${wall?L('<span class="mob-wall">⚠️ 受阻</span>'):""}`;
   $("arena").classList.toggle("hud-blocked",wall);
   // v2.24.13：血条组按角色容器中心实时对齐（各体型通吃，端侧自适配）
@@ -2007,6 +2644,11 @@ function skillCombatRunning(){
   return gameClockRunning()&&!paused&&!transit&&!enemyEntering&&cur.hp>0&&cur.hp<1e17&&player.hp>0&&
     !$("overlay").classList.contains("show")&&$("stageOverlay").hidden!==false;
 }
+function playerDamageAudio(hpBefore,shieldBefore,maxHp){
+  if(shieldBefore>0&&player.shield<shieldBefore)
+    battleSfx.shield(player.shield<=0?"shieldBreak":"shieldAbsorb","player");
+  battleSfx.lowHealthDamage(hpBefore,maxHp);
+}
 function combatStep(dt){
   if(!skillCombatRunning())return;
   const st=calcStats();
@@ -2018,22 +2660,31 @@ function combatStep(dt){
     if(cur.hp>=1e17||paused||wall||S.prestigeOffer||stageBusy())return;
   }
   if(cur.hp>=1e17||wall||player.invulnUntil>skillNow())return;
+  const hpBeforeDamage=player.hp;
+  const shieldBeforeDamage=player.shield;
   const dmg=cur.atk*dt;
   if(player.shield>0){const sh=Math.min(player.shield,dmg);player.shield-=sh;player.hp-=dmg-sh;}
   else player.hp-=dmg;
+  battleSfx.pendingHurt+=Math.max(0,hpBeforeDamage-player.hp);
   if(player.hp<=0){checkWall(dt);return;}
+  playerDamageAudio(hpBeforeDamage,shieldBeforeDamage,st.hp);
   if(isTianshu()){
     cur.phaseT-=dt;
     // 保留跨相位余量；不能用赋值丢掉低帧率/大时间步带来的尾数。
     while(cur.phaseT<=1e-10){
-      if(cur.phase===0){cur.phase=1;cur.phaseT+=.5;enemyAnim("charge",500);}
+      if(cur.phase===0){cur.phase=1;cur.phaseT+=.5;enemyAnim("charge",500);battleSfx.beginCharge();}
       else if(cur.phase===1){
-        cur.phase=2;cur.phaseT+=.5;enemyAnim("cannon",500);
+        cur.phase=2;cur.phaseT+=.5;battleSfx.cancel("enemyCharge");const cannonVisible=enemyAnim("cannon",500);
+        const hpBeforeBurst=player.hp;
+        const shieldBeforeBurst=player.shield;
         const burst=cur.atk*2.5;
         if(player.shield>0){const sh=Math.min(player.shield,burst);player.shield-=sh;player.hp-=burst-sh;}
         else player.hp-=burst;
+        battleSfx.pendingHurt+=Math.max(0,hpBeforeBurst-player.hp);
         floatDmg("player",fmt(burst),"#FF2A6D",true);
         if(player.hp<=0){checkWall(dt);return;}
+        playerDamageAudio(hpBeforeBurst,shieldBeforeBurst,st.hp);
+        if(cannonVisible)battleSfx.hurt();
       }else{cur.phase=0;cur.phaseT+=8;}
     }
     if(cur.phase===0&&visualRandom()<dt*1.2){floatDmg("player",fmt(cur.atk),"#FF2A6D",false);enemyAnim("shoot",400);}
@@ -2058,6 +2709,7 @@ function advanceCombat(realDt){
 }
 function loop(now){
   const realDt=Math.max(0,Math.min((now-lastT)/1000,.1));lastT=now;
+  updateMovementSfx(now);battleSfx.update();uiSfx.update();music.sync();
   if(boot.phase!=="playing"||document.hidden){combatRemainder=0;requestAnimationFrame(loop);return;}
   if(stageBusy())paused=true;
   advanceCrateClock(realDt); // 在线现实时间，普通2×与测试4×/8×均不加速补给
@@ -2078,7 +2730,7 @@ const UPGRADE_TIER=window.innerWidth<=800?"mobile":"desktop";
 const BOOT_IMAGES=[
   ...[2,3,4,5].flatMap(n=>["idle","shoot","run","death"].map(a=>`assets/stages/stage0${n}-${a}.png`)),
   ...Object.values(UPGRADE_PACKS).flatMap(p=>Object.values(p[UPGRADE_TIER])),
-  ...["arena-bg","arena-bg2","arena-bg3","arena-bg4","arena-bg5","arena-bg6"].map(n=>`assets/${n}.webp`),
+  ...Object.keys(SCENE_NAMES),
   ...["gunner_idle","gunner_shoot","gunner_run","stage01-death",
     "security_idle","security_shoot","security_hurt","security_death","security_run",
     "warden_idle","warden_shoot","warden_run","warden_death_v2",
@@ -2091,11 +2743,11 @@ const BOOT_IMAGES=[
   ...["weapon","armor","chip","neural"].map(n=>`assets/icons/${n}.png`),
   "assets/start-screen/night-city-desktop.webp","assets/start-screen/night-city-mobile.webp"
 ];
-const boot={phase:"cover",assets:[],batch:null,resetRequested:false,slowTimer:0,audioUrl:null};
+const boot={phase:"cover",assets:[],batch:null,resetRequested:false,slowTimer:0};
 function makeBootAssets(){
   return [...new Set(BOOT_IMAGES)].map(url=>({url,type:"image",state:"pending"})).concat(
     Object.values(UPGRADE_PACKS).map(p=>({url:p.script,api:p.api,type:"script",state:"pending"})),
-    {url:SFX_SRC,type:"audio",state:"pending"},
+    Object.entries({...MOVEMENT_SFX,...COMBAT_SFX,...UI_SFX}).map(([key,url])=>({key,url,type:"audio",state:"pending"})),
     Array.from(document.querySelectorAll('link[rel="stylesheet"]')).map(link=>({url:link.href,type:"style",link,state:"pending"}))
   );
 }
@@ -2104,7 +2756,8 @@ function loadBootAsset(asset){
     let settled=false, image=null, controller=null, cleanup=()=>{};
     const finish=error=>{
       if(settled) return; settled=true; clearTimeout(timer); cleanup();
-      if(error){ controller?.abort(); if(image) image.src=""; reject(error); }
+      if(error&&asset.type==="audio"){controller?.abort();asset.warning=String(error.message||error);resolve();}
+      else if(error){ controller?.abort(); if(image) image.src=""; reject(error); }
       else resolve();
     };
     const timer=setTimeout(()=>finish(new Error(L("素材加载超时"))),20000);
@@ -2125,15 +2778,14 @@ function loadBootAsset(asset){
       cleanup=()=>{script.onload=null;script.onerror=null;script.remove();};
       script.src=asset.url;document.head.appendChild(script);
     } else if(asset.type==="audio"){
-      // 完整下载后复用本地 Blob，避免移动端等待自动播放许可而卡住加载。
+      // 完整下载并解码；音频不支持或失败只静音降级，不阻断入场。
       controller=new AbortController();
       fetch(asset.url,{signal:controller.signal}).then(response=>{
-        if(!response.ok) throw new Error(L("音效加载失败")); return response.blob();
-      }).then(blob=>{
+        if(!response.ok) throw new Error(L("音效加载失败")); return response.arrayBuffer();
+      }).then(async bytes=>{
         if(settled) return;
-        if(!blob.size) throw new Error(L("音效为空"));
-        boot.audioUrl=URL.createObjectURL(blob);
-        sfxPool.forEach(a=>{a.src=boot.audioUrl;a.load();}); finish();
+        if(!bytes.byteLength) throw new Error(L("音效为空"));
+        await movementSfx.load(asset.key,bytes);finish();
       }).catch(finish);
     } else {
       const link=asset.link;
@@ -2171,9 +2823,11 @@ function prepareAssets(){
   return boot.batch;
 }
 async function startCoverLoad(reset=false){
+  movementSfx.unlock();
   if(reset&&!TEST_TOOLS_ENABLED)return false;
   if(boot.phase!=="cover"&&boot.phase!=="failed") return;
-  if(saveBlocked&&!reset){toast(TEST_TOOLS_ENABLED?L("存档暂不可读取，请先导出备份，或在设置中明确清除后重新开始。"):L("存档暂不可读取。请保留备份并重试，原始进度不会被覆盖。"));return;}
+  if(saveBlocked&&!reset){toast(TEST_TOOLS_ENABLED?L("存档暂不可读取，请先导出备份，或在设置中明确清除后重新开始。"):L("存档暂不可读取。请保留备份并重试，原始进度不会被覆盖。"));uiSfx.error();return;}
+  uiSfx.confirm();
   boot.phase="loading"; boot.resetRequested=reset; paused=true;
   const cover=$("cover"), panel=$("coverLoading");
   cover.classList.add("loading"); $("coverSettings").classList.remove("show");
@@ -2185,7 +2839,7 @@ async function startCoverLoad(reset=false){
   clearTimeout(boot.slowTimer);
   panel.setAttribute("aria-busy","false");
   if(boot.assets.some(a=>a.state!=="ready")){
-    updateLoadingUI(L("部分素材加载失败，请重试")); boot.phase="failed";
+    updateLoadingUI(L("部分素材加载失败，请重试")); boot.phase="failed";uiSfx.error(false);
     $("btnLoadRetry").hidden=false; $("btnLoadRetry").focus({preventScroll:true}); return;
   }
   updateLoadingUI(L("准备完成")); boot.phase="entering";
@@ -2210,7 +2864,7 @@ async function startCoverLoad(reset=false){
 
 // ============ 测试日志系统 ============
 // 版本管理：每次修改递增 VERSION，并同步维护 game/CHANGELOG.md 与 game/versions/ 快照
-const VERSION="v2.63";   // Codex：开发/Basic构建配置，发布版关闭测试工具与模拟广告
+const VERSION="v2.77";   // Codex：统一音效与音乐开关样式
 let sessions=[], curSession=null, seqCounter=1;
 let floorEnterGameT=0,bossEnterGameT=0;
 let floorEnterT=0, bossEnterT=0, floorGoldEarned=0, lastLogSave=0;
@@ -2247,13 +2901,13 @@ function loadLogs(){
   return false;
 }
 // v2.19：2 倍速——已通过楼层（floor<=bestEver）生效，新边境自动降 1 倍
-function toggleSpeed(){ testSpeed=1; renderTestSpeed(); S.speed2=!S.speed2; syncPresentationSpeed(); save(); renderSpeedBtn(); toast(S.speed2?L("2 倍速开启（仅限已通过楼层）"):L("恢复常速")); }
+function toggleSpeed(){ testSpeed=1; renderTestSpeed(); S.speed2=!S.speed2; syncPresentationSpeed(); const saved=save(); renderSpeedBtn();if(saved)uiSfx.confirm();else uiSfx.error(); toast(S.speed2?L("2 倍速开启（仅限已通过楼层）"):L("恢复常速")); }
 function effSpeed(){ return TEST_TOOLS_ENABLED&&testSpeed>1?testSpeed:(S.speed2&&S.floor<=S.bestEver?2:1); }
 function toggleTestSpeed(){
   if(!TEST_TOOLS_ENABLED||boot.phase!=="playing"||stageBusy())return;
   const previous=effSpeed();testSpeed=({1:4,4:8,8:1})[testSpeed]||1;
   S.speed2=false; // 防止测试档叠乘或刷新后意外恢复玩家2×。
-  syncPresentationSpeed();renderTestSpeed();renderSpeedBtn();save();
+  syncPresentationSpeed();renderTestSpeed();renderSpeedBtn();const saved=save();if(saved)uiSfx.confirm();else uiSfx.error();
   if(curSession)curSession.testSpeedUsed=true;
   logEvent("test_speed",{from:previous,to:testSpeed});
   toast(L`测试倍速 ${testSpeed}× · 改装演出保持常速`);
@@ -2400,32 +3054,36 @@ function askReset(){
     L`将清空<b>${MODE_NAMES[gameMode]}</b>进度并作废当前未封存的日志段，回到全新开局。<br>另一模式进度、构筑解锁状态及已封存日志保留。`,
     L`<button class="nh-button nh-button--danger nh-button--compact" onclick="doReset()">确认复位</button>
      <button onclick="cancelReset()">取消</button>`);
+  uiSfx.play("uiPanel",{gesture:true});
 }
 function cancelReset(){
+  if(!confirmOpen)return;
   confirmOpen=false; closeModal();
-  if(S.prestigeOffer) showPrestigeOffer();
+  if(S.prestigeOffer) showPrestigeOffer("",true);
+  uiSfx.back();
 }
 function doReset(){
   if(!TEST_TOOLS_ENABLED)return false;
   if(S.stageUpgrade&&boot.phase==="playing"&&!boot.resetRequested) return;
   if(boot.phase!=="playing"){ closeModal(); startCoverLoad(true); return; }
   if(gameMode==="endless"&&S.stage===5&&!writeModePrefs(gameMode)){
-    toast(L("解锁记录保存失败，尚未清除进度。"));return false;
+    toast(L("解锁记录保存失败，尚未清除进度。"));uiSfx.error();return false;
   }
   const resetState=freshState();
   try{localStorage.setItem(saveKey(),JSON.stringify(resetState));}
-  catch(e){toast(L("清除存档失败，原进度已保留。请检查浏览器存储。"));return false;}
+  catch(e){toast(L("清除存档失败，原进度已保留。请检查浏览器存储。"));uiSfx.error();return false;}
   prestigeAd=null; crateAd=null;crateAdSerial++;setPresentationHidden(document.hidden);adRelease(); pendingTransit=false; S.prestigeOffer=null;
   confirmOpen=false; pendingSkillOffer=null;   // v2.31：确认复位则丢弃挂起的技能请求
   skillOfferOpen=false; curOffer=[]; S.pendingOffer=null; closeModal();   // v2.29：复位清理技能弹窗流程态
   // v2.31.5：R01——复位清理恢复标记+战斗临时态，显式满血满盾清零
   player.hp=100; player.shield=0;   // 基础血量（新档升级清零，spawnMob 进层按 calcStats 回满） buff={adrenaline:0,critsurge:0,soulrush:0};
+  battleSfx.lowHealthArmed=true;
   player.pendingInvuln=0;player.invulnUntil=0;syncPlayerInvulnVisual();
   if(stageClock.raf!=null)cancelAnimationFrame(stageClock.raf);
   stageClock={id:null,elapsed:0,last:null,savedAt:0,raf:null};
   $("stageOverlay").hidden=true;document.body.classList.remove("stage-active");setStageInert(false);
   saveBlocked=false;boot.resetRequested=false;
-  S=resetState;clearDropNotice();
+  S=resetState;uiSfx.newState();flowSfx.milestoneId=null;flowSfx.clearId=null;flowSfx.blockedId=null;clearDropNotice();
   wall=false; paused=false;
   buff={adrenaline:0,critsurge:0,soulrush:0};
   floorGoldEarned=0;
@@ -2453,7 +3111,7 @@ function endTest(){
   showModal(L("⏹️ 测试段 ")+sealed.id+L(" 已封存"), html,
     L`<button class="gold" onclick="closeModal();saveSessionToFolder(findSession('${sealed.id}'))">存入 logs 文件夹</button>
      <button class="gold" onclick="closeModal();exportCSV('${sealed.id}')">导出楼层 CSV</button>
-     <button onclick="closeModal()">继续游戏</button>`);
+      <button onclick="continueAfterTest()">继续游戏</button>`);
   renderDrawer();
 }
 function summarize(s){
@@ -2505,7 +3163,7 @@ function toggleDrawer(){
   drawerOpen=!drawerOpen;
   document.getElementById("drawer").classList.toggle("show",drawerOpen);
   $("btnCrate").disabled=!canOpenCrate();
-  if(drawerOpen) renderDrawer();
+  if(drawerOpen){renderDrawer();uiSfx.play("uiPanel",{gesture:true});}else uiSfx.back();
 }
 function renderDrawer(){
   if(!TEST_TOOLS_ENABLED)return false;
@@ -2532,10 +3190,10 @@ function renderDrawer(){
 }
 
 // ============ 事件 ============
-$("btnAtk").onclick=()=>{ if(stageBusy()) return; if(S.gold>=cost(S.atkLv)){ const c=cost(S.atkLv); S.gold-=c; S.atkLv++; logEvent("upgrade",{kind:"atk",level:S.atkLv,cost:Math.round(c)}); renderPanels(); } };
+$("btnAtk").onclick=()=>{ if(stageBusy()) return; if(S.gold>=cost(S.atkLv)){ const c=cost(S.atkLv); S.gold-=c; S.atkLv++; logEvent("upgrade",{kind:"atk",level:S.atkLv,cost:Math.round(c)}); renderPanels();uiSfx.play("uiUpgrade",{gesture:true}); } };
 $("btnHp").onclick=()=>{ if(stageBusy()) return; if(S.gold>=cost(S.hpLv)){ const before=calcStats().hp; const c=cost(S.hpLv); S.gold-=c; S.hpLv++;
   player.hp=Math.min(calcStats().hp,player.hp+(calcStats().hp-before));   // v2.17：买血加增量（层内不回血下避免"买了不加血"）
-  logEvent("upgrade",{kind:"hp",level:S.hpLv,cost:Math.round(c)}); renderPanels(); } };
+  logEvent("upgrade",{kind:"hp",level:S.hpLv,cost:Math.round(c)}); renderPanels();uiSfx.play("uiUpgrade",{gesture:true}); } };
 // v2.3：装备全自动（掉落/合成时更高品质直接换上），无手动换装按钮
 // v2.44：每十层通关提示可选重塑；保留行动受阻出口，无战斗中常驻重塑按钮
 $("btnCrate").onclick=openCrate;
@@ -2559,12 +3217,18 @@ document.addEventListener("visibilitychange",()=>{
 });
 
 function changeLanguage(code){
-  // Switching is available on the cover only: no active combat is restarted.
+  if(boot.phase==="playing"){
+    if(!gameSettingsOpen)return;
+    if(!save()){$("gameLanguageSelect").value=window.NeonI18n?.language||"en";return;}
+    saveLogs(true);
+    window.NeonI18n?.choose(code);return;
+  }
   if(boot.phase!=="cover"||hasGameModal())return;
   window.NeonI18n?.choose(code);
 }
 // ============ 启动 ============
 window.NeonI18n?.localize(document.body);
+document.body.classList.toggle("has-dev-tools",TEST_TOOLS_ENABLED);
 if(!TEST_TOOLS_ENABLED){
   for(const node of document.querySelectorAll('[data-dev-only]')){node.hidden=true;node.inert=true;}
   $("btnCrate").querySelector(".nh-button__detail").textContent=FREE_SUPPLIES_ENABLED?L("免费补给 · 每60秒可领取"):L("补给暂不可用");
@@ -2576,7 +3240,7 @@ spawnMob();
 renderPanels();
 // v2.6 封面 + v2.14 开局跑入：封面期间战斗暂停；点击开始 → 离线结算（如有）→ 双方跑入
 paused=true;
-$("covVer").textContent=VERSION+L(" · CrazyGames 版"); renderSfxRow();
+$("covVer").textContent=VERSION; renderSfxRow();
 $("topVer").textContent=VERSION.toUpperCase(); document.title=L("霓虹猎手 ")+VERSION; $("topVer").textContent+=" · "+MODE_NAMES[gameMode];   // v2.29：版本文字统一由 VERSION 生成
 renderModeCover();
 $("btnLoadRetry").onclick=()=>startCoverLoad(boot.resetRequested);
@@ -2585,7 +3249,8 @@ function askCoverReset(){
   if(boot.phase!=="cover") return;
   showModal(L("⚠️ 清除存档"),L`确定清空${MODE_NAMES[gameMode]}的全部进度吗？此操作不可恢复。另一模式进度和构筑解锁状态保留。`,
     L`<button class="nh-button nh-button--danger nh-button--compact" onclick="closeModal();startCoverLoad(true)">确认清除并开始新游戏</button>
-     <button onclick="closeModal()">取消</button>`);
+     <button onclick="cancelCoverReset()">取消</button>`);
+  uiSfx.play("uiPanel",{gesture:true});
 }
 // 禁止键盘穿透封面；设置里的日志和确认弹窗仍可正常操作。
 for(const id of ["topbar","arena","panels"]) if($(id)) $(id).inert=true;

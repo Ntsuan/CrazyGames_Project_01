@@ -23,7 +23,7 @@ if(command==='configure'){
  for(const name of fs.readdirSync(out))fs.rmSync(path.join(out,name),{recursive:true,force:true});
  fs.writeFileSync(path.join(out,'index.html'),html);
  const {make}=require('./neon-tests/harness.cjs'),g=make(29,new Map(),profile);
- const urls=new Set(g.json('[...BOOT_IMAGES,SFX_SRC,...Object.values(UPGRADE_PACKS).flatMap(p=>[p.script,...Object.values(p.desktop),...Object.values(p.mobile)])]'));
+ const urls=new Set(g.json('[...BOOT_IMAGES,...(typeof MOVEMENT_SFX!=="undefined"?Object.values(MOVEMENT_SFX):[SFX_SRC]),...(typeof COMBAT_SFX!=="undefined"?Object.values(COMBAT_SFX):[]),...(typeof UI_SFX!=="undefined"?Object.values(UI_SFX):[]),...(typeof MUSIC_SFX!=="undefined"?Object.values(MUSIC_SFX):[]),...Object.values(UPGRADE_PACKS).flatMap(p=>[p.script,...Object.values(p.desktop),...Object.values(p.mobile)])]'));
  for(const m of html.matchAll(/(?:src|href)="(assets\/[^"$]+)"/g))urls.add(m[1]);
  const files=new Set();
  function add(url,base=''){
